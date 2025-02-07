@@ -1,0 +1,311 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{import}
+
+% Корректность отображения всех шрифтов, кодировок и мат. символов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amssymb, amsmath, amsthm, amscd, amstext, mathtools}
+
+% Отображение содержания
+\usepackage{tocloft}
+
+% Вставка картинок
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{asymptote}
+
+
+\usepackage{wrapfig}        % Огибание картинок текстом
+\usepackage{cancel}         % Зачёркивания
+\usepackage{indentfirst}    % Отступ у первого абзаца
+\usepackage{xcolor}         % Цвета
+\setlength{\parskip}{.5ex}  % Отступы между абзацами
+\usepackage{enumitem}       % Работа со списками
+% \usepackage{minted}       % Вставка блоков кода
+
+\usepackage{hyperref}       % гиперссылки
+\definecolor{linkcolor}{HTML}{225ae2} % Цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % Цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true}
+\setlength{\arrayrulewidth}{0.5mm} %Толщина линейки в таблицах
+\setlength{\tabcolsep}{18pt} %Разделение между столбцами в таблице
+
+% Отступы на странице
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{cmap}            % Русский поиск в PDF документе
+\usepackage{etoolbox}
+\usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
+\usepackage{soulutf8}        % Поддержка UTF8 в soul
+
+\usepackage{titlesec}        % Форматирование заголовков
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newsavebox{\boxedalignbox}
+\newenvironment{boxedalign*}
+  {\begin{equation*}\begin{lrbox}{\boxedalignbox}$\begin{aligned}}
+  {\end{aligned}$\end{lrbox}\fbox{\usebox{\boxedalignbox}}\end{equation*}}
+
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Подписи для матриц
+\newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
+
+% Значек "пусть"
+\newlength{\tempheight}  
+\newcommand{\Let}[0]{  
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);
+}}}}
+
+
+% \newcounter{lemcount}
+% \newcounter{thcount}
+% \newcounter{offercount}
+% \newcounter{concount}
+% \newcounter{subthcount}
+% \newcounter{defcount}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+% \newtheorem{definitionnum}[defcount]{Определение}
+\newtheorem*{example}{Примеры}
+\newtheorem*{example1}{Пример}
+\newtheorem*{exercise}{Упражнение}
+
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Теорема}
+% \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{consequenses}{Следствия}
+% \newtheorem{consequensenum}[concount]{Следствие}
+\newtheorem*{lemma}{Лемма}
+% \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem*{subtheorem}{Утверждение}
+% \newtheorem{subtheoremnum}[subthcount]{Утверждение}
+\newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{properties}{Свойства}
+\newtheorem*{properties1}{Свойство}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{offer}{Предложение}
+% \newtheorem{offernum}[offercount]{Предложение}
+
+
+
+\begin{document}
+  \begin{titlepage}
+    \newpage
+    \begin{center}
+    \includegraphics[width=4cm]{image/image.png}
+    \end{center}
+    \vspace{4em}
+    
+    \begin{center}
+    \Large Механико-математический факультет  
+    \end{center}
+    \vspace{2em}
+    
+    \begin{center}
+    \large{\textsc{\textbf{Линейная алгебра и геометрия, 2 семестр, 2 поток}}}
+    \end{center}
+    \vspace{6em}
+    
+    \newbox{\lbox}
+    \savebox{\lbox}{\hbox{Молчанов Вячеслав Вадимович}}
+    \newlength{\maxl}
+    \setlength{\maxl}{\wd\lbox}
+    \hfill\parbox{11cm}
+    {
+    Преподаватель:\hfill\hbox to\maxl{Чубаров Игорь Андреевич\\}\vspace{0.5cm}
+    
+    Студент:\hfill\hbox to\maxl{Молчанов Вячеслав\\}\vspace{0.5cm}
+
+    Группа:\hfill\hbox to\maxl{108\\}\vspace{0.5cm}
+    
+    Контакт:\hfill\hbox to\maxl {\href{https://t.me/Slavikvaxye}{Мой телеграм для связи\\}}\vspace{0.5cm}
+    }
+
+    \vspace{\fill}
+    \begin{center}
+    Москва \\Последняя компиляция: \today
+    \end{center}
+    
+  \end{titlepage}
+  \tableofcontents
+  \fontsize{14pt}{20pt}\selectfont
+  \newpage
+  \fontsize{14pt}{20pt}\selectfont
+
+%   \import{Sections/}{section1.tex}
+  \section{Векторное пространство}
+  \begin{definition}
+    Множество $V$ называется \textit{векторным пространством} над полем $F$, если заданы операции $"+"$ и $"\cdot"$\ : \ $V\times V \to V$, $F \times V \to V$ и выполнены следующие аксиомы:
+    \begin{enumerate}
+        \item $\forall v_1, v_2, v_3\in V$ \ : \ $(v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)$
+        \item $\exists \ \vec 0 \in V:\ \forall v \in V$ \ : \ $v + \vec 0 = v$
+        \item $\forall v \in V \ \ \exists  -v  \in V$: $v + (-v) = \vec 0$
+        \item $\forall v_1, v_2 \in V$ \ : \ $v_1 + v_2 = v_2 + v_1$
+        \item $\forall \alpha, \beta \in F, v \in V$ \ : \ $(\alpha \beta)v = \alpha (\beta v)$
+        \item $\forall v \in V$ $\exists \ 1 \in F$ \ : \ $1 \cdot v = v$
+        \item $\forall \alpha, \beta \in F, v \in V$ \ : \ $(\alpha + \beta)v = \alpha v + \beta v$
+        \item $\forall \alpha \in F, v_1, v_2 \in V$ \ : \ $\alpha (v_1 + v_2) = \alpha v_1 + \alpha v_2$
+    \end{enumerate}
+    \textit{Загадка:} Одна из этих аксиом - следствие других. Какая?
+  \end{definition}
+  \begin{definition}
+    $U \in V$ - \textit{векторное подпространство} пространства $V$, если оно само является пространством относительно тех же операций в $V$. 
+  \end{definition}
+  \begin{subtheorem}
+    Определение 2 эквивалентно:
+    \begin{enumerate}
+      \item $\forall U\neq 0$
+      \item $\forall u_1, u_2 \in U$ \ : \  $u_1 + u_2 \in U$
+      \item $\forall u \in U, \ \lambda \in F$ \ : \ $\lambda u\in U$
+    \end{enumerate}
+  \end{subtheorem} 
+  \begin{definition}
+    Векторы $v_1,...,v_n \in V$ называются линойно независимыми, если $\exists \ \lambda_1,..., \lambda_n$ (не все равные 0) \ : \ $\lambda_1v_1+...+\lambda_nv_n = \vec 0$
+  \end{definition} 
+  \begin{subtheorem}
+    Определение 3 $\Longleftrightarrow $ ($m\geq 2$) хотя бы один вектор из векторов $v_i$ выражается как линейная комбинация остальных. 
+  \end{subtheorem}
+  \begin{definition}
+    \textit{Упорядоченный набор векторов} $e = (e_1,...,e_n), e_k \in V$, если это максимально ЛНЗ набор веторов $V$.  
+  \end{definition} 
+  \begin{subtheorem}
+    $e$ - базис в $V \Longleftrightarrow$
+    \begin{enumerate}
+      \item $e_1,...,e_n$ - ЛНЗ
+      \item $\forall x \in V \ \exists \ x_1,...,x_n \in F \ : \ x = x_1e_1+...+x_ne_n = \sum \limits_{i=1}^nx_ie_i $ 
+    \end{enumerate}
+  \end{subtheorem} 
+  \begin{consequense}
+    Разложение любого вектора в базисе единственно.
+  \end{consequense} 
+  \begin{proof}
+    Если $x = \sum \limits_{i=1}^nx_ie_i = \sum \limits_{i=1}^nx'_ie_i$, то $\vec 0 = x - x = \sum \limits_{i=1}^n(x'_i-x_i)e_i$\\
+    Из ЛНЗ все коэффициенты равны 
+  \end{proof} 
+  Обозначаем: $X_e = \begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_n
+  \end{pmatrix} \in F^n$, тогда $x = eX_e = e_1x_1+...+e_nx_n$  
+  \begin{equation}
+    \fbox{$x = eX_e$}
+  \end{equation}
+  \begin{theorem}
+    Если в $V \ \exists$ базис из $k$ векторов, то любой базис $V$ содержит $k$ векторов.    
+  \end{theorem}
+  \begin{proof} $\\$ 
+    Если $\exists$ базис $e'_1,...,e'_m \in V$, где $m>n$, то по ОЛЛЗ $e'_1,...,e'_m$ - ЛЗ, т.е. не базис.\\
+    Если же $m<n$, то по ОЛЛЗ (в другую сторону) $e_1,...,e_n$ - ЛЗ $\Longrightarrow$ не базис.       
+  \end{proof}
+  \begin{properties} матриц перехода
+    \begin{enumerate}
+      \item $\det C \neq 0$
+      \item $C_{e' \to e} = (C_{e \to e'})^{-1}$
+      \item $C_{e'' \to e} = C_{e \to e'} \cdot C_{e' \to e''}$
+    \end{enumerate}
+  \end{properties}
+  \begin{proof}\tab
+    \begin{itemize}
+      \item[$1)$] Столбцы - координаты ЛНЗ векторов $e'_1,...,e'_n \Longrightarrow rkC = n \Longrightarrow \det C \neq 0$
+      \item[$2)$] Перепишем определение матрицы перехода в матричный вид. \\
+      По определению: 
+      $$e'=(e'_1,...,e'_n) = (e_1,...,e_n)C_{e \to e'}, \text{ т.е. } e' = eC_{e \to e'}$$
+      \begin{equation}
+        \fbox{$e' = eC_{e \to e'}$}
+      \end{equation}
+      С другой стороны 
+      $$C = e'C_{e' \to e} = eC_{e \to e'}C_{e' \to e} \Longrightarrow C_{e \to e'}C_{e' \to e} = E$$ 
+      ввиду единственности разложения векторов по базису, т.е. 
+      $$C_{e \to e'} = (C_{e' \to e})^{-1}$$
+      \item[$3)$] $$e'' = e'C_{e' \to e''} = e(C_{e \to e'}C_{e' \to e''}) = eC_{e \to e''}$$
+      В силу единственности разложения $C_{e \to e''} = C_{e \to e'}C_{e' \to e''}$     
+    \end{itemize}
+  \end{proof} 
+  \begin{algorithm}
+    Как вичислить матрицу перехода, если известны координаты векторов $e_i$ и $e'_j$ в некотором универсальном?\\
+    $e' = eC_{e \to e'}$ можно рассмотреть как матричное уравнение:
+    $$(e_1^{\uparrow},...,e_n^{\uparrow})C = ({e_1'}^{\uparrow},...,{e_n'}^{\uparrow})$$
+    $$[e_1^{\uparrow},...,e_n^{\uparrow} \ | \ {e_1'}^{\uparrow},...,{e_n'}^{\uparrow}] \overset{\text{строк}}{\rightsquigarrow} [E \ | \ C_{e \to e'}]$$   
+  \end{algorithm}
+  \subsection{Изменение координат вектора при замене базиса}
+  \begin{theorem}
+    Формула изменение координат вектора при замене базиса:
+    \begin{equation}
+      \fbox{$X_e = C_{e \to e'}X_{e'}$} 
+    \end{equation}
+  \end{theorem} 
+  \begin{proof}
+    $$\forall x \in V \ : \ x = eX_e = e'X_{e'} = eC_{e \to e'}X_{e'}$$
+    $$\Longrightarrow  X_e = C_{e \to e'}X_{e'}$$ 
+  \end{proof}
+  \section{Векторные подпространства}
+  \begin{example} \tab
+    \begin{enumerate}
+      \item Геометрические вектроры
+      \item $F^n$ - пространство слобцов (строк) высоты (длины) $n$ с естественными оперицаями $(+, \cdot \lambda)$ \vspace{0.4cm}\\
+      Базис $\vartheta  = \Bigg\{ \begin{pmatrix}
+        1 \\ 0 \\ \vdots \\ 0
+      \end{pmatrix}, \begin{pmatrix}
+        0 \\ 1 \\ \vdots \\ 0
+      \end{pmatrix}, ... , \begin{pmatrix}
+        0 \\ 0 \\ \vdots \\ 1
+      \end{pmatrix} \Bigg\}$ (можно взять столбцы любой\vspace{0.3cm}\\ невырожденной матрицы порядка $n$)
+      \begin{remark}
+        Доказать, что если $e$ - базис, $C$ - невырожденная матрица,\\ то $eC$ - тоже базис (из \textbf{(2)})
+      \end{remark} 
+      \begin{exercise}
+        Пусть $|F| = q, \ \dim_F V = n \Longrightarrow |V| = q^n$\\
+        $\dim M_{m,n} = mn$, стандартный базис - $\{E_{ij}\}$, где $E_{ij}$ содержит 1 на $ij$-ой позиции и $0$ на остальных.  
+      \end{exercise}
+      \item[$3)$] $V = \{F:\underset{(X\subseteq \R)}{X} \to \R\}$ с оперициями сложения и $\lambda F$\\
+      Оно бесконечномерно, если $X$ бесконечно.\\
+      Если $\lambda_1, ...., \lambda_n$ - попарно различные числа, то $y_1 = e^{\lambda_1x},..., y_n = e^{\lambda_nx}$ ЛНЗ\\
+      Допустим, что:
+      $$\begin{cases}
+        C_1y_1 + ... + C_ny_n \equiv 0\\
+        C_1y'_1 + ... + C_ny'_n \equiv 0\\
+        \vdots\\
+        C_1y_1^{(n-1)} + ... + C_ny_n^{(n-1)} \equiv 0
+      \end{cases} \Longrightarrow \begin{cases}
+        C_1e^{\lambda_1x} + ... + C_ne^{\lambda_nx} \equiv 0\\
+        \lambda_1C_1y'_1 + ... + \lambda_nC_ny'_n \equiv 0\\
+        \vdots\\
+        \lambda^{n-1}C_1e^{\lambda_1x} + ... + \lambda^{n-1}C_ne^{\lambda_nx} \equiv 0
+      \end{cases}$$
+      
+    \end{enumerate}
+  \end{example}
+  
+\end{document}
