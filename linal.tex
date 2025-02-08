@@ -180,12 +180,12 @@
     \textit{Загадка:} Одна из этих аксиом - следствие других. Какая?
   \end{definition}
   \begin{definition}
-    $U \in V$ - \textit{векторное подпространство} пространства $V$, если оно само является пространством относительно тех же операций в $V$. 
+    $U \subset  V$ - \textit{векторное подпространство} пространства $V$, если оно само является пространством относительно тех же операций в $V$. 
   \end{definition}
   \begin{subtheorem}
     Определение 2 эквивалентно:
     \begin{enumerate}
-      \item $\forall U\neq 0$
+      \item $\forall U\neq \emptyset $
       \item $\forall u_1, u_2 \in U$ \ : \  $u_1 + u_2 \in U$
       \item $\forall u \in U, \ \lambda \in F$ \ : \ $\lambda u\in U$
     \end{enumerate}
@@ -197,7 +197,7 @@
     Определение 3 $\Longleftrightarrow $ ($m\geq 2$) хотя бы один вектор из векторов $v_i$ выражается как линейная комбинация остальных. 
   \end{subtheorem}
   \begin{definition}
-    \textit{Упорядоченный набор векторов} $e = (e_1,...,e_n), e_k \in V$, если это максимально ЛНЗ набор веторов $V$.  
+    \textit{Упорядоченный набор векторов} $e = (e_1,...,e_n), e_k \in V$, если это максимальный ЛНЗ набор веторов из $V$.  
   \end{definition} 
   \begin{subtheorem}
     $e$ - базис в $V \Longleftrightarrow$
@@ -251,14 +251,14 @@
     \end{itemize}
   \end{proof} 
   \begin{algorithm}
-    Как вичислить матрицу перехода, если известны координаты векторов $e_i$ и $e'_j$ в некотором универсальном?\\
+    Как вычислить матрицу перехода, если известны координаты векторов $e_i$ и $e'_j$ в некотором универсальном?\\
     $e' = eC_{e \to e'}$ можно рассмотреть как матричное уравнение:
     $$(e_1^{\uparrow},...,e_n^{\uparrow})C = ({e_1'}^{\uparrow},...,{e_n'}^{\uparrow})$$
     $$[e_1^{\uparrow},...,e_n^{\uparrow} \ | \ {e_1'}^{\uparrow},...,{e_n'}^{\uparrow}] \overset{\text{строк}}{\rightsquigarrow} [E \ | \ C_{e \to e'}]$$   
   \end{algorithm}
   \subsection{Изменение координат вектора при замене базиса}
   \begin{theorem}
-    Формула изменение координат вектора при замене базиса:
+    Формула изменения координат вектора при замене базиса:
     \begin{equation}
       \fbox{$X_e = C_{e \to e'}X_{e'}$} 
     \end{equation}
@@ -286,7 +286,7 @@
         Пусть $|F| = q, \ \dim_F V = n \Longrightarrow |V| = q^n$\\
         $\dim M_{m,n} = mn$, стандартный базис - $\{E_{ij}\}$, где $E_{ij}$ содержит 1 на $ij$-ой позиции и $0$ на остальных.  
       \end{exercise}
-      \item[$3)$] $V = \{F:\underset{(X\subseteq \R)}{X} \to \R\}$ с оперициями сложения и $\lambda F$\\
+      \item $V = \{F:\underset{(X\subseteq \R)}{X} \to \R\}$ с операциями сложения и $\lambda F$\\
       Оно бесконечномерно, если $X$ бесконечно.\\
       Если $\lambda_1, ...., \lambda_n$ - попарно различные числа, то $y_1 = e^{\lambda_1x},..., y_n = e^{\lambda_nx}$ ЛНЗ\\
       Допустим, что:
@@ -301,6 +301,7 @@
         \vdots\\
         \lambda^{n-1}C_1e^{\lambda_1x} + ... + \lambda^{n-1}C_ne^{\lambda_nx} \equiv 0
       \end{cases}$$
+      $$\Delta = V(\lambda_1,...,\lambda_n) \neq 0 \Longrightarrow C_1 = ... = C_n = 0$$ 
     \end{enumerate}
   \end{example}
   
