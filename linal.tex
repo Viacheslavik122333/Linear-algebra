@@ -288,7 +288,7 @@
       \end{exercise}
       \item $V = \{F:\underset{(X\subseteq \R)}{X} \to \R\}$ с операциями сложения и $\lambda F$\\
       Оно бесконечномерно, если $X$ бесконечно.\\
-      Если $\lambda_1, ...., \lambda_n$ - попарно различные числа, то $y_1 = e^{\lambda_1x},..., y_n = e^{\lambda_nx}$ ЛНЗ\\
+      Если $\lambda_1, ..., \lambda_n$ - попарно различные числа, то $y_1 = e^{\lambda_1x},..., y_n = e^{\lambda_nx}$ ЛНЗ\\
       Допустим, что:
       $$\begin{cases}
         C_1y_1 + ... + C_ny_n \equiv 0\\
@@ -301,11 +301,94 @@
         \vdots\\
         \lambda^{n-1}C_1e^{\lambda_1x} + ... + \lambda^{n-1}C_ne^{\lambda_nx} \equiv 0
       \end{cases}$$
-      $$\Delta = V(\lambda_1,...,\lambda_n) \neq 0 \Longrightarrow C_1 = ... = C_n = 0$$ 
+      $$\Delta = V(\lambda_1,...,\lambda_n) \neq 0 \Longrightarrow C_1 = ... = C_n = 0$$
+      \item $F[t]$ с естественными операциями сложением и умножением на скаляр - бесконечномерное пространство, т.к.: $\forall n \in N_0: \ 1, t, t^2,...$ линейно независимы.\\
+      $F[t]_n = \{a_0+a_1t+a_2t^2+...+a_nt^n \ | \ a_k\in F, \ k=0,...,n\} $ - подпространство, $n \in N_0, \ \dim U = n+1$, базис: $1,t,...,t^n$\\
+      Тейлоровский базис: $1, t-t_0,...,(t-t_0)^n$ \ $\sum \limits_{k=0}^n\frac{f^{(k)}(t_0)}{k!}(t-t_0)^k$ 
+      \item $\varOmega \neq 0$, \ $V = 2^\varOmega $ с операциями вместо сложения: \\
+      $A\vartriangle B = (A\cap \overline{B}) \cup (B\cap \overline{A}) \ \forall A,B \subseteq \varOmega$\\
+      $F = \Z_2,  \ 0\cdot A = \emptyset , \ 1 \cdot A = A$\\
+      Задача доказать $V$ - векторное пространство над $\Z_2$  
     \end{enumerate}
   \end{example}
-  
-
+  \subsection*{Два основных способа задания подпространства в $V$}
+  \begin{enumerate}
+    \item Линейная оболочна семейства векторов $S\subset V$:
+    $$\langle S \rangle = \{\sum \limits_{i\in I}\lambda_iS_i \text{ (канонические суммы)} \ | \ S_i \in S, \lambda_i\in F\}$$
+    Частный случай: 
+    $$\langle a_1,...,a_n \rangle = \{\sum \limits_{i=1}^n \lambda_i a_i \ | \ \lambda_i \in F\} = U$$
+    \begin{subtheorem} $\\$ 
+      $\langle a_1,...,a_n \rangle$ - подпространство в $V$, $\dim \langle a_1,...,a_n \rangle = rk \{a_1,...,a_n\}$
+    \end{subtheorem} 
+    \begin{proof}
+      $$\mu \sum \limits_{i=1}^n \lambda_i a_i = \sum \limits_{i=1}^n (\mu \lambda_i)a_i$$
+      $$\sum \limits_{i=1}^n \mu_i a_i + \sum \limits_{i=1}^n \lambda_ia_i = \sum \limits_{i=1}^n(\mu_i + \lambda_i)a_i \in U$$
+      Если $r = rk \langle a_1,...,a_n \rangle$, то $a_{i1},...,a_{ir}$ - базисные, то $\forall a_i$ через них тоже выражается 
+      $$  \forall \sum \limits_{i=1}^n \lambda_ia_i \Longrightarrow \{a_{i1},...,a_{ir}\} - \text{базис } U$$
+    \end{proof}
+    Алгоритм вычисления $\dim \langle a_{i1},...,a_{ir} \rangle$ и базиса, если известны координаты этих векторов: \\
+    Составить матрицу: $$(a_1^{\uparrow},...,a_n^{\uparrow}) \rightsquigarrow \begin{pmatrix}
+      1 & \cdots & 0 & \vline & \null \\
+      \vdots & \null & \vdots & \vline & 0 \\
+      0 & \cdots & 1 & \vline & \null \\ \hline
+      \null & 0 & \null & \vline & 0
+    \end{pmatrix}$$ 
+    Cтолбцы с номерами $\nu_1,...,\nu_r$ - базис в $U$, разложение оставшихся векторов можно сразу считать из преобразованной матрицы    
+    \item ($\dim V = n$, известны координаты в некотором базисе)
+    $$\forall \sum \limits_{i=1}^n X_ie_i = eX , \ X = \begin{pmatrix}
+    X_1 \\ \vdots \\ X_n
+    \end{pmatrix}$$
+    $$W = \{x = eX \ | \ AX = 0\} - \text{ задание с помощью ОСЛУ}$$   
+    \begin{subtheorem}
+      $W$ - подпространство в $V$,  \ $\dim W = n - rkA$, \ базис - любая ФСР. Это переход от 2. к 1. способу задания подпространства   
+    \end{subtheorem} 
+  \end{enumerate}
+  \begin{theorem}
+    Линейную оболочку конечного числа векторов в конечномерном векторном пространстве $V$ можно задать с помощью ОСЛУ. Два способа:
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item Вектор $x \ ($со столбцами координат $X = \begin{pmatrix}
+        X_1 \\ \vdots \\ X_n
+      \end{pmatrix})$: $x \in \langle a_1,...,a_m \rangle = U$ 
+      $$ \Longleftrightarrow \exists \ \alpha_1,...,\alpha_m \in F :  \sum \limits_{i=1}^m \alpha_i a_i = x,  \text{ или в координатах: } \sum \limits_{i=1}^m \alpha_1a_i^{\uparrow} = X$$
+      Т.е. СЛУ с $\widetilde{A} = (a_1^{\uparrow},...,a_m^{\uparrow} \ | \ \begin{pmatrix}
+        X_1 \\ \vdots \\ X_n \end{pmatrix})$ совместна $\Longleftrightarrow$ после алгоритма Гаусса $\widetilde{A} \longrightarrow \begin{pmatrix}
+          \text{тут матрица блять :)} \ \ <3
+        \end{pmatrix}$
+        \begin{subtheorem}
+          Доказать, что эти уравнения ЛНЗ.
+        \end{subtheorem}
+      \item Пусть дана ОСЛУ: \ $\underset{(r\times n)}{C} X = 0, \ rkC = r$
+      $$C \longrightarrow \begin{pmatrix}
+        E_r & \vline & D
+      \end{pmatrix} = C'$$
+      $$\begin{cases}
+        x_1  = -(d_{1,r+1}x_{1,r+1}+...+d_{1n}x_n) \\
+        \vdots \\
+        x_k  = -(d_{k,r+1}x_{k,r+1}+...+d_{kn}x_n) 
+      \end{cases} k = 1,...,r$$
+      Фундаментальная матрица: $\mathcal{F} = \begin{pmatrix}
+        -D \\ \hline E_{n-r}
+      \end{pmatrix}$
+      $$C' \cdot \mathcal{F} = E_r \cdot (-D) + D \cdot E_{n-r} = -D + D =0$$
+      Рассмотрим матрицу из строк координат векторов $a_1,...,a_r$: 
+      $$\begin{pmatrix}
+        a_1^{\uparrow} \\ \vdots \\ a_r^{\uparrow}
+      \end{pmatrix} \rightsquigarrow \begin{pmatrix}
+        M & \vline & E_r
+      \end{pmatrix} \longrightarrow \begin{pmatrix}
+        M^T \\ \hline E_r
+      \end{pmatrix} = \mathcal{F} - \begin{matrix}
+        \text{фундаментальная матрица} \\ \text{искомой системы}
+      \end{matrix}$$
+       Тогда искамая система будет иметь матрицу: \  $C = \begin{pmatrix}
+        E_{n-r} & \vline & -M^T
+       \end{pmatrix}$
+       Пространство $\{X \ | \ CX = 0\}$ имеет размерность $n - (n-r) = r$     
+    \end{enumerate}
+  \end{proof}
+ В процессе...
 
 
 \end{document}
