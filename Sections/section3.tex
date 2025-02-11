@@ -1,0 +1,29 @@
+\section{Пересечение и сумма подпространств}
+  \begin{subtheorem}\tab
+    \begin{enumerate}
+      \item Если $U_i \ (i\in I)$ - подпространство $V$, то $W = \underset{i\in I}{\cap}U_i$ - тоже подпространство в $V$
+      \item Объединение подпространств может НЕ быть подпространством даже для двух подространств.
+      (РИСУНОК)
+    \end{enumerate}
+  \end{subtheorem} 
+  \begin{proof}
+    1. $\overline{Q} \in W$, т.к. $\overline{Q} \in U_i, \ \forall i\in I$. \vspace{0.2cm}\\
+    Если $x,y \in U_i, \ \forall i\in I \Longrightarrow x+y \in U_i, \ \forall i\in I \Longrightarrow x+y \in \underset{i\in I}{\cap}U_i$ \vspace{0.15cm}\\
+    Если $x \in U_i, \ \forall i\in I, \ \forall \lambda \in F \Longrightarrow \lambda x \in U_i, \ \forall i\in I \Longrightarrow x \in \underset{i\in I}{\cap}U_i$  
+  \end{proof}
+  \begin{remark}
+    Если $U_1, U_2$ - подпространства в $V$ и $Q$ - любое подпространство, которое содержит $U_1$ и $U_2$, то оно содержит и сумму $u_1+u_2$, если $u_i \in U_i, \ i =1,2$       
+  \end{remark}
+  \begin{remark}
+    Суммой подпространств $U_1,...,U_m \subseteq V$ назовем: $$U_1 + ... + U_m = \{x_1+...+x_m \ | \ x_i \in U_i\}$$   
+  \end{remark}
+  \begin{subtheorem}
+    $U_1 + ... + U_m$ - подпространство в $V$  
+  \end{subtheorem}
+  \begin{theorem} (Формула Гриссмана)\\
+    Если $U_1,U_2$ - подпространства в $V, \ \dim U_1 < \infty, \ \dim U_2 < \infty$, то 
+    $$\dim (U_1+U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)$$   
+  \end{theorem}
+  \begin{exercise}
+    Верна ли аналогичная формула для трех подпространств? 
+  \end{exercise}

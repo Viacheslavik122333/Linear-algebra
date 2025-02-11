@@ -6,7 +6,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english, russian]{babel}
-\usepackage{amssymb, amsmath, amsthm, amscd, amstext, mathtools}
+\usepackage{amssymb, amsmath, amsthm, amscd, mathtools}
 
 % Отображение содержания
 \usepackage{tocloft}
@@ -120,275 +120,21 @@
 
 
 \begin{document}
-  \begin{titlepage}
-    \newpage
-    \begin{center}
-    \includegraphics[width=4cm]{image/image.png}
-    \end{center}
-    \vspace{4em}
-    
-    \begin{center}
-    \Large Механико-математический факультет  
-    \end{center}
-    \vspace{2em}
-    
-    \begin{center}
-    \large{\textsc{\textbf{Линейная алгебра и геометрия, 2 семестр, 2 поток}}}
-    \end{center}
-    \vspace{6em}
-    
-    \newbox{\lbox}
-    \savebox{\lbox}{\hbox{Молчанов Вячеслав Вадимович}}
-    \newlength{\maxl}
-    \setlength{\maxl}{\wd\lbox}
-    \hfill\parbox{11cm}
-    {
-    Преподаватель:\hfill\hbox to\maxl{Чубаров Игорь Андреевич\\}\vspace{0.5cm}
-    
-    Студент:\hfill\hbox to\maxl{Молчанов Вячеслав\\}\vspace{0.5cm}
+  \import{Sections/}{titlepage.tex}
 
-    Группа:\hfill\hbox to\maxl{108\\}\vspace{0.5cm}
-    
-    Контакт:\hfill\hbox to\maxl {\href{https://t.me/Slavikvaxye}{Мой телеграм для связи\\}}\vspace{0.5cm}
-    }
-
-    \vspace{\fill}
-    \begin{center}
-    Москва \\Последняя компиляция: \today
-    \end{center}
-    
-  \end{titlepage}
   \tableofcontents
   \fontsize{14pt}{20pt}\selectfont
   \newpage
   \fontsize{14pt}{20pt}\selectfont
 
-%   \import{Sections/}{section1.tex}
-  \section{Векторное пространство}
-  \begin{definition}
-    Множество $V$ называется \textit{векторным пространством} над полем $F$, если заданы операции $"+"$ и $"\cdot"$\ : \ $V\times V \to V$, $F \times V \to V$ и выполнены следующие аксиомы:
-    \begin{enumerate}
-        \item $\forall v_1, v_2, v_3\in V$ \ : \ $(v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)$
-        \item $\exists \ \vec 0 \in V:\ \forall v \in V$ \ : \ $v + \vec 0 = v$
-        \item $\forall v \in V \ \ \exists  -v  \in V$: $v + (-v) = \vec 0$
-        \item $\forall v_1, v_2 \in V$ \ : \ $v_1 + v_2 = v_2 + v_1$
-        \item $\forall \alpha, \beta \in F, v \in V$ \ : \ $(\alpha \beta)v = \alpha (\beta v)$
-        \item $\forall v \in V$ $\exists \ 1 \in F$ \ : \ $1 \cdot v = v$
-        \item $\forall \alpha, \beta \in F, v \in V$ \ : \ $(\alpha + \beta)v = \alpha v + \beta v$
-        \item $\forall \alpha \in F, v_1, v_2 \in V$ \ : \ $\alpha (v_1 + v_2) = \alpha v_1 + \alpha v_2$
-    \end{enumerate}
-    \textit{Загадка:} Одна из этих аксиом - следствие других. Какая?
-  \end{definition}
-  \begin{definition}
-    $U \subset  V$ - \textit{векторное подпространство} пространства $V$, если оно само является пространством относительно тех же операций в $V$. 
-  \end{definition}
-  \begin{subtheorem}
-    Определение 2 эквивалентно:
-    \begin{enumerate}
-      \item $\forall U\neq \emptyset $
-      \item $\forall u_1, u_2 \in U$ \ : \  $u_1 + u_2 \in U$
-      \item $\forall u \in U, \ \lambda \in F$ \ : \ $\lambda u\in U$
-    \end{enumerate}
-  \end{subtheorem} 
-  \begin{definition}
-    Векторы $v_1,...,v_n \in V$ называются линойно независимыми, если $\exists \ \lambda_1,..., \lambda_n$ (не все равные 0) \ : \ $\lambda_1v_1+...+\lambda_nv_n = \vec 0$
-  \end{definition} 
-  \begin{subtheorem}
-    Определение 3 $\Longleftrightarrow $ ($m\geq 2$) хотя бы один вектор из векторов $v_i$ выражается как линейная комбинация остальных. 
-  \end{subtheorem}
-  \begin{definition}
-    \textit{Упорядоченный набор векторов} $e = (e_1,...,e_n), e_k \in V$, если это максимальный ЛНЗ набор веторов из $V$.  
-  \end{definition} 
-  \begin{subtheorem}
-    $e$ - базис в $V \Longleftrightarrow$
-    \begin{enumerate}
-      \item $e_1,...,e_n$ - ЛНЗ
-      \item $\forall x \in V \ \exists \ x_1,...,x_n \in F \ : \ x = x_1e_1+...+x_ne_n = \sum \limits_{i=1}^nx_ie_i $ 
-    \end{enumerate}
-  \end{subtheorem} 
-  \begin{consequense}
-    Разложение любого вектора в базисе единственно.
-  \end{consequense} 
-  \begin{proof}
-    Если $x = \sum \limits_{i=1}^nx_ie_i = \sum \limits_{i=1}^nx'_ie_i$, то $\vec 0 = x - x = \sum \limits_{i=1}^n(x'_i-x_i)e_i$\\
-    Из ЛНЗ все коэффициенты равны 
-  \end{proof} 
-  Обозначаем: $X_e = \begin{pmatrix}
-    x_1\\ \vdots\\ x_n
-  \end{pmatrix} \in F^n$, тогда $x = eX_e = e_1x_1+...+e_nx_n$  
-  \begin{equation}
-    \fbox{$x = eX_e$}
-  \end{equation}
-  \begin{theorem}
-    Если в $V \ \exists$ базис из $k$ векторов, то любой базис $V$ содержит $k$ векторов.    
-  \end{theorem}
-  \begin{proof} $\\$ 
-    Если $\exists$ базис $e'_1,...,e'_m \in V$, где $m>n$, то по ОЛЛЗ $e'_1,...,e'_m$ - ЛЗ, т.е. не базис.\\
-    Если же $m<n$, то по ОЛЛЗ (в другую сторону) $e_1,...,e_n$ - ЛЗ $\Longrightarrow$ не базис.       
-  \end{proof}
-  \begin{properties} матриц перехода
-    \begin{enumerate}
-      \item $\det C \neq 0$
-      \item $C_{e' \to e} = (C_{e \to e'})^{-1}$
-      \item $C_{e'' \to e} = C_{e \to e'} \cdot C_{e' \to e''}$
-    \end{enumerate}
-  \end{properties}
-  \begin{proof}\tab
-    \begin{itemize}
-      \item[$1)$] Столбцы - координаты ЛНЗ векторов $e'_1,...,e'_n \Longrightarrow rkC = n \Longrightarrow \det C \neq 0$
-      \item[$2)$] Перепишем определение матрицы перехода в матричный вид. \\
-      По определению: 
-      $$e'=(e'_1,...,e'_n) = (e_1,...,e_n)C_{e \to e'}, \text{ т.е. } e' = eC_{e \to e'}$$
-      \begin{equation}
-        \fbox{$e' = eC_{e \to e'}$}
-      \end{equation}
-      С другой стороны 
-      $$C = e'C_{e' \to e} = eC_{e \to e'}C_{e' \to e} \Longrightarrow C_{e \to e'}C_{e' \to e} = E$$ 
-      ввиду единственности разложения векторов по базису, т.е. 
-      $$C_{e \to e'} = (C_{e' \to e})^{-1}$$
-      \item[$3)$] $$e'' = e'C_{e' \to e''} = e(C_{e \to e'}C_{e' \to e''}) = eC_{e \to e''}$$
-      В силу единственности разложения $C_{e \to e''} = C_{e \to e'}C_{e' \to e''}$     
-    \end{itemize}
-  \end{proof} 
-  \begin{algorithm}
-    Как вычислить матрицу перехода, если известны координаты векторов $e_i$ и $e'_j$ в некотором универсальном?\\
-    $e' = eC_{e \to e'}$ можно рассмотреть как матричное уравнение:
-    $$(e_1^{\uparrow},...,e_n^{\uparrow})C = ({e_1'}^{\uparrow},...,{e_n'}^{\uparrow})$$
-    $$[e_1^{\uparrow},...,e_n^{\uparrow} \ | \ {e_1'}^{\uparrow},...,{e_n'}^{\uparrow}] \overset{\text{строк}}{\rightsquigarrow} [E \ | \ C_{e \to e'}]$$   
-  \end{algorithm}
-  \subsection{Изменение координат вектора при замене базиса}
-  \begin{theorem}
-    Формула изменения координат вектора при замене базиса:
-    \begin{equation}
-      \fbox{$X_e = C_{e \to e'}X_{e'}$} 
-    \end{equation}
-  \end{theorem} 
-  \begin{proof}
-    $$\forall x \in V \ : \ x = eX_e = e'X_{e'} = eC_{e \to e'}X_{e'}$$
-    $$\Longrightarrow  X_e = C_{e \to e'}X_{e'}$$ 
-  \end{proof}
-  \section{Векторные подпространства}
-  \begin{example} \tab
-    \begin{enumerate}
-      \item Геометрические вектроры
-      \item $F^n$ - пространство слобцов (строк) высоты (длины) $n$ с естественными оперицаями $(+, \cdot \lambda)$ \vspace{0.4cm}\\
-      Базис $\vartheta  = \Bigg\{ \begin{pmatrix}
-        1 \\ 0 \\ \vdots \\ 0
-      \end{pmatrix}, \begin{pmatrix}
-        0 \\ 1 \\ \vdots \\ 0
-      \end{pmatrix}, ... , \begin{pmatrix}
-        0 \\ 0 \\ \vdots \\ 1
-      \end{pmatrix} \Bigg\}$ (можно взять столбцы любой\vspace{0.3cm}\\ невырожденной матрицы порядка $n$)
-      \begin{remark}
-        Доказать, что если $e$ - базис, $C$ - невырожденная матрица,\\ то $eC$ - тоже базис (из \textbf{(2)})
-      \end{remark} 
-      \begin{exercise}
-        Пусть $|F| = q, \ \dim_F V = n \Longrightarrow |V| = q^n$\\
-        $\dim M_{m,n} = mn$, стандартный базис - $\{E_{ij}\}$, где $E_{ij}$ содержит 1 на $ij$-ой позиции и $0$ на остальных.  
-      \end{exercise}
-      \item $V = \{F:\underset{(X\subseteq \R)}{X} \to \R\}$ с операциями сложения и $\lambda F$\\
-      Оно бесконечномерно, если $X$ бесконечно.\\
-      Если $\lambda_1, ..., \lambda_n$ - попарно различные числа, то $y_1 = e^{\lambda_1x},..., y_n = e^{\lambda_nx}$ ЛНЗ\\
-      Допустим, что:
-      $$\begin{cases}
-        C_1y_1 + ... + C_ny_n \equiv 0\\
-        C_1y'_1 + ... + C_ny'_n \equiv 0\\
-        \vdots\\
-        C_1y_1^{(n-1)} + ... + C_ny_n^{(n-1)} \equiv 0
-      \end{cases} \Longrightarrow \begin{cases}
-        C_1e^{\lambda_1x} + ... + C_ne^{\lambda_nx} \equiv 0\\
-        \lambda_1C_1y'_1 + ... + \lambda_nC_ny'_n \equiv 0\\
-        \vdots\\
-        \lambda^{n-1}C_1e^{\lambda_1x} + ... + \lambda^{n-1}C_ne^{\lambda_nx} \equiv 0
-      \end{cases}$$
-      $$\Delta = V(\lambda_1,...,\lambda_n) \neq 0 \Longrightarrow C_1 = ... = C_n = 0$$
-      \item $F[t]$ с естественными операциями сложением и умножением на скаляр - бесконечномерное пространство, т.к.: $\forall n \in N_0: \ 1, t, t^2,...$ линейно независимы.\\
-      $F[t]_n = \{a_0+a_1t+a_2t^2+...+a_nt^n \ | \ a_k\in F, \ k=0,...,n\} $ - подпространство, $n \in N_0, \ \dim U = n+1$, базис: $1,t,...,t^n$\\
-      Тейлоровский базис: $1, t-t_0,...,(t-t_0)^n$ \ $\sum \limits_{k=0}^n\frac{f^{(k)}(t_0)}{k!}(t-t_0)^k$ 
-      \item $\varOmega \neq 0$, \ $V = 2^\varOmega $ с операциями вместо сложения: \\
-      $A\vartriangle B = (A\cap \overline{B}) \cup (B\cap \overline{A}) \ \forall A,B \subseteq \varOmega$\\
-      $F = \Z_2,  \ 0\cdot A = \emptyset , \ 1 \cdot A = A$\\
-      Задача доказать $V$ - векторное пространство над $\Z_2$  
-    \end{enumerate}
-  \end{example}
-  \subsection*{Два основных способа задания подпространства в $V$}
-  \begin{enumerate}
-    \item Линейная оболочна семейства векторов $S\subset V$:
-    $$\langle S \rangle = \{\sum \limits_{i\in I}\lambda_iS_i \text{ (канонические суммы)} \ | \ S_i \in S, \lambda_i\in F\}$$
-    Частный случай: 
-    $$\langle a_1,...,a_n \rangle = \{\sum \limits_{i=1}^n \lambda_i a_i \ | \ \lambda_i \in F\} = U$$
-    \begin{subtheorem} $\\$ 
-      $\langle a_1,...,a_n \rangle$ - подпространство в $V$, $\dim \langle a_1,...,a_n \rangle = rk \{a_1,...,a_n\}$
-    \end{subtheorem} 
-    \begin{proof}
-      $$\mu \sum \limits_{i=1}^n \lambda_i a_i = \sum \limits_{i=1}^n (\mu \lambda_i)a_i$$
-      $$\sum \limits_{i=1}^n \mu_i a_i + \sum \limits_{i=1}^n \lambda_ia_i = \sum \limits_{i=1}^n(\mu_i + \lambda_i)a_i \in U$$
-      Если $r = rk \langle a_1,...,a_n \rangle$, то $a_{i1},...,a_{ir}$ - базисные, то $\forall a_i$ через них тоже выражается 
-      $$  \forall \sum \limits_{i=1}^n \lambda_ia_i \Longrightarrow \{a_{i1},...,a_{ir}\} - \text{базис } U$$
-    \end{proof}
-    Алгоритм вычисления $\dim \langle a_{i1},...,a_{ir} \rangle$ и базиса, если известны координаты этих векторов: \\
-    Составить матрицу: $$(a_1^{\uparrow},...,a_n^{\uparrow}) \rightsquigarrow \begin{pmatrix}
-      1 & \cdots & 0 & \vline & \null \\
-      \vdots & \null & \vdots & \vline & 0 \\
-      0 & \cdots & 1 & \vline & \null \\ \hline
-      \null & 0 & \null & \vline & 0
-    \end{pmatrix}$$ 
-    Cтолбцы с номерами $\nu_1,...,\nu_r$ - базис в $U$, разложение оставшихся векторов можно сразу считать из преобразованной матрицы    
-    \item ($\dim V = n$, известны координаты в некотором базисе)
-    $$\forall \sum \limits_{i=1}^n X_ie_i = eX , \ X = \begin{pmatrix}
-    X_1 \\ \vdots \\ X_n
-    \end{pmatrix}$$
-    $$W = \{x = eX \ | \ AX = 0\} - \text{ задание с помощью ОСЛУ}$$   
-    \begin{subtheorem}
-      $W$ - подпространство в $V$,  \ $\dim W = n - rkA$, \ базис - любая ФСР. Это переход от 2. к 1. способу задания подпространства   
-    \end{subtheorem} 
-  \end{enumerate}
-  \begin{theorem}
-    Линейную оболочку конечного числа векторов в конечномерном векторном пространстве $V$ можно задать с помощью ОСЛУ. Два способа:
-  \end{theorem}
-  \begin{proof}
-    \begin{enumerate}
-      \item Вектор $x \ ($со столбцами координат $X = \begin{pmatrix}
-        X_1 \\ \vdots \\ X_n
-      \end{pmatrix})$: $x \in \langle a_1,...,a_m \rangle = U$ 
-      $$ \Longleftrightarrow \exists \ \alpha_1,...,\alpha_m \in F :  \sum \limits_{i=1}^m \alpha_i a_i = x,  \text{ или в координатах: } \sum \limits_{i=1}^m \alpha_1a_i^{\uparrow} = X$$
-      Т.е. СЛУ с $\widetilde{A} = (a_1^{\uparrow},...,a_m^{\uparrow} \ | \ \begin{pmatrix}
-        X_1 \\ \vdots \\ X_n \end{pmatrix})$ совместна $\Longleftrightarrow$ после алгоритма Гаусса $\widetilde{A} \longrightarrow \begin{pmatrix}
-          \text{тут матрица блять :)} \ \ <3
-        \end{pmatrix}$
-        \begin{subtheorem}
-          Доказать, что эти уравнения ЛНЗ.
-        \end{subtheorem}
-      \item Пусть дана ОСЛУ: \ $\underset{(r\times n)}{C} X = 0, \ rkC = r$
-      $$C \longrightarrow \begin{pmatrix}
-        E_r & \vline & D
-      \end{pmatrix} = C'$$
-      $$\begin{cases}
-        x_1  = -(d_{1,r+1}x_{1,r+1}+...+d_{1n}x_n) \\
-        \vdots \\
-        x_k  = -(d_{k,r+1}x_{k,r+1}+...+d_{kn}x_n) 
-      \end{cases} k = 1,...,r$$
-      Фундаментальная матрица: $\mathcal{F} = \begin{pmatrix}
-        -D \\ \hline E_{n-r}
-      \end{pmatrix}$
-      $$C' \cdot \mathcal{F} = E_r \cdot (-D) + D \cdot E_{n-r} = -D + D =0$$
-      Рассмотрим матрицу из строк координат векторов $a_1,...,a_r$: 
-      $$\begin{pmatrix}
-        a_1^{\uparrow} \\ \vdots \\ a_r^{\uparrow}
-      \end{pmatrix} \rightsquigarrow \begin{pmatrix}
-        M & \vline & E_r
-      \end{pmatrix} \longrightarrow \begin{pmatrix}
-        M^T \\ \hline E_r
-      \end{pmatrix} = \mathcal{F} - \begin{matrix}
-        \text{фундаментальная матрица} \\ \text{искомой системы}
-      \end{matrix}$$
-       Тогда искамая система будет иметь матрицу: \  $C = \begin{pmatrix}
-        E_{n-r} & \vline & -M^T
-       \end{pmatrix}$
-       Пространство $\{X \ | \ CX = 0\}$ имеет размерность $n - (n-r) = r$     
-    \end{enumerate}
-  \end{proof}
- В процессе...
-	123
+
+  \import{Sections/}{section1.tex}
+  \import{Sections/}{section2.tex}
+  \import{Sections/}{section3.tex}
+  % \import{Sections/}{section4.tex}
+  % \import{Sections/}{section5.tex}
+  % \import{Sections/}{section6.tex}
+  % \import{Sections/}{section7.tex}
+
 
 \end{document}

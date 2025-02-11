@@ -1,0 +1,136 @@
+\section{Векторные подпространства}
+  \subsection{Примеры}
+  \begin{enumerate}
+    \item Геометрические вектроры
+    \item $F^n$ - пространство слобцов (строк) высоты (длины) $n$ с естественными оперицаями $(+, \cdot \lambda)$ \vspace{0.4cm}\\
+    Базис $\vartheta  = \bigg\{ \Biggl( \begin{smallmatrix}
+      1 \\ 0 \\ \vdots \\ 0
+    \end{smallmatrix}\Biggr), \Biggl(\begin{smallmatrix}
+      0 \\ 1 \\ \vdots \\ 0
+    \end{smallmatrix}\Biggr), ... , \Biggl(\begin{smallmatrix}
+      0 \\ 0 \\ \vdots \\ 1
+    \end{smallmatrix}\Biggr) \bigg\}$ (можно взять столбцы любой\vspace{0.3cm}\\ невырожденной матрицы порядка $n$)
+    \begin{remark}
+      Доказать, что если $e$ - базис, $C$ - невырожденная матрица,\\ то $eC$ - тоже базис (из \textbf{(2)})
+    \end{remark} 
+    \begin{exercise}
+      Пусть $|F| = q, \ \dim_F V = n \Longrightarrow |V| = q^n$\\
+      $\dim M_{m,n} = mn$, стандартный базис - $\{E_{ij}\}$, где $E_{ij}$ содержит 1 на $ij$-ой позиции и $0$ на остальных.  
+    \end{exercise}
+    \item $V = \{F:\underset{(X\subseteq \R)}{X} \to \R\}$ с операциями сложения и $\lambda F$\\
+    Оно бесконечномерно, если $X$ бесконечно.\\
+    Если $\lambda_1, ..., \lambda_n$ - попарно различные числа, то $y_1 = e^{\lambda_1x},..., y_n = e^{\lambda_nx}$ ЛНЗ\\
+    Допустим, что:
+    $$\begin{cases}
+      C_1y_1 + ... + C_ny_n \equiv 0\\
+      C_1y'_1 + ... + C_ny'_n \equiv 0\\
+      \vdots\\
+      C_1y_1^{(n-1)} + ... + C_ny_n^{(n-1)} \equiv 0
+    \end{cases} \Longrightarrow \begin{cases}
+      C_1e^{\lambda_1x} + ... + C_ne^{\lambda_nx} \equiv 0\\
+      \lambda_1C_1y'_1 + ... + \lambda_nC_ny'_n \equiv 0\\
+      \vdots\\
+      \lambda^{n-1}C_1e^{\lambda_1x} + ... + \lambda^{n-1}C_ne^{\lambda_nx} \equiv 0
+    \end{cases}$$
+    $$\Delta = V(\lambda_1,...,\lambda_n) \neq 0 \Longrightarrow C_1 = ... = C_n = 0$$
+    \item $F[t]$ с естественными операциями сложением и умножением на скаляр - бесконечномерное пространство, т.к.: $\forall n \in N_0: \ 1, t, t^2,...$ - линейно независимы.\\
+    $F[t]_n = \{a_0+a_1t+a_2t^2+...+a_nt^n \ | \ a_k\in F, \ k=0,...,n; \ n \in N_0\} $ - подпространство, $\dim U = n+1$, базис: $1,t,...,t^n$\\
+    Тейлоровский базис: $1, t-t_0,...,(t-t_0)^n$; \ $\sum \limits_{k=0}^n\frac{f^{(k)}(t_0)}{k!}(t-t_0)^k$ 
+    \item $\varOmega \neq 0$, \ $V = 2^\varOmega $ с операциями вместо сложения:
+    $$A\vartriangle B = (A\cap \overline{B}) \cup (B\cap \overline{A}) \ \forall A,B \subseteq \varOmega$$
+    $$F = \Z_2,  \ 0\cdot A = \emptyset , \ 1 \cdot A = A$$
+    \begin{exercise}
+      Доказать, что $V$ - векторное пространство над $\Z_2$
+    \end{exercise}   
+  \end{enumerate}
+  
+  \subsection{Два основных способа задания подпространства в V}
+  \begin{enumerate}
+    \item[\textbf{1.}] Линейная оболочна семейства векторов $S\subset V$:
+    $$\langle S \rangle = \{\sum \limits_{i\in I}\lambda_is_i \text{ (канонические суммы)} \ | \ s_i \in S, \lambda_i\in F\}$$
+    Частный случай: 
+    $$\langle a_1,...,a_m \rangle = \{\sum \limits_{i=1}^m \lambda_i a_i \ | \ \lambda_i \in F\} = U$$
+    \begin{subtheorem}
+      $\langle a_1,...,a_m \rangle \subseteq V \Longrightarrow \dim \langle a_1,...,a_m \rangle = rk \{a_1,...,a_m\}$
+    \end{subtheorem} 
+    \begin{proof}
+      $$\mu \sum \limits_{i=1}^m \lambda_i a_i = \sum \limits_{i=1}^m (\mu \lambda_i)a_i$$
+      $$\sum \limits_{i=1}^m \mu_i a_i + \sum \limits_{i=1}^m \lambda_ia_i = \sum \limits_{i=1}^m(\mu_i + \lambda_i)a_i \in U$$
+      Если $r = rk \langle a_1,...,a_m \rangle$, то $a_{j1},...,a_{jr}$ - базисные, то $\forall a_i$ через них тоже выражается 
+      $$  \forall \sum \limits_{i=1}^m \lambda_ia_i \Longrightarrow \{a_{j1},...,a_{jr}\} - \text{базис } U$$
+    \end{proof}
+    \begin{algorithm}
+      Алгоритм вычисления $\dim \langle a_{1},...,a_{m} \rangle$ и базиса, если известны координаты этих векторов:
+      \begin{itemize}
+        \item[1)] Составить матрицу: $$(a_1^{\uparrow},...,a_m^      {\uparrow}) \xrightarrow[\text{строк}]{\text{ЭП}}
+        \begin{pmatrix} 
+          \overmat{j_1 \ \cdots \ j_r}{1 & \null  & 0 & \vline & \null }\\
+          \null & \ddots & \null & \vline & 0 \\
+          0 & \null & 1 & \vline & \null \\ \hline 
+          \null & 0  & \null & \vline & 0
+          \end{pmatrix}$$
+        \item[2)] Cтолбцы с номерами $j_1,...,j_r$ - базис в $U$, разложение оставшихся векторов можно сразу считать из преобразованной матрицы
+      \end{itemize}
+    \end{algorithm}
+    \item[\textbf{2.}] ($\dim V = n$, известны координаты в некотором базисе)
+    $$\forall \sum \limits_{i=1}^n X_ie_i = eX , \ X = \begin{pmatrix}
+    X_1 \\ \vdots \\ X_n
+    \end{pmatrix}$$
+    $$W = \{x = eX \ | \ AX = 0\} - \text{ задание с помощью ОСЛУ}$$   
+    \begin{subtheorem}
+      $W$ - подпространство в $V$,  \ $\dim W = n - rkA$, \ базис - любая ФСР (это переход от \textbf{2.} к \textbf{1.} способу задания подпространства).
+    \end{subtheorem} 
+  \end{enumerate}
+  \begin{theorem}
+    Линейную оболочку конечного числа векторов в конечномерном векторном пространстве $V$ можно задать с помощью ОСЛУ.
+  \end{theorem}
+  \begin{proof} Два способа:
+    \begin{enumerate}
+      \item[1)] Вектор $x \ ($со столбцами координат $X = \begin{pmatrix}
+        X_1 \\ \vdots \\ X_n
+      \end{pmatrix})$: 
+      $$x \in \langle a_1,...,a_m \rangle = U$$ 
+      $$ \Longleftrightarrow \exists \ \alpha_1,...,\alpha_m \in F :  \sum \limits_{i=1}^m \alpha_i a_i = x,  \text{ или в координатах: } \sum \limits_{i=1}^m \alpha_1a_i^{\uparrow} = X$$
+      т.е. СЛУ с $\widetilde{A} = (a_1^{\uparrow},...,a_m^{\uparrow} \ | \ \begin{pmatrix}
+        X_1 \\ \vdots \\ X_n \end{pmatrix})$ совместна $\Longleftrightarrow$ после алгоритма Гаусса: 
+        $$\widetilde{A} \longrightarrow \begin{pmatrix}
+          K & \vline &  \sum \limits_jC_{kj}X_j \\ \hline
+          0 & \vline &  \sum \limits C_{r+1}X_j = 0 \\
+          \null & \vline & \sum \limits C_{nj}X_j = 0
+        \end{pmatrix}$$
+        $\begin{pmatrix}
+          K
+        \end{pmatrix}$ имеет ступенчатый вид, а $\begin{pmatrix}
+        \sum \limits C_{r+1}X_j = 0 \\
+        \sum \limits C_{nj}X_j = 0
+        \end{pmatrix}$ - нужная нам система. 
+        \begin{exercise}
+          Доказать, что эти уравнения ЛНЗ.
+        \end{exercise}
+      \item[2)] Пусть дана ОСЛУ: \ $\underset{(r\times n)}{C} X = 0, \ rkC = r$
+      $$C \xrightarrow[\text{строк}]{\text{ЭП}} \begin{pmatrix}
+        E_r & \vline & D
+      \end{pmatrix} = C'$$
+      $$\begin{cases}
+        x_1  = -(d_{1,r+1}x_{1,r+1}+...+d_{1n}x_n) \\
+        \vdots \\
+        x_k  = -(d_{k,r+1}x_{k,r+1}+...+d_{kn}x_n) 
+      \end{cases} k = 1,...,r$$
+      Фундаментальная матрица: \ $\mathcal{F} = \begin{pmatrix}
+        -D \\ \hline E_{n-r}
+      \end{pmatrix}$
+      $$C' \cdot \mathcal{F} = E_r \cdot (-D) + D \cdot E_{n-r} = -D + D =0$$
+      Рассмотрим матрицу из строк координат векторов $a_1,...,a_r$: 
+      $$\begin{pmatrix}
+        a_1^{\to} \\ \vdots \\ a_r^{\to}
+      \end{pmatrix} \xrightarrow[\text{ступенчатый вид}]{\text{улучшенный}} \begin{pmatrix}
+        M & \vline & E_r
+      \end{pmatrix} \xrightarrow{\text{Транспонируем}} \begin{pmatrix}
+        M^T \\ \hline E_r
+      \end{pmatrix} = \mathcal{F}$$
+       Тогда искамая система будет иметь матрицу: \  $C = \begin{pmatrix}
+        E_{n-r} & \vline & -M^T
+       \end{pmatrix}$\\
+       Пространство $\{X \ | \ CX = 0\}$ имеет размерность $n - (n-r) = r$     
+    \end{enumerate}
+  \end{proof}
