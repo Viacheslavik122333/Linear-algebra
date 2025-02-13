@@ -1,8 +1,8 @@
 \section{Векторные подпространства}
   \subsection{Примеры}
   \begin{enumerate}
-    \item Геометрические вектроры
-    \item $F^n$ - пространство слобцов (строк) высоты (длины) $n$ с естественными оперицаями $(+, \cdot \lambda)$ \vspace{0.4cm}\\
+    \item Геометрические векторы
+    \item $F^n$ - пространство столбцов (строк) высоты (длины) $n$ с естественными операциями $(+, \cdot \lambda)$ \vspace{0.4cm}\\
     Базис $\vartheta  = \bigg\{ \Biggl( \begin{smallmatrix}
       1 \\ 0 \\ \vdots \\ 0
     \end{smallmatrix}\Biggr), \Biggl(\begin{smallmatrix}
@@ -33,7 +33,7 @@
       \lambda^{n-1}C_1e^{\lambda_1x} + ... + \lambda^{n-1}C_ne^{\lambda_nx} \equiv 0
     \end{cases}$$
     $$\Delta = V(\lambda_1,...,\lambda_n) \neq 0 \Longrightarrow C_1 = ... = C_n = 0$$
-    \item $F[t]$ с естественными операциями сложением и умножением на скаляр - бесконечномерное пространство, т.к.: $\forall n \in N_0: \ 1, t, t^2,...$ - линейно независимы.\\
+    \item $F[t]$ с естественными операциями сложения и умножения на скаляр - бесконечномерное пространство, т.к.: $\forall n \in N_0: \ 1, t, t^2,...$ - линейно независимы.\\
     $F[t]_n = \{a_0+a_1t+a_2t^2+...+a_nt^n \ | \ a_k\in F, \ k=0,...,n; \ n \in N_0\} $ - подпространство, $\dim U = n+1$, базис: $1,t,...,t^n$\\
     Тейлоровский базис: $1, t-t_0,...,(t-t_0)^n$; \ $\sum \limits_{k=0}^n\frac{f^{(k)}(t_0)}{k!}(t-t_0)^k$ 
     \item $\varOmega \neq 0$, \ $V = 2^\varOmega $ с операциями вместо сложения:
@@ -46,7 +46,7 @@
   
   \subsection{Два основных способа задания подпространства в V}
   \begin{enumerate}
-    \item[\textbf{1.}] Линейная оболочна семейства векторов $S\subset V$:
+    \item[\textbf{1.}] Линейная оболочка семейства векторов $S\subset V$:
     $$\langle S \rangle = \{\sum \limits_{i\in I}\lambda_is_i \text{ (канонические суммы)} \ | \ s_i \in S, \lambda_i\in F\}$$
     Частный случай: 
     $$\langle a_1,...,a_m \rangle = \{\sum \limits_{i=1}^m \lambda_i a_i \ | \ \lambda_i \in F\} = U$$
@@ -128,7 +128,7 @@
       \end{pmatrix} \xrightarrow{\text{Транспонируем}} \begin{pmatrix}
         M^T \\ \hline E_r
       \end{pmatrix} = \mathcal{F}$$
-       Тогда искамая система будет иметь матрицу: \  $C = \begin{pmatrix}
+       Тогда искомая система будет иметь матрицу: \  $C = \begin{pmatrix}
         E_{n-r} & \vline & -M^T
        \end{pmatrix}$\\
        Пространство $\{X \ | \ CX = 0\}$ имеет размерность $n - (n-r) = r$     
