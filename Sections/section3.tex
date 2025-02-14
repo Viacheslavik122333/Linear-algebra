@@ -24,6 +24,34 @@
     Если $U_1,U_2$ - подпространства в $V, \ \dim U_1 < \infty, \ \dim U_2 < \infty$, то 
     $$\dim (U_1+U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)$$   
   \end{theorem}
+  \begin{proof}
+    Пусть $\dim U_i = n_i, \ \dim (U_1 \cap U_2) = s$
+    Выберем $c_1,...,c_s$ - базис $U_1 \cap U_2$, дополним до базиса в $U_1$ векторами $a_1,...,a_{n_1-s}$ и до базиса в $U_2$ векторами $b_1,...,b_{n_2-s}$.\\ Тогда векторы $c_1,...,c_s,a_1,...,a_{n_1-s},b_1,...,b_{n_2-s}$ - образуют базис в $U_1 + U_2$
+    \begin{enumerate}
+      \item Они порождают $U_1 + U_2:$
+      $$\forall u = u_1+u_2 = (\sum \alpha_i a_i + \sum x_i c_i) + (\sum \beta_i b_i + \sum \delta_i c_i)$$
+      \item Они ЛНЗ. Рассмотрим линейную комбинацию: 
+      $$\sum \limits_{i=1}^{n_1-s} \alpha_i a_i + \sum \limits_{k=1}^{n_2-s} \beta_k b_k + \sum \limits_{j=1}^{s} \gamma_j c_j = 0$$
+      $$\sum \limits_{i=1}^{n_1-s} \alpha_i a_i = -\sum \limits_{k=1}^{n_2-s} \beta_k b_k - \sum \limits_{j=1}^{s} \gamma_j c_j \in U_1 \cap U_2$$
+      Левая часть должна раскладываться по $\{c_j\} \Longrightarrow $ $\sum \limits_{i=1}^{n_1-s} \alpha_i a_i = 0 \Longrightarrow a_i$ - ЛНЗ $\Longrightarrow \forall i: \ \alpha_i = 0$ \\
+      Тогда $\sum \limits_{k=1}^{n_2-s} \beta_k b_k + \sum \limits_{j=1}^{s} \gamma_j c_j = 0 \Longrightarrow \{b_k,\gamma_j\}$ - ЛНЗ $\Longrightarrow \forall k,j: \ \beta_k = \gamma_j = 0$  
+    \end{enumerate}
+    \begin{algorithm}
+      Пусть $U_1 = \langle a_1,...,a_{n_1} \rangle, \ U_2 = \langle b_1,...,b_{n_2} \rangle$ известны координаты. Составим матрицу:
+      $$\begin{pmatrix}
+        A & \vline & B
+      \end{pmatrix} = \begin{pmatrix}
+        a_1^{\uparrow},...,a_{n_1}^{\uparrow} & \vline & b_1^{\uparrow},...,b_{n_2}^{\uparrow}
+      \end{pmatrix}$$
+      $\dim (U_1 + U_2) = rk (A | B)$
+      $$\begin{pmatrix}
+        A & \vline & B
+      \end{pmatrix} \xrightarrow[\text{строк}]{\text{ЭП}} \begin{pmatrix}
+        a_1^{\uparrow},...,a_{n_1}^{\uparrow} & \vline & b_1^{\uparrow},...,b_m,b_{m+1},...,b_{n_2-m}^{\uparrow}
+      \end{pmatrix}$$
+      Можно записать: $$b_i = \sum \limits_{i=1}^{n_1} \alpha_i a_i + \sum \limits_{k=1}^{m} \beta_{k_j} b_k \Longrightarrow b_j - \sum \limits_{k=1}^{m} \beta_{k_j} b_k = \sum \limits_{i=1}^{n_1} \alpha_i a_i \in U_1 \cap U_2$$   
+    \end{algorithm}
+  \end{proof} 
   \begin{exercise}
     Верна ли аналогичная формула для трех подпространств? 
   \end{exercise}
