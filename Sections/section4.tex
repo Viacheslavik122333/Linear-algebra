@@ -44,5 +44,53 @@
         Любой ЛНЗ набор векторов $a_1,...,a_m$ в $n$-мерном векторном пространстве $V \ (m < n)$ можно дополнить до базиса в $V$.  
     \end{lemma}
     \begin{proof}
-        $\underset{\bullet }{\oplus}$ 
-    \end{proof} 
+         \begin{enumerate}
+            \item Пусть известны координаты векторов в некотором базисе $e_1,...,e_n \Longrightarrow rk \{a_1,...,a_m,e_1,...,e_n\} = n$
+            \item Составим матрицу: 
+            $$\begin{pmatrix}
+                a_1^{\uparrow} & \cdots a_m^{\uparrow} & \vline & E_n
+            \end{pmatrix} \xrightarrow[\text{выделяем базисные столбцы}]{\text{ЭП строк матрицы}} \begin{pmatrix}
+            a_1^{\uparrow} & \cdots a_m^{\uparrow} & \vline & e_{i,1}^{\uparrow} & \vline & e_{j,n-m}^{\uparrow} & \cdots
+            \end{pmatrix}$$
+            Тогда к векторам $a_1,....,a_m$ надо добавить $e_{j,1},...,e_{j,n-m}$  
+        \end{enumerate}
+    \end{proof}
+    \begin{definition}
+        Если $U$ - подпр-во в $V \ (0 \neq U \neq V)$ и $\exists \ W \subset V \ : \ V = U \oplus W$, то $W$ - прямое дополнение к $U$.    
+    \end{definition}
+    \begin{consequense}
+        Для любого подпространства в конечномерном векторном пространстве $\exists \ $ прямые дополнения. 
+    \end{consequense} 
+    \begin{proof}
+        $U = \langle a_1,...,a_m \rangle \Longrightarrow \exists \ a_{m+1},...,a_n \ : \ \langle a_1,...,a_n \rangle$ - базис в $V$, тогда $W = \langle a_{m+1},...,a_n \rangle$   
+    \end{proof}
+    \begin{definition}
+        Пусть $V_1,...,V_k \ (k\geq 2)$ - векторы пространства над одним и тем же полем $F$, тогда: 
+        $$V = V_1 \times ... \times V_k = \{ (v_1,...,v_k) \ | \ v_i \in V_i, 1\leq i \leq k\} - \text{ внешняя прямая сумма}$$ 
+        Обозначение: $\begin{smallmatrix}
+        \oplus \\ \circ 
+    \end{smallmatrix}$
+    \end{definition} 
+    \begin{remark}
+        Внешнюю прямую сумму $V = V_1 \begin{smallmatrix}
+            \oplus \\ \circ
+        \end{smallmatrix} ... \begin{smallmatrix}
+            \oplus \\ \circ
+        \end{smallmatrix} V_k$  можно превратить в прямую сумму подпространства:
+        $$\forall i \text{ рассмотрим } V'_i = \{0,...,.v_i,....,0\} - \text{ подпространство в } V$$
+        Запись $v_1,...,v_k \overset{\text{единственно}}{=} (v_1,0,0,...,0) + (0,v_2,0,...,0)+...+(0,0,0,...,v_k)$ показывает, что $V = V'_1 \oplus ... \oplus V'_k$ - единственно. \\
+        В частности $\dim (V_1) \begin{smallmatrix}
+            \oplus \\ \circ 
+        \end{smallmatrix} ... \begin{smallmatrix}
+            \oplus \\ \circ 
+        \end{smallmatrix} V_k = \sum \limits_{i=1}^n \dim V_i$ 
+    \end{remark} 
+    
+
+    
+    % $\begin{smallmatrix}
+    %     \oplus \\ \circ 
+    % \end{smallmatrix}$
+
+     Фактор пространства
+     $\Z$ 
