@@ -1,0 +1,79 @@
+\section{Прямая сумма подпространств и пространств}
+    \begin{definition}
+        Сумма $U_1+...+U_m$ подпространств $U_i \subset V, \ 1\leq i \leq m$ называется прямой суммой, если 
+        $\forall u \in U_1+...+U_m$  представим в виде: \\$u = u_1+...+u_m \ (u_i \in U_i)$  единственным образом    
+    \end{definition} 
+    Пусть $m=2, V$ - конечномерное пространство, $U_{1,2}$ - подпространства $V$
+    \begin{theorem}
+        Следующие условия равносильны: 
+        \begin{enumerate}
+            \item $U = U_1 + U_2$ - прямая сумма
+            \item $U_1 \cap U_2 = \{0\}$
+            \item $\dim (U_1 + U_2) = \dim U_1 + \dim U_2$
+            \item Базис $U_1 + U_2$ - объединение базисов слогаемых    
+        \end{enumerate} 
+    \end{theorem} 
+    \begin{proof}\tab
+        \begin{itemize}
+            \item[$1. \to 2.$] Допустим $u \in U_1 \cap U_2 \Longrightarrow v = v + 0 = 0 + v \Longrightarrow v = 0$
+            \item[$2. \to 3.$] По формуле Грассмана: 
+            $$\dim (U_1 + U_2) = \dim U_1 + \dim U_2 - \underbrace{\dim (U_1 \cap U_2)}_{0}$$
+            \item[$3. \to 4.$] Ввиду доказательства формулы Грассмана. Если $$\sum \limits_{i} \alpha_i a_i + \sum \limits_{j} \beta_j b_j = 0 \Longrightarrow \sum \limits_{i} \alpha_i a_i = \sum \limits_{j} (-\beta_j) b_j \in U_1 \cap U_2 = \{0\}$$
+            $$\Longrightarrow  \text{все } a_i \text{ и } b_i \text{ равны нулю}$$
+            \item[$4. \to 1.$] $\forall u \in U_1 + U_2: $ $$
+            u = (\sum \limits_{i} \alpha_i a_i) + (\sum \limits_{j} \beta_j b_j)$$ 
+            - разложение по базису единственно  
+        \end{itemize}
+    \end{proof}
+    \begin{theorem}
+        Следующие условия равносильны: 
+        \begin{enumerate}
+            \item $U = U_1 + U_2$ - прямая сумма
+            \item $\forall i, \ 1 \leq i \leq m, \ U_i \cap (\sum \limits_{j \neq i}U_j) = \{0\}$
+            \item $\dim (U_1 + U_2) = \dim U_1 + \dim U_2$
+            \item Базис $U_1 + U_2$ - объединение базисов слогаемых    
+        \end{enumerate} 
+    \end{theorem}
+    \begin{exercise}
+        Доказать
+    \end{exercise} 
+    \begin{example1} того, что условия $U_i \cap U_j = \{0\}, \ i \neq j$ недостаточно для прямой суммы: (РИСУНОК)\\
+    $v_1,v_2,v_3$ - ЛЗ $\Longrightarrow $ представление не единственным образом
+    \end{example1}
+    \begin{lemma}
+        Любой ЛНЗ набор векторов $a_1,...,a_m$ в $n$-мерном векторном пространстве $V \ (m < n)$ можно дополнить до базиса в $V$.  
+    \end{lemma}
+    \begin{proof}
+        $\underset{\bullet }{\oplus}$ 
+    \end{proof} 
+    \subsection{Факторпространство}
+    Пусть $V$ - векторное пр-во, $U \subset V$ - его подпр-во.
+    Отношение смежности векторов относительно $U:$
+    \[ v_1 ~ v_2 \Leftrightarrow v_1 - v_2 \in U\]
+    \begin{subtheorem}
+        $v_1 ~ v_2 \Leftrightarrow v_1 + U = v_2 + U$
+    \end{subtheorem}
+    \begin{proof}
+        $\\\Rightarrow: \ \ $ Если $v_1 ~ v_2$, то $\exists \ u_0 \in V: v_2 = v_1 + u_0$
+       \[\forall u \in U \ \ v_2 + u = v_1 + (u_0 + u) \Rightarrow v_2 + U \subseteq v_1 + U\]
+        \[v_1 = v_2 - u_0; \ \forall u \in U \ v_1 + u = v_2 + (u - u_0) \Rightarrow v_1 + U \subseteq v_2 + U\]
+        $\Rightarrow: \ \ $ Если $v_1 + U = v_2 + U$, то $\exists u_1 \in U: \ v_1 = v_2 + u_1 \Rightarrow v_1 - v_2 = u_1 \in U$
+    \end{proof}
+    $v + U$ - смежный класс элемента $v$ по $U$: $\bar{v} := v + U$\\
+    $V / U = \{\bar{v}| v\in V\}$ - факторпространство пространства $V$ по $U$.\\
+    Структура векторного пространства на $V / U$:
+    \[\overline{v}_1 + \overline{v}_2 = \overline{v_1 + v_2}; \ \ \ \lambda\overline{v}_1 = \overline{\lambda v_1};\]
+    \begin{theorem}
+        \begin{enumerate}
+            \item Данные операции задают на $V/U$ векторное пр-во;
+            \item Если $\dim V < \infty$, то $\dim(V/U) = \dim V - \dim U$
+        \end{enumerate}
+    \end{theorem}
+    $\dim (V/U)$ называется коразмерностью подпространства $U$ в $V$ (обозначается $Codim_{V} U$)
+    \begin{example}
+        Пусть $V = C[a, b], U = \{f(x)| f(x_0) = 0, x_0 \in [a, b]\}$
+
+    \end{example}
+    \begin{proof}
+    да
+    \end{proof}

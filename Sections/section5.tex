@@ -1,10 +1,13 @@
-\section{Фактор пространства}
+\section{Линейные отображения и функции}
+    Пусть $V_1, V_2$ - векторные пространства над полем $\F$.
     \begin{definition}
-        Пусть $U \subset V$ - подпространство. Скажем, что $V_1 \thicksim V_2$ по модулю $U$, если $v_1 - v_2 \in U \ (v_1,v_2 \in V)$. Классы эквивалентности имеют вид: 
-        $$v + U = \{v + u \ | \ u \in U\}$$
-        - смежные классы по $U$, где $v$ - представитель\\
-        $*$ $V/U = \{\underbrace{v + U}_{\overline{v}}  \ | \ u \in U\}$
+        Отображение $\phi: V_1 \rightarrow V_2$ называется линейным отображением $V_1$ в $V_2$, если:
+        \begin{enumerate}
+            \item $\forall v_1, v_1'\in V_1 \ : \ \phi(v_1 + v_1') = \phi(v_1) + \phi(v_1')$;
+            \item $\forall v \in V_1, \lambda \in \F \ : \ \phi(\lambda v) = \lambda\phi(v)$;
+        \end{enumerate}
+        Из курса $\textup{I}$ семестра известно, что $\phi (0_{v_1}) = 0_{v_2}$  \\
+        Обозначается: $\textup{Ker}(\phi)$ - ядро $\phi$
+        $$\textup{Ker}(\phi) = \{v \in V_1 \ | \ \phi(v) = 0_{v_2}\}, \ \text{Im}(\phi) = \phi(V_1)$$ 
     \end{definition}
-    % \begin{definition}
-    %     Отношение смежности векторов отношения $U \ : \ v_1$ 
-    % \end{definition} 
+

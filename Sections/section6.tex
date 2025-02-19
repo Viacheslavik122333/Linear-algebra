@@ -1,1 +1,32 @@
-\section{}
+\section{Линейные функции}
+    Пусть $V$ - векторное пространство над $\F$
+    \begin{definition}
+        Отображение $f: \ V \to \F$ - линейная функция со значениями в $\F$, если:
+        \begin{enumerate}
+            \item $\forall v_1, \ v_2 \in V: \ f(v_1 + v_2) = f(v_1) = f(v_2)$
+            \item $\forall v \in V, \forall \lambda : \ f(\lambda v) = \lambda f(v)$  
+        \end{enumerate}
+        Обозначается: $V^{*} = \{f : \ V \to \F\}$ - множество линейных функций на $V$  
+    \end{definition}
+    \begin{remark}
+        $V_2 = \F, \ \dim V_2 = 1$ 
+    \end{remark}
+    \begin{lemma}
+        Если $f \not \equiv 0$, то $\text{Ker}(f)$ имеет в $V$ коразмерность = 1 
+    \end{lemma} 
+    \begin{proof}
+        Пусть $\exists v_1 \in V, \ f(v_1) \neq 0$. Пусть $v \in V$, либо $v \in \text{Ker}(f)$, либо $f(v) = \alpha \neq 0$ 
+        $$\beta = f(v_1) \neq 0 \Longrightarrow f(\frac{v_1}{\beta}) = 1, \ f(\alpha - \frac{v_1}{\beta}) = \alpha$$
+        Рассмотрим выражение $r - \frac{\alpha}{\beta}v_1$:
+        $$f(r - \frac{\alpha}{\beta}v_1) = f(v) - f(\frac{\alpha}{\beta}v_1) = \alpha - \alpha = 0$$
+        $\Longrightarrow r - \frac{\alpha}{\beta}v_1 \in \text{Ker}(f)$ и $v = \frac{\alpha}{\beta}v_1 + u, \ u \in \text{Ker}(f)$  
+    \end{proof}
+    \begin{remark}
+        $\forall x \in V: \ (f_1 + f_2)(x) = f_1(x) + f_2(x)$  и $(\lambda f)(x) = \lambda f (x)$ 
+    \end{remark}
+    \begin{lemma}
+        Множество $V^{*}$ с введенными операциями - векторное пространство. 
+    \end{lemma}
+    \begin{definition}
+        $V^{*}$ - векторное пространсто, сопряженное к $V$ ??? (не разобрал, что написанно)
+    \end{definition}    
