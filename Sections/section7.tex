@@ -1,2 +1,28 @@
 \section{Линейные отображения и их матрицы}
     Пусть $V_1, V_2$ - векторные пространства, $\phi: V_1 \rightarrow V_2$ - линейное отображение.
+    \begin{example1} $\\$ 
+        $V_1 = D(a, b)$ - множество дифиренцированных функций над полем $\R$\\
+        $V_2 = F(a, b)$ - функции на $(a,b)$  над полем $\R$\\
+        $\phi(f) = \frac{df}{dt}, \ \phi : \ V_1 \to V_2$  - линейное отображение, \ $\text{Ker}(\phi) = \{const\}$ \\
+        Частный случай: \ $V_1 = \R[t]_n, \ V_2 = \R[t]_{n-1}$ \\
+        $\phi(f) = f'$ - линейное отображение (взяли производную)\\
+        $\text{Ker}(\phi) = \{const\}$. Является ли $\phi$ сюрьекцией? \\
+        $\forall p(t) = a_0 + a_1x + ... + a_{n-1}t^{n-1}$\\
+        $f'(t) = a_0t + a_1 \frac{t^2}{2} + ... + a_{n-1}\frac{t^n}{n} \Longrightarrow \phi$ - сюрьекция      
+    \end{example1}
+    \begin{theorem}
+        Если $\phi: \ V_1 \to V_2$ - линейное отображение, $\dim V_1 < \infty$, то 
+        $$\dim (\text{Im} \hspace{0.09cm} \phi) = \dim V_1 - \dim (\text{Ker} \hspace{0.09cm} \phi)$$   
+    \end{theorem}
+    \begin{proof}
+        Пусть $\dim (\text{Im} \hspace{0.09cm} \phi) = m \ (m \leq n = \dim V_1 )$\\
+        Выберем $c_1,...,c_m$ - базис в $\text{Im} \hspace{0.09cm} \phi \Longrightarrow \exists \ a_1,...,a_m \in V_1: \ \phi(a_i) = c_i, \ i = \overline{1,m}$\\
+        Так же выберем базис $b_1,...,b_k$ в $\text{Ker} \hspace{0.09cm} \phi$ (если $\text{Ker} \hspace{0.09cm} \phi = \{0\}$, то $\text{Im} \hspace{0.09cm} \phi \cong V_1$)\\
+        Покажем, что $\{a_1,...,a_m, b_1,...,b_k\}$  - базис в $V_1$:\\
+        Пусть $\alpha_i, \ \beta_j : \ \sum \limits_{i=1}^m \alpha_i a_i + \sum \limits_{j=1}^k \beta_j b_j = 0_{V_1}$, тогда:
+        $$\phi(\sum \limits_{i} + \sum \limits_{j}) = \sum \limits_{i=1}^m \alpha_i \phi(a_i) + \underbrace{\sum \limits_{j=1}^k \beta_j \phi(b_j)}_{0_{V_2}}  = \sum \limits_{i=1}^m \alpha_i c_i = \phi(0_{V_1}) = 0_{V_2}$$
+        Т.к. $c_i$ - ЛНЗ $\Longrightarrow \forall i = \overline{1,m}: \ \alpha_i = 0 \Longrightarrow \sum \limits_{j=1}^k b_j \beta_j = 0$\\
+        Т.к. $b_i$ - ЛНЗ $\Longrightarrow \forall j= \overline{1,k}: \ \beta_j = 0$ 
+        $$\forall v\in V_1: \ \phi(v) = \sum \limits_{l=1}^m \gamma_l c_l = \phi(\sum \limits_{l=1}^m \gamma_l a_l) \Longrightarrow v - \sum \limits_{l=1}^m \gamma_l a_l \in \text{Ker} \hspace{0.09cm} \phi$$
+        $$\Longrightarrow \exists \beta_j \in \F : \ v = \sum \limits_{l=1}^m \gamma_l a_l + \sum \limits_{j=1}^k \beta_j b_j$$    
+    \end{proof}

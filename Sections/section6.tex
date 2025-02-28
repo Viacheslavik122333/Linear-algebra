@@ -28,61 +28,74 @@
         Множество $V^{*}$ с введенными операциями - векторное пространство. 
     \end{lemma}
     \begin{definition}
-        $V^{*}$ - векторное пространство, сопряженное с $V$ (двойственное для $V$)
+        $V^{*}$ - векторное пространство, сопряженное с $V$ (двойственное для $V$)\\
+        Зафиксируем базис $e = (e_1, ..., e_n)$ в $V$ и линейную функцию $f:V \rightarrow F$
+        $$\forall x \in V: \ x = \sum \limits_{i=1}^n x_i e_i \Rightarrow f(x) = \sum \limits_{i=1}^n x_i f(e_i) = \sum \limits_{i=1}^n a_i x_i, \ \text{где } a_i = f(e_i)$$ 
+        Удобно записывать это так: $f(x) = \begin{pmatrix}
+            a_1 & \cdots & a_n
+        \end{pmatrix}\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}$
     \end{definition} 
-
-    Зафиксируем базис $e = (e_1, ..., e_n)$ в $V$ и линейную функцию $f:V \rightarrow F$. Тогда $\forall x \in V \ \ x = \sum \limits_{i=1}^n x_i e_i \Rightarrow f(x) = \sum \limits_{i=1}^n x_i f(e_i) = \sum \limits_{i=1}^n a_i x_i$, где $a_i = f(e_i)$.\\
-    Удобно записывать это так: $f(x) = (a_1, ..., a_n)\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}$.
+    
     \begin{definition}
-        Координатные функции - функции вида $f_i: f_i(x) = x_i$. Будем использовать обозначение $e^i = f_i$.
+        Координатные функции - функции вида: 
+        $$f_i: \ f_i(x) = x_i$$
+        Будем использовать обозначение: $e^i = f_i$ \vspace{0.4cm}\\
+        В частности: $f_i(e_j) = e^i(e_j) = \begin{cases}
+            1, \ i=j\\
+            0, \ i \neq j
+        \end{cases}$
     \end{definition}
-    В частности, $f_i(e_j) = e^i(e_j) = \delta^i_j$.\
     \begin{subtheorem}
         Функции $e^i$ - базис в $V^{*}$
     \end{subtheorem}
-    \begin{proof}
-        ЛНЗ: Пусть $\exists \lambda_1, ..., \lambda_n: \sum \limits_{i=1}^n \lambda_i e^i \equiv 0$. Подставим  $e_j$:
+    \begin{proof} $\\$ 
+        Докажем ЛНЗ: Пусть $\exists \ \lambda_1, ..., \lambda_n: \ \sum \limits_{i=1}^n \lambda_i e^i \equiv 0$. Подставим  $e_j$:
         \[(\sum \limits_{i=1}^n \lambda_i e^i)(e_j) = \sum \limits_{i=1}^n \lambda_i e^i(e_j) = \lambda_j = 0\]
-        Отсюда после подстановки всех $e_1,...,e_n$ получим $\forall i = 1,...,n \ \lambda_i = 0$.
+        Отсюда после подстановки всех $e_1,...,e_n$ получим, что $\forall i = 1,...,n: \ \lambda_i = 0$.
         Разложим произвольную функцию $f \in V^{*}$:
         \[f(x) = \sum \limits_{i=1}^n a_i x_i = \sum \limits_{i=1}^n a_i e^i(x) = (\sum \limits_{i=1}^n a_i e^i)(x) \ \ \forall x\in V \ f \equiv \sum \limits_{i=1}^n a_i e^i\]
     \end{proof}
     \begin{consequense}
-        Если $\dim V < \infty$, то $V^{*} \cong V$.
+        Если $\dim V < \infty$, то $V^{*} \cong V$, т.к. $\dim V^{*} = \dim V$.
     \end{consequense}
     \begin{definition}
         Базис $e^{*} = (e^1,...,e^n)$ называется базисом $V^{*}$, сопряжённым (дуальным, двойственным, биортогональным) к базису $e$ в $V$.
     \end{definition}
+
     Посмотрим, как изменится строка координат функции $f\in V^{*}$ при замене базиса $e$ в $V$.\\
-    Пусть $e' = (e_1',...,e_n') = eC_{e\rightarrow e'}$ - новый базис в $V$. 
-    Как известно, $X = C_{e\rightarrow e'}X'$.\\
-    Отсюда если $x = \sum \limits_{i=1}^n x_i e_i = \sum \limits_{i=1}^n x_i' e_i'$, то 
-    \begin{multline*}
-        \forall f \in V, f(x) = \sum \limits_{i=1}^n a_i' x_i' \Rightarrow f(x) = (a_1,...,a_n)X = (a_1,...,a_n)(C_{e\rightarrow e'}X') = \\ = ((a_1,...,a_n)C_{e\rightarrow e'})X' \Rightarrow ((a_1,...,a_n)C_{e\rightarrow e'})X' = ((a_1',...,a_n'))X' \ \ \forall X' \in \mathbb{F}^n
-    \end{multline*}
-    Беря по очереди $X' = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \dots , \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}$, покоординатно получим равенство \[(a_1,...,a_n)C_{e\rightarrow e'} = (a_1',...,a_n')\]
+    Пусть $e' = (e_1',...,e_n') = e\cdot C_{e\rightarrow e'}$ - новый базис в $V$. 
+    Как известно, $X = C_{e\rightarrow e'} \cdot X'$.\\
+    Отсюда если $x = \sum \limits_{i=1}^n x_i e_i = \sum \limits_{i=1}^n x_i' e_i'$, то
+    $$\forall f \in V: \ f(x) = \sum \limits_{i=1}^n a_i' x_i'$$  
+    $$f(x) = (a_1,...,a_n)X = (a_1,...,a_n)(C_{e\rightarrow e'}X') = ((a_1,...,a_n)C_{e\rightarrow e'})X'$$ 
+    $$((a_1,...,a_n)C_{e\rightarrow e'})X' = ((a_1',...,a_n'))X' \ \ \forall X' \in \mathbb{F}^n$$ 
+    Беря по очереди $X' = \left( \begin{smallmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{smallmatrix} \right), \dots , \left( \begin{smallmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{smallmatrix}\right)$, покоординатно получим равенство \[(a_1,...,a_n)C_{e\rightarrow e'} = (a_1',...,a_n')\]
+
     \begin{example1}
-        Возьмём $V = \mathbb{R}[t]_n = \{p(t) \in \mathbb{R}[t] | \deg p = n\}$.\\
-        Выберем в нём базис $1, (t-t_0), ... , (t-t_0)^n \Rightarrow p(t) = \sum \limits_{i=0}^n \frac{p^{(i)}(t_0)}{i!}(t-t_0)^i$\\
-        Если $e_i = (t-t_0)^i, 0\leqslant i\leqslant n$, то $e^i(p) = \frac{p^{(i)}(t_0)}{i!}$.    
+        Возьмём $V = \mathbb{R}[t]_n = \{p(t) \in \mathbb{R}[t] \ | \ \deg p = n\}$\\
+        Выберем в нём базис $\{1, (t-t_0), ... , (t-t_0)^n\} \Longrightarrow  p(t) = \sum \limits_{i=0}^n \frac{p^{(i)}(t_0)}{i!}(t-t_0)^i$\\
+        Если $e_i = (t-t_0)^i, \ 0\leqslant i\leqslant n$, то $e^i(p) = \frac{p^{(i)}(t_0)}{i!}$
     \end{example1}
     \begin{definition}
         Вторым сопряжённым пространством к $V$ (обозначается $V^{**}$) называется пространство, сопряженное к $V^{*}$ - пространство линейных функций от линейных функций над $V$.
+        $$V^{**} = \{\phi: \ V^{*} \to \F\}$$ 
     \end{definition}
     \begin{theorem}
-        Если $\dim V < \infty$, то $V^{**} \cong V$, причём изоморфизм не зависит от выбора базиса.
+        Если $\dim V < \infty$, то $V^{**} \cong V$, причём изоморфизм не зависит от выбора базиса (такой изоморфизм называется каноническим). 
     \end{theorem}
     \begin{proof}
-        Рассмотрим отображение $\phi: V \rightarrow V^{**}: \ \ \forall x \in V \ \phi(x) = \phi_x \in V^{**}$, такое что $\forall f\in V^{*}, \phi_x(f) = f(x)$.
+        Рассмотрим отображение: 
+        $$\phi: V \rightarrow V^{**}: \ \forall x \in V: \ \phi(x) = \phi_x \in V^{**}$$
+        $$\Longrightarrow \forall f\in V^{*}, \phi_x(f) = f(x)$$
         Это линейное отображение:
-        \begin{align*}
-            \forall f\in V^{*}, \phi_{x_1+x_2}(f) = f(x_1 + x_2) = f(x_1) + f(x_2) = \phi_{x_1}(f) + \phi_{x_2}(f) \Rightarrow \\ \phi(x_1 + x_2) = \phi(x_1) + \phi(x_2);\\
-            \forall f\in V^{*}, \phi_{\lambda x}(f) = f(\lambda x) = \lambda f(x) = \lambda\phi_{x}(f) \Rightarrow \phi(\lambda x) = \lambda\phi(x);
-        \end{align*}
-        Чтобы проверить, что $\phi$ - изоморфизм, достаточно проверить, что $Ker\phi = \{0\}$ (так как $\dim V^{**} = \dim V$).\\
-        Пусть $x \in Ker\phi$, т.е. $\phi_x \equiv 0$. Значит,  $\forall f \in V^{*} : f(x) = 0$\\
-        Если $x \neq 0$, то его можно дополнить до базиса: $x, e_2, ... , e_n$, где $n = \dim V$.
-        Тогда $e^1(x) = 1 \neq 0$ - противоречие с условием $\forall f \in V^{*} : f(x) = 0$.
+        \begin{itemize}
+            \item $\forall f\in V^{*}, \ \phi_{x_1+x_2}(f) = f(x_1 + x_2) = f(x_1) + f(x_2) = \phi_{x_1}(f) + \phi_{x_2}(f) \Longrightarrow  \phi(x_1 + x_2) = \phi(x_1) + \phi(x_2);$ 
+            \item $\forall f\in V^{*}, \ \phi_{\lambda x}(f) = f(\lambda x) = \lambda f(x) = \lambda\phi_{x}(f) \Longrightarrow \phi(\lambda x) = \lambda\phi(x);$ 
+        \end{itemize}
+        Чтобы проверить, что $\phi$ - изоморфизм, достаточно проверить, что $\text{Ker} (\phi) = \{0\}$ (так как $\dim V^{**} = \dim V$).\\
+        Пусть $x \in \text{Ker} (\phi)$, т.е. $\phi_x \equiv 0$. Значит,  $\forall f \in V^{*} : \ f(x) = 0$\\
+        Если $x \neq 0$, то его можно дополнить до базиса: $x, e_2, ... , e_n$, где $n = \dim V$.\\
+        Тогда $e^1(x) = 1 \neq 0$ - противоречие с условием $\forall f \in V^{*} : \ f(x) = 0$.
     \end{proof}
     \textit{Задача.} Доказать, что $a_1,...,a_n\in V$ ЛНЗ $\Leftrightarrow \exists$ лин. ф-ции $f^1,...,f^n\in V^{*}$ такие, что $\det(f^i(a_j)) \neq 0$.
     \begin{remark}

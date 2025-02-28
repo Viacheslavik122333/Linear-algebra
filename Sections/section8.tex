@@ -1,0 +1,11 @@
+\section{Матрицы линейного отображения}
+    Пусть: $\mathcal{E} \{e_1,...,e_n\}$ - базис в $V_1$; \ $\mathcal{F} \{f_1,...,f_m\}$ - базис в $V_2$
+    \begin{multline*}
+        \forall x \in V_1 : \ x = \sum \limits_{j=1}^n x_je_j \Longrightarrow \phi(x) = \sum \limits_{j=1}^n x_j \phi(e_j)= \\ 
+        = \{\phi(e_j) = \sum \limits_{i=1}^m a_{ij}f_i\} = \sum \limits_{j=1}^n \sum \limits_{i=1}^m x_ja_{ij}f_i
+    \end{multline*}
+    \begin{definition}
+        Назовем $A = (a_{ij}) = A_{\phi,e,f}$ - матрицей $\phi$ в базисах $\mathcal{E}$ и $\mathcal{F}$.\\ 
+        Обозначается: $Y_f = A_{\phi,e,f} \cdot X_e$ \ (где $Y = \phi(x)$).    
+    \end{definition}  
+
