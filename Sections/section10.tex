@@ -1,2 +1,59 @@
-\section{Линейные отображения и их матрицы}
-    Пусть $V_1, V_2$ - векторные пространства, $\phi: V_1 \rightarrow V_2$ - линейное отображение.
+\section{Действия над линейными отображениями}
+    Пусть $\phi: \ V_1 \to V_2$ - линейное отображение, $\forall x \in V_1$ 
+    \begin{enumerate}
+        \item $\forall \lambda \in \F: \ (\lambda \phi)(x) = \lambda \phi(x)$
+        \item Если $\psi: \ V_1 \to V_2$, то $(\phi + \psi)(x) = \phi(x) + \psi(x)$   
+    \end{enumerate}
+    \begin{subtheorem} \textbf{(1)} 
+        Относительно этих операций множество $Z(V_1,V_2)$ линейных отображение из $V_1$ в $V_2$ является векторным пространством.   
+    \end{subtheorem}
+    \begin{subtheorem} \textbf{(2)}
+        Если $\dim V_1 = n, \ \dim V_2 = m$, то $Z(V_1, V_2) \cong M_{m\times n}(\F)$  
+    \end{subtheorem}
+
+    \begin{proof}
+        Зафиксируем базисы в $V_1$ и $V_2$: \ $e$ и $f$ соответственно, тогда $\forall \phi$ взаимооднозначно соответствует его матрица $A_{\phi, e, f}$ относительно базисов $e$ и $f$.
+        $A_{\lambda \phi} = \lambda A_{\phi}$  $\forall \lambda \in \F$
+        $(\lambda \phi)(e_j) = \lambda \phi(e_j) \Longrightarrow$ все столбцы $A_{\phi}$ умножаются на $\lambda \Longrightarrow A_{\phi}$ умножается на $\lambda$.
+        $$\forall j = 1,...,m: \  (\phi + \psi)(e_j) = \phi(e_j) + \psi(e_j)$$ 
+        $\Longrightarrow$ столбцы $A_{\phi + \psi}$ имеют вид $\phi(e_j) + \psi(e_j)$.
+    \end{proof}
+    Обозначение: $L(V_1, V_2) = \kappa(V_1, V_2) =$ Hom$(V_1, V_2)$.
+    $\varkappa(V)$ - множество линейных операторов на $V$.
+    \begin{definition}
+        Произведением линейных операторов $\phi: V_1 \to V_2$ и $\psi: V_1 \to V_2$ называется их композиция: 
+        $$(\phi\circ\psi)(x) = \psi(\phi(x)), \text{ где } x \in V_1$$
+    \end{definition}
+    \begin{subtheorem} \textbf{(3)}
+        Композиция линейных отображений является линейным отображением, а композиция линейных операторов - линейным оператором.
+    \end{subtheorem}
+    \begin{subtheorem} \textbf{(4)}
+        Пусть $V_1, V_2, V_3$ - конечномерные векторные пространства, $\psi: V_1 \to V_2$, \ $\phi: V_2 \to V_3$ - линейные отображения, тогда, если зафиксировать базисы в этих пространствах, матрица композиции: 
+        $$A_{\psi\circ\phi} = A_{\psi} \cdot A_{\phi}$$
+    \end{subtheorem}
+    \begin{proof} $\\$ 
+        Утверждение (3) - упражнение.\\
+        Утверждение (4):
+        Пусть $e$ - базис в $V_1$, \ $f$ - базис в $V_2$, \ $g$ - базис в $V_3$.
+        $$A_{\phi} = (\phi(e_1^\uparrow \ldots \phi(e_n)^\uparrow) \ \text{ в базисе } f$$ 
+        $$A_{\psi} = (\psi(f_1)^\uparrow \dots \psi(f_m)^\uparrow) \ \text{ в базисе } g$$ 
+        $\forall x = e X$, обозначим $y = \phi(x)$, \ $z = \psi(y)$ со столбцами координат $Y$ и $Z$ соответственно.
+        Тогда: 
+        $$Y = A_{\phi}X, \ Z = A_{\psi}Y = A_{\psi}(A_{\phi}X) = (A_{\psi}A_{\phi})X = A_{\psi\circ\phi}X$$
+    \end{proof}
+    \begin{theorem}
+        Множество $L(V)$ с операциями $+$, $\cdot\lambda $, $\cdot$ является ассоциативной алгеброй с единицей, равной $\id \tab[0.1cm]V$.
+        Если $\dim V = n$, то $L(V) \cong M_{n}(\F)$.
+    \end{theorem}
+    \begin{proof}
+        Следует из утверждений (1) - (4).
+    \end{proof}
+    \begin{subtheorem}
+        Если $\phi$ - линейный оператор на $V$, то $\forall k \in \N$ подпространства $\text{Ker} \hspace{0.09cm} \phi^k$ и $\text{Im} \hspace{0.09cm} \phi^k$ - инварианты. При этом: 
+        $$\{0\} \subseteq \text{Ker} \hspace{0.09cm} \phi \subseteq \text{Ker} \hspace{0.09cm} \phi^2 \subseteq \ldots$$
+        $$V \supseteq \text{Im} \hspace{0.09cm} \phi \supseteq \text{Im} \hspace{0.09cm} \phi^2\ldots$$
+    \end{subtheorem}
+
+    
+     
+

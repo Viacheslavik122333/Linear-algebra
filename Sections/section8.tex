@@ -1,5 +1,5 @@
 \section{Матрицы линейного отображения}
-    Пусть: $\mathcal{E} \{e_1,...,e_n\}$ - базис в $V_1$; \ $\mathcal{F} \{f_1,...,f_m\}$ - базис в $V_2$
+    Пусть: $\mathcal{E} = \{e_1,...,e_n\}$ - базис в $V_1$; \ $\mathcal{F} = \{f_1,...,f_m\}$ - базис в $V_2$
     \begin{multline*}
         \forall x \in V_1 : \ x = \sum \limits_{j=1}^n x_je_j \Longrightarrow \phi(x) = \sum \limits_{j=1}^n x_j \phi(e_j)= \\ 
         = \{\phi(e_j) = \sum \limits_{i=1}^m a_{ij}f_i\} = \sum \limits_{j=1}^n \sum \limits_{i=1}^m x_ja_{ij}f_i
@@ -7,5 +7,91 @@
     \begin{definition}
         Назовем $A = (a_{ij}) = A_{\phi,e,f}$ - матрицей $\phi$ в базисах $\mathcal{E}$ и $\mathcal{F}$.\\ 
         Обозначается: $Y_f = A_{\phi,e,f} \cdot X_e$ \ (где $Y = \phi(x)$).    
-    \end{definition}  
-
+    \end{definition} 
+    \begin{remark}
+        Для линейного оператора $\phi: \ V \to V, \ A_{\phi,e}\equiv A_{\phi,e,e}$ 
+    \end{remark}
+    % Пусть $x = \sum \limits_{j=1}^nx_ie_i, \phi: \ V_1 \to V_2$ - линейное отображение. Тогда $y(x) = \sum \limits_{j=1}^nx_i \phi(e_i), \phi(e_i) = \sum \limits_{i=1}^ma_{ij}f_i$ и $A_{\phi, e,f} = (a_{ij})$ - начало 6 лекции
+    \begin{algorithm} 
+        Вычисление $(a_{ij})$ с помощью матрицы $A_\phi :$
+        \begin{enumerate}
+            \item $\text{Ker} \hspace{0.09cm} \phi = \{x = \mathcal{E} \cdot x_\mathcal{E} \ : \ A_\phi \cdot x_\mathcal{E} = 0\}; \ \dim (\text{Ker} \hspace{0.09cm} \phi) = n - \text{rk} A_\phi$
+            \item $\text{Im} \hspace{0.09cm} \phi = \langle \phi(e_1),...,\phi(e_n) \rangle = \{y = f \cdot Y_f \ : \ Y_f = A_\phi \cdot x_\mathcal{E}\}$ \\
+            $Y \in \text{Im} \hspace{0.09cm} \phi \Longleftrightarrow $ СЛУ $A_\phi \cdot x_\mathcal{E} = Y$ совместна $\Longrightarrow \dim (\text{Im} \hspace{0.09cm} \phi) = \text{rk} A_\phi$ \\ (т.е. не зависит от базиса);
+            \item $\dim \text{Im} \hspace{0.09cm} \phi + \dim \left[ \text{Ker} \hspace{0.09cm} (\text{Ker} \hspace{0.09cm} \phi)\right] = \dim V_1$   
+        \end{enumerate}
+    \end{algorithm}
+    \subsection{Изменение матрицы линейного отображения при замене координат}
+    Пусть в $V_1: \ \mathcal{E} = (e_1,...,e_n)$ -  старый базис, а \ $\mathcal{E}' = (e_1',...,e_n')$ - новый.  \\ 
+    В $V_2: \ \mathcal{F} = (f_1,...,n)$ -  старый базис, а \ $\mathcal{F}' = (f_1',...,f_n')$ - новый.
+    \begin{subtheorem}
+        $$A_{\phi, \mathcal{E}', \mathcal{F}'} = D^{-1}\cdot A_{\phi, \mathcal{E}, \mathcal{F}} \cdot C$$ 
+    \end{subtheorem}
+    \begin{proof}
+        Воспользуемся формулами связи координат векторов:
+        $$\forall x \in V_1: \ x_\mathcal{E} = \undermat{C}{C_{\mathcal{E} \to \mathcal{E}'}}\cdot x_{\mathcal{E}'} \ \text{и} \ \ \forall y \in V_2: \ y_\mathcal{F} = \undermat{D}{C_{\mathcal{F} \to \mathcal{F}'}}\cdot x_{\mathcal{F}'} $$
+        Тогда формулы имеют вид:
+        $$\underset{(*)}{Y_\mathcal{F} = A_{\phi, \mathcal{E}, \mathcal{F}} \cdot x_\mathcal{E}} \ \text{и} \ \ \underset{(**)}{Y_{\mathcal{F}'} = A_{\phi, \mathcal{E}', \mathcal{F}'} \cdot x_{\mathcal{E}'}}$$  
+        Умножим $(*)$ слева на $D^{-1}$, а также запишем выражение $x_\mathcal{E}$ через $x_{\mathcal{E}'}$:\\
+        $\tab[0.6cm] \forall x_{\mathcal{E}'} \in F^n:$ 
+        $$ \ D^{-1} \cdot Y_\mathcal{F} = D^{-1} \cdot (A_{\phi, \mathcal{E}, \mathcal{F}} \cdot C) \cdot x_{\mathcal{E}'} \Longleftrightarrow Y_{\mathcal{F}'} = (D^{-1} \cdot A_{\phi, \mathcal{E}, \mathcal{F}} \cdot C) \cdot x_{\mathcal{E}'}$$
+        Возьмем $x_{\mathcal{E}'} = E_j, \ j = 1,...,n$ 
+    \end{proof}
+    \begin{remark}
+        Для линейного оператора $\phi: \ V \to V:$ 
+        $$A_{\phi, \mathcal{E}'} = C^{-1}_{\mathcal{E} \to \mathcal{E}'} \cdot A_{\phi, \mathcal{E}'} \cdot C_{\mathcal{E} \to \mathcal{E}'}$$
+    \end{remark}
+    \begin{consequense}\tab
+        \begin{enumerate}
+            \item $\text{rk} \hspace{0.09cm} A_{\phi, \mathcal{E}', \mathcal{F}'} = \text{rk} \hspace{0.09cm} A_{\phi, \mathcal{E}, \mathcal{F}};$
+            \item $\det (A_{\phi, \mathcal{E}'}) = \det(A_{\phi, \mathcal{E}})$
+            \item $\text{tr} \hspace{0.09cm} (A_{\phi, \mathcal{E}'}) = \text{tr} \hspace{0.09cm} (A_{\phi, \mathcal{E}})$
+        \end{enumerate}
+    \end{consequense} 
+    \begin{proof} \tab 
+        \begin{enumerate}
+            \item Т.к. матрицы $C$ и $D$ невырожденные, то при умножении на них ранг матрицы не изменяется.
+            $$\begin{cases}
+                B = A \cdot C \Longrightarrow \text{rk} \hspace{0.09cm} B \leq \text{rk} \hspace{0.09cm} A\\
+                A = (A \cdot C) \cdot C^{-1} \Longrightarrow \text{rk} \hspace{0.09cm} a \leq \text{rk} \hspace{0.09cm} (AC)
+            \end{cases} \Longrightarrow \undermat{\text{rk} \hspace{0.09cm} (AC) = \text{rk} \hspace{0.09cm} A}{\text{rk} \hspace{0.09cm} (AC)\leq \text{rk} \hspace{0.09cm} A \leq \text{rk} \hspace{0.09cm} (AC)}$$
+            \item Произведение определителей
+            \item $\text{tr} \hspace{0.09cm} (AC) = \text{tr} \hspace{0.09cm}(CA) \Longrightarrow \text{tr} \hspace{0.09cm}\left[C^{-1} \cdot (AC)\right] = \text{tr} \hspace{0.09cm}\left[(AC)\cdot C^{-1}\right] = \text{tr} \hspace{0.09cm}A$    
+        \end{enumerate}
+    \end{proof}  
+    \begin{theorem}
+        Пусть $a_1,...,a_n$ - ЛНЗ векторы в $V_1 \ (\dim V_1 = n), \ b_1,...,b_n$ - случайные векторы в $V_2\ (\dim V_2 = m)$. Тогда $\exists !$ линейное отображение $\phi: \ V_1 \to V_2: \phi(a_j) = b_j, \ j = 1,...,n$     
+    \end{theorem}
+    \begin{proof} $\\$ 
+        Пусть в некотором базисе $\mathcal{E}$ пространства $V_1$ вектор $a_j \sim a_j^\uparrow$ - столбец координат, в базисе $f$ пространства $V_2$ вектор $b_j \sim b_j^\uparrow$\\
+        По условию, $\forall j = 1,...,n: \ A_\phi \cdot a_j^\uparrow = b_j^\uparrow \Longrightarrow A_\phi(a_1s^\uparrow,...,a_n^\uparrow) = (b_a^\uparrow,...,b_n^\uparrow)$ или $A_\phi \cdot A = B$, где $A_\phi$ - искомая матрица.\\
+        Отсюда получаем, что $A_\phi = B \cdot A^{-1}$ (т.к. $a_1,...,a_n$ ЛНЗ).\vspace{0.5cm}
+        $$\begin{pmatrix}
+            A \\ \hline B
+        \end{pmatrix} \xrightarrow[\text{строк}]{\text{ЭП}} 
+        \begin{pmatrix}
+            E \\ \hline  A_\phi
+        \end{pmatrix}, \ 
+        \begin{pmatrix}
+            A \\ \hline  B
+        \end{pmatrix} \to 
+        \begin{pmatrix}
+            A \\ \hline  B
+        \end{pmatrix} \cdot C_{\text{эл}} = 
+        \begin{pmatrix}
+            AC \\ \hline  BC
+        \end{pmatrix}$$ \vspace{0.5cm}
+        Если $AC = E$, то $C = A^{-1}$ и $BC = BA^{-1} = A_\phi$    
+    \end{proof} 
+    \begin{theorem}
+        Если $\dim V_1 < \infty,  \ \phi: \ V_1 \to V_2$ - линейное отображение, то 
+        $$\text{Im} \hspace{0.09cm} \phi \cong V_1 / \text{Ker} \hspace{0.09cm}  \phi$$  
+    \end{theorem} 
+    \begin{proof}
+        Базис ядра дополним до базиса пространства $V_1$ векторами $e_1,...,e_s$. Тогда любой $v \in V_1$ можно записать в виде: $$v = \sum \limits_{i=1}^sx_ie_i + u, \text{где } u \in \text{Ker} \hspace{0.09cm}  \phi$$ 
+        По этому в факторпространстве базис составляет классы $\overline{v} + u = \sum \limits_{i=1}^sx_i \overline{e_i}$\\
+        Рассмотрим отношение $\overline{\phi}: \ V_1/u \to V_2$, где $\overline{\phi}(\overline{v}) = \overline{\phi}(v+u) := \phi(v)$\\
+        Отсюда $w = \overline{\phi}(\overline{v})$. Получаем, что $\phi$ - линейное отображение, cюръективное \\
+        (т.к. $\forall w \in V_2 \exists \ v \in V_1: \ \phi(v) = w$). Также $\text{Ker} \hspace{0.09cm}  \overline{\phi} = \{0\} = \{\text{Ker} \hspace{0.09cm} \phi\}$, потому что, если $\overline{\phi}(\overline{v}) = 0$, то $\phi(v) = 0$, т.е. $v \in \text{Ker} \hspace{0.09cm} \phi = u \Longrightarrow v \in U \Longrightarrow \overline{v} = u = \{0\}$     
+    \end{proof}
+    

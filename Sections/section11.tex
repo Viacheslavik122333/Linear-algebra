@@ -1,2 +1,52 @@
-\section{Линейные отображения и их матрицы}
-    Пусть $V_1, V_2$ - векторные пространства, $\phi: V_1 \rightarrow V_2$ - линейное отображение.
+\section{Собственные векторы и собственные значения оператора}
+    Пусть $\phi: V \to V$ - линейный оператор над полем $\F$
+    \begin{definition}
+        Вектор $x \in V$ называется собственным вектором оператора $\phi$, если $x\neq0$ и 
+        $$\exists\lambda\in \F: \ \phi(x) = \lambda \cdot x \eqno(1)$$
+        Где $\lambda$ - называется собственным значением оператора $\phi$, соответствующее вектору $x$.
+    \end{definition}
+    Пусть $\dim V = n$, $e$ - базис в $V$, в нём $\forall x = e\cdot X$, тогда равенство из вышеуказанного определения равносильно: 
+    $$A_{\phi}X = \lambda X \Longleftrightarrow (A_{\phi} - \lambda E)X = 0 \eqno(2)$$ - это СЛУ для нахождения вектора $x$, если известна $\lambda$.
+    Система (2) имеет ненулевое решение, только если:
+    $$\det (A_{\phi} - \lambda E) = 0 \eqno(3)$$
+    Равенство (3) называется характеристическим уравненением.
+    Собственными значениями могут быть только корни характеристического уравнения.
+    \begin{example} \tab
+        \begin{enumerate}
+            \item $V = D^{\infty}(\R)$ - множество бесконечно дифференцируемых функций.
+            $$\phi = \frac{d}{dx}, \ \forall f(x): \ \phi(f) = f'(x)$$ 
+            $$\forall\lambda\in\R: \ (e^{\lambda x})' = \lambda e^x$$
+            \begin{proof}
+                Если $f'(x) = \lambda \cdot f(x)$, то $f(x) = C \cdot e^{\lambda x}$, где $C\neq0$.
+                Рассмотрим $(f(x)e^{-\lambda x})' = f'(x)e^{-\lambda x} - \lambda f(x)e^{-\lambda x} = 0 \Longrightarrow f(x)e^{-\lambda x} = C$.
+            \end{proof}
+            \item $$A_{\phi} = \begin{pmatrix}
+            \cos\phi & -\sin\phi\\
+            \sin\phi & \cos\phi
+            \end{pmatrix}$$
+        \end{enumerate}
+    \end{example}
+    \begin{exercise}
+        Какие существуют собственные векторы и собственные значения у $\phi$ во втором примере?
+    \end{exercise}
+    \begin{definition}
+        $$\chi_A(\lambda) = |A - \lambda E| = 
+        \begin{vmatrix}
+            a_{11} - \lambda & a_{12} & \cdots & a_{1n}\\
+            a_{21} & a_{22} - \lambda & \cdots & a_{2n}\\
+            \vdots & \vdots & \cdots & \vdots \\
+            a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda
+        \end{vmatrix}= $$ 
+         $$=(a_{11}-\lambda)\cdot(a_{11}-\lambda)\cdots(a_{11}-\lambda)+\cdots = (-\lambda)^n+(a_{11}+ ... + a_{nn})(-\lambda)^{n-1}+...+\det A$$
+         $\chi_A(\lambda)$ - характеристический многочлен матрицы $A$
+    \end{definition}
+    \begin{subtheorem}\textbf{(1)} \ 
+        $\chi_A(\lambda)$ - не зависит от базиса. 
+    \end{subtheorem}
+    \begin{proof}
+        В новом базисе: $A'_\phi = C^{-1}\cdot A_\phi\cdot C$
+        $$\chi_{A'_\phi}(\lambda) = \det (C^{-1} A_\phi C - \lambda E) = \det (C^{-1} (A_\phi - \lambda E)  C) = \det (A_\phi - \lambda E)$$ 
+    \end{proof}
+    \begin{definition}
+        Вместо $\chi_{A_\phi}(\lambda) = \chi_\phi(\lambda)$ и называется характеристическим многочленом оператора $\phi$
+    \end{definition}  

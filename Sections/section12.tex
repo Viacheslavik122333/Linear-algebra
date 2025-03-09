@@ -1,2 +1,201 @@
-\section{Линейные отображения и их матрицы}
-    Пусть $V_1, V_2$ - векторные пространства, $\phi: V_1 \rightarrow V_2$ - линейное отображение.
+\section{Диагонализируемость}
+    Пусть $\phi: \ V \to V$ - линейный оператор
+    \begin{lemma}
+        Если $a_1,...,a_m \in V$ - собственные векторы оператора $\phi$ с собственным значение $\lambda_1,...,\lambda_m$, причем $\forall i \neq j: \ \lambda_i \neq \lambda_j$, то $a_1,...,a_m$     
+    \end{lemma}
+    \begin{proof} \tab
+        \begin{itemize}
+            \item[$m=1:$] Один вектор $a_1 \neq 0$ ЛНЗ
+            \item[$m>1:$]  Предположение индукции: Любые $m-1$ вектор, отвечающих попарно различные собственные значения - ЛНЗ\\
+            Запишем: $a_1\alpha_1 + ... + a_{m-1}\alpha_{m-1} + a_m \alpha_m = 0$ \\
+            Подействуем оператором $\phi: a_1 \lambda_1\alpha_1 + ... + a_{m-1} \lambda_{m-1}\alpha_{m-1} + a_m  \lambda_m\alpha_m = 0 \Longrightarrow$
+            $$a_1 (\lambda_1 - \lambda_m)\alpha_1 + ... + a_{m-1} (\lambda_{m-1} - \lambda_m)\alpha_{m-1} = 0$$ 
+            По предположению индукции $\forall i = 1,...,m_1: \ \alpha_i(\lambda_i - \lambda_m)= 0 \Longrightarrow \alpha_i = 0$\\
+            Остается $\alpha_ma_m = 0 \Longrightarrow \alpha_m = 0$ 
+        \end{itemize}
+    \end{proof}
+    \begin{consequense}
+        Если $\phi$ имеет $n$ попарно различных совственных значений\\ $(\dim V = n)$, то соответствующее собственные векторы, взятые по одному для каждого собственного значения, образуют базис в $V$ (Базис из собственных векторов или собственный базис).
+    \end{consequense}
+    \textbf{Вид матрицы $A_\phi$ в базисе из собственных векторов:}\\
+    Обозначаем базис $\{e_1,...,e_n\} \in V$, \ $\phi(e_j) = \lambda_j e_j, \ j = \overline{1,n}$  \\
+    $\forall x \in V: \ \phi(x) = A_{\phi,e}\cdot X_e$. Столбец вектора $\phi(e_1) = \left(\begin{smallmatrix}
+        \lambda_1 \\ 0 \\ \vdots \\ 0
+    \end{smallmatrix}\right), \ \phi(e_2) = \left(\begin{smallmatrix}
+        0 \\ \lambda_2 \\ \vdots \\ 0
+    \end{smallmatrix}\right)$,...
+    $$A_{\phi, e} = \begin{pmatrix}
+        \lambda_1 & \null & \null & \null \\
+        \null & \lambda_2 & \null & \null \\
+        \null & \null & \ddots & \null\\
+        \null & \null & \null & \lambda_n
+    \end{pmatrix}$$
+    - диагональная, причем на диагонале находятся собственные значения с учетом нумерации векторов
+    \subsection{Собственное подпространство линейного оператора, заданного собственным значением}
+    Фиксируем собственное значение $\lambda_0 \in \F$ так, что $\exists \ v \in V, v \neq 0: \ \phi(v) = \lambda_0 v$\\
+    Обозначается: $V_{\lambda_0} = \{v \in V \ | \ \phi(v) = \lambda_0 V\}$
+    \begin{subtheorem} \textbf{(1)} 
+        $V_{\lambda_0}$ - подпространство в $V, \ V_{\lambda_0} = \text{Ker} \hspace{0.09cm} (\phi - \lambda_0 \cdot \id)$
+    \end{subtheorem}
+    Если $A_\phi$ - матрица оператора $\phi$, то в координатах $V_{\lambda_0}$ - множество всех решений СЛУ.
+    $$(A_\phi - \lambda_0 E) \cdot X=0 \Longrightarrow \dim V_{\lambda_0} = n - \text{rk} \hspace{0.09cm} (A_\phi - \lambda_0E)$$    
+    \begin{definition} $\\$ 
+        $\dim V_{\lambda_0}$ - геометрическая кратность характеристического корня $\lambda = \lambda_0$. Имеет смысл и алгебраическая кратность $\lambda_0$ характеристического корня $\chi_\phi(\lambda):$
+        $$\chi_\phi(\lambda) = (\lambda_0-\lambda)^kp(\lambda_0), \ P(\lambda_0)\neq 0, \ k - \text{алгебраическая кратность}$$
+    \end{definition}
+    \begin{lemma}
+        Для любого собственного значения $\lambda_0$ оператора $\phi: \\  
+        \tab[4.5cm] \dim V_{\lambda_0} \leq $ алгебраическая кратность корня $\lambda = \lambda_0$ в $\chi_\phi(\lambda)$   
+    \end{lemma}
+    \begin{proof}
+        Пусть $\dim V_{\lambda_0} = m \leq n$, выберем базис в $V_{\lambda_0}: \ \{e_1,...,e_m\}$ и проихвольно дополним его до базиса в $V$ (при m<n) векторами $e_{m+1},...,e_n \Longrightarrow$
+        $$A_{\phi,e} = \begin{pmatrix}
+            \lambda_1 & \null & 0 & \vline & \null \\
+            \null & \ddots & \null & \vline & C \\
+            0 & \null & \lambda_m & \vline & \null \\
+            \hline
+            \null & 0 & \null & \vline & B
+        \end{pmatrix} \Longrightarrow $$
+        $$|A_{\phi,e} - \lambda E| = \begin{pmatrix}
+            (\lambda_1 - \lambda) & \null & 0 & \vline & \null \\
+            \null & \ddots & \null & \vline & C \\
+            0 & \null & (\lambda_m - \lambda) & \vline & \null \\
+            \hline
+            \null & 0 & \null & \vline & B - \lambda E
+        \end{pmatrix} = (\lambda_0-\lambda)^m\cdot |B-\lambda E|=0$$
+        Не исключено, что $\lambda = \lambda_0$ - корень уравнения $|B-\lambda E| =0 $       
+    \end{proof} 
+    \begin{remark}
+        Любое собственное подпространство $V_{\lambda_0}$ является $\phi$ - инвариантным:
+        $$\forall v \in V_{\lambda_0}: \ \phi(v) = w: \ \phi(w) = \phi(\phi(v)) = \lambda_0 \phi(v) = \lambda_0 w$$
+        Либо $w=0$, либо является собственным вектором.   
+    \end{remark}
+    \begin{consequense} \textbf{2 из Леммы о ЛНЗ:} \\
+        Пусть $\lambda_1,...,\lambda_r$ - все попарно различные собственные значения оператора $\phi$, тогда $V_{\lambda_1} + ... + V_{\lambda_r}$ - является прямой суммой, т.е.:
+        $$\forall i = 1,...,n: \  V_{\lambda_i} \cap (\sum \limits_{j\neq i}V_{\lambda_j}) = \{0\}$$   
+    \end{consequense}
+    \begin{proof}
+        Допустим, что $\exists \ w \in V_{\lambda_i} \cap (\sum \limits_{j\neq i}V_{\lambda_j})$, тогда: 
+        $$w = v_i = \sum \limits_{j\neq i}v_j \Longrightarrow (\sum \limits_{j\neq i}v_j) - v_i = 0$$
+        Где $(\sum \limits_{j\neq i}v_j)$ - попарно различные собственные значения, т.е. либо $0$, либо противоречие с ЛНЗ $\Longrightarrow v_i = w = 0$    
+    \end{proof}
+    Скажем, что $\phi$ (или его матрица) приводится к диагональному виду (т.е. диагонализируема), если в $V \ \exists$ базис, в котором $A_\phi$ диагональна.
+    \begin{theorem}
+        Для линейного оператора $\phi: \ V \to V (\dim V < \infty)$ следующие условия эквивалентны:
+        \begin{enumerate}
+            \item $A_\phi$ - диагонализируема
+            \item В $V \ \exists$ базис из собственных векторов
+            \item Вся характеристические корни принадлежат $\F$ и $\forall i = 1,...,r:$
+            $$\dim V_{\lambda_i} = \text{алгебраической кратности корня } \lambda_i$$
+            \item $V = V_{\lambda_1} \oplus ... \oplus V_{\lambda_r}$ 
+        \end{enumerate}
+    \end{theorem}
+    \begin{proof} \tab
+        \begin{itemize}
+            \item[$\underline{1 \Rightarrow  2}:$] Если $A_\phi = \left(\begin{smallmatrix}
+                \lambda_1 & \null & 0 \\
+                \null & \ddots & \null \\
+                0 & \null & \lambda_n
+            \end{smallmatrix}\right)$, это значит, что: 
+            $$\phi(e_j)^\uparrow = \left(\begin{smallmatrix}
+                \lambda_1 & \null & 0 \\
+                \null & \ddots & \null \\
+                0 & \null & \lambda_n
+            \end{smallmatrix}\right) \cdot \left(\begin{smallmatrix}
+                0 \\
+                \vdots \\
+                1 \\
+                \vdots \\
+                0
+            \end{smallmatrix}\right) = \left(\begin{smallmatrix}
+                0 \\
+                \vdots \\
+                \lambda_j \\
+                \vdots \\
+                0
+            \end{smallmatrix}\right)$$ $\Longrightarrow \phi(e_j) = \lambda_j e_j$, т.е. $e_j$ - собственный вектор с собственным значеним $\lambda_j$    
+
+            \item[$\underline{2 \Rightarrow  1}:$] В базисе из собственных векторов марица $A_\phi$ диагональна
+            
+            \item[$\underline{1 \cup 2 \Rightarrow  3}:$] Выберем базис из собственных векторов $\{f_1,....,f_n\}$ так, чтобы: 
+            $$\{f_1,...,f_{m_1},f_{m_1+1},...,f_{m_1+m_2},...\}$$
+            В этом базисе матрица $A_{\phi, f}$ выглядит:
+            \setcounter{MaxMatrixCols}{20}
+            $$\left(\begin{smallmatrix}
+                \lambda_1\\
+                \null & \ddots \\
+                \null & \null & \lambda_1 \\
+                \null & \null & \null & \lambda_2 \\
+                \null & \null & \null & \null & \ddots \\
+                \null & \null & \null & \null & \null & \lambda_2 \\
+                \null & \null & \null & \null & \null & \null & \ddots \\
+                \null & \null & \null & \null & \null & \null & \null & \lambda_r \\
+                \null & \null & \null & \null & \null & \null & \null & \null & \null & \ddots \\
+                \undermat{m_1}{\null & \null & \null} & \null& \undermat{m_2}{\null & \null & \null} & \null & \undermat{m_r}{\null & \null & \lambda_r} \\
+            \end{smallmatrix}\right) \vspace{0.7cm} $$ 
+            $\Longrightarrow m_1+...+m_r = n$. С другой стороны, если $k_i$ - алгебраическая кратность корня $\lambda_i$, то:
+            $$n = \sum \limits_{i=1}^nm_i \leq \sum \limits_{i=1}^rk_i = \deg [\chi_\phi(\lambda)] = n$$
+            \item[$\underline{3 \Rightarrow 4}:$] $\sum \limits_{i=1}^r\dim V_{\lambda_i} = n \Longrightarrow V = V_{\lambda_1} \oplus ... \oplus V_{\lambda_r}$
+
+            \item[$\underline{4 \Rightarrow  1}:$] Базис в $V$ - объединение базисов слагаемых 
+        \end{itemize}
+    \end{proof}
+    
+    
+
+    \textbf{Существование двумерного инварантного подпространства для линейного оператора над $\R$, отвечающего мнимому корню характеристического многочлена.}
+    
+    Пусть $\phi: \ V \to V$ - линейный оператор, $\dim V = n$, тогда в некотором базисе $V$, $\phi$ действует матрицей $Y = A_{\phi}\cdot X$, где $X\in \R^n$, а $Y$ - столбец образа этого вектора ($y = \phi(x)$). Пусть $\lambda = \alpha+i\beta$ ($\beta\neq0$) - корень характеристического многочлена.
+
+    Рассмотрим линейный оператор над полем $\mathbb{C}$, действующий при той же матрице: 
+    $$A_{\phi} : \forall Z\in \mathbb{C}^n, \  Z \to A_{\phi}\cdot Z$$
+    Cоответствующий оператор будем обозначать той же буквой. 
+    Так как $\mathbb{C}$ алгебраически замкнуто, то $\exists$ собственный вектор $Z_0$, отвечающий выбранному $\lambda$. Это значит, что: 
+    $$A_{\phi}Z_{0} = \lambda Z_{0}, \ Z_{0} = X_{0}+iY_{0}, \ \text{где } X_0, Y_0 \in \R^n$$
+    \begin{multline*}
+        \Longrightarrow A_{\phi}Z_0 = A_{\phi}X_0+iA_{\phi}Y_0 = (\alpha+i\beta)(X_0 + iY_0) = \\
+        \tab[2cm]= (\alpha X_0 - \beta Y_0)+i(\beta X_0 + \alpha Y_0) \Longrightarrow \\
+        \Longrightarrow 
+        \begin{cases}
+            A_{\phi}X_0 = \alpha X_0-\beta Y_0\\
+            A_{\phi}Y_0 = \beta X_0+\alpha Y_0
+        \end{cases}
+    \end{multline*}
+    Обозначим $x_0$ и $y_0 \in V$ векторы со столбцами координат $X_0$ и $Y_0$ соответственно, тогда:
+    $$\begin{cases}
+    \phi(x_0) = \alpha x_0-\beta y_0 \\
+    \phi(y_0) = \beta x_0+\alpha y_0
+    \end{cases} \Longrightarrow \text{ подпространство } U:= \langle x_0,y_0 \rangle \subset V$$ 
+    $\Longrightarrow U$ является инвариантным подпространством для $\phi$. \\
+    Теперь докажем, что $\dim U = 2$
+    \begin{proof}
+        Предположим, что $\dim U = 1$, то есть $y_0 = \mu x_0$, где $\mu\in\R$. Тогда $\phi(x_0) = (\alpha-\beta\mu)x_0$ $\Longrightarrow$ если $x_0\neq0$, то $x_0$ - собственный вектор для $\phi$ (для $y_0$ аналогично). Но эти векторы не были собственными для $\phi$.
+        $$A_{\phi|_U} = \begin{pmatrix}
+        \alpha & \beta\\
+        -\beta & \alpha
+        \end{pmatrix} \text{имеет корни} \alpha\pm i\beta\notin\R - \text{противоречие}$$
+    \end{proof}
+    \begin{theorem}
+        Любой линейный оператор в конечномерном вещественном векторным пространстве имеет одномерное или двумерное подпространство.
+    \end{theorem}
+    \begin{proof}
+        Если $\exists \ \lambda\in\R$ - корень характерического многочлена, ему отвечает собственный вектор $u_i\in V$, \ $u_i\neq0$, $\Longrightarrow$ $\langle u_i \rangle$ - одномерное инвариантное подпространство. $\\$
+        Если $\forall\lambda \in \mathbb{C}\setminus\R$, то $\exists \ U$ - двумерное инвариантное подпространство.
+    \end{proof}
+    Вместо диаганализируемости можно использовать следующее утверждение:
+    $$A'_{\phi} = \left(\begin{smallmatrix}
+    \lambda_1\\
+    \null & \ddots\\
+    \null & \null & \lambda_r\\
+    \null & \null & \null & \alpha_1 & \beta_1\\
+    \null & \null & \null & -\beta_1 & \alpha_1\\
+    \null & \null & \null & \null & \null & \ddots\\
+    \null & \null & \null & \null & \null & \null & \alpha_m & \beta_m\\
+    \null & \null & \null & \null & \null & \null & -\beta_m & \alpha_m
+    \end{smallmatrix}\right)$$
+    где $\lambda_i\in\R$, \ $i = \overline{1,r}$, \ а $\beta_j \neq 0$, \ $j = \overline{1,m}$
+
+     
+    
+
+      
