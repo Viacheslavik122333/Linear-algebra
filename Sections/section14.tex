@@ -13,7 +13,34 @@
     $$q_i(\phi)q_j(\phi) = 0$$
     Умножим равентсво $\text{id} = Q_1+...+Q_i+...+Q_s$ на $Q_i:$ $$\Longrightarrow \text{id}Q_i = Q_i = Q_iQ_1+...+Q_iQ_i+...=Q_iQ_s \Longrightarrow Q_i^2 = Q_i$$
     \begin{definition}
-        $Q_i^2 = Q_i$ - нидемпотентный оператор
+        $Q_i^2 = Q_i$ - идемпотентный оператор
     \end{definition}  
     Разложение $\forall$ вектора $x$ в сумму: $Q_1(x) + ... + Q_s(x)$ - единстванно\\
-    Докажем равенство: $x = y_1+ ... + y_s$, надо доказать, что $y_i = x_i$       
+    Докажем равенство: $x = y_1+ ... + y_s$, надо доказать, что $y_i = x_i$
+    Из равенства $x = Q_1(x_1) + ... + Q_s(x_s) \Longrightarrow Q_i(x) = Q_i(Q_i(x)) = Q_i(x_i) \Longrightarrow x_i = y_i$, где $y_i \in \text{Im}Q_i$
+    
+    Введем обозначение $K_i = \text{Im}Q_i$
+    
+    Докажем, что $V = K_1 \oplus ... \oplus K_s$
+    
+    \begin{definition}
+        Подпространство $K_i = \text{Im} Q_i$ назовем корневым подпространством, отвечающим корню $\lambda_i$
+    \end{definition}
+    $q_i(\lambda) = \frac{f_i(\lambda)\cdot \chi_\phi(\lambda)}{(\lambda-\lambda_i)^{k_i}}$ 
+    \begin{subtheorem}\tab
+        \begin{enumerate}
+            \item Корневые подпространства инвариантны
+            \item $K_i = \text{Ker} (\phi - \lambda_i\cdot \text{id})^{k_i}, \ 1\leq i \leq s$ 
+        \end{enumerate}
+    \end{subtheorem}
+    \begin{proof}\tab 
+        \begin{enumerate}
+            \item Для линейного оператора $\phi$ и линейного $q(\lambda)$ подпространство $q(\phi)(V)$ инвариантно
+            $$q(\lambda) = a_0+ a_1 \lambda + ... + a_m \lambda^m, \ \ q(\phi) = a_0+ a_1 \phi + ... + a_m \phi^m$$
+            Возьмем $v = \text{Im}q(v) \Longrightarrow \exists \ u \in V: \ v = q(\phi)(u) \Longrightarrow \phi(v) = (\phi \cdot q(\phi))(u) = q(\phi)(\phi(u)) \in \text{Im}q(u)$
+            Оператор $\phi$ и любой $q(\phi)$ перестановочны
+            \item $\forall x_i \in \text{Im}Q_i \Longrightarrow x_i = Q_i(u_i)$
+            $$(\phi-\lambda_i \cdot \text{id})^{k_i} = \underbrace{(\phi-\lambda_i \cdot \text{id})^{k_i} \cdot \prod\limits_{j \neq i}(\phi-\lambda_j E)^{k_j}}_{\chi_\phi(\phi)}(u_i) = 0$$
+            $\Longrightarrow K_i \subseteq \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$     
+        \end{enumerate}
+    \end{proof} 
