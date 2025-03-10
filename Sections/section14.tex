@@ -1,2 +1,19 @@
-\section{Диагонализируемость}
-    
+\section{хуйхуйхуй}
+\section{Корневые подпространства}
+    $\phi:\ V \to V$ - линейный оператор над $\F, \ \dim V = n$\\
+    Все корни характеристического многочлена для $\phi$ принадлежат $F$ так, что:
+    $$\chi_\phi(\lambda) = (-1)^n(\lambda-\lambda_1)^{k_1} \cdots (\psi - \psi_s), \ (\lambda-\lambda_)^{k_s}, \ \forall i \neq j: \  \lambda_i \neq \lambda_j, \ \sum \limits_{i=1}^sk_i = n$$
+    Рассмотрим: 
+    $$\frac{1}{\chi_\phi(\lambda)} = \frac{f_1(\lambda)}{(\lambda-\lambda_1)^{k_1}} + ... + \frac{f_s(\lambda)}{(\lambda-\lambda_s)^{k_s}} \ \ | \cdot \chi_\phi(\lambda)$$ $$\Longrightarrow 1 = f_1 (\lambda) \prod\limits_{i\neq 1}(\lambda-\lambda_i)^{k_i} + ... + f_s (\lambda) \prod\limits_{i\neq s}(\lambda-\lambda_i)^{k_i}$$
+    $$1= q_1(\lambda) + ... + q_s(\lambda) \Longrightarrow  \text{id} = q_1(\lambda) + ... + q_s(\lambda) = Q_1 + ... + Q_s$$
+    $$\forall x \in V: \ Q_1(x) + ... + Q_s(x) \Longrightarrow V = \text{id} Q_1 + ... + Q_s$$
+    Обратим внимание, что:
+    $$\forall i \neq j: \ Q_iQ_j = Q_jQ_i = 0$$
+    Т.к. в $q_i(\lambda)q_j(\lambda)$ входят все множители, входящие в разложение $\chi_\phi(\lambda) \Longrightarrow $ по теореме Гамильтона-Кэли: 
+    $$q_i(\phi)q_j(\phi) = 0$$
+    Умножим равентсво $\text{id} = Q_1+...+Q_i+...+Q_s$ на $Q_i:$ $$\Longrightarrow \text{id}Q_i = Q_i = Q_iQ_1+...+Q_iQ_i+...=Q_iQ_s \Longrightarrow Q_i^2 = Q_i$$
+    \begin{definition}
+        $Q_i^2 = Q_i$ - нидемпотентный оператор
+    \end{definition}  
+    Разложение $\forall$ вектора $x$ в сумму: $Q_1(x) + ... + Q_s(x)$ - единстванно\\
+    Докажем равенство: $x = y_1+ ... + y_s$, надо доказать, что $y_i = x_i$       

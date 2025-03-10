@@ -18,10 +18,10 @@
     \begin{proof}
         $\dim L(V) = n^2, \ L(V) \cong M_n(\F) \Longrightarrow$ операторы \\ \{$Id, \ \phi, \ \phi^2, \ \ldots, \ \phi^{n^2}$\} - линейно зависимы, так как их больше $n^2$ $\Longrightarrow$
         $$\exists \ a_0,...,a_{n^2} \in \F: \ a_0 \cdot \text{id}+a_1\phi+\ldots+a_{n^2}\phi^{n^2} = 0$$ 
-        $\Longrightarrow$ $a_0+a_1t+\ldots+a_{n^2}t^{n^2}$ - многочлен анулирующий многочлен для $\phi$
+        $\Longrightarrow$ $a_0+a_1t+\ldots+a_{n^2}t^{n^2}$ - анулирующий многочлен для $\phi$
     \end{proof}
     \begin{definition}
-        Могочленной матрицей (матричным многочленом) называется матрица $P = (P_{ij}(\lambda))$, где $P_{ij}(\lambda)$ - многочлены над полем, над которым задано векторное пространство.
+        Многочленной матрицей (матричным многочленом) называется матрица $P = (P_{ij}(\lambda))$, где $P_{ij}(\lambda)$ - многочлены над полем, над которым задано векторное пространство.
     \end{definition}
     \begin{example1}
         $$P = \begin{pmatrix}
@@ -70,15 +70,6 @@
             = AD_0+\sum\limits_{j=1}^{n-1}(AD_j-D_{j-1})\lambda^j-D_{n-1}\lambda^n = \chi_A(\lambda)E = (\sum\limits_{j=0}^{n}p_j\lambda^j)E
         \end{multline*}
         Приравняем матричные коэффициенты при соответствующих степенях $\lambda$:
-
-        % $\lambda^0:$    $E\cdot$ $\vline AD_0 = p_0E$\\
-        % $\lambda^1:$    $A\cdot$ $\vline AD_1-D_0 = p_1E\\
-        % \vdots$          $\vline\\
-        % \lambda^j:$    $A^j\cdot$ $\vline AD_j -D_{j-1}= p_jE\\
-        % \lambda^{j+1}:$ $A^{j+1}\cdot$ $\vline AD_{j+1} -D_{j}= p_{j+1}E\\
-        % \vdots$                $\vline\\
-        % \lambda^n:$    $A^n\cdot$ $\vline -D_{n-1} = p_nE$\\
-
         $$\begin{matrix}
             E \cdot & \vline & \lambda^0: & AD_0 = P_0E \\
             A \cdot & \vline & \lambda^1: & AD_1 - D_0 = P_1E \\
@@ -90,8 +81,90 @@
         Домножим равенства с любой стороны на соответствующие степени $A$ и сложим:
         $$\Longrightarrow \chi_A(A)E = 0$$
     \end{proof}
+    \subsection{Минимальный анулирующий многочлен линейного оператора}
+    \begin{definition}
+        Минимальным анулирующим многочленом линейного оператора $\phi: \ V \to V$ - это анулирующий многочлен минимальной степени, анулирующий $\phi$\\
+        Обозначается: $\mu_\phi(\lambda)$ \ (Зачастую его выбирают со старшим коэффициентом $= 1$)\\
+        Ясно, что: 
+        $$m = \deg \mu_\phi(\lambda) \leq n \leq \deg \chi_\phi(\lambda)$$  
+    \end{definition}
+    \begin{theorem} \tab
+        \begin{enumerate}
+            \item $\mu_\phi(\lambda)$ делит анулирующий многочлен оператора $\phi$ (в частности $\chi_\phi(\lambda)$)
+            \item Если $\mu_\phi(\lambda)$ - тоже минимальный многочлен $\phi$, то: 
+            $$\mu'_\phi(\lambda) = \alpha \mu_\phi(\lambda), \ \alpha \neq 0$$ 
+            Он определен единственным образом с условием, что страший коэффициент $ = 1$
+            \item Если все корни $\lambda_i$ характеристического многочлена принадлежат $\F$, то они являются и корнями минимального многочлена
+        \end{enumerate}
+    \end{theorem}
+    \begin{proof} \tab 
+        \begin{enumerate}
+            \item Пусть $p(\phi) =0$, для некоторого $p(\lambda) \in \F[\lambda]$\\
+            Разделим $p$ с остатком на $\mu_\phi$:
+            $$p(\lambda) = \mu_\phi(\lambda) \cdot p(\phi) + r(\phi) \Longrightarrow r(\phi) = 0$$
+            $\Longrightarrow  \deg \mu_\phi(\lambda) = min \Longrightarrow r(\lambda) = 0$
+
+            \item Т.к. $\mu_\phi(\lambda) \ | \ \mu'_\phi(\lambda)$ и $\mu'_\phi(\lambda) \ | \ \mu_\phi(\lambda) \Longrightarrow \frac{\mu'_\phi}{\mu_\phi} = \alpha \in \F^* = \F\backslash \{0\}$\\
+            Если $\mu_\phi(\lambda) = \lambda^m + ... $ и $\mu'_\phi(\lambda) = \lambda^m + ... \Longrightarrow \alpha = 1$
+            \item Допустим, что $\exists j: \ \mu_\phi(\lambda_j) \neq 0$, т.е. в разложение $\mu_\phi$ не входит $(\lambda - \lambda_j) \\ 
+            \Longrightarrow \exists \text{ вектор } v \in V: \ \phi(v) = \lambda_jr$
+            $$0 = \mu_\phi(\lambda)(v) = \prod\limits_{i\neq j}(\phi-\lambda_i)(v) \neq 0$$ 
+            - противоречие             
+        \end{enumerate}
+    \end{proof}
+    \begin{example}\tab
+        \begin{enumerate}
+            \item $$A_\phi = \begin{pmatrix}
+                2 & 1 & 0 \\
+                0 & 2 & 1 \\
+                0 & 0 & 2 
+            \end{pmatrix}, \ \chi_\phi(\lambda) = (2-\lambda)^3 $$
+            $$A_\phi - 2E = \begin{pmatrix}
+                0 & 1 & 0 \\
+                0 & 0 & 1 \\
+                0 & 0 & 0 
+            \end{pmatrix}, \ (A - 2E)^2 \neq 0, \ (A - 2E)^3 = 0 \Longrightarrow \mu_\phi = - \chi_\phi$$
+            \item $$A_\phi = \begin{pmatrix}
+                2 & 0 & 0 \\
+                0 & 2 & 0 \\
+                0 & 0 & 1 
+            \end{pmatrix}, \ \chi_\phi = (2-\lambda)^2 (1-\lambda)$$
+            $$(A_\phi - 2E)(A_\phi - E) = \begin{pmatrix}
+                0 & 0 & 0 \\
+                0 & 0 & 0 \\
+                0 & 0 & -1 
+            \end{pmatrix} \cdot \begin{pmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 0 
+            \end{pmatrix} = 0 \Longrightarrow \mu_\phi(\lambda) = (\lambda-2)(\lambda-1)$$   
+        \end{enumerate}
+    \end{example}
+    \textit{Вопросы:}
+    \begin{enumerate}
+        \item Для каких операторов $\phi$ (или $A_\phi$) $\chi_\phi(\lambda) = \pm \mu_\phi(\lambda)$?
+        \item Для каких $\phi$ корни $\mu_\phi(\lambda)$ простые?   
+    \end{enumerate}
+    \begin{definition}
+        Оператор $\phi$ нильпотентный, если:
+        $$\exists \ L \in \N: \ \phi^L = 0$$
+        Если $L$ - минимальный с этим условием, то $L$ - индекс нильпотентности    
+    \end{definition}
+    \begin{example1}
+        $D = \frac{d}{dt}$ в пространстве $\R[t]_n$, то $D^{n+1} = 0$   
+    \end{example1}
+    \begin{subtheorem}
+        Все собственные значения нильпотельного оператора $= 0$
+    \end{subtheorem} 
+    \begin{proof}
+        Если $v \neq 0, \ \phi(v) = \lambda v:$
+        $$\Longrightarrow \phi^L = \lambda^Lv \neq 0 \Longrightarrow \lambda = 0 \Longrightarrow \chi_\phi(\lambda) = \pm \lambda^n$$
+    \end{proof}  
+    
 
 
-    \vspace{2cm}
-    Спасибо всем кто верил в меня, я все дописал, спасибо Ярику и Егору за помощь $\heartsuit$ \{может кто-то дочитает до сюда :) \}
+
+
+    % \vspace{2cm}
+    % Спасибо всем кто верил в меня, я все дописал, спасибо Ярику и Егору за помощь $\heartsuit$ \{может кто-то дочитает до сюда :) \}
     

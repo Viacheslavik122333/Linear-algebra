@@ -39,7 +39,7 @@
     \end{proof}
     \begin{remark}
         Для линейного оператора $\phi: \ V \to V:$ 
-        $$A_{\phi, \mathcal{E}'} = C^{-1}_{\mathcal{E} \to \mathcal{E}'} \cdot A_{\phi, \mathcal{E}'} \cdot C_{\mathcal{E} \to \mathcal{E}'}$$
+        $$A_{\phi, \mathcal{E}'} = C^{-1}_{\mathcal{E} \to \mathcal{E}'} \cdot A_{\phi, \mathcal{E}} \cdot C_{\mathcal{E} \to \mathcal{E}'}$$
     \end{remark}
     \begin{consequense}\tab
         \begin{enumerate}
@@ -53,7 +53,7 @@
             \item Т.к. матрицы $C$ и $D$ невырожденные, то при умножении на них ранг матрицы не изменяется.
             $$\begin{cases}
                 B = A \cdot C \Longrightarrow \text{rk} \hspace{0.09cm} B \leq \text{rk} \hspace{0.09cm} A\\
-                A = (A \cdot C) \cdot C^{-1} \Longrightarrow \text{rk} \hspace{0.09cm} a \leq \text{rk} \hspace{0.09cm} (AC)
+                A = (A \cdot C) \cdot C^{-1} \Longrightarrow \text{rk} \hspace{0.09cm} A \leq \text{rk} \hspace{0.09cm} (AC)
             \end{cases} \Longrightarrow \undermat{\text{rk} \hspace{0.09cm} (AC) = \text{rk} \hspace{0.09cm} A}{\text{rk} \hspace{0.09cm} (AC)\leq \text{rk} \hspace{0.09cm} A \leq \text{rk} \hspace{0.09cm} (AC)}$$
             \item Произведение определителей
             \item $\text{tr} \hspace{0.09cm} (AC) = \text{tr} \hspace{0.09cm}(CA) \Longrightarrow \text{tr} \hspace{0.09cm}\left[C^{-1} \cdot (AC)\right] = \text{tr} \hspace{0.09cm}\left[(AC)\cdot C^{-1}\right] = \text{tr} \hspace{0.09cm}A$    
@@ -64,7 +64,7 @@
     \end{theorem}
     \begin{proof} $\\$ 
         Пусть в некотором базисе $\mathcal{E}$ пространства $V_1$ вектор $a_j \sim a_j^\uparrow$ - столбец координат, в базисе $f$ пространства $V_2$ вектор $b_j \sim b_j^\uparrow$\\
-        По условию, $\forall j = 1,...,n: \ A_\phi \cdot a_j^\uparrow = b_j^\uparrow \Longrightarrow A_\phi(a_1s^\uparrow,...,a_n^\uparrow) = (b_a^\uparrow,...,b_n^\uparrow)$ или $A_\phi \cdot A = B$, где $A_\phi$ - искомая матрица.\\
+        По условию, $\forall j = 1,...,n: \ A_\phi \cdot a_j^\uparrow = b_j^\uparrow \Longrightarrow A_\phi(a_1^\uparrow,...,a_n^\uparrow) = (b_a^\uparrow,...,b_n^\uparrow)$ или $A_\phi \cdot A = B$, где $A_\phi$ - искомая матрица.\\
         Отсюда получаем, что $A_\phi = B \cdot A^{-1}$ (т.к. $a_1,...,a_n$ ЛНЗ).\vspace{0.5cm}
         $$\begin{pmatrix}
             A \\ \hline B
@@ -91,7 +91,7 @@
         Базис ядра дополним до базиса пространства $V_1$ векторами $e_1,...,e_s$. Тогда любой $v \in V_1$ можно записать в виде: $$v = \sum \limits_{i=1}^sx_ie_i + u, \text{где } u \in \text{Ker} \hspace{0.09cm}  \phi$$ 
         По этому в факторпространстве базис составляет классы $\overline{v} + u = \sum \limits_{i=1}^sx_i \overline{e_i}$\\
         Рассмотрим отношение $\overline{\phi}: \ V_1/u \to V_2$, где $\overline{\phi}(\overline{v}) = \overline{\phi}(v+u) := \phi(v)$\\
-        Отсюда $w = \overline{\phi}(\overline{v})$. Получаем, что $\phi$ - линейное отображение, cюръективное \\
-        (т.к. $\forall w \in V_2 \exists \ v \in V_1: \ \phi(v) = w$). Также $\text{Ker} \hspace{0.09cm}  \overline{\phi} = \{0\} = \{\text{Ker} \hspace{0.09cm} \phi\}$, потому что, если $\overline{\phi}(\overline{v}) = 0$, то $\phi(v) = 0$, т.е. $v \in \text{Ker} \hspace{0.09cm} \phi = u \Longrightarrow v \in U \Longrightarrow \overline{v} = u = \{0\}$     
+        Отсюда $w = \overline{\phi}(\overline{v})$. Получаем, что $\phi$ - cюръективное линейное отображение \\
+        (т.к. $\forall w \in V_2 \ \exists \ v \in V_1: \ \phi(v) = w$). Также $\text{Ker} \hspace{0.09cm}  \overline{\phi} = \{0\} = \{\text{Ker} \hspace{0.09cm} \phi\}$, потому что если $\overline{\phi}(\overline{v}) = 0$, то $\phi(v) = 0$, т.е. $v \in \text{Ker} \hspace{0.09cm} \phi = u \Longrightarrow v \in U \Longrightarrow \overline{v} = u = \{0\}$     
     \end{proof}
     

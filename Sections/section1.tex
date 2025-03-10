@@ -13,6 +13,23 @@
     \end{enumerate}
     \textit{Загадка:} Одна из этих аксиом - следствие других. Какая?
     (\textit{Примечание: скоро тут будет разгадка})
+    \begin{proof}
+      Cначала докажем два свойства.
+      \begin{enumerate}
+        \item $0\cdot\overline{a} = 0\cdot\overline{a}+\overline{0} = 0\cdot\overline{a}+(0\cdot\overline{a}+(-0\cdot\overline{a})) = (0\cdot\overline{a}+0\cdot\overline{a}) + (-0\cdot\overline{a})$ (по аксиоме ассоциативности) $= 0\cdot\overline{a}+(-0\cdot\overline{a}) = \overline{0}$
+        \item $(-1)\overline{a}+\overline{0} = (-1)\overline{a}+(\overline{a}+(-\overline{a})) = ((-1)\overline{a}+\overline{a})+(-\overline{a})$ (по аксиоме ассоциативности) $= 0\cdot\overline{a}+(-\overline{a}) = -\overline{a}$.
+      \end{enumerate}
+      Теперь докажем первую аксиому (аксиому коммутативности).
+      $$(\overline{a}+\overline{b})+\overline{0} = (\overline{a}+\overline{b})+(-(\overline{b}+\overline{a})+(-(-(\overline{b}+\overline{a}))) = $$
+      (по второму свойству) 
+      $$ = (\overline{a}+\overline{b})+(-(\overline{b}+\overline{a})+(\overline{b}+\overline{a})) = $$ 
+      (по аксиоме ассоциативности) 
+      $$=(\overline{a}+\overline{b}+(-(\overline{b}+\overline{a})))+(\overline{b}+\overline{a}) = (((\overline{a}+\overline{b})+(-(\overline{b})))+(-\overline{a}))+(\overline{b}+\overline{a}) = $$
+      $$= ((\overline{a}+(\overline{b}+(-(\overline{b}))))+(-\overline{a}))+(\overline{b}+\overline{a}) =
+      ((\overline{a}+\overline{0})+(-\overline{a}))+(\overline{b}+\overline{a}) =$$
+      $$(\overline{a}+(-\overline{a}))+(\overline{b}+\overline{a})
+      = \overline{0}+(\overline{b}+\overline{a}) = \overline{b}+\overline{a}$$
+    \end{proof} 
   \end{definition}
   \begin{definition}
     $U \subset  V$ - \textit{векторное подпространство} пространства $V$, если оно само является пространством относительно тех же операций в $V$. 

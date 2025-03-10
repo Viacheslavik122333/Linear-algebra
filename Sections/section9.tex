@@ -1,13 +1,13 @@
 \section{Линейные операторы}
     \begin{definition}
         Пусть $\phi: \ V \to V$ - линейный оператор. Тогда $\text{Ker} \hspace{0.09cm} \phi, \text{Im} \hspace{0.09cm} \phi$ - подпространства в $V$. Ясно, что, если $U \subset V$, то $\phi(U)$ - подпространство в $V$.\\
-        Подпространство $U \subset V$ называется инвариантом относительно $\phi$ ($\phi$ - инвариантное), если: 
+        Подпространство $U \subset V$ называется инвариантным относительно $\phi$ ($\phi$ - инвариантным), если: 
         $$\forall u \in U: \ \phi(u) \in U, \text{ т.е. }\phi(U) \subseteq U$$   
     \end{definition}
     \begin{example}\tab
         \begin{enumerate}
-            \item Пусть $V = U \oplus W$. Рассмотрим $\phi: \ V \to W$. Пусть $\phi(u + w) = u$ - проекция $V$ на $U$ вдоль $W$. Тогда $U$ и $W$ - $\phi$ инвариантное продрпостранства и $\forall u \in U: \ \phi(u) = u$, а также $\forall w \in W: \ \phi(w) = w$. Итак: $U \cong V/W$
-            \item Пусть $V = \R[t], \ \phi = \frac{d(...)}{dt}$ и $p(t) \to p'(t)$. Здесь инвариантом является подпространства $\R[t]_n \supset \R[t]_{n-1}, \ n \in \N \cup \{0\}$               
+            \item Пусть $V = U \oplus W$. Рассмотрим $\phi: \ V \to W$. Пусть $\phi(u + w) = u$ - проекция $V$ на $U$ вдоль $W$. Тогда $U$ и $W$ - $\phi$ инвариантные продрпостранства и $\forall u \in U: \ \phi(u) = u$, а также $\forall w \in W: \ \phi(w) = w$. Итак: $U \cong V/W$
+            \item Пусть $V = \R[t], \ \phi = \frac{d(...)}{dt}$ и $p(t) \to p'(t)$. Здесь инвариантным является подпространство $\R[t]_n \supset \R[t]_{n-1}, \ n \in \N \cup \{0\}$               
         \end{enumerate}
     \end{example}
     \begin{theorem}
@@ -15,16 +15,16 @@
         $$A_\phi = \begin{pmatrix}
             B & \vline & D \\ \hline 0 & \vline & C
         \end{pmatrix}$$
-        Где $B$ и $C$ - квадраные: \ $B_{m \times m}, \ m = \dim U$   
+        Где $B$ и $C$ - квадратные: \ $B_{m \times m}, \ m = \dim U$   
     \end{theorem}
     \begin{proof}
         Выберем базис $e_1,...,e_m$ в $U$ и дополним до базиса в $V$. Тогда в полученном базисе $A_\phi$ имеет нужный вид. 
     \end{proof}
     \begin{remark}
-        Пусть $U \in V$ - инвариантные подпространства для линейного оператора $\phi: \ V \to V$.\\
+        Пусть $U \in V$ - инвариантное подпространство для линейного оператора $\phi: \ V \to V$\\
         Ограничение $\phi$ на подпространство $U$: 
         $$\phi \hspace{0.05cm} |_u : \ U \to U; \ \  \forall u \in U: \ \phi \hspace{0.05cm} |_u (u) = \phi(u)$$
-        Рассмоттрим фактор-пространтсво: $$\overline{V} = V/U : \ \{v + u \ | \ u \in U\}$$
+        Рассмоттрим факторпространтсво: $$\overline{V} = V/U : \ \{v + u \ | \ u \in U\}$$
         и фактор-оператор: 
         $$\overline{\phi}(\overline{v}):=\overline{\phi(v)}$$
         $\forall v' \in \overline{V}: \ v' = v + u, \ u \in U \Longrightarrow \phi(\overline{v}) = \phi(v) + \phi(u) \in U \Longrightarrow \phi(\overline{v}) = \phi(v)$\\
