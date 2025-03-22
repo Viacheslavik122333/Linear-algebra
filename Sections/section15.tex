@@ -114,6 +114,166 @@
     \begin{lemma}
         Путсь $U$ - циклическое подпространство, порожденное корневым вектором $e$ высоты $m$. Тогда $\forall y \in U$ представляется в виде:
         $$y = f(B)e, \ \text{где } f(t) - \text{минимальной степени } \leq n-1$$     
-    \end{lemma} 
-   
+    \end{lemma}
+    \begin{lemma}
+        Если $U = \langle e, \ Be,\ ...,B^{m-1}e \rangle$, то:
+        $$\forall y \in U \ \exists \ f(t) \in F[t]: \ y = f(B)e, \ \deg f \leq m-1$$
+        Если $f(0) \neq 0$, то высота $y = m$, то есть $y$ пораждает то же самое циклическое подпространство.     
+    \end{lemma}
+    \begin{proof}
+        Пусть $B: \ V \to V$ - нильпотентный оператор, \\ $\dim V = n, \ W - (n-1)$-мерное подпространство, содержащее $\text{Im}B$.\\ Предположение индукции: $W = U_1 \oplus ... \oplus U_r$, т.е. $\forall w \in W$:
+        $$w = u_1+... +u_r, \ U_i = \langle e_1, \ Be_i,... \rangle$$
+        Выбераем вектор $e \in V\setminus W$, тогда $e$ ЛНЗ с векторами из $W$.\\
+        Рассмотрим $Be \in W$ так, что $(*)Be = u_1 + ... + u_r, \ u_i \in U_i$. \\
+        Если $Be = 0$, то:
+        $$V = \langle e \rangle \oplus U_1 \oplus ... \oplus U_r - \text{то, что нам и надо}$$
+        Если $Be \neq 0$, то найдется $i$, что $u_i \neq 0$. Тогда $h(e) = m+1$, т.к. $h(Be) = m$ \\
+        (это значит, что $B^{m-1}e = 0, \ B^me \neq 0$ )\\
+        Если в разложении $(*) \ u_i \in B(U_i) \Longrightarrow \exists \ v_i: \ u_i = Bv_i$\\
+        Рассмотрим вместо $e$ вектор $e-v_i: \ B(e-v_i) = u_1 + ... + \not u_i+...+u_r - \not u_i \Longrightarrow $ в разложение такого вектора $u_i$ не входит.\\
+        Заменяя $e$ на нужные разности $e-v_i$, можно считать либо $u_i \not \in B(U_i)$, либо $u_i = 0$  \\
+        Хотя бы один из векторов $u_i \neq 0$, выберем из них вектор, имеющий максимальную высоту $m \ (m=\max (\dim U_i))$ \\
+        Скажем, пусть это будет вектор $u_1$, тогда $h(e) = m+1$\\
+        Докажем, что:
+        $$V = \langle e, \ Be, \ ..., \ B^me \rangle \oplus U_2 \oplus ... \oplus U_r$$
+        Сумма размерностей подпространств в правой части: 
+        $$(m_1+1)+...+m_r = n = \dim V$$
+        Достаточно доказать, что: 
+        $$\langle e, \ Be, \ ..., \ B^me \rangle \cap (U_2 \oplus ... \oplus U_r) = \{0\}$$
+        Пусть $v = \lambda_1 e +...+ \lambda_{m+1}B^me \in U_2 \oplus ... \oplus U_r$ \\
+        Т.к. $e \not \in W$, то $\lambda_1 = 0$, но $Be_i = u_1+...+u_r$ - проекция разложения на $U_1 \Longrightarrow $ $$\lambda_2u_1+\lambda_3Bu_1+...+\lambda_{n+1}B^{n-1}u_1 = 0 \Longrightarrow \lambda_2=...=\lambda_{n+1} = 0 \Longrightarrow v_i = 0$$
+    \end{proof} 
+    \begin{remark}
+        $r$ - количество векторов циклического подпространства в разложении корневого подпространства $K$, отвечающего корню $\lambda_0$, равно геометрической кратности корня $\lambda_0$ характеристического многочлена.    
+    \end{remark}
 
+    \subsection{Изображение разложения корневых подпространств}
+    Обозначим: $r = \dim \text{Ker}B$ - размерность собственного подпространства\\
+    Занумеруем собственные векторы, входящии в цепочки, располагая цепочки по убыванию высоты. $m$  - максимальная высота цепочки, $1$ - минимальная\\
+    Также введем обозначение для последовательных присоединённых векторов: есть $P_1$ цепочек высоты $m$, \ $P_2$ - высоты $m-1$,..., $r-(P_1+...+p_{r-1})$ - высоты $1$
+    \begin{center}
+        \begin{asy}
+            size(15cm, 0);
+            draw((-0.15,0)--(10.5,0)--(10.5,-1)--(-0.15,-1)--cycle);
+
+            draw((0,-0.85)--(0,3.2)--(1,3.2)--(1,-0.85)--cycle);
+            draw((2,-0.85)--(2,3.2)--(3,3.2)--(3,-0.85)--cycle);
+            draw((3.5,-0.85)--(3.5,2.6)--(4.5,2.6)--(4.5,-0.85)--cycle);
+            draw((5.5,-0.85)--(5.5,2.6)--(6.5,2.6)--(6.5,-0.85)--cycle);
+
+            label(" $e$ ", (0.35,-0.5), fontsize(21pt));
+            label(" $0$ ", (0.5,-0.31), fontsize(10pt));
+            label(" $1$ ", (0.5,-0.67), fontsize(10pt));
+
+            label(" $e$ ", (0.35,0.6), fontsize(21pt));
+            label(" $1$ ", (0.5,0.41), fontsize(10pt));
+            label(" $1$ ", (0.5,0.76), fontsize(10pt));
+
+            label(" $\vdots$ ", (0.5, 1.3), fontsize(20pt));
+            label(" $\vdots$ ", (0.5, 2), fontsize(20pt));
+            
+            label(" $e$ ", (0.35,2.6), fontsize(21pt));
+            label(" $0$ ", (0.5,2.41), fontsize(10pt));
+            label(" $m-1$ ", (0.67,2.81), fontsize(10pt));
+
+            label(" $\cdots$ ", (1.5,-0.5), fontsize(21pt));
+
+            label(" $e$ ", (2.35,-0.5), fontsize(21pt));
+            label(" $0$ ", (2.5,-0.31), fontsize(10pt));
+            label(" $p_1$ ", (2.55,-0.67), fontsize(10pt));
+
+            label(" $e$ ", (3.85,-0.5), fontsize(21pt));
+            label(" $0$ ", (4,-0.31), fontsize(10pt));
+            label(" $p_1+1$ ", (4.17,-0.69), fontsize(10pt));
+
+            label(" $e$ ", (3.85,0.5), fontsize(21pt));
+            label(" $1$ ", (4,0.63), fontsize(10pt));
+            label(" $p_1+1$ ", (4.2,0.29), fontsize(10pt));
+
+            label(" $\vdots$ ", (4, 1.3), fontsize(20pt));
+
+            label(" $e$ ", (3.85,2), fontsize(21pt));
+            label(" $m-2$ ", (4.2,2.21), fontsize(10pt));
+            label(" $p_1+1$ ", (4.17,1.81), fontsize(10pt));
+
+            label(" $\cdots$ ", (5,-0.5), fontsize(21pt));
+
+            label(" $e$ ", (5.85,-0.5), fontsize(21pt));
+            label(" $0$ ", (6,-0.3), fontsize(10pt));
+            label(" $p_1+p_2$ ", (6.22,-0.69), fontsize(10pt));
+
+
+            label(" $e$ ", (5.85,0.5), fontsize(21pt));
+            label(" $1$ ", (6,0.64), fontsize(10pt));
+            label(" $p_1+p_2$ ", (6.22,0.29), fontsize(10pt));
+
+            label(" $\vdots$ ", (6, 1.3), fontsize(20pt));
+
+            label(" $e$ ", (5.85,2), fontsize(21pt));
+            label(" $m-2$ ", (6.2,2.21), fontsize(10pt));
+            label(" $p_1+p_2$ ", (6.22,1.81), fontsize(10pt));
+
+            label(" $\cdots$ ", (7,-0.5), fontsize(19pt));
+
+            draw((7.5,-0.85)--(7.5,-0.15)--(8.5,-0.15)--(8.5,-0.85)--cycle);
+            label(" $e$ ", (7.85,-0.5), fontsize(19pt));
+            label(" $0$ ", (8,-0.31), fontsize(10pt));
+            label(" $p_1+...+p_{r-1}$ ", (8.3,-0.67), fontsize(7pt));
+ 
+
+            draw((9,-0.85)--(9,-0.15)--(10,-0.15)--(10,-0.85)--cycle);
+            label(" $e$ ", (9.35,-0.5), fontsize(19pt));
+            label(" $0$ ", (9.5,-0.31), fontsize(10pt));
+            label(" $p_1+...+p_r$ ", (9.8,-0.67), fontsize(7pt));
+
+            label(" $r=p_1 + ... + p_r$ ", (8.8,1), fontsize(14pt));
+        \end{asy}
+    \end{center}
+    $V = U_1 \oplus U_r, \ \dim U_{i+1}\leq \dim U_i$
+    \begin{center}
+        $BV = BU_1 \oplus ... \oplus BU_r$\\
+        $\vdots \tab[4cm]$ \\ 
+        $B^kV = B^kU_1 \oplus ... \oplus B^kU_r$  
+    \end{center}
+    Если $\dim U_i = m_i, \ \dim (B_kU_i) = \left[\begin{matrix}
+        m_i - k, \ \text{если } k<m_i\\
+        0, \ \text{если } k\geq m_i
+    \end{matrix} \right. \Longrightarrow$
+    $$\dim (B^kV) = \sum \limits_{i=1}^r \dim B^kU_i = q_{k+1}+2q_{k^2} + ... + (m-1)q_m$$ 
+    Пусть $q_i$ - число циклических подпространств размерности $i$, \ $1\leq i \leq r$\\
+    Обозначим $r_k = \text{rk}B^k$\\
+    Для $k = 0$ до $m-1$ получим равенства: 
+    \begin{center}
+        $k=0: \ q_1 + 2q_2 + ... + mq_m = n\tab[2.9cm]$\\
+        $k=1: \ q_2 + 2q_3 + ... + (m-1)q_m = r_1 = \text{rk}B$\\
+        $\cdots$\\
+        $q_m = r_{m-1} = \text{rk}B^{m-1} \neq 0$ \\
+        $B^m = 0$ на корневом подпространстве     
+    \end{center}
+    Вычитая их каждого уравнения слудующее, получим систему:
+    $$\begin{cases}
+        q_1 + q_2 + ... + q_m = n - r_1 \tab[0.13cm] \Longrightarrow q_1 = n - 2r_1 + r_2 \\
+        \tab[1.05cm] q_2 + ... + q_m = r_1 - r_2 \Longrightarrow q_2 = r_1 - 2r_2 + r_3\\
+        \tab[3.5cm]\cdots\\
+        \tab[6.9cm]q_m = r_{m-1} - r_m \ (r_m = 0)
+    \end{cases}$$
+    $$\Longrightarrow q_i = r_{i-1} - 2r_i + r_{i+1} \ (i = 1,...,m-1)$$
+    Вывод: количество и порядок (высоты цепочек) однозначно опреледяется по матрице $B=A|_{\phi-\lambda \text{id}}$ - эти ранги не зависят от конкретного разложения $\Longrightarrow$ определяются единственным образом.
+    \begin{consequense}
+        Пусть: 
+        $$\chi_\phi = (-1)^n(\lambda-\lambda_1)^{k_1}\cdot ... \cdot (\lambda-\lambda_s)^{k_s}$$
+        - характеристический многочлен
+        $$\mu_\phi = (\lambda-\lambda_1)^{m_1}\cdot ... \cdot (\lambda-\lambda_s)^{m_s}$$
+        - минимальный многочлен\\
+        Тогда $\forall i = \overline{1,s}: \ m_i$ равна $\max$ размерности жордановой клетки, отвечающей корню $\lambda_i$   
+    \end{consequense}
+    \begin{consequense}\textbf{ Критерий диагонализируемости в терминах min многочлена:} \\
+        Оператор $\phi$ диагонализируем $\Longleftrightarrow m_1 = ... =m_s=1$  
+    \end{consequense}
+    \begin{proof}
+        Достаточно доказать для каждого корневого подпространства $k_i$
+        $$B = A_{\phi-\lambda_i \text{id}}|_{k_i}$$
+        - блочно-диагональная матрица с клетками размера $m_j$   
+    \end{proof}  
+
+    
