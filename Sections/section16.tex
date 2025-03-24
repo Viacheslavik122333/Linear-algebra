@@ -1,2 +1,53 @@
-\section{Диагонализируемость}
+\section{Биленейные и квадратичные формы}
+\begin{definition}
+    Функция $b: \ V\times V \to \F$ называется билинейной функцией, если:
+    \begin{enumerate}
+        \item аддитивность: $$\forall x_1, x_2, y: \ b(x_1+x_2, y) = b(x_1, y)+ b(x_2, y)$$
+        $$\forall x, y_1, y_2: \ b(x, y_1 + y_2) = b(x, y_1)+ b(x, y_2)$$
+        \item однородность: 
+        $$\forall x,y \in V , \  \forall \lambda \in \F: \ b(\lambda x, y) = \lambda b(x, y) = b(x, \lambda y)$$ 
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    $b(x, y)$ - называется симметрической, если: 
+    $$\forall x, y \in V: \ b(y, x) = b(x, y)$$ 
+\end{definition}
+\begin{example}\tab
+    \begin{enumerate}
+        \item Симметрическая билинейная функция - скалярное произведение
+        \item $V = Mn(\F): \ b(X,Y) = tr(XY)$
+        \item $\beta(f, g) = \int \limits_a^b f(x)g(y)dx$  
+    \end{enumerate}
+\end{example}
+\subsection{Запись билинейной функции в координатах}
+Пусть в $V$ задан базис $e_1,...,e_n$, тогда:
+$$b(\sum \limits_{i=1}^mx_ie_i, \sum \limits_{j=1}^my_je_j) = \sum \limits_{i,j=1}^mb(x_ie_i, y_je_j) = \sum \limits_{i,j=1}^m x_iy_j(e_i,e_j)$$
+\begin{definition}
+    Обозначим $b_{ij} = b(e_i, e_j)$, тогда $B_e=b_{ij}$ - матрица билинейной функции $b(x, y)$ в базисе $e$\\
+    Тогда:
+    $$b(x, y) = \sum \limits_{i,j=1}^n x_ib_{ij}y_j = \begin{pmatrix}
+        x_1 & \cdot & x_n
+    \end{pmatrix}\begin{pmatrix}
+        y_1\\
+        \vdots \\
+        y_n
+    \end{pmatrix} = X^TBY \eqno (1)$$ 
+\end{definition} 
+\subsection{Изменение матрицы билинейной формы при замене базиса}
+Пусть $e' = Ce$, \ $C$ - матрица перехода от $e$ к $e'$\\
+Тогда: 
+$$X = CX', \ Y = CY' \eqno (2)$$
+По определению матрицы билинейной функции, в новом базисе: 
+$$b(x, y) = X'^TB'Y' \ \ (B' = Be')$$ 
+Подставим в формулу $(1)$ выраженеие $(2)$:
+$$b(x, y) = X'^TC^TBCY' = X'^T(C^TBC)Y' = X'^TB'Y' \ \ (\forall X',Y' \in \F^n)$$
+$$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$    
+\begin{consequense}\tab
+    \begin{enumerate}
+        \item $\text{rk}B' = \text{rk}B$
+        \item $\F = \R \Longrightarrow \sgn (\det B') = \sgn (\det B)$  
+    \end{enumerate}
+\end{consequense} 
+
+
     

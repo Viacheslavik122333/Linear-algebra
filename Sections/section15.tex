@@ -274,6 +274,207 @@
         Достаточно доказать для каждого корневого подпространства $k_i$
         $$B = A_{\phi-\lambda_i \text{id}}|_{k_i}$$
         - блочно-диагональная матрица с клетками размера $m_j$   
-    \end{proof}  
+    \end{proof} 
 
+    Переделываем:
+    \begin{center}
+        \begin{asy}
+            size(15cm, 0);
+            draw((0,0)--(10,0)--(10,-1)--(0,-1)--cycle);
+
+            draw((1.5,-1)--(1.5,1)--(3, 1)--(1.5,0)--(1.5,1)--(3, 0));
+
+            draw((3,-1)--(3,2)--(4.5, 2)--(3, 0)--(3, 2)--(4.5, 0)--(4.5, -1)--(4.5, 2));
+
+            draw((7, -1)--(7, 4)--(8.5, 4)--(8.5, 5)--(10, 5)--(10, -1)--(8.5, -1)--(8.5, 5));
+
+            path g1=(10.3,-1)..(10.6,-0.8)..(10.7,-0.5)--(10.7,1.5)..(10.8,1.85)..(11.2,2);
+            path g2=(11.2,2)..(10.8,2.15)..(10.7,2.5)--(10.7,4.5)..(10.6,4.8)..(10.3, 5);
+            draw(g1); draw(g2);
+            label(" $m$ ", (11.5, 2), fontsize(14pt));
+            
+
+            draw((0.2,-0.75)--(0.2,-1.25), EndArrow);
+            draw((1.3,-0.75)--(1.3,-1.25), EndArrow);
+            label(" $0$ ", (0.2, -1.4), fontsize(10pt));
+            label(" $0$ ", (1.3, -1.4), fontsize(10pt));
+
+            for(int i=0; i<3; i=i+1)
+            {
+                path a1=(0+(i*1.5),-1.05)..(0.05+(i*1.5), -1.15)..(0.2+(i*1.5),-1.2);
+                path a2=(0.2+(i*1.5),-1.2)--(0.6+(i*1.5), -1.2)..(0.7+(i*1.5), -1.25)..(0.75+(i*1.5), -1.3);
+                path a3=(0.75+(i*1.5), -1.3)..(0.8+(i*1.5), -1.25)..(0.9+(i*1.5), -1.2)--(1.3+(i*1.5), -1.2);
+                path a4=(1.3+(i*1.5), -1.2)..(1.45+(i*1.5), -1.15)..(1.5+(i*1.5), -1.05);
+                draw(a1); draw(a2); draw(a3); draw(a4);
+            }
+
+            for(int i=0; i<2; i=i+1)
+            {
+                path a1=(0+7+(i*1.5),-1.05)..(0.05+7+(i*1.5), -1.15)..(0.2+7+(i*1.5),-1.2);
+                path a2=(0.2+7+(i*1.5),-1.2)--(0.6+7+(i*1.5), -1.2)..(0.7+7+(i*1.5), -1.25)..(0.75+7+(i*1.5), -1.3);
+                path a3=(0.75+7+(i*1.5), -1.3)..(0.8+7+(i*1.5), -1.25)..(0.9+7+(i*1.5), -1.2)--(1.3+7+(i*1.5), -1.2);
+                path a4=(1.3+7+(i*1.5), -1.2)..(1.45+7+(i*1.5), -1.15)..(1.5+7+(i*1.5), -1.05);
+                draw(a1); draw(a2); draw(a3); draw(a4);
+            }
+
+            label(" $q_{1} \to 0$ ", (0.75, -1.6));
+            label(" $q_{2} \to 0$ ", (2.25, -1.6));
+            label(" $q_{3} \to 0$ ", (3.75, -1.6));
+            label(" $q_{m-1} \to 0$ ", (7.75, -1.6));
+            label(" $q_{m} \to 0$ ", (9.25, -1.6));
+            label(" $\cdots$ ", (5.75, -1.4));
+
+        \end{asy}
+    \end{center}
+    Применим оператор $B$:
+    $$\begin{cases}
+        \dim V = q_1 + 2q_2 + ... + (m-1)q_{m-1} + mq_m = n\\
+        \dim \text{Im}B = q_2 + ... + (m-2)q_{m-1} + (m-1)q_m = r_1\\
+        \vdots \\
+        \dim \text{Im}B^{m-1} = q_m = r_{m-1}
+    \end{cases}$$  
+    Некоторые применения приведут матрицу к жордановой форме (в частности, диагонализируемости)
+    \subsection{Решение СЛАУ}
+    Пусть дана система $AX = B$ с квадратной матрицей $A$, все характеристические корни которой $\in \R$.\\
+    Сделаем замену: 
+    $$X = CY \Longrightarrow (AC)Y = B \Longleftrightarrow (\underbrace{C^{-1}AC}_{y} )Y = C^{-1}b=b'$$
+    Можно взять $C$ - матрицу перехода к жорданову базису
+    $$y = \begin{pmatrix}
+        \text{\fbox{ $Y_{k_1}(\lambda_1)$ }} & \null & 0\\
+        \null & \ddots \\
+        0 & \null & \text{\fbox{$Y_{k_i}(\lambda_i)$}}
+    \end{pmatrix}$$
+    Если $y$ жорданова клетка, то уравнения:
+    $$\begin{cases}
+        \lambda x_1 + x_2 = b_1'\\
+        \lambda x_2 + x_3 = b_2'\\
+        \vdots
+    \end{cases} \ \ \ \text{легко решить}$$
+    \subsection{Решение СЛДУ}
+    $$X = \begin{pmatrix}
+        x_1(t)\\
+        \vdots\\
+        x_n(t)
+    \end{pmatrix} , \ \ \frac{dx}{dt} = \begin{pmatrix}
+        \dot{x}_1 \\
+        \vdots\\
+        \dot{x}_n
+    \end{pmatrix}$$
+    $\dot{X} = AX$, где $A$ - квадратная
+    $$X = CY \Longrightarrow \dot{X} = C\dot{Y}$$
+    $$C\dot{Y} = (AC)Y \Longrightarrow \dot{Y} = (C^{-1}AC)Y$$
+    Если матрица $C^{-1}AC$ диагональная: $C^{-1}AC = \begin{pmatrix}
+        \lambda_1 & \null & 0\\
+        \null & \ddots & \\
+        0 & \null & \lambda_n
+    \end{pmatrix}, \ \lambda_i \neq 0$ получаем систему: 
+    $$\begin{cases}
+        \dot{y_1} = \lambda_1 y_1\\
+        \vdots \\
+        \dot{y_n} = \lambda_n y_n
+    \end{cases} \Longrightarrow \begin{cases}
+        y_1 = C_1^{\lambda_1t}\\
+        \vdots \\
+        y_n = C_ne^{\lambda_nt}
+    \end{cases}$$
+    Тогда $X = CY$\\
+    Если $$C^{-1}AC = J_k(\lambda_0) = \begin{pmatrix}
+        \lambda_1 & 1 & \null & 0 \\
+        \null & \ddots & \ddots & \null \\
+        \null & \null & \lambda_{n-1} & 1 \\
+        0 & \null & 0 & \lambda_n
+    \end{pmatrix} \Longrightarrow \begin{cases}
+        \dot{y}_1 = \lambda_0y_1 + y_2\\
+        \vdots \\
+        \dot{y}_{n-1} = \lambda_0y_{n-1} + y_n\\
+        \dot{y}_n = \lambda_0y_n
+    \end{cases}$$
+    решаем снизу вверх
+    \subsection{Функции от матриц}
+    $\underset{n \in \N}{A^n}$ 
+    $$(C_{-1}AC) = J = \begin{pmatrix}
+        \text{\fbox{ $J_{k_1}(\lambda_1)$ }} & \null & 0\\
+        \null & \ddots \\
+        0 & \null & \text{\fbox{$J_{k_i}(\lambda_i)$}}
+    \end{pmatrix} \Longrightarrow A = CYC^{-1}$$ 
+    $$\Longrightarrow A^n = (CYC^{-1})(CYC^{-1})...(CYC^{-1}) = CY^nC^{-1}$$
+    $$J^n = \begin{pmatrix}
+        \text{\fbox{ $J_{k_1}^n(\lambda_1)$ }} & \null & 0\\
+        \null & \ddots \\
+        0 & \null & \text{\fbox{$J_{k_i}^n(\lambda_i)$}}
+    \end{pmatrix}$$
+    Для жордановой клетки: 
+    $$\left(\begin{smallmatrix}
+        \lambda_1 & 1 & \null & 0 \\
+        \null & \ddots & \ddots & \null \\
+        \null & \null & \lambda_{n-1} & 1 \\
+        0 & \null & 0 & \lambda_n 
+    \end{smallmatrix}\right)^n = \left(\lambda E + \left(\begin{smallmatrix}
+        0 & 1 & \null & 0 \\
+        \null & \ddots & \ddots & \null \\
+        \null & \null & 0 & 1 \\
+        0 & \null & 0 & 0 
+    \end{smallmatrix}\right)\right) =$$ 
+    $$= \lambda^n E + C_n^1 \lambda^{n-1}B + C_n^2 \lambda^{n-2}B^2 + ... = \begin{pmatrix}
+        \lambda^n & \lambda^{n-1}C_n^1 & \lambda^{n-2}C_n^2 & \cdots\\
+        \tab[1cm] \ddots & \tab[1cm] \ddots & \tab[1cm] \ddots \\
+        \null & \lambda^n & \lambda^{n-1}C_n^1 & \lambda^{n-2}C_n^2\\
+        \tab[1cm] \null & \tab[1cm] \ddots \\
+        \null & \null & \lambda^n 
+    \end{pmatrix}$$
+    \begin{exercise}
+        Пусть $f(t)$ - многочлен, \ $J = \left(\begin{smallmatrix}
+            \lambda & 1 & \null & 0\\
+            \null & \ddots & \ddots\\
+            \null & \null & \ddots & 1 \\
+            0 & \null & \null & \lambda
+        \end{smallmatrix}
+        \right)$\\
+        Доказать, что:
+        $$f(J) = \begin{pmatrix}
+            f(\lambda) & f'(\lambda) & \frac{f''(\lambda)}{2!} & \cdots\\
+            \null & \ddots \\
+            \null & \null & \ddots\\
+            \null & \null & \null & \ddots\\
+            \null & \null & \null & \null & f(\lambda)
+        \end{pmatrix}$$  
+    \end{exercise}
+    \subsection{Вычисление корня и экспоненты}
+    $$e^{at} = 1 + \frac{at}{1!} + \frac{a^2t^2}{2!} + ... + \frac{a^{n-1}t^{n-1}}{(n-1)!}$$
+    $$e^{At} = E + \frac{At}{1!} + \frac{A^2t^2}{2!} + ... + \frac{A^{n-1}t^{n-1}}{(n-1)!}$$
+    Для $J_n(\lambda) = \lambda E + B \Longrightarrow$ 
+    $$\exp (J_n(\lambda)t) = e^{t \lambda E} \cdot e^{tB} = e^{\lambda t}\cdot \begin{pmatrix}
+        1 & t & \frac{t^2}{2} & \cdots\\
+        \null & 1 & t & \frac{t^2}{2}\\
+        \null & \null & \ddots & \ddots & \ddots\\
+        \null & \null & \null & \ddots & \ddots & \null\\
+        \null & 0 & \null & \null & \ddots \\
+        \null & \null & \null & \null & \null & 1
+    \end{pmatrix}
+    $$
+    $$(e^{A + B} = e^a \cdot e^b \Longleftrightarrow AB = Ba)$$
+    \begin{example}\tab
+        \begin{enumerate}
+            \item $$(1 + t)^{\frac{1}{2}} = 1 + \frac{1}{2}t +      \frac{1}{2!}\cdot \frac{1}{2}\cdot(\frac{1}{2}-1)t^2 + ...$$
+            \item $$\begin{pmatrix}
+            \lambda & 1 \\
+                0 & \lambda
+                \end{pmatrix} = E + \frac{1}{2}B + \frac{1}{2!}C^2_{\frac{1}{2}}B^2 = \begin{pmatrix}
+                1 & \frac{1}{2} \\
+                0 & 1
+                \end{pmatrix}$$
+            \item $$\begin{pmatrix}
+                    \lambda & 1 \\
+                    0 & \lambda
+                \end{pmatrix} = \lambda^{\frac{1}{2}} \cdot \begin{pmatrix}
+                    1 & \frac{1}{\lambda} \\ 0 & 1
+                \end{pmatrix}^{\frac{1}{2}} = \lambda^{\frac{1}{2}} \cdot \begin{pmatrix}
+                    1 & \frac{1}{2\lambda} \\
+                    0 & 1
+                \end{pmatrix},  \ \lambda \neq 0$$
+        \end{enumerate}
+    \end{example}
+
+    
+    
     
