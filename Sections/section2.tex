@@ -1,3 +1,4 @@
+%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Векторные подпространства}
   \subsection{Примеры}
   \begin{enumerate}
@@ -26,11 +27,12 @@
       C_1y'_1 + ... + C_ny'_n \equiv 0\\
       \vdots\\
       C_1y_1^{(n-1)} + ... + C_ny_n^{(n-1)} \equiv 0
-    \end{cases} \Longrightarrow \begin{cases}
+    \end{cases} \Longrightarrow 
+    \begin{cases}
       C_1e^{\lambda_1x} + ... + C_ne^{\lambda_nx} \equiv 0\\
-      \lambda_1C_1y'_1 + ... + \lambda_nC_ny'_n \equiv 0\\
+      \lambda_1C_1e^{\lambda_1x} + ... + \lambda_nC_ne^{\lambda_nx} \equiv 0\\
       \vdots\\
-      \lambda^{n-1}C_1e^{\lambda_1x} + ... + \lambda^{n-1}C_ne^{\lambda_nx} \equiv 0
+      \lambda_1^{n-1} C_1e^{\lambda_1x} + ... + \lambda_n^{n-1} C_ne^{\lambda_nx} \equiv 0
     \end{cases}$$
     $$\Delta = V(\lambda_1,...,\lambda_n) \neq 0 \Longrightarrow C_1 = ... = C_n = 0$$
     \item $F[t]$ с естественными операциями сложения и умножения на скаляр - бесконечномерное пространство, т.к.: $\forall n \in N_0: \ 1, t, t^2,...$ - линейно независимы.\\
@@ -73,10 +75,10 @@
       \end{itemize}
     \end{algorithm}
     \item[\textbf{2.}] ($\dim V = n$, известны координаты в некотором базисе)
-    $$\forall \sum \limits_{i=1}^n X_ie_i = eX , \ X = \begin{pmatrix}
-    X_1 \\ \vdots \\ X_n
+    $$\forall \sum \limits_{i=1}^n x_ie_i = eX , \ X = \begin{pmatrix}
+    x_1 \\ \vdots \\ x_n
     \end{pmatrix}$$
-    $$W = \{x = eX \ | \ AX = 0\} - \text{ задание с помощью ОСЛУ}$$   
+    $$W = \{x = eX \ | \ x \in V, \ AX = 0\} - \text{ задание с помощью ОСЛУ}$$
     \begin{subtheorem}
       $W$ - подпространство в $V$,  \ $\dim W = n - rkA$, \ базис - любая ФСР (это переход от \textbf{2.} к \textbf{1.} способу задания подпространства).
     \end{subtheorem} 
@@ -87,22 +89,22 @@
   \begin{proof} Два способа:
     \begin{enumerate}
       \item[1)] Вектор $x \ ($со столбцами координат $X = \begin{pmatrix}
-        X_1 \\ \vdots \\ X_n
+        x_1 \\ \vdots \\ x_n
       \end{pmatrix})$: 
       $$x \in \langle a_1,...,a_m \rangle = U$$ 
-      $$ \Longleftrightarrow \exists \ \alpha_1,...,\alpha_m \in F :  \sum \limits_{i=1}^m \alpha_i a_i = x,  \text{ или в координатах: } \sum \limits_{i=1}^m \alpha_1a_i^{\uparrow} = X$$
+      $$ \Longleftrightarrow \exists \ \alpha_1,...,\alpha_m \in F :  \sum \limits_{i=1}^m \alpha_i a_i = x,  \text{ или в координатах: } \sum \limits_{i=1}^m \alpha_1a_i^{\uparrow} = x$$
       т.е. СЛУ с $\widetilde{A} = (a_1^{\uparrow},...,a_m^{\uparrow} \ | \ \begin{pmatrix}
-        X_1 \\ \vdots \\ X_n \end{pmatrix})$ совместна $\Longleftrightarrow$ после алгоритма Гаусса: 
+        x_1 \\ \vdots \\ x_n \end{pmatrix})$ совместна $\Longleftrightarrow$ после алгоритма Гаусса: 
         $$\widetilde{A} \longrightarrow \begin{pmatrix}
-          K & \vline &  \sum \limits_jC_{kj}X_j \\ \hline
-          0 & \vline &  \sum \limits C_{r+1}X_j = 0 \\
-          \null & \vline & \sum \limits C_{nj}X_j = 0
+          K & \vline &  \sum \limits_jC_{kj}x_j \\ \hline
+          0 & \vline &  \sum \limits C_{r+1, j}x_j = 0 \\
+          \null & \vline & \sum \limits C_{nj}x_j = 0
         \end{pmatrix}$$
         $\begin{pmatrix}
           K
         \end{pmatrix}$ имеет ступенчатый вид, а $\begin{pmatrix}
-        \sum \limits C_{r+1}X_j = 0 \\
-        \sum \limits C_{nj}X_j = 0
+        \sum \limits C_{r+1, j}x_j = 0 \\
+        \sum \limits C_{nj}x_j = 0
         \end{pmatrix}$ - нужная нам система. 
         \begin{exercise}
           Доказать, что эти уравнения ЛНЗ.

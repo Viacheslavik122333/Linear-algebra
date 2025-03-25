@@ -1,3 +1,4 @@
+%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45
 \section{Пересечение и сумма подпространств}
   \begin{subtheorem}\tab
     \begin{enumerate}
@@ -7,16 +8,16 @@
     \end{enumerate}
   \end{subtheorem} 
   \begin{proof}
-    1. $\overline{Q} \in W$, т.к. $\overline{Q} \in U_i, \ \forall i\in I$. \vspace{0.2cm}\\
+    1. $\overline{0} \in W$, т.к. $\overline{0} \in U_i, \ \forall i\in I$. \vspace{0.2cm}\\
     Если $x,y \in U_i, \ \forall i\in I \Longrightarrow x+y \in U_i, \ \forall i\in I \Longrightarrow x+y \in \underset{i\in I}{\cap}U_i$ \vspace{0.15cm}\\
-    Если $x \in U_i, \ \forall i\in I, \ \forall \lambda \in F \Longrightarrow \lambda x \in U_i, \ \forall i\in I \Longrightarrow x \in \underset{i\in I}{\cap}U_i$  
+    Если $x \in U_i, \ \forall i\in I, \ \forall \lambda \in F \Longrightarrow \lambda x \in U_i, \ \forall i\in I \Longrightarrow \lambda x \in \underset{i\in I}{\cap}U_i$  
   \end{proof}
   \begin{remark}
     Если $U_1, U_2$ - подпространства в $V$ и $Q$ - любое подпространство, которое содержит $U_1$ и $U_2$, то оно содержит и сумму $u_1+u_2$, если $u_i \in U_i, \ i =1,2$       
   \end{remark}
-  \begin{remark}
+  \begin{definition}
     Суммой подпространств $U_1,...,U_m \subseteq V$ назовем: $$U_1 + ... + U_m = \{x_1+...+x_m \ | \ x_i \in U_i\}$$   
-  \end{remark}
+  \end{definition}
   \begin{subtheorem}
     $U_1 + ... + U_m$ - подпространство в $V$  
   \end{subtheorem}
@@ -47,9 +48,9 @@
       $$\begin{pmatrix}
         A & \vline & B
       \end{pmatrix} \xrightarrow[\text{строк}]{\text{ЭП}} \begin{pmatrix}
-        a_1^{\uparrow},...,a_{n_1}^{\uparrow} & \vline & b_1^{\uparrow},...,b_m,b_{m+1},...,b_{n_2-m}^{\uparrow}
+        a_1^{\uparrow},...,a_{n_1}^{\uparrow} & \vline & \underbrace{b_1^{\uparrow},...,b_m^{\uparrow}}_{\text{попало в базис}} ,b_{m+1}^{\uparrow},...,b_{n_2-m}^{\uparrow}
       \end{pmatrix}$$
-      Можно записать: $$b_i = \sum \limits_{i=1}^{n_1} \alpha_i a_i + \sum \limits_{k=1}^{m} \beta_{k_j} b_k \Longrightarrow b_j - \sum \limits_{k=1}^{m} \beta_{k_j} b_k = \sum \limits_{i=1}^{n_1} \alpha_i a_i \in U_1 \cap U_2$$   
+      Можно записать: $$b_j = \sum \limits_{i=1}^{n_1} \alpha_i a_i + \sum \limits_{k=1}^{m} \beta_{k_j} b_k \Longrightarrow b_j - \sum \limits_{k=1}^{m} \beta_{k_j} b_k = \sum \limits_{i=1}^{n_1} \alpha_i a_i \in U_1 \cap U_2$$   
     \end{algorithm}
   \end{proof} 
   \begin{exercise}

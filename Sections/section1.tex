@@ -1,3 +1,4 @@
+%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Векторное пространство}
   \begin{definition}
     Множество $V$ называется \textit{векторным пространством} над полем $F$, если заданы операции $"+"$ и $"\cdot"$\ : \ $V\times V \to V$, $F \times V \to V$ и выполнены следующие аксиомы:
@@ -43,7 +44,7 @@
     \end{enumerate}
   \end{subtheorem} 
   \begin{definition}
-    Векторы $v_1,...,v_n \in V$ называются линойно зависимыми, если $\exists \ \lambda_1,..., \lambda_n$ (не все равные 0) \ : \ $\lambda_1v_1+...+\lambda_nv_n = \vec 0$
+    Векторы $v_1,...,v_n \in V$ называются линейно зависимыми, если $\exists \ \lambda_1,..., \lambda_n$ (не все равные 0) \ : \ $\lambda_1v_1+...+\lambda_nv_n = \vec 0$
   \end{definition} 
   \begin{subtheorem}
     Определение 3 $\Longleftrightarrow $ ($m\geq 2$) хотя бы один вектор из векторов $v_i$ выражается как линейная комбинация остальных. 
@@ -82,7 +83,7 @@
     \begin{enumerate}
       \item $\det C \neq 0$
       \item $C_{e' \to e} = (C_{e \to e'})^{-1}$
-      \item $C_{e'' \to e} = C_{e \to e'} \cdot C_{e' \to e''}$
+      \item $C_{e \to e''} = C_{e \to e'} \cdot C_{e' \to e''}$
     \end{enumerate}
   \end{properties}
   \begin{proof}\tab
@@ -95,7 +96,7 @@
         \fbox{$e' = eC_{e \to e'}$}
       \end{equation}
       С другой стороны 
-      $$C = e'C_{e' \to e} = eC_{e \to e'}C_{e' \to e} \Longrightarrow C_{e \to e'}C_{e' \to e} = E$$ 
+      $$e = e'C_{e' \to e} = eC_{e \to e'}C_{e' \to e} \Longrightarrow C_{e \to e'}C_{e' \to e} = E$$ 
       ввиду единственности разложения векторов по базису, т.е. 
       $$C_{e \to e'} = (C_{e' \to e})^{-1}$$
       \item[$3)$] $$e'' = e'C_{e' \to e''} = e(C_{e \to e'}C_{e' \to e''}) = eC_{e \to e''}$$
@@ -103,7 +104,7 @@
     \end{itemize}
   \end{proof} 
   \begin{algorithm}
-    Как вычислить матрицу перехода, если известны координаты векторов $e_i$ и $e'_j$ в некотором универсальном?\\
+    Как вычислить матрицу перехода, если известны координаты векторов $e_i$ и $e'_j$ в некотором универсальном базисе?\\
     $e' = eC_{e \to e'}$ можно рассмотреть как матричное уравнение:
     $$(e_1^{\uparrow},...,e_n^{\uparrow})C = ({e_1'}^{\uparrow},...,{e_n'}^{\uparrow})$$
     $$[e_1^{\uparrow},...,e_n^{\uparrow} \ | \ {e_1'}^{\uparrow},...,{e_n'}^{\uparrow}] \overset{\text{строк}}{\rightsquigarrow} [E \ | \ C_{e \to e'}]$$   
