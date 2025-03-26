@@ -86,9 +86,9 @@
             \oplus \\ \circ 
         \end{smallmatrix} V_k ) = \sum \limits_{i=1}^n \dim V_i$ 
     \end{remark} 
-    \subsection*{Фактор пространства}
+    \subsection*{Факторпространства}
     \begin{definition}
-        Пусть $U \subset V$ - подпространство. Скажем, что $V_1 \thicksim V_2$ по модулю $U$, если $v_1 - v_2 \in U \ (v_1,v_2 \in V)$. Классы эквивалентности имеют вид: 
+        Пусть $U \subset V$ - подпространство, $v_1,v_2 \in V$. Говорят, что $v_1 \thicksim v_2$ по модулю $U$, если $v_1 - v_2 \in U \ $. Классы эквивалентности имеют вид: 
         $$v + U = \{v + u \ | \ u \in U\}$$
         - смежные классы по $U$, где $v$ - представитель\\
         $*$ $V/U = \{\underbrace{v + U}_{\overline{v}}  \ | \ u \in U\}$
@@ -130,24 +130,24 @@
     \end{theorem}
     \begin{proof} \tab
         \begin{itemize}
-            \item[$1)$] Проверим корректность определений.\\
-            Если $v'_1 = v_1 + \overline{\overline{U_1}}, \ v'_2 = v_2 + \overline{U_2}, \ \overline{\overline{u_i}}\in U, \ i =1, 2 \ : $ 
+            \item[$1)$] Проверим корректность введённых операций:\\
+            Если $v'_1 = v_1 + u_1, \ v'_2 = v_2 + u_2, \ u_1, u_2\in U: $ 
             $$v'_1 + v'_2 = v_1 + v_2 + (u_1 + u_2)$$
-            $$ v'_1 + v'_2 \sim v_1 + v_2, \text{ т.е. } v'_1 + v'_2 + \underline{\underline{U}} = v_1 + v_2 + \underline{\underline{U}} $$
-            $$\overline{v'_1} + \overline{v'_2} = \overline{v'_1 + v'_2} = \overline{v_1 + v_2}$$
-            т.е. определение не зависит от выбора элемента в классе.\\
+            $$ v'_1 + v'_2 \sim v_1 + v_2, \text{ т.е. } v'_1 + v'_2 + U = v_1 + v_2 + U \Rightarrow \overline{v'_1 + v'_2} = \overline{v_1 + v_2}$$
+            $$\overline{v'_1} + \overline{v'_2} = \overline{v'_1 + v'_2} = \overline{v_1 + v_2} = \overline{v_1} + \overline{v_2}$$
+            т.е. сложение не зависит от выбора элементов в классах.\\
             Если 
             $$v' = v + u, \ u \in U \Longrightarrow \lambda v' = \lambda v + \lambda u \in \lambda v + U$$ 
             $$v \sim v' \Longrightarrow \lambda v \sim \lambda v'; \ \overline{0} \in U; \  -\overline{v} = \overline{-v}$$
             Все аксиомы выполенены, т.к. действия над смежными классами выражаются через действия над векторами.
             \item[$2)$] Выберем базис $a_1,...,a_m$ в $U$\\
             Если $U=V$, т.е. $m=n=\dim V$, то $V\setminus U = \{0\} \Longrightarrow \dim (V\setminus U) = n-n=0$\\
-            Пусть $m<n$,  можно дополнить базис $U$ до базиса $a_{m+1},....,a_n$ в $V$, тогда классы $\overline{a_{m+1}},....,\overline{a_n}$ образуют базис в $V\setminus U$
+            Если же $m<n$, то можно дополнить базис $U$ векторами $a_{m+1},....,a_n$ до базиса в $V$, тогда классы $\overline{a_{m+1}},....,\overline{a_n}$ образуют базис в $V\setminus U$ :
             $$\forall v \in V \ : \ v = \sum \limits_{i=1}^m \alpha_i a_i + \sum \limits_{j=m+1}^n \alpha_j a_j$$
             $$\overline{v} = v+ U = \sum \limits_{j=m+1}^n \overline{\alpha_j a_j} = \sum \limits_{j=m+1}^n \alpha_j \overline{ a_j}$$
             $\Longrightarrow \overline{a_{m+1}},....,\overline{a_n}$ порождают $V\setminus U$\\
             Проверим ЛНЗ: 
-            $$\exists \ \lambda_j \in \mathbb{F} \ : \ \sum \limits_{j=m+1}^n \alpha_j \overline{ a_j} = 0 \Longleftrightarrow  \sum \limits_{j=m+1}^n \alpha_j a_j \in U$$
+            $$\exists \ \lambda_j \in \mathbb{F} \ : \ \sum \limits_{j=m+1}^n \lambda_j \overline{ a_j} = \overline{0} \Longleftrightarrow  \sum \limits_{j=m+1}^n \lambda_j a_j \in U$$
             $$\exists \ \mu_i \in \mathbb{F} \ : \ \sum \limits_{j=m+1}^n \alpha_j a_j - \sum \limits_{i=1}^n \mu_i a_i = 0$$
             Т.к. $\{a_1,...,a_n\}$ ЛНЗ, то $\lambda_j =0, \ \mu_i =0 , \ \forall i,j \Longrightarrow \overline{a_{m+1}},....,\overline{a_n}$ - ЛНЗ   
         \end{itemize}
