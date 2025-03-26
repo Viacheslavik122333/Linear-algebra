@@ -10,7 +10,7 @@
         Обозначается: $V^{*} = \{f : \ V \to \F\}$ - множество линейных функций на $V$  
     \end{definition}
     \begin{lemma}
-        Если $f \not \equiv 0$, то $\textup{Ker}(f)$ имеет в $V$ коразмерность = 1 
+        Если $f \not \equiv 0$, то $\dim{(V/\textup{Ker}f)}=1$. 
     \end{lemma} 
     \begin{proof}
         $f \not \equiv 0 \Rightarrow \exists v_1 \in V, \ f(v_1) \neq 0$. Пусть $v \in V$, либо $v \in \text{Ker}(f)$, либо $f(v) = \alpha \neq 0$ 
@@ -80,6 +80,9 @@
         Вторым сопряжённым пространством к $V$ (обозначается $V^{**}$) называется пространство, сопряженное к $V^{*}$ - пространство линейных функций от линейных функций над $V$.
         $$V^{**} = \{\phi: \ V^{*} \to \F\}$$ 
     \end{definition}
+    \begin{lemma}
+        $f$ - инъекция $\Longleftrightarrow \text{Ker(f)} =\{0\}$ 
+    \end{lemma}
     \begin{theorem}
         Если $\dim V < \infty$, то $V^{**} \cong V$, причём изоморфизм не зависит от выбора базиса (такой изоморфизм называется каноническим). 
     \end{theorem}
@@ -91,7 +94,7 @@
             \item $\forall f\in V^{*}, \ \phi_{x_1+x_2}(f) = f(x_1 + x_2) = f(x_1) + f(x_2) = \phi_{x_1}(f) + \phi_{x_2}(f) \Longrightarrow  \phi(x_1 + x_2) = \phi(x_1) + \phi(x_2);$ 
             \item $\forall f\in V^{*}, \ \phi_{\lambda x}(f) = f(\lambda x) = \lambda f(x) = \lambda\phi_{x}(f) \Longrightarrow \phi(\lambda x) = \lambda\phi(x);$ 
         \end{itemize}
-        Чтобы проверить, что $\phi$ - изоморфизм, достаточно проверить, что $\text{Ker} (\phi) = \{0\}$ (так как $\dim V^{**} = \dim V$).\\
+        Чтобы проверить, что $\phi$ - биекция, достаточно проверить, что $\text{Ker} (\phi) = \{0\}$ (так как сюръекцию имеем из $\dim V^{**} = \dim V$).\\
         Пусть $x \in \text{Ker} (\phi)$, т.е. $\phi_x \equiv 0$. Значит,  $\forall f \in V^{*} : \ f(x) = 0$\\
         Если $x \neq 0$, то его можно дополнить до базиса: $x, e_2, ... , e_n$, где $n = \dim V$.\\
         Тогда $e^1(x) = 1 \neq 0$ - противоречие с условием $\forall f \in V^{*} : \ f(x) = 0$.

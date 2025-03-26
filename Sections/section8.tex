@@ -14,18 +14,18 @@
     \end{remark}
     % Пусть $x = \sum \limits_{j=1}^nx_ie_i, \phi: \ V_1 \to V_2$ - линейное отображение. Тогда $y(x) = \sum \limits_{j=1}^nx_i \phi(e_i), \phi(e_i) = \sum \limits_{i=1}^ma_{ij}f_i$ и $A_{\phi, e,f} = (a_{ij})$ - начало 6 лекции
     \begin{algorithm} 
-        Вычисление $(a_{ij})$ с помощью матрицы $A_\phi :$
+        Вычисление $\text{Ker}\ \phi$ и $\text{Im}\ \phi$ с помощью матрицы $A_\phi :$
         \begin{enumerate}
             \item $\text{Ker} \hspace{0.09cm} \phi = \{x = \mathcal{E} \cdot x_\mathcal{E} \ : \ A_\phi \cdot x_\mathcal{E} = 0\}; \ \dim (\text{Ker} \hspace{0.09cm} \phi) = n - \text{rk} A_\phi$
             \item $\text{Im} \hspace{0.09cm} \phi = \langle \phi(e_1),...,\phi(e_n) \rangle = \{y = f \cdot Y_f \ : \ Y_f = A_\phi \cdot x_\mathcal{E}\}$ \\
             $Y \in \text{Im} \hspace{0.09cm} \phi \Longleftrightarrow $ СЛУ $A_\phi \cdot x_\mathcal{E} = Y$ совместна $\Longrightarrow \dim (\text{Im} \hspace{0.09cm} \phi) = \text{rk} A_\phi$ \\ (т.е. не зависит от базиса);
-            \item $\dim \text{Im} \hspace{0.09cm} \phi + \dim \left[ \text{Ker} \hspace{0.09cm} (\text{Ker} \hspace{0.09cm} \phi)\right] = \dim V_1$   
+            \item $\dim (\text{Im}\hspace{0.09cm} \phi) + \dim (\text{Ker}\hspace{0.09cm} \phi) = \dim V_1$   
         \end{enumerate}
     \end{algorithm}
     \subsection{Изменение матрицы линейного отображения при замене координат}
-    Пусть в $V_1: \ \mathcal{E} = (e_1,...,e_n)$ -  старый базис, а \ $\mathcal{E}' = (e_1',...,e_n')$ - новый.  \\ 
-    В $V_2: \ \mathcal{F} = (f_1,...,n)$ -  старый базис, а \ $\mathcal{F}' = (f_1',...,f_n')$ - новый.
     \begin{subtheorem}
+        Пусть $\mathcal{E} = (e_1,...,e_n)$ -  старый, а \ $\mathcal{E}' = (e_1',...,e_n')$ - новый базисы в $V_1$ и $\mathcal{F} = (f_1,...,f_n)$ -  старый , а \ $\mathcal{F}' = (f_1',...,f_n')$ - новый базисы в $V_2$,
+        $C$ - матрица перехода из $\mathcal{E}$ в $\mathcal{E'}$, а $D$ - матрица перехода из $\mathcal{F}$ в $\mathcal{F'}$. Тогда:
         $$A_{\phi, \mathcal{E}', \mathcal{F}'} = D^{-1}\cdot A_{\phi, \mathcal{E}, \mathcal{F}} \cdot C$$ 
     \end{subtheorem}
     \begin{proof}
@@ -44,19 +44,22 @@
     \end{remark}
     \begin{consequense}\tab
         \begin{enumerate}
-            \item $\text{rk} \hspace{0.09cm} A_{\phi, \mathcal{E}', \mathcal{F}'} = \text{rk} \hspace{0.09cm} A_{\phi, \mathcal{E}, \mathcal{F}};$
-            \item $\det (A_{\phi, \mathcal{E}'}) = \det(A_{\phi, \mathcal{E}})$
-            \item $\text{tr} \hspace{0.09cm} (A_{\phi, \mathcal{E}'}) = \text{tr} \hspace{0.09cm} (A_{\phi, \mathcal{E}})$
+            \item Для любого линейного отображения ранг его матрицы инвариантен при замене базиса 
+            $$\text{rk} \hspace{0.09cm} A_{\phi, \mathcal{E}', \mathcal{F}'} = \text{rk} \hspace{0.09cm} A_{\phi, \mathcal{E}, \mathcal{F}};$$
+            \item Для любого линейного оператора оперделитель и след его матрицы инвариантны при замене базиса
+            $$\det (A_{\phi, \mathcal{E}'}) = \det(A_{\phi, \mathcal{E}})$$
+            $$\text{tr} \hspace{0.09cm} (A_{\phi, \mathcal{E}'}) = \text{tr} \hspace{0.09cm} (A_{\phi, \mathcal{E}})$$
         \end{enumerate}
     \end{consequense} 
     \begin{proof} \tab 
         \begin{enumerate}
-            \item Т.к. матрицы $C$ и $D$ невырожденные, то при умножении на них ранг матрицы не изменяется.
+            \item Матрицы $C$ и $D$ невырождены, значит достаточно доказать, что \\
+            $\text{rk}\hspace{0.09cm} A=\text{rk}\hspace{0.09cm} (AC)$, где $C$ - невыроджена.
             $$\begin{cases}
                 B = A \cdot C \Longrightarrow \text{rk} \hspace{0.09cm} B \leq \text{rk} \hspace{0.09cm} A\\
                 A = (A \cdot C) \cdot C^{-1} \Longrightarrow \text{rk} \hspace{0.09cm} A \leq \text{rk} \hspace{0.09cm} (AC)
             \end{cases} \Longrightarrow \undermat{\text{rk} \hspace{0.09cm} (AC) = \text{rk} \hspace{0.09cm} A}{\text{rk} \hspace{0.09cm} (AC)\leq \text{rk} \hspace{0.09cm} A \leq \text{rk} \hspace{0.09cm} (AC)}$$
-            \item Произведение определителей
+            \item $\text{det}\hspace{0.09cm} (C^{-1}AC)=\text{det}\hspace{0.09cm} C^{-1}\cdot \text{det}\hspace{0.09cm} A\cdot \text{det}\hspace{0.09cm} C=\text{det}\hspace{0.09cm} A$
             \item $\text{tr} \hspace{0.09cm} (AC) = \text{tr} \hspace{0.09cm}(CA) \Longrightarrow \text{tr} \hspace{0.09cm}\left[C^{-1} \cdot (AC)\right] = \text{tr} \hspace{0.09cm}\left[(AC)\cdot C^{-1}\right] = \text{tr} \hspace{0.09cm}A$    
         \end{enumerate}
     \end{proof}  

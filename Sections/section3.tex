@@ -4,7 +4,21 @@
     \begin{enumerate}
       \item Если $U_i \ (i\in I)$ - подпространство $V$, то $W = \underset{i\in I}{\cap}U_i$ - тоже подпространство в $V$
       \item Объединение подпространств может НЕ быть подпространством даже для двух подпространств.
-      (РИСУНОК)
+      
+      \[
+        \begin{tikzpicture}
+          \draw[->] (-1, 0) -- (6, 0) node[right] {x};
+          \draw[->] (0, -1) -- (0, 6) node[above] {y};
+          \draw[fill] (0, 0) circle (2pt);        
+          \draw[thick] (-0.4, -1) -- (2, 5) node[above] {$U$};
+          \draw[thick] (-1, -0.4) -- (5, 2) node[right] {$W$};
+          \draw[->] (0, 0) -- (1, 2.5) node[left] {$u$};
+          \draw[->] (0, 0) -- (2.5, 1) node[above] {$w$};
+          \draw[->] (0, 0) -- (3.5, 3.5) node[right] {$u+w\not\in U\cup W$};
+          % \draw[thick] (-0.7, -0.7) -- (4.5, 4.5);
+      \end{tikzpicture}
+      \]
+
     \end{enumerate}
   \end{subtheorem} 
   \begin{proof}
