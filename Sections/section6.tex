@@ -59,15 +59,16 @@
     \begin{definition}
         Базис $e^{*} = (e^1,...,e^n)$ называется базисом $V^{*}$, сопряжённым (дуальным, двойственным, биортогональным) к базису $e$ в $V$.
     \end{definition}
-
     Посмотрим, как изменится строка координат функции $f\in V^{*}$ при замене базиса $e$ в $V$.\\
     Пусть $e' = (e_1',...,e_n') = e\cdot C_{e\rightarrow e'}$ - новый базис в $V$. 
     Как известно, $X = C_{e\rightarrow e'} \cdot X'$.\\
-    Отсюда если $x = \sum \limits_{i=1}^n x_i e_i = \sum \limits_{i=1}^n x_i' e_i'$, то
-    $$\forall f \in V: \ f(x) = \sum \limits_{i=1}^n a_i' x_i'$$  
+    Отсюда если $x = \sum \limits_{i=1}^n x_i e_i = \sum \limits_{i=1}^n x_i' e_i'$, то $\forall f \in V^{*}:$
+    $$f(x) = \sum \limits_{i=1}^n a_i' x_i' = (a_1',...,a_n')X'$$
+    С другой стороны
     $$f(x) = (a_1,...,a_n)X = (a_1,...,a_n)(C_{e\rightarrow e'}X') = ((a_1,...,a_n)C_{e\rightarrow e'})X'$$ 
-    $$((a_1,...,a_n)C_{e\rightarrow e'})X' = ((a_1',...,a_n'))X' \ \ \forall X' \in \mathbb{F}^n$$ 
-    Беря по очереди $X' = \left( \begin{smallmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{smallmatrix} \right), \dots , \left( \begin{smallmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{smallmatrix}\right)$, покоординатно получим равенство \[(a_1,...,a_n)C_{e\rightarrow e'} = (a_1',...,a_n')\]
+    Отсюда
+    $$\forall X' \in \mathbb{F}^n \ \ ((a_1,...,a_n)C_{e\rightarrow e'})X' = ((a_1',...,a_n'))X'$$ 
+    Подставляя по очереди $X' = \left( \begin{smallmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{smallmatrix} \right), \dots , \left( \begin{smallmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{smallmatrix}\right)$, в итоге получим равенство \[(a_1,...,a_n)C_{e\rightarrow e'} = (a_1',...,a_n')\]
 
     \begin{example1}
         Возьмём $V = \mathbb{R}[t]_n = \{p(t) \in \mathbb{R}[t] \ | \ \deg p = n\}$\\
