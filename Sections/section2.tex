@@ -87,13 +87,13 @@
   \end{theorem}
   \begin{proof} Два способа:
     \begin{enumerate}
-      \item[1)] Вектор $x \ ($со столбцами координат $X = \begin{pmatrix}
-        x_1 \\ \vdots \\ x_n
+      \item[1)] Вектор $x \ ($со столбцом координат $X = \begin{pmatrix}
+        x_1 \\ \vdots \\ x_m
       \end{pmatrix})$: 
       $$x \in \langle a_1,...,a_m \rangle = U$$ 
       $$ \Longleftrightarrow \exists \ \alpha_1,...,\alpha_m \in F :  \sum \limits_{i=1}^m \alpha_i a_i = x,  \text{ или в координатах: } \sum \limits_{i=1}^m \alpha_1a_i^{\uparrow} = x$$
       т.е. СЛУ с $\widetilde{A} = (a_1^{\uparrow},...,a_m^{\uparrow} \ | \ \begin{pmatrix}
-        x_1 \\ \vdots \\ x_n \end{pmatrix})$ совместна $\Longleftrightarrow$ после алгоритма Гаусса: 
+        x_1 \\ \vdots \\ x_m \end{pmatrix})$ совместна $\Longleftrightarrow$ после алгоритма Гаусса: 
         $$\widetilde{A} \longrightarrow \begin{pmatrix}
           K & \vline &  \sum \limits_jC_{kj}x_j \\ \hline
           0 & \vline &  \sum \limits C_{r+1, j}x_j = 0 \\
