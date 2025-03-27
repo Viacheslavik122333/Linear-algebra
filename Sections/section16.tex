@@ -51,7 +51,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     \end{enumerate}
 \end{consequense} 
 \begin{definition}
-    Билинейная функция называетя кососиметрической (при char $\F \neq 2$), если: 
+    Билинейная функция называется кососимметрической (при char $\F \neq 2$), если: 
     $$\forall x, y \in V: \ b(x, y) = -b(y, x)$$  
 \end{definition} 
 \begin{subtheorem} $(*)$ 
@@ -154,15 +154,15 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
         \end{multline*}
         Затем для формы $k_2(x_2,\ldots, x_n)=\sum\limits_{i=2}^nb_{ii}'x_i^2+\sum\limits_{2\leqslant i<j\leqslant n}b_{ij}'x_ix_j$ найдём коэффициент $b_{jj}'\neq0$ и выделим квадрат как на предыдущем шаге. На каждом шаге число переменных уменьшается на единицу, а значит, за конечное число шагов (а именно $\leqslant n-2$) форма приобретёт диагональный вид.
         \item Особый случай: \\
-        $\forall i: \ b_{ii}=0$, но так как $k(x)\not\equiv0$ $\Longrightarrow$ $\exists$ индексы $i$ и $j$ такие, что $b_{ij}\neq0$, то есть в выражение $k(x_i, x_j)$ входит одночлен $2b_{ij}x_ix_j$.\\
+        $\forall i: \ b_{ii}=0$, но так как $k(x)\not\equiv0$ $\Longrightarrow$ $\exists$ индексы $i$ и $j$ такие, что $b_{ij}\neq0$, то есть в выражение $k(x)$ входит одночлен $2b_{ij}x_ix_j$.\\
         Пусть $x_i=x_i'+x_j'$ и $x_j=x_i'-x_j'$, тогда $x_ix_j = x_i'^2-x_j'^2$, то есть появился квадрат с коэффициентом, не равным нулю $\Longrightarrow$ можно перейти к общему случаю.
     \end{enumerate}
 \end{proof}
 \begin{remark}
     В благоприятном случае, когда на первом шаге коэффициент при $x_1$ не равен нулю, на втором шаге коэффициент при $x_2$ не равен нулю и т.д., матрица замены будет иметь вид:
     $$C_{e\rightarrow e'}^{-1}=\begin{pmatrix}
-    1 & \frac{b_{12}}{b_{11}} & \ldots & \frac{b{1n}}{b_{11}}\\
-    0 & 1 & \ldots & \frac{b_{1n}}{b_{22}}\\
+    1 & \frac{b_{12}}{b_{11}} & \ldots & \frac{b_{1n}}{b_{11}}\\
+    0 & 1 & \ldots & \frac{b_{2n}}{b_{22}}\\
     \vdots & \null & \ddots & \vdots\\
     0 & 0 & \ldots & 1
     \end{pmatrix}$$ 
@@ -181,11 +181,11 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
         $$k(x)=b_{11}x_1^2+b_{22}x_2^2+\ldots+b_{nn}x_n^2 = \alpha_1x_1^2+\alpha_2x_2^2+\ldots+\alpha_nx_n^2$$
         Если $rkB=r \Longrightarrow  k(x)=\alpha_1x_1^2+\alpha_2x_2^2+\ldots+\alpha_rx_r^2(\alpha_{r+1}=\ldots=\alpha_n=0)$.\\
         Если $\alpha_i>0$, то введём обозначение: 
-        $$\widehat{x_i}=\sqrt{\alpha_i}x_i \Longrightarrow k=\widehat{x_1}^2+\ldots+\widehat{x_p}^2-\widehat{x_{p+1}}^2-\ldots-\widehat{x_r}^2$$
+        $$\widehat{x}_i=\sqrt{\alpha_i}x_i \Longrightarrow k=\widehat{x}_1^2+\ldots+\widehat{x}_p^2-\widehat{x}_{p+1}^2-\ldots-\widehat{x}_r^2$$
         где $p$ - количество коэффициентов $\alpha_i>0$.\\
         Если $\alpha_i < 0 \Longrightarrow  \widehat{x_i} = -\sqrt{\alpha_i}x_i$.
         \item Пусть $\F=\CC$: 
-        $$\forall i=\overline{1,r}: \ \widehat{x_i}=\sqrt{\alpha_i}x_i \Longrightarrow k=\widehat{x_1}^2+\ldots+\widehat{x_r}$$
+        $$\forall i=\overline{1,r}: \ \widehat{x}_i=\sqrt{\alpha_i}x_i \Longrightarrow k=\widehat{x}_1^2+\ldots+{\widehat{x}_r}^2$$
     \end{enumerate}
 \end{example}
 \begin{theorem} \textbf{единственности (закон инерции)} \\

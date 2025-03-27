@@ -44,19 +44,19 @@
                 B & \vline & 0 \\ \hline 0 & \vline & C
             \end{pmatrix}\eqno(II)$$
             Причем $B = A_{\phi \hspace{0.05cm} |_u}, \ C = _{\phi \hspace{0.05cm} |_w}$. \\
-            Верно и обратное, если в некотором базисе матрица $A_\phi$ имеет вид $(I)$, то для $\phi \ \exists $ инвариантное подпространство, а если $A_\phi$ имеет вид $(II)$, то $V$ - прямая сумма двух инвариантных продрпостранств.
+            Верно и обратное, если в некотором базисе матрица $A_\phi$ имеет вид $(I)$, то для $\phi \ \exists $ инвариантное подпространство, а если $A_\phi$ имеет вид $(II)$, то $V$ - прямая сумма двух инвариантных подпространств.
         \end{enumerate}
     \end{theorem}
     \begin{proof} Обозначим $\dim V = n, \ \dim U = m, \ 0 < m < n$
         \begin{enumerate}
-            \item Выберем базис в $U: \ e_1,...,e_m$ и дополним его произвольно до базиса а $V$ векторами $e_{m+1},...,e_n$.
-            $$\forall u \in U: \ u = \sum \limits_{i=1}^mu_ie_i \Longrightarrow \phi(u) = \sum \limits_{i=1}^mu_i \phi(e_i)$$
+            \item Выберем базис в $U: \ e_1,...,e_m$ и дополним его произвольно до базиса $V$ векторами $e_{m+1},...,e_n$.
+            $$\forall u \in U: \ u = \sum \limits_{i=1} ^mu_ie_i \Longrightarrow \phi(u) = \sum \limits_{i=1}^mu_i \phi(e_i)$$
             В частности, столбцы $\phi(e_1)^\uparrow, ...,\phi(e_m)^\uparrow$ имеют вид: $\left(\begin{smallmatrix}
                 a_{1i} \\ \vdots \\ a_{mi}
-            \end{smallmatrix}\right) \Longrightarrow $ они составляют матрицу $\left(\begin{smallmatrix}
+            \end{smallmatrix}\right) \Longrightarrow $ они составляют матрицу $\begin{pmatrix}
                 B \\ \hline 0
-            \end{smallmatrix}\right)$.
-            ??? матрицы $\phi(e_{m+1}^\uparrow,...,e_{n}^\uparrow)$ соответствуют номерам координат. Видно, что:
+            \end{pmatrix}$.
+            Столбцы матрицы $\phi(e_{m+1}^\uparrow,...,e_{n}^\uparrow)$ соответствуют номерам координат. Видно, что:
             $$B = \begin{pmatrix}
                 a_{11} & \cdots & a_{1m} \\ \vdots & \null & \vdots \\ a_{m1} & \cdots & a_{mm}
             \end{pmatrix} = A_{\phi \hspace{0.05cm} |_u}$$
