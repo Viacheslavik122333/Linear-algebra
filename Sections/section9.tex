@@ -1,10 +1,20 @@
 %chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Линейные операторы}
     \begin{definition}
-        Пусть $\phi: \ V \to V$ - линейный оператор. Тогда $\text{Ker} \hspace{0.09cm} \phi, \text{Im} \hspace{0.09cm} \phi$ - подпространства в $V$. Ясно, что, если $U \subset V$, то $\phi(U)$ - подпространство в $V$.\\
-        Подпространство $U \subset V$ называется инвариантным относительно $\phi$ ($\phi$ - инвариантным), если: 
-        $$\forall u \in U: \ \phi(u) \in U, \text{ т.е. }\phi(U) \subseteq U$$   
+        Линейное отображение $\phi: \ V \to V$ называется линейным оператором 
     \end{definition}
+    Далее рассматриваем линейные операторы.
+    \begin{subtheorem} \tab
+        \begin{enumerate}
+            \item $\text{Ker} \hspace{0.09cm} \phi$ - подпространство в $V$
+            \item $\text{Im} \hspace{0.09cm} \phi$ - подпространство в $V$
+            \item Если $U \subset V$, то $\phi(U)$ - подпространство в $V$
+        \end{enumerate} 
+    \end{subtheorem}
+    \begin{definition}
+        Подпространство $U \subset V$ называется инвариантным относительно $\phi$ (или $\phi$ - инвариантным), если: 
+        $$\forall u \in U: \ \phi(u) \in U, \text{ т.е. }\phi(U) \subseteq U$$   
+    \end{definition} 
     \begin{example}\tab
         \begin{enumerate}
             \item Пусть $V = U \oplus W$. Рассмотрим $\phi: \ V \to W$. Пусть $\phi(u + w) = u$ - проекция $V$ на $U$ вдоль $W$. Тогда $U$ и $W$ - $\phi$ инвариантные продрпостранства и $\forall u \in U: \ \phi(u) = u$, а также $\forall w \in W: \ \phi(w) = w$. Итак: $U \cong V/W$
@@ -12,7 +22,7 @@
         \end{enumerate}
     \end{example}
     \begin{theorem}
-        Если $\phi: \ V \to W$ - линейный оператор, $\dim V = n, \ U \subset V$ - инвариантное подпространство, то в $V \ \exists \ $ базис, в котором $A_\phi$ имеет блочный вид: 
+        Если $\phi: \ V \to V$ - линейный оператор, $\dim V = n, \ U$ - инвариантное подпространство, то существует базис, в котором $A_\phi$ имеет блочный вид: 
         $$A_\phi = \begin{pmatrix}
             B & \vline & D \\ \hline 0 & \vline & C
         \end{pmatrix}$$
@@ -25,15 +35,16 @@
         Пусть $U \in V$ - инвариантное подпространство для линейного оператора $\phi: \ V \to V$\\
         Ограничение $\phi$ на подпространство $U$: 
         $$\phi \hspace{0.05cm} |_u : \ U \to U; \ \  \forall u \in U: \ \phi \hspace{0.05cm} |_u (u) = \phi(u)$$
-        Рассмоттрим факторпространтсво: $$\overline{V} = V/U : \ \{v + u \ | \ u \in U\}$$
+        Рассмотрим факторпространтсво: $$\overline{V} = V/U : \ \{v + u \ | \ u \in U\}$$
         и фактор-оператор: 
         $$\overline{\phi}(\overline{v}):=\overline{\phi(v)}$$
         $\forall v' \in \overline{V}: \ v' = v + u, \ u \in U \Longrightarrow \phi(\overline{v}) = \phi(v) + \phi(u) \in U \Longrightarrow \phi(\overline{v}) = \phi(v)$\\
         Т.о. $\overline{\phi}: \ \overline{V} \to \overline{V}$ - линейный оператор. 
     \end{remark}
+    \tab
     \begin{theorem}\tab
         \begin{enumerate}
-            \item Если $\exists \ \{0\} \neq U \subset V, \ \phi(U) \subseteq U$, то в подходящем базисе:
+            \item Если существует инвариантное подпространство $U \subset V$, то в подходящем базисе:
             $$A_\phi = \begin{pmatrix}
             B & \vline & D \\ \hline 0 & \vline & C
             \end{pmatrix}\eqno(I)$$
@@ -49,7 +60,7 @@
     \end{theorem}
     \begin{proof} Обозначим $\dim V = n, \ \dim U = m, \ 0 < m < n$
         \begin{enumerate}
-            \item Выберем базис в $U: \ e_1,...,e_m$ и дополним его произвольно до базиса $V$ векторами $e_{m+1},...,e_n$.
+            \item Выберем базис в $U: \ e_1,...,e_m$ и произвольно дополним его до базиса $V$ векторами $e_{m+1},...,e_n$.
             $$\forall u \in U: \ u = \sum \limits_{i=1} ^mu_ie_i \Longrightarrow \phi(u) = \sum \limits_{i=1}^mu_i \phi(e_i)$$
             В частности, столбцы $\phi(e_1)^\uparrow, ...,\phi(e_m)^\uparrow$ имеют вид: $\left(\begin{smallmatrix}
                 a_{1i} \\ \vdots \\ a_{mi}
@@ -69,18 +80,21 @@
         \end{enumerate}
     \end{proof}
     \begin{theorem}(Обратная)\\
-        Для второго случия, если в базисе $e_1,...,e_n$ матрица имеет вид $(II)$, то положим $U := \langle e_1,...,e_m \rangle, \ W := \langle e_{m+1},....,e_n \rangle$\\
+        Для второго случая, если в базисе $e_1,...,e_n$ матрица имеет вид $(II)$, то положим $U := \langle e_1,...,e_m \rangle, \ W := \langle e_{m+1},....,e_n \rangle$\\
         Из определения матрицы $A_{\phi,e}$ следует, что $U, W$ - инвариантные относительно $\phi, \ \phi \hspace{0.05cm} |_u$ имеет матрицу $B$, \ $\phi \hspace{0.05cm} |_w$ - матрицу $C$.
     \end{theorem}
     \begin{remark}
         В общем случае, если $V = U_1 \oplus ... \oplus U_s, \ U_i$ - инвариантны относительно $\phi: \ V \to V$, то в базисе, согласованным с этим разложением:
         $$A_\phi = \begin{pmatrix}
-            B_i & \vline & 0 \\ \hline 0 & \vline & B_s
-        \end{pmatrix}, \text{ где } B_i - \text{матрица } \phi|_{U_i}, \ 1\leq i \leq s$$   
+            B_1 & \null & 0\\
+            \null & \ddots & \null \\
+            0 & \null & B_s
+        \end{pmatrix}$$   
+        где $B_i$ - матрица $\phi|_{u_i}$.
     \end{remark}
     \begin{example} $\phi: \ V \to V$ 
         \begin{enumerate}
-            \item $\text{Ker} \hspace{0.09cm} \phi, \ \text{Im} \hspace{0.09cm} \phi$, любое подпространство $U \supseteq \text{Im} \hspace{0.09cm} \phi$ - инвариантное.
+            \item $\text{Ker} \hspace{0.09cm} \phi, \ \text{Im} \hspace{0.09cm} \phi$, любое подпространство $U \supseteq \text{Im} \hspace{0.09cm} \phi$ - инвариантны.
             \item Если $U_1, U_2 - \phi$-инвариантные подпространства, то $U_1 + U_2$ и $U_1 \cap U_2$ - инвариантны   
         \end{enumerate}
     \end{example}
