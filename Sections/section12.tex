@@ -34,7 +34,7 @@
     - диагональная, причем на диагонали находятся собственные значения с учетом нумерации векторов
     \subsection{Собственное подпространство линейного оператора, заданное собственным значением}
     Фиксируем собственное значение $\lambda_0 \in \F$ так, что $\exists \ v \in V, v \neq 0: \ \phi(v) = \lambda_0 v$\\
-    Обозначается: $V_{\lambda_0} = \{v \in V \ | \ \phi(v) = \lambda_0 V\}$
+    Обозначается: $V_{\lambda_0} = \{v \in V \ | \ \phi(v) = \lambda_0 v\}$
     \begin{subtheorem} \textbf{(1)} 
         $V_{\lambda_0}$ - подпространство в $V, \ V_{\lambda_0} = \text{Ker} \hspace{0.09cm} (\phi - \lambda_0 \cdot \id)$
     \end{subtheorem}
@@ -51,16 +51,16 @@
     \begin{proof}
         Пусть $\dim V_{\lambda_0} = m \leq n$, выберем базис в $V_{\lambda_0}: \ \{e_1,...,e_m\}$ и произвольно дополним его до базиса в $V$ (при m<n) векторами $e_{m+1},...,e_n \Longrightarrow$
         $$A_{\phi,e} = \begin{pmatrix}
-            \lambda_1 & \null & 0 & \vline & \null \\
+            \lambda_0 & \null & 0 & \vline & \null \\
             \null & \ddots & \null & \vline & C \\
-            0 & \null & \lambda_m & \vline & \null \\
+            0 & \null & \lambda_0 & \vline & \null \\
             \hline
             \null & 0 & \null & \vline & B
         \end{pmatrix} \Longrightarrow $$
         $$|A_{\phi,e} - \lambda E| = \begin{pmatrix}
-            (\lambda_1 - \lambda) & \null & 0 & \vline & \null \\
+            (\lambda_0 - \lambda) & \null & 0 & \vline & \null \\
             \null & \ddots & \null & \vline & C \\
-            0 & \null & (\lambda_m - \lambda) & \vline & \null \\
+            0 & \null & (\lambda_0 - \lambda) & \vline & \null \\
             \hline
             \null & 0 & \null & \vline & B - \lambda E
         \end{pmatrix} = (\lambda_0-\lambda)^m\cdot |B-\lambda E|=0$$
@@ -195,6 +195,7 @@
     \null & \null & \null & \null & \null & \null & -\beta_m & \alpha_m
     \end{smallmatrix}\right)$$
     где $\lambda_i\in\R$, \ $i = \overline{1,r}$, \ а $\beta_j \neq 0$, \ $j = \overline{1,m}$
+
 
      
     
