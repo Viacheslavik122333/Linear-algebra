@@ -41,8 +41,10 @@
     \begin{subtheorem} \textbf{(1)} 
         $V_{\lambda_0}$ - подпространство в $V, \ V_{\lambda_0} = \text{Ker} \hspace{0.09cm} (\phi - \lambda_0 \cdot \id)$
     \end{subtheorem}
-    Если $A_\phi$ - матрица оператора $\phi$, то в координатах $V_{\lambda_0}$ - множество всех решений СЛУ.
-    $$(A_\phi - \lambda_0 E) \cdot X=0 \Longrightarrow \dim V_{\lambda_0} = n - \text{rk} \hspace{0.09cm} (A_\phi - \lambda_0E)$$    
+    \begin{proof}
+        Если $A_\phi$ - матрица оператора $\phi$, то в координатах $V_{\lambda_0}$ - множество всех решений СЛУ.
+        $$(A_\phi - \lambda_0 E) \cdot X=0 \Longrightarrow \dim V_{\lambda_0} = n - \text{rk} \hspace{0.09cm} (A_\phi - \lambda_0E)$$
+    \end{proof}     
     \begin{definition} $\\$ 
         $\dim V_{\lambda_0}$ - геометрическая кратность характеристического корня $\lambda = \lambda_0$. Имеет смысл и алгебраическая кратность $\lambda_0$ характеристического корня $\chi_\phi(\lambda):$
         $$\chi_\phi(\lambda) = (\lambda_0-\lambda)^kp(\lambda_0), \ P(\lambda_0)\neq 0, \ k - \text{алгебраическая кратность}$$
@@ -83,7 +85,9 @@
         $$w = v_i = \sum \limits_{j\neq i}v_j \Longrightarrow (\sum \limits_{j\neq i}v_j) - v_i = 0$$
         Где $(\sum \limits_{j\neq i}v_j)$ - попарно различные собственные значения, т.е. либо $0$, либо противоречие с ЛНЗ $\Longrightarrow v_i = w = 0$    
     \end{proof}
-    Скажем, что $\phi$ (или его матрица) приводится к диагональному виду (т.е. диагонализируема), если в $V \ \exists$ базис, в котором $A_\phi$ диагональна.
+    \begin{definition}
+        Скажем, что $\phi$ (или его матрица) приводится к диагональному виду (т.е. диагонализируема), если в $V \ \exists$ базис, в котором $A_\phi$ диагональна.
+    \end{definition} 
     \begin{theorem}
         Для линейного оператора $\phi: \ V \to V (\dim V < \infty)$ следующие условия эквивалентны:
         \begin{enumerate}
@@ -145,8 +149,6 @@
         \end{itemize}
     \end{proof}
     
-    
-
     \textbf{Существование двумерного инвариантного подпространства для линейного оператора над $\R$, отвечающего мнимому корню характеристического многочлена.}
     
     Пусть $\phi: \ V \to V$ - линейный оператор, $\dim V = n$, тогда в некотором базисе $V$, $\phi$ действует матрицей $Y = A_{\phi}\cdot X$, где $X\in \R^n$, а $Y$ - столбец образа этого вектора ($y = \phi(x)$). Пусть $\lambda = \alpha+i\beta$ ($\beta\neq0$) - корень характеристического многочлена.
