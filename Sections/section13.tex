@@ -44,7 +44,7 @@
         Оператор $\phi: \ V \to V$ называется нулевым оператором, если образом любого вектора является нулевой вектор.
     \end{definition}
     \begin{definition}
-        Для матрицы $A = (a_{ij})$ присоединённой матрицей называется матрица $\widehat{A} = (A_{ij})$, то есть $\widehat{a_{ij}} = A_{ji}$.
+        Для матрицы $A = (a_{ij})$ присоединённой матрицей называется матрица $\widehat{A} = (A_{ji})$, то есть $\widehat{a_{ij}} = A_{ji}$.
     \end{definition}
     \begin{properties1}
         $$A\cdot\widehat{A} = \begin{pmatrix}
@@ -60,7 +60,7 @@
     \end{theorem}
     \begin{proof}
         Пусть $A$ - данная матрица, тогда:  
-        $$\chi_A(\lambda)|A-\lambda E| = \sum\limits_{i=0}^{n}p_i\lambda^i$$
+        $$\chi_A(\lambda)=|A-\lambda E| = \sum\limits_{i=0}^{n}p_i\lambda^i$$
         $$p_i\in \F, \ p_n = (-1)^n, \ \chi_A(A) = \sum\limits_{i=0}^n p_i A^i(\text{считаем, что } A^0 = E)$$
         Составим матрицу: 
         $$\widehat{A-\lambda E} = \sum\limits_{j=0}^{n-1}D_j\lambda^j, \ \text{где } D_j\in M_n(\F)$$
