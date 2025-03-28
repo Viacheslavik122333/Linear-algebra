@@ -8,8 +8,11 @@
         \begin{itemize}
             \item[$m=1:$] Один вектор $a_1 \neq 0$ ЛНЗ
             \item[$m>1:$]  Предположение индукции: Любые $m-1$ вектор, отвечающих попарно различным собственным значениям - ЛНЗ\\
-            Запишем: $a_1\alpha_1 + ... + a_{m-1}\alpha_{m-1} + a_m \alpha_m = 0$ \\
-            Подействуем оператором $\phi: a_1 \lambda_1\alpha_1 + ... + a_{m-1} \lambda_{m-1}\alpha_{m-1} + a_m  \lambda_m\alpha_m = 0 \Longrightarrow$
+            Запишем: 
+            $$a_1\alpha_1 + ... + a_{m-1}\alpha_{m-1} + a_m \alpha_m = 0 \eqno(1)$$
+            Подействуем оператором 
+            $$\phi: a_1 \lambda_1\alpha_1 + ... + a_{m-1} \lambda_{m-1}\alpha_{m-1} + a_m  \lambda_m\alpha_m = 0 \eqno(2)$$
+            Домножим (1) на $\lambda_m$ и вычтем его из (2):
             $$a_1 (\lambda_1 - \lambda_m)\alpha_1 + ... + a_{m-1} (\lambda_{m-1} - \lambda_m)\alpha_{m-1} = 0$$ 
             По предположению индукции $\forall i = 1,...,m-1: \ \alpha_i(\lambda_i - \lambda_m)= 0 \Longrightarrow \alpha_i = 0$\\
             Остается $\alpha_ma_m = 0 \Longrightarrow \alpha_m = 0$ 
