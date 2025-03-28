@@ -51,7 +51,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     \end{enumerate}
 \end{consequense} 
 \begin{definition}
-    Билинейная функция называется кососимметрической (при char $\F \neq 2$), если: 
+    Билинейная функция $b(x,y)$ называется кососимметрической (при char $\F \neq 2$), если: 
     $$\forall x, y \in V: \ b(x, y) = -b(y, x)$$  
 \end{definition} 
 \begin{subtheorem} $(*)$ 
@@ -188,8 +188,90 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
         $$\forall i=\overline{1,r}: \ \widehat{x}_i=\sqrt{\alpha_i}x_i \Longrightarrow k=\widehat{x}_1^2+\ldots+{\widehat{x}_r}^2$$
     \end{enumerate}
 \end{example}
+Таким образом, в вещественном случае для любой квадратичной формы $k(x)$ существует замена координат $X = CY (|C| \neq 0)$, такая что в новых координатах $k = \sum \limits_{i=1}^p x_i^2 - \sum \limits_{j=p+1}^{p+q} x_j^2$.
+\begin{definition}
+    p в такой записи называется положительным индексом инерции, q - отрицательным индексом инерции.
+\end{definition}
 \begin{theorem} \textbf{единственности (закон инерции)} \\
-    Для данной квадратичной формой над $\R$ числа $p$ и $q$ (количество +1 и \\количество -1 в каноническом виде) определены единственным образом
+    %Для данной квадратичной формы над $\R$ числа $p$ и $q$ (количество +1 и \\количество -1 в каноническом виде) определены единственным образом
+    Если в некоторых базисах квардатичная форма $k$ имеет канонический вид 
+    $$k = \sum \limits_{i=1}^p y_i^2 - \sum \limits_{j=p+1}^{p+q} y_j^2 = \sum \limits_{i=1}^{p'} z_i^2 - \sum \limits_{j=p'+1}^{p'+q'} z_j^2$$
+    то $p = p', q = q'$.
 \end{theorem} 
-
-    
+\begin{proof}
+    Так как $p + q = rk B = p' + q'$, достаточно доказать, что $p = p'$.
+    От противного. пусть $p' < p$. Пусть параметры $p, q$ форма имеет в базисе $e_1,...e_n$, а параметры $p', q'$ - в базисе $f_1,...,f_n$. Рассмотрим подпространства $U_1 = \langle e_1,..,e_p \rangle, U_2 = \langle f_{p'+1},..,f_n \rangle$. Очевидно, $\dim U_1 = p, \dim U_2 = n- p'$.
+    $$\dim U_1 + \dim U_2 = p - p' + n > n; \ \ U_1 + U_2 \subset V \Rightarrow dim(U_1 + U_2) \leq n$$
+    Из формулы Грассмана:
+    $$\dim (U_1 + U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2) \Rightarrow dim(U_1 \cap U_2) > 0$$
+    Рассмотрим вектор $0 \neq v \in U_1 \cap U_2$:
+    $$v = \sum \limits_{i=1}^{p} \alpha_i e_i \Rightarrow k(v) = \sum \limits_{i=1}^{p} \alpha_i \geq 0$$
+    С другой стороны:
+    $$v = \sum \limits_{k=p'+1}^{n} \beta_k f_k \Rightarrow k(v) = \sum \limits_{k=p'+1}^{n} \beta_k \leq 0$$
+    Противоречие с $v \neq 0$.
+\end{proof}
+\subsection{Знакоопределённые квадратичные формы}
+\begin{definition}
+    Пусть $b(x, y)$ - симметрическая билинейная форма. Векторы $u, v$ называются \textit{ортогональными}, если $b(u, v) = 0$. Обозначается $u \perp v$.
+\end{definition}
+\begin{definition} 
+    Базис $e_1,...,e_n$ в $V$ - \textit{ортогональный}, если $b(e_i, e_j) = 0 (i \neq j)$.
+\end{definition}
+\begin{definition}
+    Для квадратной матрицы $B$ главными минорами (угловыми минорами) называются миноры $\Delta_1,\Delta_2,...,\Delta_{n-1}$, где $\Delta_i = \begin{vmatrix} b_{11}&\dots&b_{1i}\\\vdots&\null&\vdots\\b_{i1}&\dots&b_{ii}\end{vmatrix}$. Определим $\Delta_n = |B|, \Delta_0 = 1$.
+\end{definition}
+\begin{theorem} \textbf{Якоби}
+    Пусть $k(x) (= b(x, x), b - \text{симм. б. ф.})$ такова, что главные миноры её матрицы $B$ в нек. базисе $e: \Delta_1,\Delta_2,...,\Delta_{n-1} \neq 0$
+    Тогда в $V$ существует базис (и замена координат $X = CY$), в котором 
+    $$k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$$
+\end{theorem}
+\begin{proof}
+    Будем строить базис $e'$ из базиса $e$, ортогональный относительно $b(x, y)$ (алгоритм ортогонализации Грама/Шмидта).
+    $$e'_1 := e_1; \ \ \forall k \geq 1 \ \langle e'_1,...,e'_k\rangle = \langle e_1,...,e_k\rangle$$
+    причём $b(e'_i, e'_j) = 0 (1 \leq i \neq j \leq k)$\\
+    Шаг алгоритма: допустим, что $k > 1$ и векторы $e'_1,...,e'_{k-1}$ уже построены. Будем искать $e'_{k}$ в виде 
+    $$e'_k = e_k + \sum \limits_{i=1}^{k-1} \lambda_i e'_i$$
+    где $\lambda_i$  найдём из условия $b(e'_k, e'_j) = 0, \ j = 0,...,k-1$
+    $$b(e'_k, e'_j) = b(e_k, e'_j) + \sum \limits_{i=1}^{k-1} \lambda_j b(e'_i, e'_j) = b(e_k, e'_j) + \lambda_j b(e'_j, e'_j) = 0 \Rightarrow \lambda_j = -\frac{b(e_k, e'_j)}{b(e'_j, e'_j)}$$
+    Покажем по индукции, что $b(e'_j, e'_j) = \frac{\Delta_j}{\Delta_{j-1}} \neq 0$.\\
+    Обратим внимание, что матрица перехода от $e_1,...,e_{k-1}$ к $e'_1,...,e'_{k-1}$ - верхняя треугольная с 1 по диагонали (предп. индукции).
+    Запишем: $C_{(e_1,...,e_k)\rightarrow (e'_1,...,e'_k)} = \begin{pmatrix}C_{k-1}&*\\0&1\end{pmatrix}$, где по предположению индукции $C_{k-1} = \begin{pmatrix} 1&\null&* \\ \null&\ddots&\null \\ 0&\null&1 \end{pmatrix}$
+    $B$ - матрица билин. формы $b(x, y)$ в базисе $e$, $B'$ - в базисе $e'$, который мы строим.
+    $$B'_{k | \langle e'_1,...,e'_k \rangle} = C_k^T B_{k | \langle e_1,...,e_k \rangle} C_k \Rightarrow \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = (\det C_k)^2 \cdot \det B_{k | \langle e_1,...,e_k \rangle}$$
+    $$\Delta'_k = \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = b'_{11}...b'_{kk} = \Delta_k$$
+    $$\frac{\Delta_1}{\Delta_0}\cdot\frac{\Delta_2}{\Delta_1}\cdot...\cdot\frac{\Delta_k-1}{\Delta_k-2}\cdot b_{kk} = \Delta_k \Rightarrow b_{kk} = \frac{\Delta_k}{\Delta_{k-1}}$$
+\end{proof}
+Далее рассматриваем $F = \R$.
+\begin{definition}
+    Квадратичная форма $k(x)$ на пр-ве $V$ над $\R$ называется положительно определённой, если $\forall \ x \neq 0 k(x) > 0$ (обозн. $k > 0$);
+    отрицательно определённой, если $\forall \ x \neq 0 k(x) < 0$ (обозн. $k < 0$);
+    неотрицательно определённой, если $\forall \ x  k(x) \geq 0$ (обозн. $k \geq 0$);
+    неположительно определённой, если $\forall \ x  k(x) \leq 0$ (обозн. $k \leq 0$).
+\end{definition}
+\begin{subtheorem}
+    Квадратичная форма $k(x)$ является
+    \begin{enumerate}
+        \item положительно определённой $\Leftrightarrow p = n, q = 0$;
+        \item отрицательно определённой $\Leftrightarrow p = 0, q = n$;
+        \item неотрицательно определённой $\Leftrightarrow q = 0$;
+        \item неположительно определённой $\Leftrightarrow p = 0$;
+        \item знаконеопределённой $\Leftrightarrow p,q > 0$.
+    \end{enumerate}
+\end{subtheorem}
+\begin{proof}
+    Очевидно.
+\end{proof}
+\begin{theorem} \textbf{Критерий Сильвестра}\\
+    Квадратичная форма $k(x)$ с матрицей $B$ является
+    \begin{enumerate}
+        \item положительно определённой $\Leftrightarrow \Delta_1 > 0,...,\Delta_n > 0$.
+        \item отрицательно определённой $\Leftrightarrow \forall k \ (-1)^k\Delta_k > 0$.
+    \end{enumerate} 
+\end{theorem}
+\begin{proof}
+    \textit{Достаточность}: По теореме Якоби $\exists$ базис, в котором $k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$. Т.к все $\Delta_i > 0$ (знакочередующиеся для отрицательного случая), все коэффициенты $> 0 (< 0)$, т.е. значение формы на любом ненулевом векторе имеет необходимый нам знак.\\
+    \textit{Необходимость}: $k>0 \Rightarrow \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0 \Rightarrow$ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$.  
+\end{proof}
+\begin{remark}
+    Т.к. $b_{ii} = k(e_i)$, у положительно определённой формы все $b_{ii} > 0$, у отрицательной все $b_{ii} < 0$.
+\end{remark}
