@@ -11,7 +11,7 @@
             \item $U = U_1 + U_2$ - прямая сумма
             \item $U_1 \cap U_2 = \{0\}$
             \item $\dim (U_1 + U_2) = \dim U_1 + \dim U_2$
-            \item Базис $U_1 + U_2$ - объединение базисов слогаемых    
+            \item Базис $U_1 + U_2$ - объединение базисов слагаемых    
         \end{enumerate} 
     \end{theorem} 
     \begin{proof}\tab
@@ -32,7 +32,7 @@
             \item $U = U_1 + U_2 + ... + U_n$ - прямая сумма
             \item $\forall i, \ 1 \leq i \leq m, \ U_i \cap (\sum \limits_{j \neq i}U_j) = \{0\}$
             \item $\dim (U_1 + U_2 + ... + U_n) = \dim U_1 + \dim U_2 + ... + \dim U_n$
-            \item Базис $U_1 + U_2 + ... + U_n$ - объединение базисов слогаемых    
+            \item Базис $U_1 + U_2 + ... + U_n$ - объединение базисов слагаемых    
         \end{enumerate} 
     \end{theorem}
     \begin{exercise}
@@ -141,11 +141,11 @@
             $$v \sim v' \Longrightarrow \lambda v \sim \lambda v'; \ \overline{0} \in U; \  -\overline{v} = \overline{-v}$$
             Все аксиомы выполенены, т.к. действия над смежными классами выражаются через действия над векторами.
             \item[$2)$] Выберем базис $a_1,...,a_m$ в $U$\\
-            Если $U=V$, т.е. $m=n=\dim V$, то $V\setminus U = \{0\} \Longrightarrow \dim (V\setminus U) = n-n=0$\\
-            Если же $m<n$, то можно дополнить базис $U$ векторами $a_{m+1},....,a_n$ до базиса в $V$, тогда классы $\overline{a_{m+1}},....,\overline{a_n}$ образуют базис в $V\setminus U$ :
+            Если $U=V$, т.е. $m=n=\dim V$, то $V/U = \{0\} \Longrightarrow \dim (V/U) = n-n=0$\\
+            Если же $m<n$, то можно дополнить базис $U$ векторами $a_{m+1},....,a_n$ до базиса в $V$, тогда классы $\overline{a_{m+1}},....,\overline{a_n}$ образуют базис в $V/U$ :
             $$\forall v \in V \ : \ v = \sum \limits_{i=1}^m \alpha_i a_i + \sum \limits_{j=m+1}^n \alpha_j a_j$$
             $$\overline{v} = v+ U = \sum \limits_{j=m+1}^n \overline{\alpha_j a_j} = \sum \limits_{j=m+1}^n \alpha_j \overline{ a_j}$$
-            $\Longrightarrow \overline{a_{m+1}},....,\overline{a_n}$ порождают $V\setminus U$\\
+            $\Longrightarrow \overline{a_{m+1}},....,\overline{a_n}$ порождают $V/U$\\
             Проверим ЛНЗ: 
             $$\exists \ \lambda_j \in \mathbb{F} \ : \ \sum \limits_{j=m+1}^n \lambda_j \overline{ a_j} = \overline{0} \Longleftrightarrow  \sum \limits_{j=m+1}^n \lambda_j a_j \in U$$
             $$\exists \ \mu_i \in \mathbb{F} \ : \ \sum \limits_{j=m+1}^n \alpha_j a_j - \sum \limits_{i=1}^n \mu_i a_i = 0$$

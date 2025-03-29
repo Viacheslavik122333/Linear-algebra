@@ -194,20 +194,20 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \end{definition}
 \begin{theorem} \textbf{единственности (закон инерции)} \\
     %Для данной квадратичной формы над $\R$ числа $p$ и $q$ (количество +1 и \\количество -1 в каноническом виде) определены единственным образом
-    Если в некоторых базисах квардатичная форма $k$ имеет канонический вид 
+    Если в некоторых базисах $e_1,...e_n$ и $f_1,...,f_n$ квардатичная форма $k$ имеет канонический вид 
     $$k = \sum \limits_{i=1}^p y_i^2 - \sum \limits_{j=p+1}^{p+q} y_j^2 = \sum \limits_{i=1}^{p'} z_i^2 - \sum \limits_{j=p'+1}^{p'+q'} z_j^2$$
     то $p = p', q = q'$.
 \end{theorem} 
 \begin{proof}
     Так как $p + q = rk B = p' + q'$, достаточно доказать, что $p = p'$.
-    От противного. пусть $p' < p$. Пусть параметры $p, q$ форма имеет в базисе $e_1,...e_n$, а параметры $p', q'$ - в базисе $f_1,...,f_n$. Рассмотрим подпространства $U_1 = \langle e_1,..,e_p \rangle, U_2 = \langle f_{p'+1},..,f_n \rangle$. Очевидно, $\dim U_1 = p, \dim U_2 = n- p'$.
+    От противного: пусть $p' < p$. Рассмотрим подпространства $U_1 = \langle e_1,..,e_p \rangle, U_2 = \langle f_{p'+1},..,f_n \rangle$. Очевидно, $\dim U_1 = p, \dim U_2 = n- p'$.
     $$\dim U_1 + \dim U_2 = p - p' + n > n; \ \ U_1 + U_2 \subset V \Rightarrow dim(U_1 + U_2) \leq n$$
     Из формулы Грассмана:
     $$\dim (U_1 + U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2) \Rightarrow dim(U_1 \cap U_2) > 0$$
     Рассмотрим вектор $0 \neq v \in U_1 \cap U_2$:
-    $$v = \sum \limits_{i=1}^{p} \alpha_i e_i \Rightarrow k(v) = \sum \limits_{i=1}^{p} \alpha_i \geq 0$$
+    $$v = \sum \limits_{i=1}^{p} \alpha_i e_i \Rightarrow k(v) = \sum \limits_{i=1}^{p} \alpha_i^2 \geq 0$$
     С другой стороны:
-    $$v = \sum \limits_{k=p'+1}^{n} \beta_k f_k \Rightarrow k(v) = \sum \limits_{k=p'+1}^{n} \beta_k \leq 0$$
+    $$v = \sum \limits_{k=p'+1}^{n} \beta_k f_k \Rightarrow k(v) = -\sum \limits_{k=p'+1}^{n} \beta_k^2 \leq 0$$
     Противоречие с $v \neq 0$.
 \end{proof}
 \subsection{Знакоопределённые квадратичные формы}
