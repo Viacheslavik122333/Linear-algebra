@@ -2,11 +2,11 @@
 \section{Корневые подпространства}
     $\phi:\ V \to V$ - линейный оператор над $\F, \ \dim V = n$\\
     Все корни характеристического многочлена для $\phi$ принадлежат $F$ так, что:
-    $$\chi_\phi(\lambda) = (-1)^n(\lambda-\lambda_1)^{k_1} \cdots (\psi - \psi_s), \ (\lambda-\lambda_)^{k_s}, \ \forall i \neq j: \  \lambda_i \neq \lambda_j, \ \sum \limits_{i=1}^sk_i = n$$
+    $$\chi_\phi(\lambda) = (-1)^n(\lambda-\lambda_1)^{k_1} \cdots (\lambda - \lambda_p)^{k_p}\cdots (\lambda-\lambda_s)^{k_s}, \ \forall i \neq j: \  \lambda_i \neq \lambda_j, \ \sum \limits_{i=1}^sk_i = n$$
     Рассмотрим: 
     $$\frac{1}{\chi_\phi(\lambda)} = \frac{f_1(\lambda)}{(\lambda-\lambda_1)^{k_1}} + ... + \frac{f_s(\lambda)}{(\lambda-\lambda_s)^{k_s}} \ \ | \cdot \chi_\phi(\lambda)$$ $$\Longrightarrow 1 = f_1 (\lambda) \prod\limits_{i\neq 1}(\lambda-\lambda_i)^{k_i} + ... + f_s (\lambda) \prod\limits_{i\neq s}(\lambda-\lambda_i)^{k_i}$$
-    $$1= q_1(\lambda) + ... + q_s(\lambda) \Longrightarrow  \text{id} = q_1(\lambda) + ... + q_s(\lambda) = Q_1 + ... + Q_s$$
-    $$\forall x \in V: \ Q_1(x) + ... + Q_s(x) \Longrightarrow V = \text{id} Q_1 + ... + Q_s$$
+    $$1= q_1(\lambda) + ... + q_s(\lambda) \Longrightarrow  \text{id} = q_1(\text{id}) + ... + q_s(\text{id}) = Q_1 + ... + Q_s$$
+    $$\forall x \in V: \ x=Q_1(x) + ... + Q_s(x) \Longrightarrow V = \text{Im} (Q_1) + ... + \text{Im} (Q_s)$$
     Обратим внимание, что:
     $$\forall i \neq j: \ Q_iQ_j = Q_jQ_i = 0$$
     Т.к. в $q_i(\lambda)q_j(\lambda)$ входят все множители, входящие в разложение $\chi_\phi(\lambda) \Longrightarrow $ по теореме Гамильтона-Кэли: 
@@ -37,7 +37,7 @@
         \begin{enumerate}
             \item Для линейного оператора $\phi$ и линейного $q(\lambda)$ подпространство $q(\phi)(V)$ инвариантно
             $$q(\lambda) = a_0+ a_1 \lambda + ... + a_m \lambda^m, \ \ q(\phi) = a_0+ a_1 \phi + ... + a_m \phi^m$$
-            Возьмем $v = \text{Im}q(v) \Longrightarrow \exists \ u \in V: \ v = q(\phi)(u) \Longrightarrow \phi(v) = (\phi \cdot q(\phi))(u) = q(\phi)(\phi(u)) \in \text{Im}q(u)$
+            Возьмем $v \in \text{Im}q(v) \Longrightarrow \exists \ u \in V: \ v = q(\phi)(u) \Longrightarrow \phi(v) = (\phi \cdot q(\phi))(u) = q(\phi)(\phi(u)) \in \text{Im}q(u)$
             Оператор $\phi$ и любой $q(\phi)$ перестановочны
             \item $\forall x_i \in \text{Im}Q_i \Longrightarrow x_i = Q_i(u_i)$
             $$(\phi-\lambda_i \cdot \text{id})^{k_i} = \underbrace{(\phi-\lambda_i \cdot \text{id})^{k_i} \cdot \prod\limits_{j \neq i}(\phi-\lambda_j E)^{k_j}}_{\chi_\phi(\phi)}(u_i) = 0$$
