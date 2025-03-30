@@ -1,18 +1,19 @@
 %chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Векторное пространство}
   \begin{definition}
-    Множество $V$ называется \textit{векторным пространством} над полем $F$, если заданы операции $"+"$ и $"\cdot"$\ : \ $V\times V \to V$, $F \times V \to V$ и выполнены следующие аксиомы:
+    Множество $V$ называется \textit{векторным пространством} над полем $F$, если заданы операции $"+"$ : $V\times V \to V$ и $"\cdot"$ : \ $F \times V \to V$ и выполнены следующие аксиомы:
     \begin{enumerate}
         \item $\forall v_1, v_2, v_3\in V$ \ : \ $(v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)$
         \item $\exists \ \vec 0 \in V:\ \forall v \in V$ \ : \ $v + \vec 0 = v$
         \item $\forall v \in V \ \ \exists  -v  \in V$: $v + (-v) = \vec 0$
         \item $\forall v_1, v_2 \in V$ \ : \ $v_1 + v_2 = v_2 + v_1$
         \item $\forall \alpha, \beta \in F, v \in V$ \ : \ $(\alpha \beta)v = \alpha (\beta v)$
-        \item $\forall v \in V$ $\exists \ 1 \in F$ \ : \ $1 \cdot v = v$
+        \item $\forall v \in V$ : \ $1_{F} \cdot v = v$
         \item $\forall \alpha, \beta \in F, v \in V$ \ : \ $(\alpha + \beta)v = \alpha v + \beta v$
         \item $\forall \alpha \in F, v_1, v_2 \in V$ \ : \ $\alpha (v_1 + v_2) = \alpha v_1 + \alpha v_2$
     \end{enumerate}
     \textit{Загадка:} Одна из этих аксиом - следствие других. Какая?
+    \textit{Ответ:} Аксиома коммутативности.
     \begin{proof}
       Cначала докажем два свойства.
       \begin{enumerate}
@@ -32,7 +33,7 @@
     \end{proof} 
   \end{definition}
   \begin{remark}
-    Любое поле можно рассматривать как векторное пространство над собой размерности 1: $V_2 = \F, \ \dim V_2 = 1$. 
+    Любое поле можно рассматривать как векторное пространство над собой - все аксиомы будут выполнены из аксиом поля. 
   \end{remark}
   \begin{definition}
     $U \subset  V$ - \textit{векторное подпространство} пространства $V$, если оно само является пространством относительно тех же операций в $V$. 
@@ -46,13 +47,13 @@
     \end{enumerate}
   \end{subtheorem} 
   \begin{definition}
-    Векторы $v_1,...,v_n \in V$ называются линейно зависимыми, если $\exists \ \lambda_1,..., \lambda_n$ (не все равные 0) \ : \ $\lambda_1v_1+...+\lambda_nv_n = \vec 0$
+    Векторы $v_1,...,v_n \in V$ называются линейно зависимыми, если $\exists \ \lambda_1,..., \lambda_n$ (не все равные 0) \ : \ $\lambda_1v_1+...+\lambda_nv_n = \vec 0$. В противном случае векторы $v_1,...,v_n$ называются линейно независимыми.
   \end{definition} 
   \begin{subtheorem}
     Определение 3 $\Longleftrightarrow $ ($n\geq 2$) хотя бы один вектор из векторов $v_i$ выражается как линейная комбинация остальных. 
   \end{subtheorem}
   \begin{definition}
-    Упорядоченный набор векторов $e = (e_1,...,e_n), e_k \in V$ называется базисом $V$, если $e$ - максимальный ЛНЗ набор веторов из $V$.  
+    Упорядоченный набор векторов $e = (e_1,...,e_n), e_k \in V$ называется базисом $V$, если $e$ - максимальный ЛНЗ набор векторов из $V$.  
   \end{definition} 
   \begin{subtheorem}
     $e$ - базис в $V \Longleftrightarrow$

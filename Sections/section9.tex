@@ -18,7 +18,7 @@
     \begin{example}\tab
         \begin{enumerate}
             \item Пусть $V = U \oplus W$. Пусть $\phi: \ V \to V$ такое, что $\phi(v) = \phi(u + w) = u$ - проекция $V$ на $U$ вдоль $W$. Тогда $U$ и $W$ - инвариантные подпространства относительно $\phi$ и $\forall u \in U: \ \phi(u) = u$, а также $\forall w \in W: \ \phi(w) = 0$. Отсюда $U \cong V/W$
-            \item Пусть $V = \R[t], \ \phi(f) = \frac{d(f)}{dt}\Rightarrow p(t) \to p'(t)$. Здесь инвариантным является подпространство $\R[t]_n \supset \R[t]_{n-1}, \ n \in \N \cup \{0\}$               
+            \item Пусть $V = \R[t], \ \phi(f) = \frac{df}{dt}\Rightarrow p(t) \to p'(t)$. Здесь инвариантным является подпространство $\R[t]_n \supset \R[t]_{n-1}, \ n \in \N \cup \{0\}$               
         \end{enumerate}
     \end{example}
     \begin{theorem}
@@ -32,7 +32,7 @@
         Выберем базис $e_1,...,e_m$ в $U$ и дополним до базиса в $V$. Тогда в полученном базисе $A_\phi$ имеет нужный вид. 
     \end{proof}
     \begin{remark}
-        Пусть $U \in V$ - инвариантное подпространство для линейного оператора $\phi: \ V \to V$\\
+        Пусть $U \subset V$ - инвариантное подпространство для линейного оператора $\phi: \ V \to V$\\
         Ограничение $\phi$ на подпространство $U$: 
         $$\phi \hspace{0.05cm} |_u : \ U \to U; \ \  \forall u \in U: \ \phi \hspace{0.05cm} |_u (u) = \phi(u)$$
         Рассмотрим факторпространтсво: $$\overline{V} = V/U : \ \{v + u \ | \ u \in U\}$$
@@ -84,7 +84,7 @@
         Из определения матрицы $A_{\phi,e}$ следует, что $U, W$ - инвариантные относительно $\phi, \ \phi \hspace{0.05cm} |_u$ имеет матрицу $B$, \ $\phi \hspace{0.05cm} |_w$ - матрицу $C$.
     \end{theorem}
     \begin{remark}
-        В общем случае, если $V = U_1 \oplus ... \oplus U_s, \ U_i$ - инвариантны относительно $\phi: \ V \to V$, то в базисе, согласованным с этим разложением:
+        В общем случае, если $V = U_1 \oplus ... \oplus U_s, \ U_i$ - инвариантны относительно $\phi: \ V \to V$, то в базисе, согласованном с этим разложением:
         $$A_\phi = \begin{pmatrix}
             B_1 & \null & 0\\
             \null & \ddots & \null \\
