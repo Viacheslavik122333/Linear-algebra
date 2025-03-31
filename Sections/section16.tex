@@ -1,5 +1,5 @@
 %chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
-\section{Биленейные и квадратичные формы}
+\section{Билинейные и квадратичные формы}
 \begin{definition}
     Функция $b: \ V\times V \to \F$ называется билинейной функцией, если:
     \begin{enumerate}
@@ -239,7 +239,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     $B$ - матрица билин. формы $b(x, y)$ в базисе $e$, $B'$ - в базисе $e'$, который мы строим.
     $$B'_{k | \langle e'_1,...,e'_k \rangle} = C_k^T B_{k | \langle e_1,...,e_k \rangle} C_k \Rightarrow \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = (\det C_k)^2 \cdot \det B_{k | \langle e_1,...,e_k \rangle}$$
     $$\Delta'_k = \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = b'_{11}...b'_{kk} = \Delta_k$$
-    $$\frac{\Delta_1}{\Delta_0}\cdot\frac{\Delta_2}{\Delta_1}\cdot...\cdot\frac{\Delta_k-1}{\Delta_k-2}\cdot b_{kk} = \Delta_k \Rightarrow b_{kk} = \frac{\Delta_k}{\Delta_{k-1}}$$
+    $$\frac{\Delta_1}{\Delta_0}\cdot\frac{\Delta_2}{\Delta_1}\cdot...\cdot\frac{\Delta_{k-1}}{\Delta_{k-2}}\cdot b_{kk} = \Delta_k \Rightarrow b_{kk} = \frac{\Delta_k}{\Delta_{k-1}}$$
 \end{proof}
 Далее рассматриваем $F = \R$.
 \begin{definition}
@@ -261,17 +261,81 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \begin{proof}
     Очевидно.
 \end{proof}
+\begin{lemma}
+    Если кв. форма $k > 0$, то $\det B = \Delta_n \neq 0$.
+\end{lemma}
+\begin{proof}
+    Т.к. $k>0$, $p = n$, т.е. существует базис, в котором $k(x') = {x'_1}^2 + ... + {x'_n}^2 \Rightarrow \Delta'_n = 1 > 0$.\\
+    А так как $B' = C^TBC$, $|B'| = |C|^2\cdot|B| \Rightarrow \det B > 0$.
+\end{proof}
 \begin{theorem} \textbf{Критерий Сильвестра}\\
-    Квадратичная форма $k(x)$ с матрицей $B$ является
+    Квадратичная форма $k(x)$, имеющая в некотором базисе матрицу $B$, является
     \begin{enumerate}
         \item положительно определённой $\Leftrightarrow \Delta_1 > 0,...,\Delta_n > 0$.
         \item отрицательно определённой $\Leftrightarrow \forall k \ (-1)^k\Delta_k > 0$.
     \end{enumerate} 
 \end{theorem}
-\begin{proof}
-    \textit{Достаточность}: По теореме Якоби $\exists$ базис, в котором $k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$. Т.к все $\Delta_i > 0$ (знакочередующиеся для отрицательного случая), все коэффициенты $> 0 (< 0)$, т.е. значение формы на любом ненулевом векторе имеет необходимый нам знак.\\
-    \textit{Необходимость}: $k>0 \Rightarrow \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0 \Rightarrow$ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$.  
+\begin{proof} Для положительной определённости: \\
+    $\Leftarrow : \ \ $ По теореме Якоби $\exists$ базис, в котором $k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$. Т.к все $\Delta_i > 0$ (знакочередующиеся для отрицательного случая), все коэффициенты $> 0 (< 0)$, т.е. значение формы на любом ненулевом векторе имеет необходимый нам знак.\\
+    $\\ \Rightarrow : \ \ $ $k>0 \Rightarrow \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0$ (k-ый минор ненулевой по лемме для угловой подматрицы)$ \Rightarrow$ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$.
+
+    Для отрицательной определённости - $k < 0 \Leftrightarrow -k > 0$, причём при домножении матрицы на $-1$ знак меняют только миноры нечётного порядка. 
 \end{proof}
 \begin{remark}
     Т.к. $b_{ii} = k(e_i)$, у положительно определённой формы все $b_{ii} > 0$, у отрицательной все $b_{ii} < 0$.
 \end{remark}
+\begin{remark}
+    Пусть $k(x)$ такая, что $\Delta_1,...,\Delta_r \neq 0, \Delta_{r+1} = ... = \Delta_n = 0$. Тогда $p$ - число сохранений знака в последовательности $\Delta_0,\Delta_1,...,\Delta_r$, а $q$ - число перемен знака в этой последовательности.
+\end{remark}
+\begin{proof}
+    Из теоремы Якоби в подходящем базисе
+    $$k(x) = \frac{\Delta_1}{\Delta_0}y_1^2 + ... + \frac{\Delta_k}{\Delta_{k-1}}y_k^2 + ... + \frac{\Delta_r}{\Delta_{r-1}}y_r^2$$
+    Тогда каждое сохранение знака соответствует положительному коэффициенту, а каждая перемена знака - отрицательному коэффициенту, откуда и следует необходимое равенство. 
+\end{proof}
+\subsection{Кососимметрические билинейные формы}
+$$\forall\ x,y \in V: \ \ b(y,x) = -b(x,y) \ \ \ (\text{char } \F \neq 2)$$
+Заметим, что $\forall x\in V: \ b(x,x) = 0$. Если же $b(x, x) \equiv 0$:
+$$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Rightarrow b(x,y) = -b(y,x)$$
+Поэтому условие $b(x,x) \equiv 0$ не только эквивалентно кососимметричности формы, но и применимо в случае $\text{char } F = 2$.
+\begin{lemma}
+    Пусть $b(x,y)$ - симметрическая или кососимметрическая билинейная форма на $V \ (\dim V = n < \infty), \ U\subset V$ такое что $b|_U$ невырождена. Тогда $V = U \oplus U^{\perp}$.
+\end{lemma}
+\begin{proof}
+    $U^{\perp} = \{y\in V: \ b(x,y) = 0  \ \forall x\in U\}$.\\
+    В координатах: если выбрать базис $e_1,...,e_n$ в $U$ ($m = \dim U, 0<m<n$), то $y \in U^{\perp} \Leftrightarrow b(e_i, y) = 0, \ i = 1,...,m$.\\
+    Если $b(x,y) = 0 \ \forall x \in U$, то $b(e_i, y) = 0, \ i = 1,...,m$\\
+    Обратно, если $b(e_i, y) = 0, \ i = 1,...,m$, то $\forall x \in U \ x = \sum \limits_{i=1}^m x_ie_i \Rightarrow b(x,y) = \sum \limits_{i=1}^m x_ib(e_i,y) = 0$.\\
+    Запишем систему уравнений для нахождения $y$, выбрав базис $e_1,...,e_m \in U$ и дополнив его до базиса $e_1,...,e_n \in V$. В этом базисе $e_i^{\uparrow} = \begin{pmatrix} 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \ b(e_i, y) = (0,...,1,...,0)B \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = (b_{i1},...,b_{in})Y^{\uparrow}$\\
+    Система имеет вид 
+    $$\begin{pmatrix}
+        b_{11}&\dots&b_{1n}\\
+        \vdots&\null&\vdots\\
+        b_{n1}&\dots&b_{nn}
+    \end{pmatrix} Y = 0$$
+    Т.к. матрица $B$ невырождена, $\text{rk} B = m$, т.е. система имеет $n-m$ ЛНЗ решений, а значит $\dim U^\perp = \dim V - \dim U$.\\
+    Если же $v \in U\cap U^\perp$, то $\forall \ x\in U \ b(x,v) = 0$, а из невырожденности формы $b|_U$ тогда следует. что $v = 0$. 
+\end{proof}
+\begin{theorem}
+    Для любой кососимметрической билинейной формы $b(x,y) \not \equiv \ \exists$ такой базис $f_1,...,f_n \in V$, в котором матрица этой формы имеет вид
+    $$\begin{pmatrix}
+    \text{\fbox{$I_1$}}\\
+    \null & \ddots\\
+    \null & \null & \text{\fbox{$I_s$}}\\
+    \null & \null & \null & 0\\
+    \null & \null & \null & \null & \ddots\\
+    \null & \null & \null & \null & \null & 0
+    \end{pmatrix}$$ 
+    где $I_j = \begin{pmatrix} 0&1 \\ -1&0 \end{pmatrix}$, $\text{rk} B = 2s$
+\end{theorem}
+\begin{proof}
+    Т.к. $b(x,y) \not \equiv 0$, $\exists$ векторы $e_1, e_2 \in V$, такие что $b(e_1, e_2) = \beta_{12} \neq 0$. Рассмотрим
+    $$f_1 = \frac{e_1}{\beta_{12}}, f_2 = e_2 \Rightarrow b(f_1,f_2) = 1, b(f_2,f_1) = -b(f_1,f_2) = -1$$
+    Возьмём $W = U^{\perp}$ в пр-ве $V$. Тогда $V = U \oplus U^{\perp}$ и $\tilde{b} = b|_{U^{\perp}}$ - также кососимметрическая форма, т.е. можем провести индукцию по $n = \dim V$ (базу $n = 2$ доказали). $\dim W = n-2$, т.е. $\exists$ базис $f_3,...,f_n$, в котором матрица $b|_{U^{\perp}}$ имеет вид $\begin{pmatrix}
+    \text{\fbox{$I$}}\\
+    \null & \ddots\\
+    \null & \null & \text{\fbox{$I$}}\\
+    \null & \null & \null & 0\\
+    \null & \null & \null & \null & \ddots\\
+    \null & \null & \null & \null & \null & 0
+    \end{pmatrix}$, т.е в базисе $f_1,...,f_n$ матрица $b$ имеет нужный вид.
+\end{proof}

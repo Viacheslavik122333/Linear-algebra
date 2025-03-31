@@ -1,2 +1,18 @@
-\section{}
+\section{Евклидовы пространства и их обобщения}
+\subsection{Основные понятия и утверждения}
+Основное поле - $\F = \R$.
+\begin{definition}
+    Вещественное конечномерное векторное пространство $\mathcal{E}$ называется евклидовым пространством, если на $\mathcal{E}$ задано скалярное произведение $(x,y)$ - симметрическая билинейная функция, такая что соответственная квадратичная форма $(x,x)$ положительно определена.
+\end{definition}
+\begin{definition}
+    Длина (норма) вектора $x\in\mathcal{E}$: $|x| = \sqrt{(x,x)}$.
+\end{definition}
+\begin{theorem} \textbf{Неравенство Коши-Буняковского-Шварца}\\
+    $\forall \ x,y\in\mathcal{E}: \ |(x,y)|\leqslant|x|\cdot|y|$, причём равенство выполнено $\Leftrightarrow x \parallel y$ (либо $x = 0$ или $y = 0$, либо $y = \lambda x$).
+\end{theorem}
+\begin{proof}
+    Рассмотрим функцию $f(t) = (tx-y, tx-y) = t^2(x,x) -2t(x,y) + (y,y) \geqslant 0$. Это квадратичная функция относительно $t$:
+    $$f(t)\geqslant 0 \Leftrightarrow \frac{\mathcal{D}}{4} = (x,y)^2 - (x,x)(y,y) \leqslant 0 \Rightarrow (x,y) \leq \sqrt{(x,x)(y,y)} = |x|\cdot|y|$$
+    Равенство выполнено $\Leftrightarrow (tx-y, tx-y) = 0 \Rightarrow y = tx$.
+\end{proof}
     

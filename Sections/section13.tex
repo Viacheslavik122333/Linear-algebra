@@ -102,14 +102,14 @@
         \begin{enumerate}
             \item Пусть $p(\phi) =0$, для некоторого $p(\lambda) \in \F[\lambda]$\\
             Разделим $p$ с остатком на $\mu_\phi$:
-            $$p(\lambda) = \mu_\phi(\lambda) \cdot p(\phi) + r(\phi) \Longrightarrow r(\phi) = 0$$
-            $\Longrightarrow  \deg \mu_\phi(\lambda) = min \Longrightarrow r(\lambda) = 0$
+            $$p(\lambda) = \mu_\phi(\lambda) \cdot q(\lambda) + r(\lambda) \Rightarrow p(\phi) = \mu_\phi(\phi) \cdot q(\phi) + r(\phi) = 0 \Rightarrow r(\phi) = 0$$
+            Т.к. $\deg r(\lambda) < \deg(\mu_{\phi}(\lambda))$, $r(\lambda) \equiv 0$.
 
             \item Т.к. $\mu_\phi(\lambda) \ | \ \mu'_\phi(\lambda)$ и $\mu'_\phi(\lambda) \ | \ \mu_\phi(\lambda) \Longrightarrow \frac{\mu'_\phi}{\mu_\phi} = \alpha \in \F^* = \F\backslash \{0\}$\\
             Если $\mu_\phi(\lambda) = \lambda^m + ... $ и $\mu'_\phi(\lambda) = \lambda^m + ... \Longrightarrow \alpha = 1$
             \item Допустим, что $\exists j: \ \mu_\phi(\lambda_j) \neq 0$, т.е. в разложение $\mu_\phi$ не входит $(\lambda - \lambda_j) \\ 
-            \Longrightarrow \exists \text{ вектор } v \in V: \ \phi(v) = \lambda_jr$
-            $$0 = \mu_\phi(\lambda)(v) = \prod\limits_{i\neq j}(\phi-\lambda_i)(v) \neq 0$$ 
+            \Longrightarrow \exists \text{ вектор } v \in V: \ \phi(v) = \lambda_jv$
+            $$0 = \mu_\phi(\phi)(v) = \mu_\phi(\phi(v)) = \mu_\phi(\lambda_j v) = \mu_\phi(\lambda_j)v \neq 0$$ 
             - противоречие             
         \end{enumerate}
     \end{proof}
