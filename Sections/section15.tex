@@ -374,16 +374,16 @@
         \vdots \\
         \dot{y_n} = \lambda_n y_n
     \end{cases} \Longrightarrow \begin{cases}
-        y_1 = C_1^{\lambda_1t}\\
+        y_1 = C_1e^{\lambda_1t}\\
         \vdots \\
         y_n = C_ne^{\lambda_nt}
     \end{cases}$$
     Тогда $X = CY$\\
     Если $$C^{-1}AC = J_k(\lambda_0) = \begin{pmatrix}
-        \lambda_1 & 1 & \null & 0 \\
+        \lambda_0 & 1 & \null & 0 \\
         \null & \ddots & \ddots & \null \\
-        \null & \null & \lambda_{n-1} & 1 \\
-        0 & \null & 0 & \lambda_n
+        \null & \null & \lambda_{0} & 1 \\
+        0 & \null & 0 & \lambda_0
     \end{pmatrix} \Longrightarrow \begin{cases}
         \dot{y}_1 = \lambda_0y_1 + y_2\\
         \vdots \\
@@ -441,8 +441,8 @@
         \end{pmatrix}$$  
     \end{exercise}
     \subsection{Вычисление корня и экспоненты}
-    $$e^{at} = 1 + \frac{at}{1!} + \frac{a^2t^2}{2!} + ... + \frac{a^{n-1}t^{n-1}}{(n-1)!}$$
-    $$e^{At} = E + \frac{At}{1!} + \frac{A^2t^2}{2!} + ... + \frac{A^{n-1}t^{n-1}}{(n-1)!}$$
+    $$e^{at} = 1 + \frac{at}{1!} + \frac{a^2t^2}{2!} + ... + \frac{a^{n-1}t^{n-1}}{(n-1)!} + ...$$
+    $$e^{At} = E + \frac{At}{1!} + \frac{A^2t^2}{2!} + ... + \frac{A^{n-1}t^{n-1}}{(n-1)!} + ...$$
     Для $J_n(\lambda) = \lambda E + B \Longrightarrow$ 
     $$\exp (J_n(\lambda)t) = e^{t \lambda E} \cdot e^{tB} = e^{\lambda t}\cdot \begin{pmatrix}
         1 & t & \frac{t^2}{2} & \cdots\\
@@ -453,7 +453,7 @@
         \null & \null & \null & \null & \null & 1
     \end{pmatrix}
     $$
-    $$(e^{A + B} = e^a \cdot e^b \Longleftrightarrow AB = Ba)$$
+    $$(e^{A + B} = e^A \cdot e^B \Longleftrightarrow AB = BA)$$
     \begin{example}\tab
         \begin{enumerate}
             \item $$(1 + t)^{\frac{1}{2}} = 1 + \frac{1}{2}t +      \frac{1}{2!}\cdot \frac{1}{2}\cdot(\frac{1}{2}-1)t^2 + ...$$
