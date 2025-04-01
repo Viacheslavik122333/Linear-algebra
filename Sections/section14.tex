@@ -15,13 +15,17 @@
     \begin{definition}
         $Q_i^2 = Q_i$ - идемпотентный оператор
     \end{definition}  
-    Разложение $\forall$ вектора $x$ в сумму: $Q_1(x) + ... + Q_s(x)$ - единственно\\
-    Докажем равенство: $x = y_1+ ... + y_s$, надо доказать, что $y_i = x_i$
-    Из равенства $x = Q_1(x_1) + ... + Q_s(x_s) \Longrightarrow Q_i(x) = Q_i(Q_i(x)) = Q_i(x_i) \Longrightarrow x_i = y_i$, где $y_i \in \text{Im}Q_i$
     
     Введем обозначение $K_i = \text{Im}Q_i$
     
-    Докажем, что $V = K_1 \oplus ... \oplus K_s$
+    \begin{subtheorem}
+        $V = K_1 \oplus ... \oplus K_s$
+    \end{subtheorem}
+    \begin{proof}
+        Пусть $x = y_1 + ... + y_s, \ y_i = Q_i(x_i)$. Тогда:
+        $$Q_i(x) = Q_i(Q_1(x_1)) + ... + Q_s(Q_i(x_s)) = Q_i(Q_i(x_i)) = Q_i(x_i) = y_i$$
+        Отсюда разложение любого вектора из $V$ в сумму векторов из $K_1,...,K_s$ единственно, т.е. $V = K_1 \oplus ... \oplus K_s$.
+    \end{proof}
     
     \begin{definition}
         Подпространство $K_i = \text{Im} Q_i$ назовем корневым подпространством, отвечающим корню $\lambda_i$

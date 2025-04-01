@@ -105,7 +105,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \end{definition}
     Далее будем считать матрицу квадратичной формы матрицей её полярной симметрической билинейной функции $b(x,y)$
     $$b(x,y)=\sum\limits_{i=1}^nb_{ii}x_iy_i+\sum\limits_{i<j}b_{ij}x_iy_j+\sum\limits_{i>j}b_{ij}x_iy_j$$
-    $$\forall i, j: \ b_{ij}=b_{ji} \Longrightarrow  b(x,x)=k(x)=\sum\limits_{i=1}^nb_{ii}x_i^2+\sum\limits_{1\leqslant i<j\leqslant n}b_{ij}x_ix_j\eqno{\textbf{(1)}}$$
+    $$\forall i, j: \ b_{ij}=b_{ji} \Longrightarrow  b(x,x)=k(x)=\sum\limits_{i=1}^nb_{ii}x_i^2+2\sum\limits_{1\leqslant i<j\leqslant n}b_{ij}x_ix_j\eqno{\textbf{(1)}}$$
 
 \begin{example1}
     Пусть $k(x_1,x_2, x_3)=3x_1^2+2x_1x_2-x_1x_3+x_2^2+6x_2x_3-7x_3^2$, тогда:
@@ -142,11 +142,11 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \end{theorem}
 \begin{proof} (Алгоритм Лагранжа - метод выделения полных квадратов)\\
     По формуле \textbf{(1)}: 
-    $$k(x)=\sum\limits_{i=1}^nb_{ii}x_i^2+\sum\limits_{i<j}b_{ij}x_ix_j$$
+    $$k(x)=\sum\limits_{i=1}^nb_{ii}x_i^2+2\sum\limits_{i<j}b_{ij}x_ix_j$$
     \begin{enumerate}
         \item Основной случай: \\
         $\exists i$ : $b_{ii}\neq0$ $\Longrightarrow$ можно перенумеровать неизвестные $x_1$, $\ldots$, $x_n$, так что $b_{11}\neq0$. Выделим в $k(x)$ все одночлены, содержащие $x_1$:
-        $$k(x)=\sum\limits_{i=1}^nb_{11}x_1^2+2x_1\sum\limits_{i=2}^nb_{1i}x_i+\widetilde{k}(x_2,\ldots, x_n)$$ 
+        $$k(x)=b_{11}x_1^2+2x_1\sum\limits_{i=2}^nb_{1i}x_i+\widetilde{k}(x_2,\ldots, x_n)$$ 
         и дополним выражение до квадрата:
         \begin{multline*}
             k(x) = b_{11}(x_1^2+2x_1\sum\limits_{i=2}^n\frac{b_{1i}}{b_{11}}x_i+(\sum\limits_{i=2}^n\frac{b_{1i}}{b_{11}}x_i^2))-\frac{(\sum\limits_{i=2}^nb_{1i}x_i)^2}{b_{11}}+\widetilde{k} = \\
