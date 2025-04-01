@@ -22,17 +22,17 @@
 \end{example}
 \subsection{Запись билинейной функции в координатах}
 Пусть в $V$ задан базис $e_1,...,e_n$, тогда:
-$$b(\sum \limits_{i=1}^mx_ie_i, \sum \limits_{j=1}^my_je_j) = \sum \limits_{i,j=1}^mb(x_ie_i, y_je_j) = \sum \limits_{i,j=1}^m x_iy_j(e_i,e_j)$$
+$$b(\sum \limits_{i=1}^nx_ie_i, \sum \limits_{j=1}^ny_je_j) = \sum \limits_{i,j=1}^nb(x_ie_i, y_je_j) = \sum \limits_{i,j=1}^n x_iy_jb(e_i,e_j)$$
 \begin{definition}
     Обозначим $b_{ij} = b(e_i, e_j)$, тогда $B_e=b_{ij}$ - матрица билинейной функции $b(x, y)$ в базисе $e$\\
     Тогда:
     $$b(x, y) = \sum \limits_{i,j=1}^n x_ib_{ij}y_j = \begin{pmatrix}
-        x_1 & \cdot & x_n
-    \end{pmatrix}\begin{pmatrix}
+        x_1 & \cdots & x_n
+    \end{pmatrix}B_e\begin{pmatrix}
         y_1\\
         \vdots \\
         y_n
-    \end{pmatrix} = X^TBY \eqno (1)$$ 
+    \end{pmatrix} = X^TB_eY \eqno (1)$$ 
     
 \end{definition} 
 \subsection{Изменение матрицы билинейной формы при замене базиса}

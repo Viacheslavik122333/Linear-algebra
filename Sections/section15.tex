@@ -3,7 +3,7 @@
     Основное условие: \ \  $\phi: \ V \to V$ - линейный оператор, все его корни $\in \F$
     $$\chi_{\phi}(\lambda) = (-1)^n(\lambda-\lambda_1)^{k_1}\cdot\ldots\cdot(\lambda-\lambda_s)^{k_s} \ (\forall i\neq j: \ \lambda_i\neq\lambda_j \text{ и } \sum \limits_{i=1}^s k_i = \dim V)$$
     $$V = K_1\oplus\ldots\oplus K_s, \ \text{где } K_i = \text{Ker}(\phi-\lambda_i\cdot\text{id})^{k_i} - \text{корневое подпространство}$$
-    $$V_{\lambda_i} = \{x\in V|\phi(x) = \lambda_ix\}, \  \dim V_{\lambda_i}\leqslant k_i = \dim K_i$$
+    $$V_{\lambda_i} = \{x\in V \ | \ \phi(x) = \lambda_ix\}, \  \dim V_{\lambda_i}\leqslant k_i = \dim K_i$$
     Так как $K_i$ - инвариантное подпространство относительно оператора $\phi$, можно рассмотреть ограничение: 
     $$(\phi-\lambda_i \text{ id})|_{K_i} := B_i$$
     Из определения $k_i$ следует, что $B_i^{k_i}=0$, то есть $B_i$ - нильпотентный оператор.\\
@@ -18,33 +18,33 @@
     \end{pmatrix}$$
     где $A_i = A_{\phi_{k_i}}$ - марица порядка $k_i, \  A_i-\lambda_iE_{k_i} = B_i, \ B_i^{k_i}=0$\\
     Обозначим $K_i :=K$, $B_i :=B$, $k_i :=k$, тогда: 
-    $$\forall \bar{x}\in K: \  B^k(x) = 0$$
+    $$\forall x\in K: \  B^k(x) = 0$$
     если $x\neq0$, то $\exists$ наименьшее значение $m$: 
     $$B^m(x) = 0, \ B^{m-1}(x)\neq 0 \ (m\leqslant h)$$ 
     Назовём это высотой вектора $x$.\\
     Для фиксированного вектора $x\neq0$ (высоты $m$) рассмотрим векторы: 
-    $$x, \ B^0x, \ Bx, \ldots,B^{m-1}x, \ B^mx = 0$$
+    $$x, \  Bx, \ldots,B^{m-1}x, \ B^mx = 0$$
     \begin{definition}
-        Векторы \{$x,\ B^0x,\ Bx,\ \ldots,\  B^{m-1}x = 0$\} называются жордановой цепочкой.
+        Векторы \{$x,\ Bx,\ \ldots,\  B^{m-1}x $\} называются жордановой цепочкой.
     \end{definition}  
     \begin{lemma}
         Вышеуказанные векторы являются линейно независимыми.
     \end{lemma}
     \begin{proof}
         Предположим, что: 
-        $$\alpha_0x+\alpha_1B^0x+\ldots+\alpha_{m-1}B^{m-1}x=0$$
+        $$\alpha_0x+\alpha_1Bx+\ldots+\alpha_{m-1}B^{m-1}x=0$$
         Подействуем на это равенство оператором $B^{m-1}$: $$\alpha_0B^{m-1}x = 0 \ \Longrightarrow \ \alpha_0 = 0$$ 
         На оставшиеся векторы подействуем оператором $B^{m-2}$:
         $$\alpha_1B^{m-1}x = 0 \ \Longrightarrow \ \alpha_1 = 0$$
         и т.д. Получим, что $\forall i = \overline{0,m-1}: \ \alpha_i = 0 \ \Longrightarrow$ векторы являются линейно независимыми.
     \end{proof}
     \begin{definition}
-        Подпространство, натянутое на эти векторы: $$\langle x,\ B^0x,\ Bx,\ \ldots,\  B^{m-1}x \rangle$$
+        Подпространство, натянутое на эти векторы: $$\langle x,\ Bx,\ \ldots,\  B^{m-1}x \rangle$$
         называется циклическим подпространством, порождённым жордановой цепочкой. Данное подпространство обозначим $U$, $\dim U_x = m$.\\
         Обычно векторы жордановой цепочки нумеруют с конца, то есть:
         $$a_1 = B^{m-1}x, \ a_2 = B^{m-2}x, \ldots, a_m = x$$ 
         Тогда $a_1$ - собственный вектор для $B$, и для $\forall j = \overline{2,m}: \ a_{j-1} = Ba_j$\\
-        Векторы $a_j$ называются присоединёнными к вектору $a_{j-1}$\\
+        Вектор $a_j$ называется присоединённым к вектору $a_{j-1}$\\
         К вектору $a_1$: \ $a_2$ - присоединённый, $a_3$ - второй присоединённый и т.д. 
     \end{definition}
     \begin{definition} $\\$ 
