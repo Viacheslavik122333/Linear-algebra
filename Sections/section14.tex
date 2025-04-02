@@ -47,21 +47,7 @@
             \item $\forall x_i \in \text{Im}Q_i \Longrightarrow x_i = Q_i(u_i)$
             $$(\phi-\lambda_i \cdot \text{id})^{k_i}(x_i) = f_i(\phi) \cdot \underbrace{(\phi-\lambda_i \cdot \text{id})^{k_i} \cdot \prod\limits_{j \neq i}(\phi-\lambda_j E)^{k_j}}_{\chi_\phi(\phi)}(u_i) = 0$$
             $\Longrightarrow K_i \subseteq \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$\\ 
-            Для доказательства в обратную сторону докажем лемму:
-            \begin{lemma}
-                $\text{Ker}(\phi-\lambda_j \cdot \text{id})^{k_j} \cap \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i} = {0}$
-            \end{lemma}
-            \begin{proof}
-                Пусть вектор $v$ принадлежит этому пересечению. Тогда:
-                $$\exists m_1: (\phi-\lambda_i \cdot \text{id})^{m_1}(v) \neq 0, \ (\phi-\lambda_i \cdot \text{id})^{m_1 + 1}(v) = 0$$
-                $$\exists m_2: (\phi-\lambda_j \cdot \text{id})^{m_2}(\phi-\lambda_i \cdot \text{id})^{m_1}(v) \neq 0, \ (\phi-\lambda_i \cdot \text{id})^{m_2 + 1}(\phi-\lambda_i \cdot \text{id})^{m_1}(v) = 0$$
-                Тогда вектор $(\phi-\lambda_j \cdot \text{id})^{m_2}(\phi-\lambda_i \cdot \text{id})^{m_1}(v)$ - собственный для $\phi$ одновременно со значением $\lambda_i$ и $\lambda_j$, но собственные подпространства не пересекаются. Противоречие.
-            \end{proof}
-            Пусть $y_i \in \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i} \Rightarrow (\phi-\lambda_i \cdot \text{id})^{k_i}(y_i) = 0$\\
-            Применим к этому равенству $Q_j, \ j \in 1,...,n, j \neq i$:
-            $$Q_j(\phi-\lambda_i \cdot \text{id})^{k_i}(y_i) = (\phi-\lambda_i \cdot \text{id})^{k_i}(Q_j(y_i)) = 0 \Rightarrow Q_j(y_i) \in \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$$
-            Отсюда $Q_j(y_i) \in \text{Ker}(\phi-\lambda_j \cdot \text{id})^{k_j} \cap \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i} \Rightarrow$ по лемме $Q_j(y_i) = 0$ для произвольного $j \neq i$.\\
-            А так как $y_i = Q_1(y_i) + ... + Q_s(y_i)$, получим $y_i = Q_i(y_i)$, т.е. $y_i \in K_i$.
+            Обратно: пусть $y_i \in \text{Ker}(\phi-\lambda_i \cdot \text{id})$. Знаем, что $y_i = Q_1(y_i) + ... + Q_s(y_i)$, причём в $Q_j$ при $j \neq i$ содержится множитель $(\phi-\lambda_i \cdot \text{id})$. Отсюда $Q_j(y_i) = 0$ при $j \neq i$, т.е. $y_i = Q_i(y_i) \Rightarrow y_i \in K_i \Rightarrow \text{Ker}(\phi-\lambda_i \cdot \text{id}) \subseteq K_i$.
         \end{enumerate}
     \end{proof} 
     \begin{theorem}
