@@ -5,7 +5,7 @@
     $$\chi_\phi(\lambda) = (-1)^n(\lambda-\lambda_1)^{k_1} \cdots (\lambda - \lambda_p)^{k_p}\cdots (\lambda-\lambda_s)^{k_s}, \ \forall i \neq j: \  \lambda_i \neq \lambda_j, \ \sum \limits_{i=1}^sk_i = n$$
     Рассмотрим: 
     $$\frac{1}{\chi_\phi(\lambda)} = \frac{f_1(\lambda)}{(\lambda-\lambda_1)^{k_1}} + ... + \frac{f_s(\lambda)}{(\lambda-\lambda_s)^{k_s}} \ \ | \cdot \chi_\phi(\lambda)$$ $$\Longrightarrow 1 = f_1 (\lambda) \prod\limits_{i\neq 1}(\lambda-\lambda_i)^{k_i} + ... + f_s (\lambda) \prod\limits_{i\neq s}(\lambda-\lambda_i)^{k_i}$$
-    $$1= q_1(\lambda) + ... + q_s(\lambda) \Longrightarrow  \text{id} = q_1(\text{id}) + ... + q_s(\text{id}) = Q_1 + ... + Q_s$$
+    $$1= q_1(\lambda) + ... + q_s(\lambda) \Longrightarrow  \text{id} = q_1(\phi) + ... + q_s(\phi) = Q_1 + ... + Q_s$$
     $$\forall x \in V: \ x=Q_1(x) + ... + Q_s(x) \Longrightarrow V = \text{Im} (Q_1) + ... + \text{Im} (Q_s)$$
     Обратим внимание, что:
     $$\forall i \neq j: \ Q_iQ_j = Q_jQ_i = 0$$
@@ -26,11 +26,12 @@
         $$Q_i(x) = Q_i(Q_1(x_1)) + ... + Q_s(Q_i(x_s)) = Q_i(Q_i(x_i)) = Q_i(x_i) = y_i$$
         Отсюда разложение любого вектора из $V$ в сумму векторов из $K_1,...,K_s$ единственно, т.е. $V = K_1 \oplus ... \oplus K_s$.
     \end{proof}
-    
     \begin{definition}
-        Подпространство $K_i = \text{Im} Q_i$ назовем корневым подпространством, отвечающим корню $\lambda_i$
+        Подпространство $K_i = \text{Im} Q_i$ назовем корневым подпространством, отвечающим корню $\lambda_i$.
     \end{definition}
-    $q_i(\lambda) = \frac{f_i(\lambda)\cdot \chi_\phi(\lambda)}{(\lambda-\lambda_i)^{k_i}}$ 
+    \begin{remark}
+        $q_i(\lambda) = \frac{f_i(\lambda)\cdot \chi_\phi(\lambda)}{(\lambda-\lambda_i)^{k_i}} = f_i(\lambda)\prod\limits_{j \neq i}(\lambda-\lambda_j)^{k_j}; \ \ Q_i = q_i(\phi); \ \ K_i = \textup{Im}Q_i$.
+    \end{remark} 
     \begin{subtheorem}\tab
         \begin{enumerate}
             \item Корневые подпространства инвариантны
@@ -39,13 +40,28 @@
     \end{subtheorem}
     \begin{proof}\tab 
         \begin{enumerate}
-            \item Для линейного оператора $\phi$ и линейного $q(\lambda)$ подпространство $q(\phi)(V)$ инвариантно
+            \item Докажем, что для линейного оператора $\phi$ и многочлена $q(\lambda)$ подпространство $q(\phi)(V)$ инвариантно:
             $$q(\lambda) = a_0+ a_1 \lambda + ... + a_m \lambda^m, \ \ q(\phi) = a_0+ a_1 \phi + ... + a_m \phi^m$$
-            Возьмем $v \in \text{Im}q(v) \Longrightarrow \exists \ u \in V: \ v = q(\phi)(u) \Longrightarrow \phi(v) = (\phi \cdot q(\phi))(u) = q(\phi)(\phi(u)) \in \text{Im}q(u)$
-            Оператор $\phi$ и любой $q(\phi)$ перестановочны
+            Возьмем $v \in \text{Im}q(v) \Longrightarrow \exists \ u \in V: \ v = q(\phi)(u) \Longrightarrow \phi(v) = (\phi \cdot q(\phi))(u) = q(\phi)(\phi(u)) \in \text{Im}q(u)$, так как оператор $\phi$ и любой $q(\phi)$ перестановочны.\\
+            Так как $K_i = Q_i(V) = q_i(\phi)(V)$, из доказаноого выше следует, что $K_i$ инвариантно.
             \item $\forall x_i \in \text{Im}Q_i \Longrightarrow x_i = Q_i(u_i)$
-            $$(\phi-\lambda_i \cdot \text{id})^{k_i} = \underbrace{(\phi-\lambda_i \cdot \text{id})^{k_i} \cdot \prod\limits_{j \neq i}(\phi-\lambda_j E)^{k_j}}_{\chi_\phi(\phi)}(u_i) = 0$$
-            $\Longrightarrow K_i \subseteq \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$     
+            $$(\phi-\lambda_i \cdot \text{id})^{k_i}(x_i) = f_i(\phi) \cdot \underbrace{(\phi-\lambda_i \cdot \text{id})^{k_i} \cdot \prod\limits_{j \neq i}(\phi-\lambda_j E)^{k_j}}_{\chi_\phi(\phi)}(u_i) = 0$$
+            $\Longrightarrow K_i \subseteq \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$\\ 
+            Для доказательства в обратную сторону докажем лемму:
+            \begin{lemma}
+                $\text{Ker}(\phi-\lambda_j \cdot \text{id})^{k_j} \cap \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i} = {0}$
+            \end{lemma}
+            \begin{proof}
+                Пусть вектор $v$ принадлежит этому пересечению. Тогда:
+                $$\exists m_1: (\phi-\lambda_i \cdot \text{id})^{m_1}(v) \neq 0, \ (\phi-\lambda_i \cdot \text{id})^{m_1 + 1}(v) = 0$$
+                $$\exists m_2: (\phi-\lambda_j \cdot \text{id})^{m_2}(\phi-\lambda_i \cdot \text{id})^{m_1}(v) \neq 0, \ (\phi-\lambda_i \cdot \text{id})^{m_2 + 1}(\phi-\lambda_i \cdot \text{id})^{m_1}(v) = 0$$
+                Тогда вектор $(\phi-\lambda_j \cdot \text{id})^{m_2}(\phi-\lambda_i \cdot \text{id})^{m_1}(v)$ - собственный для $\phi$ одновременно со значением $\lambda_i$ и $\lambda_j$, но собственные подпространства не пересекаются. Противоречие.
+            \end{proof}
+            Пусть $y_i \in \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i} \Rightarrow (\phi-\lambda_i \cdot \text{id})^{k_i}(y_i) = 0$\\
+            Применим к этому равенству $Q_j, \ j \in 1,...,n, j \neq i$:
+            $$Q_j(\phi-\lambda_i \cdot \text{id})^{k_i}(y_i) = (\phi-\lambda_i \cdot \text{id})^{k_i}(Q_j(y_i)) = 0 \Rightarrow Q_j(y_i) \in \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$$
+            Отсюда $Q_j(y_i) \in \text{Ker}(\phi-\lambda_j \cdot \text{id})^{k_j} \cap \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i} \Rightarrow$ по лемме $Q_j(y_i) = 0$ для произвольного $j \neq i$.\\
+            А так как $y_i = Q_1(y_i) + ... + Q_s(y_i)$, получим $y_i = Q_i(y_i)$, т.е. $y_i \in K_i$.
         \end{enumerate}
     \end{proof} 
     \begin{theorem}
