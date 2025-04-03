@@ -47,7 +47,7 @@
             \item $\forall x_i \in \text{Im}Q_i \Longrightarrow x_i = Q_i(u_i)$
             $$(\phi-\lambda_i \cdot \text{id})^{k_i}(x_i) = f_i(\phi) \cdot \underbrace{(\phi-\lambda_i \cdot \text{id})^{k_i} \cdot \prod\limits_{j \neq i}(\phi-\lambda_j E)^{k_j}}_{\chi_\phi(\phi)}(u_i) = 0$$
             $\Longrightarrow K_i \subseteq \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$\\ 
-            Обратно: пусть $y_i \in \text{Ker}(\phi-\lambda_i \cdot \text{id})$. Знаем, что $y_i = Q_1(y_i) + ... + Q_s(y_i)$, причём в $Q_j$ при $j \neq i$ содержится множитель $(\phi-\lambda_i \cdot \text{id})$. Отсюда $Q_j(y_i) = 0$ при $j \neq i$, т.е. $y_i = Q_i(y_i) \Rightarrow y_i \in K_i \Rightarrow \text{Ker}(\phi-\lambda_i \cdot \text{id}) \subseteq K_i$.
+            Обратно: пусть $y_i \in \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k^i}$. Знаем, что $y_i = Q_1(y_i) + ... + Q_s(y_i)$, причём в $Q_j$ при $j \neq i$ содержится множитель $(\phi-\lambda_i \cdot \text{id})^{k_i}$. Отсюда $Q_j(y_i) = 0$ при $j \neq i$, т.е. $y_i = Q_i(y_i) \Rightarrow y_i \in K_i \Rightarrow \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i} \subseteq K_i$.
         \end{enumerate}
     \end{proof} 
     \begin{theorem}
