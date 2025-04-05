@@ -105,10 +105,19 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
     \begin{enumerate}
         \item $(U^\perp)^\perp = U$
         \item $(U_1 + U_2)^\perp = U_1^\perp \cap U_2^\perp$
-        \item $(U_1 \cap U_2)^\perp = U_1^\perp + U_2^\perp$ 
+        \item $(U_1 \cap U_2)^\perp = U_1^\perp + U_2^\perp$
     \end{enumerate}
 \end{properties}
-
- 
-
+\begin{proof}\tab
+    \begin{enumerate}
+        \item Пусть $x\in U,\ y\in U^\perp$, тогда $(y,x)=0\ \forall y\in U^\perp \Rightarrow x\in (U^\perp)^\perp\\ \Rightarrow U\subseteq (U^\perp)^\perp$. Причем 
+        \[\dim{(U^\perp)^\perp}=n-\dim{U^\perp}=n-(n-\dim{U})=\dim{U}\]
+        $\Rightarrow U=(U^\perp)^\perp$
+        \item Пусть $v\in U_1^\perp\cap U_2^\perp \Rightarrow v\perp U_1$ и $v\perp U_2 \Rightarrow \forall x=u_1+u_2$:\\
+        $(v,x)=(v,u_1)+(v,u_2)=0 \Rightarrow v\in (U_1+U_2)^\perp \Rightarrow U_1^\perp \cap U_2^\perp \subseteq (U_1+U_2)^\perp$
+        Если $w\in (U_1+U_2)^\perp$, то $(w, u_1+u_2)=0\ \forall u_1\in U_1, u_2\in U_2$. В частности, $(w, u_1)=0\ \forall u_1\in U_1 \Rightarrow w\in U_1^\perp$ и $(w, u_2)=0\ \forall u_2\in U_2\Rightarrow w\in U_2^\perp\\
+        \Rightarrow w\in U_1^\perp\cap U_2^\perp$
+        \item Аналогично.
+    \end{enumerate}
+\end{proof}
 
