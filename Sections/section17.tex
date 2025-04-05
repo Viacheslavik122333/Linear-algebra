@@ -1,9 +1,13 @@
+%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Евклидовы пространства и их обобщения}
 \subsection{Основные понятия и утверждения}
 Основное поле - $\F = \R$.
 \begin{definition}
-    Вещественное конечномерное векторное пространство $\mathcal{E}$ называется евклидовым пространством, если на $\mathcal{E}$ задано скалярное произведение $(x,y)$ - симметрическая билинейная функция, такая что соответственная квадратичная форма $(x,x)$ положительно определена.
+    Вещественное конечномерное векторное пространство $\mathcal{E}$ называется евклидовым, если на $\mathcal{E}$ задано скалярное произведение $(x,y)$
 \end{definition}
+\begin{definition}
+    Скалярное произведение $(x,y)$ - симметрическая билинейная функция, такая что соответственная квадратичная форма $(x,x)$ положительно определена
+\end{definition} 
 \begin{definition}
     Длина (норма) вектора $x\in\mathcal{E}$: $|x| = \sqrt{(x,x)}$.
 \end{definition}
@@ -15,4 +19,96 @@
     $$f(t)\geqslant 0 \Leftrightarrow \frac{\mathcal{D}}{4} = (x,y)^2 - (x,x)(y,y) \leqslant 0 \Rightarrow (x,y) \leq \sqrt{(x,x)(y,y)} = |x|\cdot|y|$$
     Равенство выполнено $\Leftrightarrow (tx-y, tx-y) = 0 \Rightarrow y = tx$.
 \end{proof}
-    
+\begin{theorem} \textbf{Неравенство треугольника}\\
+    $\forall x, y \in \mathcal{E} : \ |x+y| \leq |x| + |y|$ \ (равенство выполнено $\Longleftrightarrow x \uparrow \uparrow y$ ) 
+\end{theorem}
+\begin{proof}
+    $$(x+y, x+y) = (x, x) + 2(x, y) + (y, y) \leq |x|^2 + 2|x||y| = (|x|+|y|)^2$$
+    $$|x+y|^2 \Longleftrightarrow |x+y| \leq |x| + |y|$$  
+\end{proof}
+Координатная запись: пусть в $V$ фиксированный базис $e_1,...,e_n$, то: 
+$$(x,y) = (\sum \limits_{i=1}^nx_ie_i), \sum \limits_{j=1}^ny_je_j = \sum \limits_{i,j=1}^nx_iy_j(e_i,e_j)$$
+\begin{definition}
+    $G_e = ((e_i,e_j))$ - матрица Грама базиса $e$
+    $$G_e^T = G_e$$ 
+    Т.к. $(x,x)$ - положительно определенная квадратичная форма, то матрица: 
+    $$G_e = (g_{ij})$$ 
+    может служить матрицей Грама $\Longleftrightarrow \triangle_1 >0,...,\triangle_n > 0$ \\
+    В частности: \ $\det G_e >0$ (определитель Грама)   
+\end{definition}
+\begin{center}
+    \fbox{\text{ $(x,y) = X^TG_eY$ }}
+\end{center}
+\begin{definition}
+    $$x \perp y \Longleftrightarrow (x,y) = 0$$ 
+\end{definition}
+\begin{definition}
+    Базис $e_1,...,e_n$ называется ортогональным, если: 
+    $$e_i \perp e_j \ \text{ при } i \neq j$$
+\end{definition}
+\begin{consequense}
+    $e_1,...,e_n$ - ортогональный, если $(e_i,e_j) = \delta_{ij}$  
+\end{consequense}
+\begin{consequense}
+    Если базис ортогональный, то $G = E$ и $(x,y) = \sum \limits_{i=1}^nx_iy_i$
+\end{consequense}
+\begin{theorem} Пусть $e' = eC_{e\to e'}$ - новый базис 
+    \begin{enumerate}
+        \item Если $e$ и $e'$ ортогональные, то $C_{e \to e'}$ ортогональна
+        \item Если $e$ ортогональный базис и $C_{e \to e'}$ ортогональная матрица $\Longrightarrow e' = eC$ - ортогональный базис  
+    \end{enumerate}
+\end{theorem}
+\begin{remark}
+    $C$ - ортогональная, если $C^TC = E$  
+\end{remark} 
+\begin{proof} \tab
+    \begin{enumerate}
+        \item По определению матрицы перехода $C_{e \to e'} = \begin{pmatrix}
+            e_1^\uparrow & \cdots & e_n^\uparrow
+        \end{pmatrix}$\\
+        $C^T_{e\to e'} = \begin{pmatrix}
+            e_1^\rightarrow  \\ \vdots \\ e_n^\rightarrow 
+        \end{pmatrix}$ Обозначим $d_{ij}$ - $(ij)$элемент матрицы $C^TC:$ 
+        $$d_{ij} = e_i'^{\rightarrow} \cdot e_j'^{\uparrow} = (e'_i,e_j') = \delta_{ij}$$
+        т.к. базис $e$  ортогональный $\Longrightarrow d_{ij} = \delta_{ij} \Longrightarrow C^TC = E$
+        \item Рассмотрим $e' = eC_{e\to e'}$, тогда $e_j^{\uparrow}$ - это $j$ столбец матрицы $C_{e\to e'}$\\
+        По условию $C^TC = E \Longleftrightarrow e_i'^{\rightarrow} \cdot e_j'^{\uparrow} = \delta_{ij} = (e'_i,e_j')$
+    \end{enumerate}    
+\end{proof}
+\begin{lemma}
+    Если $a_1,...,a_m \in \mathcal{E}$ - ортогональная система векторов\\ 
+    \tab[13cm] $\Longrightarrow  a_1,...,a_m$ ЛНЗ  
+\end{lemma}
+Т.о. $\forall x \in \mathcal{E}$ единственным образом разлагается в сумму $x = x_{\shortparallel} + x_{\perp}$
+\begin{center}
+    РИСУНОК
+\end{center}
+$x_{\shortparallel} \in U, \ \ x_{\shortparallel}$ - ортогональная проекция вектора $x$ на $U$\\
+$x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная составляющая $x$ относительно $U$
+\begin{example1}
+    РИСУНОК\\
+    Надо подобрать такой многочлен $p(t) \in U$, чтобы: $$\parallel f(t) - p(t)\parallel \ = \min$$
+    Где $p(t) = f(t)$ - псевдорешение  
+\end{example1}
+\subsection*{Как конкретно находить такое разложение?}
+\begin{itemize}
+    \item[\textbf{1 способ:}] Выбрать ортогональный базис в $U$ и дополнить его до ортогонального базиса в $\mathcal{E}$\\
+    Тогда:
+    $$x = \underbrace{\sum \limits_{i=1}^m(x_i,e_i)e_i}_{x_\shortparallel}  + \underbrace{\sum \limits_{i=m+1}^n(x_i,e_i)e_i}_{x_\perp} = x_\shortparallel + x_\perp$$
+    \item[\textbf{2 способ:}] Выбрать в $U$ произвольный базис $a_1,...,a_m$ и искать разложение в виде:
+    $$x = \sum \limits_{i=1}^m \alpha_ia_i + x_\perp \ \ | \cdot a_j \Longrightarrow (x_i,a_j) = \sum \limits_{i=1}^m \alpha(a_i,a_j) + \underbrace{(x_\perp + a_j)}_{=0} $$
+    Не однородная СЛУ с неизвестными $\alpha_i$, основная матрица: 
+    $$((a_i,a_j)) = G_{\{a_1,...,a_m\}}$$
+    где $\det G \neq 0 \Longrightarrow$ по теореме Крамера $\exists ! \ \alpha_1,...,a_m \Longrightarrow \exists ! \ x_\shortparallel \Longrightarrow x_\perp = x - x_\shortparallel$   
+\end{itemize}
+\begin{properties} \textbf{операций ортогонального дополнения} 
+    \begin{enumerate}
+        \item $(U^\perp)^\perp = U$
+        \item $(U_1 + U_2)^\perp = U_1^\perp \cap U_2^\perp$
+        \item $(U_1 \cap U_2)^\perp = U_1^\perp + U_2^\perp$ 
+    \end{enumerate}
+\end{properties}
+
+ 
+
+
