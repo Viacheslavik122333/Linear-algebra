@@ -81,13 +81,17 @@ $$(x,y) = (\sum \limits_{i=1}^nx_ie_i), \sum \limits_{j=1}^ny_je_j = \sum \limit
 \end{lemma}
 Т.о. $\forall x \in \mathcal{E}$ единственным образом разлагается в сумму $x = x_{\shortparallel} + x_{\perp}$
 \begin{center}
-    РИСУНОК
+    \includegraphics[width=10cm]{image/Asymptote/3/linal-3-1.pdf}
 \end{center}
 $x_{\shortparallel} \in U, \ \ x_{\shortparallel}$ - ортогональная проекция вектора $x$ на $U$\\
 $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная составляющая $x$ относительно $U$
-\begin{example1}
-    РИСУНОК\\
-    Надо подобрать такой многочлен $p(t) \in U$, чтобы: $$\parallel f(t) - p(t)\parallel \ = \min$$
+\begin{example1}\tab
+    \begin{center}
+        \includegraphics[width=8cm]{image/Asymptote/4/linal-4-1.pdf}
+        $U = \langle 1,t,...,t^{n-1} \rangle$ 
+    \end{center}
+    Надо подобрать такой многочлен $p(t) \in U$, чтобы: 
+    $$\parallel f(t) - p(t)\parallel \ = \min$$
     Где $p(t) = f(t)$ - псевдорешение  
 \end{example1}
 \subsection*{Как конкретно находить такое разложение?}
@@ -110,15 +114,24 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
 \end{properties}
 \begin{proof}\tab
     \begin{enumerate}
-        \item Пусть $x\in U,\ y\in U^\perp$, тогда $(y,x)=0\ \forall y\in U^\perp \Rightarrow x\in (U^\perp)^\perp\\ \Rightarrow U\subseteq (U^\perp)^\perp$. Причем 
-        \[\dim{(U^\perp)^\perp}=n-\dim{U^\perp}=n-(n-\dim{U})=\dim{U}\]
-        $\Rightarrow U=(U^\perp)^\perp$
-        \item Пусть $v\in U_1^\perp\cap U_2^\perp \Rightarrow v\perp U_1$ и $v\perp U_2 \Rightarrow \forall x=u_1+u_2$:\\
-        $(v,x)=(v,u_1)+(v,u_2)=0 \Rightarrow v\in (U_1+U_2)^\perp \Rightarrow U_1^\perp \cap U_2^\perp \subseteq (U_1+U_2)^\perp$
-        Если $w\in (U_1+U_2)^\perp$, то $(w, u_1+u_2)=0\ \forall u_1\in U_1, u_2\in U_2$. В частности, $(w, u_1)=0\ \forall u_1\in U_1 \Rightarrow w\in U_1^\perp$ и $(w, u_2)=0\ \forall u_2\in U_2\Rightarrow w\in U_2^\perp\\
-        \Rightarrow w\in U_1^\perp\cap U_2^\perp$, то есть $(U_1+U_2)^\perp \subseteq U_1^\perp \cap U_2^\perp \Rightarrow$ имеет место равенство $(U_1+U_2)^\perp=U_1^\perp\cap U_2^\perp$.
-        \item Возьмем $(U_1^\perp+U_2^\perp)=(U_1^\perp)^\perp \cap (U_2^\perp)^\perp=U_1 \cap U_2\\
-        \Rightarrow ((U_1^\perp+U_2^\perp)^\perp)^\perp=(U_1\cap U_2)^\perp \Rightarrow U_1^\perp+U_2^\perp=(U_1 \cap U_2)^\perp$
+        \item Пусть $x\in U,\ y\in U^\perp$, тогда: 
+        $$(y,x)=0\ \forall y\in U^\perp \Rightarrow x\in (U^\perp)^\perp \Longrightarrow  U\subseteq (U^\perp)^\perp$$ 
+        Причем: 
+        $$\dim{(U^\perp)^\perp}=n-\dim{U^\perp}=n-(n-\dim{U})=\dim{U}\Longrightarrow  U=(U^\perp)^\perp$$
+
+        \item Пусть $v\in U_1^\perp\cap U_2^\perp \Longrightarrow  v\perp U_1$ и $v\perp U_2 \Longrightarrow  \forall x=u_1+u_2$:
+        $$(v,x)=(v,u_1)+(v,u_2)=0 \Longrightarrow  v\in (U_1+U_2)^\perp \Longrightarrow  U_1^\perp \cap U_2^\perp \subseteq (U_1+U_2)^\perp$$
+        Если $w\in (U_1+U_2)^\perp$, то $\forall u_1\in U_1, \forall u_2\in U_2 :\ (w, u_1+u_2)=0$\\
+        В частности: 
+        $$\begin{cases}
+            \forall u_1\in U_1: \ (w, u_1)=0 \ \Longrightarrow  w\in U_1^\perp\\
+            \forall u_2\in U_2: \ (w, u_2)=0 \ \Longrightarrow  w\in U_2^\perp
+        \end{cases} \Longrightarrow  w\in U_1^\perp\cap U_2^\perp$$
+        То есть $(U_1+U_2)^\perp \subseteq U_1^\perp \cap U_2^\perp \Longrightarrow $ имеет место равенство:
+        $$(U_1+U_2)^\perp=U_1^\perp\cap U_2^\perp$$
+
+        \item Возьмем $(U_1^\perp+U_2^\perp)=(U_1^\perp)^\perp \cap (U_2^\perp)^\perp=U_1 \cap U_2$
+        $$\Longrightarrow  ((U_1^\perp+U_2^\perp)^\perp)^\perp=(U_1\cap U_2)^\perp \Longrightarrow  U_1^\perp+U_2^\perp=(U_1 \cap U_2)^\perp$$
     \end{enumerate}
 \end{proof}
 

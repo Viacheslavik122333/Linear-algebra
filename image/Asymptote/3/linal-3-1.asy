@@ -1,0 +1,21 @@
+if(!settings.multipleView) settings.batchView=false;
+settings.tex="pdflatex";
+defaultfilename="linal-3-1";
+if(settings.render < 0) settings.render=4;
+settings.outformat="";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+size(13cm, 0);
+draw((1,0.2)--(6,0.2)--(8.5,1.7)--(3.5,1.7)--cycle);
+draw((4,1)--(6,1), EndArrow);
+draw((4,1)--(4,3), EndArrow);
+draw((4,1)--(6,3), EndArrow);
+draw((4,1)--(4,3), EndArrow);
+draw((6,1)--(6,3)--(4,3), dashed);
+label("$x_\perp$",(4,2.8),align=NW);
+label("$x_\parallel$", (5.9,0.95),align=S);
+label("$x$", (6.1,3.1));
+label("$U$", (2.5,0.6),fontsize(15pt));

@@ -1,0 +1,18 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{amssymb, amsmath, amsthm, mathtools}
+\usepackage{asymptote}
+\usepackage{graphicx}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\begin{document}
+    \begin{asy}
+        size(10cm, 0);
+        draw((1,0.2)--(5,0.2)--(7.5,1.5)--(3.5,1.5)--cycle);
+        draw((4,1)--(5.5,2.5), EndArrow);
+        label("$x = f(t)$", (6.1,2.53));
+        label("$U$", (2.6,0.55),fontsize(13pt));
+    \end{asy}
+\end{document}

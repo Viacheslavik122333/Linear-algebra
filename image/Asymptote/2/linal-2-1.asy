@@ -1,6 +1,6 @@
 if(!settings.multipleView) settings.batchView=false;
 settings.tex="pdflatex";
-defaultfilename="linal-2";
+defaultfilename="linal-2-1";
 if(settings.render < 0) settings.render=4;
 settings.outformat="";
 settings.inlineimage=true;
