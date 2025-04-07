@@ -134,4 +134,96 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
         $$\Longrightarrow  ((U_1^\perp+U_2^\perp)^\perp)^\perp=(U_1\cap U_2)^\perp \Longrightarrow  U_1^\perp+U_2^\perp=(U_1 \cap U_2)^\perp$$
     \end{enumerate}
 \end{proof}
+\begin{subtheorem}
+    Вектор наименьшей длины, соединяющий точку из подпространства $U$ с концом вектора $x$ - $x_{\perp}$. 
+\end{subtheorem}
+\begin{proof}
+    Обозначим $x_{\parallel} = y, x_{\perp} = z$, а вектор из начала $x$ в произвольную точку $U$ - вектор $v$ (РИСУНОК). Докажем, что $|x-v|\geqslant |z|$, причём равенство достигается при $v = y$:
+    $$x - v = x - y + y - v = z + y - v$$
+    Т.к. $z \in U^{\perp}, (y - v) \in U$,
+    $$z \perp (y-v) \Rightarrow |x-v|^2 = |z|^2 + |y-v| \geqslant |z|^2$$
+    причём равенство при $|y - v| = 0 \Rightarrow y = v$.
+\end{proof}
+Это подтвержает осмысленность определения $\rho(x, U) = |x_{\perp}|$.
+\begin{exercise}
+    Докажите отсюда, что $\angle(x, v) \geqslant \angle(x, y)$.
+\end{exercise}
+\begin{definition}
+    Углом между вектором и подпространством будем называть $\angle(x, v) = \angle(x, y)$
+\end{definition}
 
+Частный случай: $\dim U = n-1$ ("гиперплоскость"):\\
+В ортонормированном базисе $U$ задаётся уравнением $a_1x_1 +...+a_nx_n = 0$, а ортогональное дополнение $U^{\perp} = \langle n = (a_1,...,a_n)\rangle$ ($n$ - вектор нормали). Тогда:
+$$\rho(x, U) = |x_{\perp}| = \frac{V_{\langle e_1,...,e_{n-1},x\rangle}}{V_{\langle e_1,...,e_{n-1}\rangle}}$$
+где $V_{\langle a_1,...,a_k\rangle}$ - объём параллелепипеда, натянутого на $a_1,...,a_k$.
+\begin{definition}
+    $n$-мерным параллелепипедом с рёбрами $e_1,...,e_n$ называется
+    $$\Pi_{\langle e_1,...,e_n\rangle} = \{v = \lambda_1e_1 + ... + \lambda_{n}e_{n}, 0\leqslant\lambda_i\leqslant1\}$$
+\end{definition}
+\begin{definition}
+    В общем случае объём параллелепипеда определяется рекурсивно:
+    $$V_{\langle e_1,...,e_n\rangle} = V_{\langle e_1,...,e_{n-1}\rangle} \cdot |e_{n\perp}|,  \ \text{где $e_{n\perp}$ - проекция $e_n$ на $\langle e_1,...,e_{n-1}\rangle$}$$
+    Заметим, что если $e_1,...,e_n$ попарно ортогональны, то $V_{\langle e_1,...,e_n\rangle} = |e_1|\cdot...\cdot|e_n|$.
+\end{definition}
+
+Объём не изменится, если к векторам применить процесс ортогонализации (с унитреугольной матрицей перехода).\\
+Тогда $V_{\langle e'_1,...,e'_n\rangle} = |e'_1|\cdot...\cdot|e'_n| = \sqrt{|G_{\{ e'_1,...,e'_n\}}|}$\\
+В ортогональном базисе $G_{\{ e'_1,...,e'_n\}} = \begin{pmatrix} |e'_1|^2 &\null&0 \\ \null&\ddots&\null \\ 0&\null&|e'_n|^2 \end{pmatrix} \Rightarrow \\ \Rightarrow |G_{\{ e'_1,...,e'_n\}}| = |e_1|^2\cdot...\cdot|e_n|^2$
+$$G_{e'} = C^TG_eC \Rightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
+\begin{exercise}
+    Доказать отсюда. что если $U = \langle e_1,...,e_{n-1}\rangle$, то
+    $$\rho^2(x, U) = \frac{|G_{\{ e_1,...,e_n\}}|}{|G_{\{ e_1,...,e_{n-1}\}}|}$$
+\end{exercise}
+\subsection{Линейные операторы в евклидовом пространстве}
+Пусть $\mathcal{E}$ - евклидово пр-во, $\phi: \mathcal{E} \rightarrow \mathcal{E}$ - лин. оператор в $\mathcal{E}$.
+\begin{definition}
+    \begin{enumerate}
+        \item Оператор $\phi^{*}: \mathcal{E} \rightarrow \mathcal{E}$ - сопряжённый к $\phi$, если
+        $$\forall x,y \in \mathcal{E}: \ (\phi(x), y) = (x, \phi^{*}(y)) \ \ (1)$$
+        \item Оператор $\phi$ - самосопряжённый, если
+        $$\phi^{*} = \phi \Rightarrow \forall x,y \in \mathcal{E}: \ (\phi(x), y) = (x, \phi(y)) \ \ (2)$$
+        \item Оператор $\phi$ - ортогональный, если
+        $$\forall x,y \in \mathcal{E}: \ (\phi(x), \phi(y)) = (x, y) (3)$$.
+        В частности, для ортогонального $\phi: \forall x \in \mathcal{E} \ \ |\phi(x)| = |x|$.
+    \end{enumerate}
+\end{definition}
+\textbf{Условия (1)-(3) через матрицу Грама}\\
+    Пусть в $\mathcal{E}$ зафиксирован базис $e = (e_1,...,e_n) \ (\dim \mathcal{E} = n)$. Пусть $x = eX, y = eY, G_e = ((e_i, e_j))$ - матрица Грама базиса $e$, $A_{\phi}$ - матрица $\phi$ в базисе $e$.\\
+    (1): $\forall X, Y \in \R^n$:
+    $$(A_{\phi}X)^TG_eY = X^TA_{\phi}^TG_eY = X^TG_eA_{\phi^{*}}Y \Rightarrow A_{\phi}^TG_e = G_eA_{\phi^{*}} \ \ (1')$$
+    (2): В частности, 
+    $$\phi^{*} = \phi \Leftrightarrow A_{\phi}^TG_e = G_eA_{\phi} (2')$$
+    Если $e$ - ортонормированный, то $G_e = E$, и $A_{\phi}^T = A_{\phi}$, т.е. $A_{\phi}$ - симметрическая матрица.\\
+    (3): $\phi$ - ортогональный $\Leftrightarrow \ \forall X, Y \in \R^n$ выполнено:
+    $$(A_{\phi}X)^TG_e(A_{\phi}Y) = G_eY \Rightarrow A_{\phi}^TG_eA_{\phi} = G_e (3')$$
+    Если $G_e = E$, то $A_{\phi}^TA_{\phi} = E$, т.е. $A_{\phi}$ - ортогональная матрица.
+\begin{theorem}\textbf{Свойства сопряжённых операторов}
+    \begin{enumerate}
+        \item $(\phi^{*})^{*} = \phi$;
+        \item $\textup{Ker}\phi^{*} = (\textup{Im}\phi)^{\perp}$
+        \item $\textup{Ker}\phi = (\textup{Im}\phi^{*})^{\perp}$
+    \end{enumerate}    
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item В ортонормированном базисе:
+        $$A_{\phi^{*}} = A_{\phi}^T \Rightarrow A_{{\phi^{*}}^{*}} = (A_{\phi^{*}})^T = (A_{\phi}^T)^T = A_{\phi}$$
+        Т.к. в фиксированном базисе имеется взаимно однозначное соответствие операторов и их матриц, $(\phi^{*})^{*} = \phi$.
+        \item Сравним размерности:
+        $$\dim \textup{Ker}\phi^{*} = n - \textup{rk}(A_{\phi^{*}}) = n - \textup{rk}(A_{\phi}^T) = n - \textup{rk}(A_{\phi})$$
+        $$\dim \textup{Im}\phi = \textup{rk} A_{\phi} \Rightarrow \dim (\textup{Im}\phi)^{\perp} = \textup n - {rk} A_{\phi}$$
+        Т.к. размерности равны и $\textup{Im}\phi \subseteq (\textup{Ker}\phi^{*})^{\perp}$, $\textup{Ker}\phi^{*} = (\textup{Im}\phi)^{\perp}$.
+        \item Следует из (2) подстановкой $\phi^{*}$ вместо $\phi$.
+    \end{enumerate}
+\end{proof}
+\begin{consequense}\textbf{Теорема Фредгольма}
+    СЛУ $AX = b$ с квадратной матрицей $A$ порядка $n$ совместна $\Leftrightarrow$ для любого $Y$ - решения однородной сопряжённой системы - выполнено условие $Y \perp b$. 
+\end{consequense}
+\begin{proof}
+    $AX = b$ совместна $\Leftrightarrow b \in \textup{Im}A$.\\
+    $Y \in \textup{Ker}\phi^{*} = \textup{Ker}A^T$. Т.к. $\textup{Ker}\phi^{*} = (\textup{Im}A)^\perp$, то система совместна $\Leftrightarrow b \perp \textup{Ker}\phi^{*}$  
+\end{proof}
+\subsection{Самосопряжённые операторы}
+\begin{theorem}
+    Для любого самосопряжённого оператора $\phi: \mathcal{E} \rightarrow \mathcal{E}$ в $\mathcal{E}$ существует базис из собственных векторов этого оператора.
+\end{theorem}
