@@ -168,7 +168,7 @@ $$\rho(x, U) = |x_{\perp}| = \frac{V_{\langle e_1,...,e_{n-1},x\rangle}}{V_{\lan
 
 Объём не изменится, если к векторам применить процесс ортогонализации (с унитреугольной матрицей перехода).\\
 Тогда $V_{\langle e'_1,...,e'_n\rangle} = |e'_1|\cdot...\cdot|e'_n| = \sqrt{|G_{\{ e'_1,...,e'_n\}}|}$\\
-В ортогональном базисе $G_{\{ e'_1,...,e'_n\}} = \begin{pmatrix} |e'_1|^2 &\null&0 \\ \null&\ddots&\null \\ 0&\null&|e'_n|^2 \end{pmatrix} \Rightarrow \\ \Rightarrow |G_{\{ e'_1,...,e'_n\}}| = |e_1|^2\cdot...\cdot|e_n|^2$
+В ортогональном базисе $G_{\{ e'_1,...,e'_n\}} = \begin{pmatrix} |e'_1|^2 &\null&0 \\ \null&\ddots&\null \\ 0&\null&|e'_n|^2 \end{pmatrix} \Rightarrow \\ \Rightarrow |G_{\{ e'_1,...,e'_n\}}| = |e'_1|^2\cdot...\cdot|e'_n|^2$
 $$G_{e'} = C^TG_eC \Rightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
 \begin{exercise}
     Доказать отсюда. что если $U = \langle e_1,...,e_{n-1}\rangle$, то
@@ -179,16 +179,17 @@ $$G_{e'} = C^TG_eC \Rightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
 \begin{definition}
     \begin{enumerate}
         \item Оператор $\phi^{*}: \mathcal{E} \rightarrow \mathcal{E}$ - сопряжённый к $\phi$, если
-        $$\forall x,y \in \mathcal{E}: \ (\phi(x), y) = (x, \phi^{*}(y)) \ \ (1)$$
+        $$\forall x,y \in \mathcal{E}: \ (\phi(x), y) = (x, \phi^{*}(y)) \eqno{(1)}$$
         \item Оператор $\phi$ - самосопряжённый, если
-        $$\phi^{*} = \phi \Rightarrow \forall x,y \in \mathcal{E}: \ (\phi(x), y) = (x, \phi(y)) \ \ (2)$$
+        $$\phi^{*} = \phi \Rightarrow \forall x,y \in \mathcal{E}: \ (\phi(x), y) = (x, \phi(y)) \eqno{(2)}$$
         \item Оператор $\phi$ - ортогональный, если
-        $$\forall x,y \in \mathcal{E}: \ (\phi(x), \phi(y)) = (x, y) (3)$$.
+        $$\forall x,y \in \mathcal{E}: \ (\phi(x), \phi(y)) = (x, y) \eqno{(3)}$$
         В частности, для ортогонального $\phi: \forall x \in \mathcal{E} \ \ |\phi(x)| = |x|$.
     \end{enumerate}
 \end{definition}
 \textbf{Условия (1)-(3) через матрицу Грама}\\
-    Пусть в $\mathcal{E}$ зафиксирован базис $e = (e_1,...,e_n) \ (\dim \mathcal{E} = n)$. Пусть $x = eX, y = eY, G_e = ((e_i, e_j))$ - матрица Грама базиса $e$, $A_{\phi}$ - матрица $\phi$ в базисе $e$.\\
+    Пусть в $\mathcal{E}$ зафиксирован базис $e = (e_1,...,e_n) \ (\dim \mathcal{E} = n)$. Пусть $x = eX,\\
+    y = eY, G_e = ((e_i, e_j))$ - матрица Грама базиса $e$, $A_{\phi}$ - матрица $\phi$ в базисе $e$.\\
     (1): $\forall X, Y \in \R^n$:
     $$(A_{\phi}X)^TG_eY = X^TA_{\phi}^TG_eY = X^TG_eA_{\phi^{*}}Y \Rightarrow A_{\phi}^TG_e = G_eA_{\phi^{*}} \ \ (1')$$
     (2): В частности, 
@@ -212,7 +213,7 @@ $$G_{e'} = C^TG_eC \Rightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         \item Сравним размерности:
         $$\dim \textup{Ker}\phi^{*} = n - \textup{rk}(A_{\phi^{*}}) = n - \textup{rk}(A_{\phi}^T) = n - \textup{rk}(A_{\phi})$$
         $$\dim \textup{Im}\phi = \textup{rk} A_{\phi} \Rightarrow \dim (\textup{Im}\phi)^{\perp} = \textup n - {rk} A_{\phi}$$
-        Т.к. размерности равны и $\textup{Im}\phi \subseteq (\textup{Ker}\phi^{*})^{\perp}$, $\textup{Ker}\phi^{*} = (\textup{Im}\phi)^{\perp}$.
+        Т.к. размерности равны и $\textup{Im}\phi \subseteq (\textup{Ker}\phi^{*})^{\perp}$, то $\textup{Ker}\phi^{*} = (\textup{Im}\phi)^{\perp}$.
         \item Следует из (2) подстановкой $\phi^{*}$ вместо $\phi$.
     \end{enumerate}
 \end{proof}
