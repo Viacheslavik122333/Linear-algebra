@@ -213,7 +213,10 @@ $$G_{e'} = C^TG_eC \Rightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         \item Сравним размерности:
         $$\dim \textup{Ker}\phi^{*} = n - \textup{rk}(A_{\phi^{*}}) = n - \textup{rk}(A_{\phi}^T) = n - \textup{rk}(A_{\phi})$$
         $$\dim \textup{Im}\phi = \textup{rk} A_{\phi} \Rightarrow \dim (\textup{Im}\phi)^{\perp} = \textup n - {rk} A_{\phi}$$
-        Т.к. размерности равны и $\textup{Im}\phi \subseteq (\textup{Ker}\phi^{*})^{\perp}$, то $\textup{Ker}\phi^{*} = (\textup{Im}\phi)^{\perp}$.
+        Докажем, что $\textup{Im}\phi \subseteq (\textup{Ker}\phi^{*})^{\perp}$  (отсюда $(\textup{Im}\phi)^{\perp} \subseteq \textup{Ker}\phi^{*}$):\\
+        Пусть $v \in \textup{Im}\phi \Rightarrow v = \phi(x)$, $y \in \textup{Ker}\phi^{*}$. Тогда:
+        $$(v, y) = (\phi(x), y) = (x, \phi^{*}(y)) = (x, 0) = 0 \Rightarrow v \perp \textup{Ker}\phi^{*}$$
+        Т.к. размерности равны и $(\textup{Im}\phi)^{\perp} \subseteq \textup{Ker}\phi^{*}$, то $\textup{Ker}\phi^{*} = (\textup{Im}\phi)^{\perp}$.
         \item Следует из (2) подстановкой $\phi^{*}$ вместо $\phi$.
     \end{enumerate}
 \end{proof}
