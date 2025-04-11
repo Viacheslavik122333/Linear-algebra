@@ -45,17 +45,18 @@ $$(x,y) = (\sum \limits_{i=1}^nx_ie_i), \sum \limits_{j=1}^ny_je_j = \sum \limit
 \begin{definition}
     Базис $e_1,...,e_n$ называется ортогональным, если: 
     $$e_i \perp e_j \ \text{ при } i \neq j$$
+    Ecли при этом длина каждого вектора $e_1,...,e_n$ равна 1, то базис называется ортонормированным.
 \end{definition}
 \begin{consequense}
-    $e_1,...,e_n$ - ортогональный базис, если $(e_i,e_j) = \delta_{ij}$.  
+    $e_1,...,e_n$ - ортонормированный базис, если $(e_i,e_j) = \delta_{ij}$.  
 \end{consequense}
 \begin{consequense}
-    Если базис ортогональный, то $G = E$ и $(x,y) = \sum \limits_{i=1}^nx_iy_i$.
+    Если базис ортонормированный, то $G = E$ и $(x,y) = \sum \limits_{i=1}^nx_iy_i$.
 \end{consequense}
 \begin{theorem} Пусть $e' = eC_{e\to e'}$ - новый базис. Тогда: 
     \begin{enumerate}
-        \item Если $e$ и $e'$ ортогональные, то $C_{e \to e'}$ ортогональна;
-        \item Если $e$ ортогональный базис и $C_{e \to e'}$ ортогональная матрица $\Longrightarrow e' = eC$ - ортогональный базис.
+        \item Если $e$ и $e'$ - ортонормированные базисы, то $C_{e \to e'}$ ортогональна;
+        \item Если $e$ - ортонормированный базис и $C_{e \to e'}$ ортогональная матрица $\Longrightarrow e' = eC$ - ортонормированный базис.
     \end{enumerate}
 \end{theorem}
 \begin{remark}
@@ -64,13 +65,13 @@ $$(x,y) = (\sum \limits_{i=1}^nx_ie_i), \sum \limits_{j=1}^ny_je_j = \sum \limit
 \begin{proof} \tab
     \begin{enumerate}
         \item По определению матрицы перехода $C_{e \to e'} = \begin{pmatrix}
-            e_1^\uparrow & \cdots & e_n^\uparrow
+            e_1'^{\uparrow} & \cdots & e_n'^{\uparrow}
         \end{pmatrix}$\\
         $C^T_{e\to e'} = \begin{pmatrix}
-            e_1^\rightarrow  \\ \vdots \\ e_n^\rightarrow 
+            e_1'^{\rightarrow}  \\ \vdots \\ e_n'^{\rightarrow} 
         \end{pmatrix}$ Обозначим $d_{ij}$ - $(ij)$элемент матрицы $C^TC:$ 
         $$d_{ij} = e_i'^{\rightarrow} \cdot e_j'^{\uparrow} = (e'_i,e_j') = \delta_{ij}$$
-        т.к. базис $e$  ортогональный $\Longrightarrow d_{ij} = \delta_{ij} \Longrightarrow C^TC = E$
+        т.к. базис $e$ ортонормированный $\Longrightarrow d_{ij} = \delta_{ij} \Longrightarrow C^TC = E$
         \item Рассмотрим $e' = eC_{e\to e'}$, тогда $e_j^{\uparrow}$ - это $j$ столбец матрицы $C_{e\to e'}$\\
         По условию $C^TC = E \Longleftrightarrow e_i'^{\rightarrow} \cdot e_j'^{\uparrow} = \delta_{ij} = (e'_i,e_j')$
     \end{enumerate}    
@@ -100,10 +101,10 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
     Тогда:
     $$x = \underbrace{\sum \limits_{i=1}^m(x_i,e_i)e_i}_{x_\shortparallel}  + \underbrace{\sum \limits_{i=m+1}^n(x_i,e_i)e_i}_{x_\perp} = x_\shortparallel + x_\perp$$
     \item[\textbf{2 способ:}] Выбрать в $U$ произвольный базис $a_1,...,a_m$ и искать разложение в виде:
-    $$x = \sum \limits_{i=1}^m \alpha_ia_i + x_\perp \ \ | \cdot a_j \Longrightarrow (x_i,a_j) = \sum \limits_{i=1}^m \alpha(a_i,a_j) + \underbrace{(x_\perp + a_j)}_{=0} $$
-    Не однородная СЛУ с неизвестными $\alpha_i$, основная матрица: 
+    $$x = \sum \limits_{i=1}^m \alpha_ia_i + x_\perp \ \ | \cdot a_j \Longrightarrow (x_i,a_j) = \sum \limits_{i=1}^m \alpha_i(a_i,a_j) + \underbrace{(x_\perp, a_j)}_{=0} $$
+    Неоднородная СЛУ с неизвестными $\alpha_i$, основная матрица: 
     $$((a_i,a_j)) = G_{\{a_1,...,a_m\}}$$
-    где $\det G \neq 0 \Longrightarrow$ по теореме Крамера $\exists ! \ \alpha_1,...,a_m \Longrightarrow \exists ! \ x_\shortparallel \Longrightarrow x_\perp = x - x_\shortparallel$   
+    где $\det G \neq 0 \Longrightarrow$ по теореме Крамера $\exists ! \ \alpha_1,...,\alpha_m \Longrightarrow \exists ! \ x_\shortparallel \Longrightarrow x_\perp = x - x_\shortparallel$   
 \end{itemize}
 \begin{properties} \textbf{операций ортогонального дополнения} 
     \begin{enumerate}
@@ -231,6 +232,103 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     Т.к. $\textup{Ker}\phi^{*} = (\textup{Im}A)^\perp$, то система совместна $\Longleftrightarrow  b \perp \textup{Ker}\phi^{*}$  
 \end{proof}
 \subsection{Самосопряжённые операторы}
+\begin{lemma}
+    Пусть $\phi: \E \rightarrow \E$ - лин. оператор, $U \subset E: \phi(U) \subseteq U$.\\
+    Тогда $\phi^*(U^\perp) \subseteq U^\perp$.
+\end{lemma}
+\begin{proof}
+    Покажем, что $\forall y \in U^\perp, x \in U$ выполнено $(x, \phi^*(y)) = 0$:
+    $$(x, \phi^*(y)) = (\phi(x), y) = 0, \text{ т.к. } \phi(x) \in U, \ y \in U^\perp$$
+\end{proof}
+\begin{subtheorem}
+    \begin{enumerate}
+        \item Если $\lambda_1, \lambda_2$ - различные собственные значения самосопряжённого оператора $\phi$, $x_1, x_2$ - соответсвующие им собственные векторы, то $x_1 \perp x_2$;
+        \item Все собственные значения самосопряжённого оператора $\in \R$.
+    \end{enumerate}
+\end{subtheorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Пусть $\phi^* = \phi$. Тогда:
+        $$(\phi(x_1), x_2) = \lambda_1(x_1, x_2); \ (\phi(x_1), x_2) = (x_1, \phi(x_2)) = \lambda_2(x_1, x_2)$$
+        Из $\lambda_1 \neq \lambda_2$ следует $(x_1, x_2) = 0$. 
+        \item От противного: пусть $\exists \lambda_1 = \alpha + i\beta$ - собственное значение для самосопряжённого $\phi$ с $\beta \neq 0$.\\
+        Как было доказано ранее, $\exists \ \phi$-инвариантное подпространство $U$ размерности 2, на котором $\phi|_U$ имеет собственные значения $\alpha \pm i\beta$.
+        $U$ можно рассматривать как евклидово пр-во со скалярным произведением $(x, y)|_U$. Тогда $\phi|_U$ - также самосопряжённый на $U$.\\
+        Выберем ортонормированный базис в $U$. Тогда в этом базисе $\phi|_U$ имеет симметрическую матрицу $A = \begin{pmatrix} a_{11}&a_{12} \\ a_{12}&a_{22} \end{pmatrix}$. Её собственные значения:
+        $$|A - \lambda E| = (a_{11} - \lambda)(a_{22} - \lambda) - a_{12}^2 = \lambda^2 - (a_{11} + a_{22})\lambda + a_{11}a_{22} - a_{12}^2$$
+        $$\mathcal{D} = (a_{11} + a_{22})^2 - 4a_{11}a_{22} + 4a_{12}^2 = (a_{11} - a_{22})^2 + 4a_{12}^2 \geqslant 0$$
+        Отсюда корни характеристического многочлена вещественные, что противоречит предположению.
+    \end{enumerate}
+\end{proof}
 \begin{theorem}
     Для любого самосопряжённого оператора $\phi: \mathcal{E} \rightarrow \mathcal{E}$ в $\mathcal{E}$ существует базис из собственных векторов этого оператора.
 \end{theorem}
+\begin{proof}
+    Индукция по $\dim \E = n$:\\
+    База: $n = 1$. Тогда $\forall x \in \E \phi(x) = \lambda_1 x$, т.е. любой вектор длины 1 подойдёт в качестве ортонормированного базиса.
+    Шаг: Пусть $\lambda_1 \in \R$ - какое-либо собственное значение для $\phi$. Рассмотрим $\E_{\lambda_1} \neq \{0\}$ - оно является $\phi$-инвариантным подпространством.\\
+    Если $\E_{\lambda_1} = \E$, то $\forall x \in \E \phi(x) = \lambda_1 x$, т.е. в ортонормированном базисе матрица оператора - $\lambda_1 E$;\\
+    Если $\E_{\lambda_1} \neq \E$, то по лемме $\E_{\lambda_1}^\perp$ также $\phi$-инвариантно и $\E = \E_{\lambda_1} \oplus \E_{\lambda_1}^\perp$. К ограничению $\phi$ на инвариантные подпространства $\E_{\lambda_1}, \E_{\lambda_1}^\perp$ можно применить предположение индукции, если рассмотреть их как отдельные евклидовы пространства. Тогда в них есть ортонормированные базисы из собственных векторов, а тогда их объединение будет искомым ортонормированным базисом для $\E$ (ортогональность векторов из разных базисов следует из утверждения выше).
+\end{proof}
+\begin{consequense}
+    Если $\lambda_1,...,\lambda_s$ - все попарно различные собственные значения самосопряжённого оператора $\phi$, то $\E = \E_{\lambda_1} \oplus ... \oplus \E_{\lambda_s}$.
+\end{consequense}
+\begin{remark}
+    Если все собственные значения $\lambda_1,...,\lambda_n$ самосопряжённого оператора $\phi$ положительны, то $\exists$ самосопряжённый оператор $\psi$ с положительными собственными значениями такой, что $\psi^2 = \phi$.
+\end{remark}
+\begin{proof}
+    Пусть $e_1,...,e_n$ - ортонормированный базис из собственных векторов для $\phi$. Тогда 
+    $$A_{\phi, e} = \begin{pmatrix} \lambda_1&\null&\null \\ \null&\ddots&\null \\ \null&\null&\lambda_n \end{pmatrix} \Longrightarrow \text{ оператор с матрицей } \begin{pmatrix} \sqrt{\lambda_1}&\null&\null \\ \null&\ddots&\null \\ \null&\null&\sqrt{\lambda_n} \end{pmatrix} - \psi$$
+\end{proof}
+\begin{example}
+    Пусть $\E = U \oplus U^\perp$, т.е. $\forall x = x_\shortparallel + x_\perp$.\\
+    $\phi_1(x) = x_\shortparallel$ - ортогональное проектирование на $U$;\\
+    $\phi_2(x) = x_\shortparallel - x_\perp$ - ортогональная симметрия, или отражение $\E$ относительно $U$.\\
+    Покажем, что $\phi_1$ и $\phi_2$ самосопряжённые:
+    $$\forall x,y \in \E: x = x_\shortparallel + x_\perp, y = y_\shortparallel + y_\perp :$$
+    $$(\phi_1(x), y) = (x_\shortparallel, y_\shortparallel + y_\perp) = (x_\shortparallel, y_\shortparallel) = (x_\shortparallel + x_\perp, y_\shortparallel) = (x, \phi_1(y))$$
+    $$(\phi_2(x), y) = (x_\shortparallel - x_\perp, y_\shortparallel + y_\perp) = (x_\shortparallel, y_\shortparallel) - (x_\perp, y_\perp) = (x_\shortparallel + x_\perp, y_\shortparallel - y_\perp) = (x, \phi_2(y))$$
+\end{example}
+
+\subsection{Ортогональные операторы}
+\begin{definition}
+    $\phi: \E \rightarrow \E$ - ортогональный, если $\forall x,y \in \E: \ (\phi(x), \phi(y)) = (x, y)$. 
+\end{definition}
+Из определения следует, что $\forall x \in \E \ |\phi(x)| = |x|$ - $\phi$ сохраняет длины $\Longrightarrow \textup{Ker}\phi = \{0\} \Longrightarrow \phi$ инъективный, а так как $\phi: \E_n \rightarrow \E_n$, получаем, что $\phi$ - биективный (и обратимый) оператор.  
+\begin{subtheorem}
+    Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор.\\
+    Тогда $\phi^{-1}$ также ортогональный, причём $\phi^{-1} = \phi^*$.
+\end{subtheorem}
+\begin{proof}
+    Покажем, что $\forall x,y \in \E (\phi^{-1}(x), \phi^{-1}(y)) = (x, y)$. Выберем $x' = \phi^{-1}(x), y' = \phi^{-1}(y)$. Тогда:
+    $$(\phi^{-1}(x), \phi^{-1}(y)) = (x', y') = (\phi(x'), \phi(y')) = (x, y)$$
+    По определению $\phi^* (\phi(x), y) = (x,\phi^*(y)) \ \forall x, y \in \E$.\\
+    Т.к. $\phi$ обратим, $\exists y' \in E: y = \phi(y')$.
+    $$(\phi(x), y) = (\phi(x), \phi(y')) = (x, y') = (x, \phi^{-1}(y)) \Longrightarrow (x, \phi^*(y)) = (x, \phi^{-1}(y))$$
+    $$(x, \phi^*(y) - \phi^{-1}(y)) = 0 \ \forall x,y \in \E \Longrightarrow \phi^*(y) = \phi^{-1}(y) \ \forall y \in \E$$
+    т.е. $\phi^* = \phi^{-1}$
+\end{proof}
+\begin{lemma}
+    Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор, $U \subset E: \phi(U) \subseteq U$.\\
+    Тогда $\phi(U^\perp) \subseteq U^\perp$.
+\end{lemma}
+\begin{proof}
+    Покажем, что $\forall y \in U^\perp, x \in U$ выполнено $(x, \phi(y)) = 0$.\\
+    Т.к. $\phi$ обратим, $\exists x': x = \phi(x')$, т.е. $x' = \phi^{-1}(x) \in U$. Отсюда:
+    $$(x, \phi(y)) = (\phi(x'), \phi(y)) = (x', y) = 0, \text{ т.к. } x' \in U, \ y \in U^\perp$$
+\end{proof}
+\begin{theorem}
+    Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор.
+    \begin{enumerate}
+        \item Собственные значения $\phi$ - только $\pm 1$, причём отвечающие этим значениям собственные векторы $\perp$.
+        \item Все характеристические числа для $\phi$ над $\mathbb{C}$ имеют модуль 1. 
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Пусть $\phi(x) = \lambda x, x \neq 0, \lambda \in \R$. Тогда:
+        $$(x, x) = (\phi(x), \phi(x)) = \lambda^2(x,x) \Longrightarrow \lambda^2 = 1 \Longrightarrow \lambda = \pm 1$$ 
+        Если $\phi(x) = x, \phi(y) = -y (x,y \neq 0)$, то
+        $$(x, y) = (\phi(x), \phi(y)) = -(x, y) \Longrightarrow (x, y) = 0$$
+    \end{enumerate}
+\end{proof}

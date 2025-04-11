@@ -309,9 +309,9 @@ $$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Rightarrow b(x,y) = -b(y,x
     $$\begin{pmatrix}
         b_{11}&\dots&b_{1n}\\
         \vdots&\null&\vdots\\
-        b_{n1}&\dots&b_{nn}
+        b_{m1}&\dots&b_{mn}
     \end{pmatrix} Y = 0$$
-    Т.к. матрица $B$ невырождена, $\text{rk} B = m$, т.е. система имеет $n-m$ ЛНЗ решений, а значит $\dim U^\perp = \dim V - \dim U$.\\
+    Т.к. матрица $B|_U$ невырождена, $\text{rk} B = m$, т.е. система имеет $n-m$ ЛНЗ решений, а значит $\dim U^\perp = \dim V - \dim U$.\\
     Если же $v \in U\cap U^\perp$, то $\forall \ x\in U \ b(x,v) = 0$, а из невырожденности формы $b|_U$ тогда следует, что $v = 0$. 
 \end{proof}
 \begin{theorem}
