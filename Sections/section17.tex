@@ -246,7 +246,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         \item Все собственные значения самосопряжённого оператора $\in \R$.
     \end{enumerate}
 \end{subtheorem}
-\begin{proof}
+\begin{proof} \tab
     \begin{enumerate}
         \item Пусть $\phi^* = \phi$. Тогда:
         $$(\phi(x_1), x_2) = \lambda_1(x_1, x_2); \ (\phi(x_1), x_2) = (x_1, \phi(x_2)) = \lambda_2(x_1, x_2)$$
@@ -265,9 +265,9 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
 \end{theorem}
 \begin{proof}
     Индукция по $\dim \E = n$:\\
-    База: $n = 1$. Тогда $\forall x \in \E \phi(x) = \lambda_1 x$, т.е. любой вектор длины 1 подойдёт в качестве ортонормированного базиса.
+    База: $n = 1$. Тогда $\forall x \in \E: \ \phi(x) = \lambda_1 x$, т.е. любой вектор длины 1 подойдёт в качестве ортонормированного базиса.\\
     Шаг: Пусть $\lambda_1 \in \R$ - какое-либо собственное значение для $\phi$. Рассмотрим $\E_{\lambda_1} \neq \{0\}$ - оно является $\phi$-инвариантным подпространством.\\
-    Если $\E_{\lambda_1} = \E$, то $\forall x \in \E \phi(x) = \lambda_1 x$, т.е. в ортонормированном базисе матрица оператора - $\lambda_1 E$;\\
+    Если $\E_{\lambda_1} = \E$, то $\forall x \in \E: \ \phi(x) = \lambda_1 x$, т.е. в ортонормированном базисе матрица оператора - $\lambda_1 E$;\\
     Если $\E_{\lambda_1} \neq \E$, то по лемме $\E_{\lambda_1}^\perp$ также $\phi$-инвариантно и $\E = \E_{\lambda_1} \oplus \E_{\lambda_1}^\perp$. К ограничению $\phi$ на инвариантные подпространства $\E_{\lambda_1}, \E_{\lambda_1}^\perp$ можно применить предположение индукции, если рассмотреть их как отдельные евклидовы пространства. Тогда в них есть ортонормированные базисы из собственных векторов, а тогда их объединение будет искомым ортонормированным базисом для $\E$ (ортогональность векторов из разных базисов следует из утверждения выше).
 \end{proof}
 \begin{consequense}
@@ -277,10 +277,10 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     Если все собственные значения $\lambda_1,...,\lambda_n$ самосопряжённого оператора $\phi$ положительны, то $\exists$ самосопряжённый оператор $\psi$ с положительными собственными значениями такой, что $\psi^2 = \phi$.
 \end{remark}
 \begin{proof}
-    Пусть $e_1,...,e_n$ - ортонормированный базис из собственных векторов для $\phi$. Тогда 
+    Пусть $e_1,...,e_n$ - ортонормированный базис из собственных векторов для $\phi$. Тогда: 
     $$A_{\phi, e} = \begin{pmatrix} \lambda_1&\null&\null \\ \null&\ddots&\null \\ \null&\null&\lambda_n \end{pmatrix} \Longrightarrow \text{ оператор с матрицей } \begin{pmatrix} \sqrt{\lambda_1}&\null&\null \\ \null&\ddots&\null \\ \null&\null&\sqrt{\lambda_n} \end{pmatrix} - \psi$$
 \end{proof}
-\begin{example}
+\begin{example1}
     Пусть $\E = U \oplus U^\perp$, т.е. $\forall x = x_\shortparallel + x_\perp$.\\
     $\phi_1(x) = x_\shortparallel$ - ортогональное проектирование на $U$;\\
     $\phi_2(x) = x_\shortparallel - x_\perp$ - ортогональная симметрия, или отражение $\E$ относительно $U$.\\
@@ -288,13 +288,14 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     $$\forall x,y \in \E: x = x_\shortparallel + x_\perp, y = y_\shortparallel + y_\perp :$$
     $$(\phi_1(x), y) = (x_\shortparallel, y_\shortparallel + y_\perp) = (x_\shortparallel, y_\shortparallel) = (x_\shortparallel + x_\perp, y_\shortparallel) = (x, \phi_1(y))$$
     $$(\phi_2(x), y) = (x_\shortparallel - x_\perp, y_\shortparallel + y_\perp) = (x_\shortparallel, y_\shortparallel) - (x_\perp, y_\perp) = (x_\shortparallel + x_\perp, y_\shortparallel - y_\perp) = (x, \phi_2(y))$$
-\end{example}
+\end{example1}
 
 \subsection{Ортогональные операторы}
 \begin{definition}
-    $\phi: \E \rightarrow \E$ - ортогональный, если $\forall x,y \in \E: \ (\phi(x), \phi(y)) = (x, y)$. 
+    $\phi: \E \rightarrow \E$ - ортогональный, если: 
+    $$\forall x,y \in \E: \ (\phi(x), \phi(y)) = (x, y)$$ 
 \end{definition}
-Из определения следует, что $\forall x \in \E \ |\phi(x)| = |x|$ - $\phi$ сохраняет длины $\Longrightarrow \textup{Ker}\phi = \{0\} \Longrightarrow \phi$ инъективный, а так как $\phi: \E_n \rightarrow \E_n$, получаем, что $\phi$ - биективный (и обратимый) оператор.  
+Из определения следует, что $\forall x \in \E: \ |\phi(x)| = |x|$ - $\phi$ сохраняет длины $\Longrightarrow \textup{Ker}\phi = \{0\} \Longrightarrow \phi$ инъективный, а так как $\phi: \E_n \rightarrow \E_n$, получаем, что $\phi$ - биективный (и обратимый) оператор.  
 \begin{subtheorem}
     Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор.\\
     Тогда $\phi^{-1}$ также ортогональный, причём $\phi^{-1} = \phi^*$.
@@ -302,15 +303,15 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
 \begin{proof}
     Покажем, что $\forall x,y \in \E (\phi^{-1}(x), \phi^{-1}(y)) = (x, y)$. Выберем $x' = \phi^{-1}(x), y' = \phi^{-1}(y)$. Тогда:
     $$(\phi^{-1}(x), \phi^{-1}(y)) = (x', y') = (\phi(x'), \phi(y')) = (x, y)$$
-    По определению $\phi^* (\phi(x), y) = (x,\phi^*(y)) \ \forall x, y \in \E$.\\
-    Т.к. $\phi$ обратим, $\exists y' \in E: y = \phi(y')$.
+    По определению: $\phi^* (\phi(x), y) = (x,\phi^*(y)), \ \forall x, y \in \E$\\
+    Т.к. $\phi$ обратим, $\exists y' \in E: \ y = \phi(y')$
     $$(\phi(x), y) = (\phi(x), \phi(y')) = (x, y') = (x, \phi^{-1}(y)) \Longrightarrow (x, \phi^*(y)) = (x, \phi^{-1}(y))$$
     $$(x, \phi^*(y) - \phi^{-1}(y)) = 0 \ \forall x,y \in \E \Longrightarrow \phi^*(y) = \phi^{-1}(y) \ \forall y \in \E$$
     т.е. $\phi^* = \phi^{-1}$
 \end{proof}
 \begin{lemma}
-    Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор, $U \subset E: \phi(U) \subseteq U$.\\
-    Тогда $\phi(U^\perp) \subseteq U^\perp$.
+    Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор, $U \subset E: \ \phi(U) \subseteq U$.\\
+    Тогда: $$\phi(U^\perp) \subseteq U^\perp$$
 \end{lemma}
 \begin{proof}
     Покажем, что $\forall y \in U^\perp, x \in U$ выполнено $(x, \phi(y)) = 0$.\\
@@ -324,7 +325,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         \item Все характеристические числа для $\phi$ над $\mathbb{C}$ имеют модуль 1. 
     \end{enumerate}
 \end{theorem}
-\begin{proof}
+\begin{proof}\tab
     \begin{enumerate}
         \item Пусть $\phi(x) = \lambda x, x \neq 0, \lambda \in \R$. Тогда:
         $$(x, x) = (\phi(x), \phi(x)) = \lambda^2(x,x) \Longrightarrow \lambda^2 = 1 \Longrightarrow \lambda = \pm 1$$ 
