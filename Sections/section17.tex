@@ -141,7 +141,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
 \begin{proof}
     Обозначим $x_{\shortparallel} = y, \ x_{\perp} = z$, а вектор из начала $x$ в произвольную точку $U$ - вектор $v$
     \begin{center}
-        % \includegraphics[width=5cm]{image/Asymptote/5/linal-5-1.pdf}
+        % 
         Какой тут рисунок то?
     \end{center}
     Докажем, что $|x-v|\geqslant |z|$, причём равенство достигается при $v = y$:
@@ -338,3 +338,70 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         $$(x, y) = (\phi(x), \phi(y)) = -(x, y) \Longrightarrow (x, y) = 0$$
     \end{enumerate}
 \end{proof}
+
+\begin{definition}
+    В пространсве $\mathcal{C}^n$ введем скалярное произведение с требованиями:
+\begin{enumerate}
+    \item Линейность по 1 аргументу
+    \item Вместо симметричности потребуем:
+    $$(y,x) = (\overline{x,y})$$
+    \item $(x,x) \neq 0, \ (x,x) = 0$, если $x=0$   
+\end{enumerate}
+Следовательно, если $\lambda \in \mathcal{C}$, то $(x,\lambda y) = \overline{\lambda}(x,y)$ 
+\end{definition}
+Будем обозначать через $\phi: \ \mathcal(C)^n \to \mathcal(C)^n$ заданной матрицей $A_\phi$ \\
+Если $\lambda = \alpha- i\beta$ - характеристическое число для $\phi$, то: 
+$$\exists \ v \in \mathcal(C)^n: \ \phi(v) = \lambda(v)$$
+Вычислим $(\phi(v), \phi(v)) \xrightarrow
+{\text{ортогонализируем}} (\phi, \phi) = (\lambda v, \lambda v) = \lambda \overline{\lambda}(v,v) \Longrightarrow \lambda \overline{\lambda} = |\lambda| = 1$\\
+Т.о. $\lambda = \cos(\theta) \pm i \sin(\theta)$  
+(это мы что то доказали)
+\begin{theorem}
+    Если $\phi: \ \E \to \E$ - ортогональный оператор, то в $\E \exists$ ортонормированный базис, в котором:
+    $$A^{\phi,f} = \begin{pmatrix}
+        \text{\fbox{$\Phi_1$}}\\
+        \null & \text{\fbox{$\Phi_2$}}\\
+        \null & \null & \ddots\\
+        \null & \null & \null & \text{\fbox{$\Phi_s$}}\\
+        \null & \null & \null & \null & \text{\fbox{$1$}} \\
+        \null & \null & \null & \null & \null & \ddots \\
+        \null & \null & \null & \null & \null & \null & \text{\fbox{$1$}}
+    \end{pmatrix}, \ \text{ где } \Phi_i = \begin{pmatrix}
+        \cos_i \alpha & -\sin_i \alpha \\ \sin_i \alpha & \cos_i \alpha
+    \end{pmatrix}$$   
+    Порядок матрицы равен $ n = \dim \E$ ($s$ - количество 1 и -1 определяется единственным образом) 
+\end{theorem}
+\begin{definition}
+    Оператор $\phi$ собственный, если $\dim \phi = 1$, при $\dim \phi = -1$ -  не собственный  
+\end{definition}
+Частый случай теоремы: $\forall$ собсвенный оператор $\phi$ в трехмерном пространсве - это поворот  вокруг оси на некоторый угол.\\
+Объяснение: Т.к. 3 - нечетное число, то у $\phi$ есть вещественное собственное значение $\lambda=\pm 1$, т.к. $\det \phi > 0$, то $\lambda=1$ и $e_3$ - собственный вектор для этого $\lambda$, тогда плоскость $\langle e_3 \rangle^{\bot}$ - инвариантная плоскость и она поворачивается на некоторый угол. 
+\begin{proof}      
+    Если все собсвенные значения $\phi$ - вещесвенные, т.е. $\lambda = \pm 1$, то $\phi$  будет также сопряженным. Если $\lambda_1 = 1$,  то $\langle e_1 \rangle$ и $\langle e_1 \rangle^\bot$  - инвариантно \\
+    Предположение индукции: Если $n>1$ и все собственные значения $\phi = \pm 1$, то в пространстве размерности $<n \exists$ ортонормированный базис из собственных векторов для $\lambda = \pm 1$\\
+    В таком базисе $\exists$ минимальный корень $\lambda_1 \in \CC\setminus \R$, то ему отвечает двумерное инвариантное пространство $U < \E$, в ортонормированном базисе:
+    $$A_{\phi}|_U = \begin{pmatrix}
+        1 \\
+        \null & \ddots \\
+        \null & \null & 1\\
+        \null & \null & \null & -1\\
+        \null & \null & \null & \null & \ddots\\
+        \null & \null & \null & \null & \null & -1
+    \end{pmatrix}$$
+    Индукция: База индукции $n = 2$\\ 
+    При $n>2$ предположение индукции: в ортонормированном базисе матрица:
+    $$A_\phi|_V = \begin{pmatrix}
+    \Phi_2 & \null & 0 & \vline\\
+    \null & \ddots & \null & \vline & \null & 0 \\
+    0 & \null & \Phi_s & \vline \\ \hline 
+    \null & \null & \null & \vline & 1 \\
+    \null & 0 & \null & \vline & \null & \ddots \\
+    \null & \null & \null & \vline & \null & \null & \pm 1 
+    \end{pmatrix}, \ \dim V < n$$
+    Нужный базис - объединение ортонормированных бизисов $U$ и $V$         
+\end{proof}
+\begin{remark}
+    $s$ - количество пар сопряженных характеристических корней, с учетом кратности 
+\end{remark} 
+ 
+ 
