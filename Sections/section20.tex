@@ -1,0 +1,48 @@
+%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
+\section{Полуторалинейные, эрмитовы формы. Унитарные (эрмитовы) пространства}
+Далее всюду $F = \CC, V$ - в.п. над $\CC$.
+\begin{definition}
+    Функция $f(x, y): V\times V \rightarrow \CC$ наз. полуторалинейной, если:
+    \begin{enumerate}
+        \item $f(x_1 + x_2, y) = f(x_1, y) + f(x_2, y)$;\\
+              $f(\lambda_x, y) = \lambda f(x, y) \ (\lambda \in \CC)$;
+        \item $f(x, y_1 + y_2) = f(x, y_1) + f(x, y_2)$;\\
+              $f(x, \lambda y) = \overline{\lambda} f(x, y) \ (\lambda \in \CC)$
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    $f(x,y)$ наз. эрмитово симметричной (эрмитовой), если 
+    \begin{enumerate}
+        \item $f(x, y)$ линейна по $x$;
+        \item $f(y, x) \equiv \overline{f(x,y)} \ (\Longrightarrow f(x, \lambda y) = \overline{\lambda}f(x,y) \ \forall \lambda \in \CC)$
+    \end{enumerate}
+\end{definition}
+Заметим, что если $f(x,y)$ эрмитова, то $f(x, x) \equiv \overline{f(x,x)} \Rightarrow f(x,x) \in \R$.
+\begin{definition}
+    Квадратичная функция, порождённая эрмитовой формой - это функция $k(x) \equiv f(x,x)$.
+\end{definition}
+\begin{exercise}
+    Доказать, что для любой квадратичной формы $k(x) \ \exists!$ эрмитова форма $f(x, y)$ такая, что $f(x,x) \equiv k(x)$. 
+\end{exercise}
+Если $f(x,y)$ полуторалинейна и эрмитова, то обозначим $F = (f(e_i, e_j))$, и тогда $f(e_j, e_i) = \overline{f(e_i, e_j)} \Longrightarrow F^T = \overline{F} \Longleftrightarrow \overline{F}^T = F$.
+\begin{definition}
+    $F^* = \overline{F}^T$ - эрмитово сопряжённая матрица к $F$.\\
+    Если $F^* = F$, то $F$ - эрмитова матрица.
+\end{definition} 
+\begin{definition}
+    Скалярное произведение на пр-ве $V$ - функция $(x,y)$ такая, что
+    \begin{enumerate}
+        \item $(x,y)$ линейна по $x$;
+        \item $(y,x) \equiv \overline{(x,y)}$;
+        \item $(x,x) > 0 \ \forall x \neq 0$
+    \end{enumerate}
+\end{definition}
+Скалярное произведение в координатах:
+$$(\sum \limits_{k=1}^n x_ke_k, \sum \limits_{j=1}^n y_je_j) = \sum \limits_{k=1}^n x_k(e_k, \sum \limits_{j=1}^n y_je_j) = \sum \limits_{k, j=1}^n x_k\overline{y_j}(e_k, e_j)$$
+Матрица Грама базиса $e$: $G_e = ((e_k, e_j))$. $G_e* = \overline{G_e}^T = G_e$.
+\begin{definition}
+    $x \perp y \Longleftrightarrow (x, y) = 0$.\\
+    Базис $e_1,...,e_n$ ортогональный, если $(e_k, e_j) = 0, k \neq j$.\\
+    Базис $e_1,...,e_n$ ортонормированный, если $(e_k, e_j) = \delta_{ij}$.
+\end{definition}
+В ортонормированном базисе $(x, y) = \sum \limits_{j=1}^n x_j\overline{y_j}$.

@@ -1,23 +1,54 @@
 %chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Квадратичные формы}
-Пусть $k(x) = b(x,x)$ - квадратичная функция на пространстве $\E$. $B$ - её матрица в некотором базисе  ( $B^T =B$ )
+Пусть $k(x) = b(x,x)$ - квадратичная форма на пространстве $\E$, $B$ - её матрица в некотором базисе ($B^T = B$).
 \begin{theorem}
-    В $B \ \exists$ ортонормированный базис $f = eC$, в котором эта квадратичная форма имеет вид: 
-    $$k = \lambda_1y_1^2 + ... + \lambda_ny_n^2 \ \ \text{ (где $\lambda_1,...,\lambda_n$ - собственные значения матрицы $B$ )}$$
-    $\lambda = C \gamma$ - соответствующая замена координат, \ $f_1,...,f_n$ - "главные оси" для квадратичной формы $k(x)$\\
-    Нахождение замены - процесс приведения к главным осям 
-\end{theorem} 
+    В $B \ \exists$ ортонормированный базис $f = eC$, в котором эта форма имеет вид $k(x) = \lambda_1y_1^2 + ... + \lambda_n y_n^2$, где $\lambda_1,...,\lambda_n$ - собственные значения $B$.
+\end{theorem}
+\begin{remark}
+    Векторы базиса $f$ называются главными осями для квадратичной формы $k$, а сама замена - приведением формы к главным осям. 
+\end{remark}
 \begin{proof}
-    Примем $B$ за матрицу самосопряженного оператора $\phi$ в некотором ортонормированном базисе.\\
-    Т.к. $\phi$ - самосопряжен, то $\exists$ ортонормированный базис $f_1,...,f_n$ из собственных векторов оператора $\phi$, т.е. $\exists$ ортогональная матрица $C$:
-    $$C^{-1}BC = \begin{pmatrix}
-        \lambda_1 & \null & 0 \\ \null & \ddots \\ 0 & \null & \lambda_n
-    \end{pmatrix}$$
-    Но, так как $C$ - ортогональный, то $C^{-1} = C^T$ 
-    $$\Longrightarrow C^TBC = \begin{pmatrix}
-        \lambda_1 & \null & 0 \\ \null & \ddots \\ 0 & \null & \lambda_n
-    \end{pmatrix}$$        
-\end{proof} 
+    Примем $B$ за матрицу самосопряжённого оператора $\phi$ в некотором ортонормированном базисе. Тогда $\exists$ ортонормированный базис $f_1,...,f_n$ из собственных векторов оператора $\phi$, т.е. $\exists C$ - ортогональная матрица такая, что
+    $$C^{-1}BC = \begin{psmallmatrix}  \lambda_1&\null&0 \\ \null&\ddots&\null \\ 0&\null&\lambda_n \end{psmallmatrix} \Longrightarrow C^TBC = \begin{psmallmatrix}  \lambda_1&\null&0 \\ \null&\ddots&\null \\ 0&\null&\lambda_n \end{psmallmatrix}$$
+    т.е. $C$ - матрица перехода к главным осям. 
+\end{proof}
+\begin{subtheorem}
+    Если $\E$ - евклидово пр-во, то $\E^*$ изоморфно $E$.
+\end{subtheorem}
+\begin{proof}
+    Достаточно показать, что $\forall f: \E \rightarrow \R \ \ \exists! a \in \E$ такой, что $\forall x \in \E, f(x) = (a, x)$.\\
+    Выберем в $\E$ ортонормированный базис $e = \{e_1,...,e_n\}$, тогда в нём $f(x) = \sum \limits_{i=1}^n a_ix_i = (a, x)$, где $a = \begin{psmallmatrix} a_1 \\ \vdots \\ a_n \end{psmallmatrix}$.
+\end{proof}
+\begin{lemma}
+    Для любой билинейной функции $b(x, y)$ на евкл. пространстве $\E \ \exists!$ линейный оператор $\phi: \E \rightarrow \E$ такой, что
+    $$\forall x, y \in \E: \ b(x, y) = (x, \phi(y)) \ \ \ (1)$$
+\end{lemma}
+\begin{proof}
+    Выберем произвольный базис $e$ в $\E$ с матрицей Грама $G$ $(\dim \E = n)$. Тогда:
+    $$(1) \Longleftrightarrow \forall X, Y \in \R^n: X^TBY = X^T(GA_{\phi})Y \Longrightarrow A_\phi = G^{-1}B$$ 
+\end{proof}
+\begin{remark}
+    Пусть $b(x, y) = b(y, x)$. Тогда:
+    $$(x, \phi^*(y)) = (\phi(x), y) = (y, \phi(x)) = b(y, x) = b(x, y) = (x, \phi(y)) \Rightarrow \phi^* = \phi$$
+\end{remark}
+\begin{theorem}
+    Пусть $V$ - векторное пространство над $\R \ (\dim V = n), \ f, g$ - квадратичные функции на $V$, причём $g$ знакоопределена (в частности, $g > 0$). Тогда в $V \ \exists$ базис, в котором $f(x) = \sum \limits_{i=1}^n \lambda_i x_i^2; \ g(x) = \sum \limits_{i=1}^n x_i^2$. 
+\end{theorem}
+\begin{proof}
+    Рассмотрим порождающие $f, g$ симметрические билинейные формы $f(x, y)$ и $g(x, y)$, т.е. $f(x,x) \equiv f(x), g(x, x) \equiv g(x)$, и обозначим за $F,G$ матрицы этих форм в нек. базисе. Тогда можем задать на пр-ве $V$ скалярное произведение с помощью формы $g: (x,y) = g(x,y)$.\\
+    По лемме $\exists! \ \phi: V\rightarrow V$ - самосопряжённый оператор такой, что $f(x, y) \equiv g(x, \phi(y))$. Заметим также, что $G$ - матрица Грама для базиса, в котором функция $g(x, y)$ имеет матрицу $G$. Тогда $A_\phi = G^{-1}F$.\\
+    Так как $\phi \equiv \phi^*$, в $V$ существует ортонормированный базис, в котором $A_{\phi, e'} = \begin{psmallmatrix}  \lambda_1&\null&0 \\ \null&\ddots&\null \\ 0&\null&\lambda_n \end{psmallmatrix}$. Если $C = C_{e\rightarrow e'}$, то $A_{\phi, e'} = C^{-1}A_\phi C, \ F_{e'} = C^TFC$.\\
+    Тогда во-первых, $C^TGC = G_{e'} = E$, т.к базис ортонормированный, а во-вторых
+    $$C^{-1}A_{\phi, e}C = C^{-1}G^{-1}FC = C^{-1}(CC^T)FC = (C^{-1}C)C^TFC = C^TFC = F_{e'}$$
+    т.е. в новых координатах $F_{e'} = A_{\phi, e'} = \begin{psmallmatrix}  \lambda_1&\null&0 \\ \null&\ddots&\null \\ 0&\null&\lambda_n \end{psmallmatrix}$ и $f(x') = \sum \limits_{i=1}^n \lambda_i {x_i'}^2$
+\end{proof}
+\begin{remark}
+    $\lambda_1,...,\lambda_n$ - корни характеристического ур-я 
+    $$|A_\phi - \lambda E| = 0 \Longleftrightarrow |G^{-1}F - \lambda E| = 0 \Longleftrightarrow |F - \lambda G| = 0  \ \ (2)$$
+    т.е. соответствующие собственные векторы будут решениями СЛУ 
+    $$(F-\lambda G)X = 0 \ \ \ (3)$$
+    Для каждого собственного значения $\lambda_i$ нужно найти ФСР для $(3)$ и ортонормировать относительно $g(x, y)$.
+\end{remark}
 
  
  

@@ -1,5 +1,5 @@
 %chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
-\section{Общие линейные операторы в евклидовом пространсве}
+\section{Общие линейные операторы}
 \begin{theorem}
     Любой невырожденный линейный оператор $\phi$ в евклидовом пространсве $\E$ единственным образом может быть представлен в виде: $\phi = \theta \cdot \rho$, где $\theta$ - ортогональный оператор и $\rho$ - самосопряжённый оператор с положительными собственными значениями. 
 \end{theorem}
@@ -25,14 +25,14 @@
 \begin{proof}
     Предположим, что разложение $A = QR$ уже найденно:
     $$\Longrightarrow A^T = R^TQ^T =RQ^T \Longrightarrow A^TA = R(\underbrace{Q^TQ}_{=E})R = R^2$$ 
-    - это симметричная матрица с полодительными собственными значениями\\
+    - это симметричная матрица с положительными собственными значениями\\
     $\Longrightarrow R^2$ можно привести к диагональному виду: $\exists$ ортогональная матрица $C$ такая, что:
     $$C^{-1}(R^2)C = \Lambda^2 = \begin{pmatrix}
         \mu_1 & \null & 0\\ \null & \ddots\\ 0 & \null & \mu_1
     \end{pmatrix} \Longrightarrow R^2 = C \Lambda^2C^{-1} = C \Lambda^2 C^T \Longrightarrow R = C \Lambda C^T$$
     Где $\Lambda = \begin{pmatrix}
         \sqrt{\mu_n} & \null & 0\\ \null & \ddots\\ 0 & \null & \sqrt{\mu_n}
-    \end{pmatrix}$ - квадратный корень с положительным собственным значением \\
+    \end{pmatrix}$ имеет положительные собственные значения \\
     Тогда $Q = A \cdot R^{-1}$ \\
     Проверка: 
     $$Q^T = (R^{-1})^TA^T = R^{-1}A^T \Longrightarrow Q^TQ = R^{-1}(A^TA)R^{-1} = R^{-1}R^2R^{-1} = E$$ 
@@ -41,5 +41,5 @@
     Разложение $\phi = \theta \rho$  или $A = Q \cdot R$ - полярное разложение оператора $\phi$ с собственной матрицей $A$
 \end{definition}
 \begin{definition}
-    Сингулярное разложение: $A = (QC) \Lambda C^T = U \Lambda V$, где $\Lambda$ - диагональная матрица с положетельными собственными значениями $\lambda_1,...,\lambda_m, \\ U,V$ - ортогональные матрицы ($\lambda_1,...,\lambda_m$ - сингулярные числа матрицы $A$ )
+    Сингулярное разложение: $A = (QC) \Lambda C^T = U \Lambda V$, где $\Lambda$ - диагональная матрица с положительными собственными значениями $\lambda_1,...,\lambda_m, \\ U,V$ - ортогональные матрицы ($\lambda_1,...,\lambda_m$ - сингулярные числа матрицы $A$ )
 \end{definition} 
