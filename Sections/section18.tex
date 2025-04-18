@@ -12,13 +12,34 @@
 \begin{subtheorem}
     $$(\psi \cdot \phi)^* = \phi^* \cdot \psi^*$$ 
 \end{subtheorem} 
- \begin{proof}
+\begin{proof}
     Оператор $\phi^* \cdot \phi$ - самосопряжённый: 
     $$(\phi^* \cdot \phi)^* = \phi^* \cdot (\phi^*)^* = \phi^* \cdot \phi$$
     $\Longrightarrow $ все его собственые значения $\in \R$. Путсь $\mu$ - какое-то их них: $(\phi^* \cdot \phi)(v) = \mu v$ для подходящего $v \neq 0$. Вычислим $\mu$: 
     $$((\phi^* \cdot \phi)(v),v) = \mu(v,v) = (\phi(v),(\phi^*)^*(v)) = (\phi(v), \phi(v)) \Longrightarrow \mu = \frac{(\phi(v),\phi(v))}{(v,v)}$$
     $\Longrightarrow \mu>0$     
- \end{proof} 
- \begin{remark}
+\end{proof} 
+\begin{remark}
     Для любой вещественной матрицы $A$ она является $A = A_\phi$ в подходящем базисе (этот базис можно выбрать ортонормированным). Будем доказывать матричную версию, используя тот факт, что в ортонормированном базисе: $A_{\phi^*} = A_\phi^T$  
- \end{remark} 
+\end{remark}
+\begin{proof}
+    Предположим, что разложение $A = QR$ уже найденно:
+    $$\Longrightarrow A^T = R^TQ^T =RQ^T \Longrightarrow A^TA = R(\underbrace{Q^TQ}_{=E})R = R^2$$ 
+    - это симметричная матрица с полодительными собственными значениями\\
+    $\Longrightarrow R^2$ можно привести к диагональному виду: $\exists$ ортогональная матрица $C$ такая, что:
+    $$C^{-1}(R^2)C = \Lambda^2 = \begin{pmatrix}
+        \mu_1 & \null & 0\\ \null & \ddots\\ 0 & \null & \mu_1
+    \end{pmatrix} \Longrightarrow R^2 = C \Lambda^2C^{-1} = C \Lambda^2 C^T \Longrightarrow R = C \Lambda C^T$$
+    Где $\Lambda = \begin{pmatrix}
+        \sqrt{\mu_n} & \null & 0\\ \null & \ddots\\ 0 & \null & \sqrt{\mu_n}
+    \end{pmatrix}$ - квадратный корень с положительным собственным значением \\
+    Тогда $Q = A \cdot R^{-1}$ \\
+    Проверка: 
+    $$Q^T = (R^{-1})^TA^T = R^{-1}A^T \Longrightarrow Q^TQ = R^{-1}(A^TA)R^{-1} = R^{-1}R^2R^{-1} = E$$ 
+\end{proof}
+\begin{definition}
+    Разложение $\phi = \theta \rho$  или $A = Q \cdot R$ - полярное разложение оператора $\phi$ с собственной матрицей $A$
+\end{definition}
+\begin{definition}
+    Сингулярное разложение: $A = (QC) \Lambda C^T = U \Lambda V$, где $\Lambda$ - диагональная матрица с положетельными собственными значениями $\lambda_1,...,\lambda_m, \\ U,V$ - ортогональные матрицы ($\lambda_1,...,\lambda_m$ - сингулярные числа матрицы $A$ )
+\end{definition} 
