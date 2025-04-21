@@ -1,7 +1,7 @@
 %chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Общие линейные операторы}
 \begin{theorem}
-    Любой невырожденный линейный оператор $\phi$ в евклидовом пространсве $\E$ единственным образом может быть представлен в виде: $\phi = \theta \cdot \rho$, где $\theta$ - ортогональный оператор и $\rho$ - самосопряжённый оператор с положительными собственными значениями. 
+    Любой невырожденный линейный оператор $\phi$ в евклидовом пространстве $\E$ единственным образом может быть представлен в виде: $\phi = \theta \cdot \rho$, где $\theta$ - ортогональный оператор и $\rho$ - самосопряжённый оператор с положительными собственными значениями. 
 \end{theorem}
 \begin{theorem} \textbf{Матричная версия}\\
     Любую вещественную матрицу $A$ с $\det A \neq 0$ можно представить в виде произведения $A = Q \cdot R$, где $Q$ - ортогональная, $R$ - симметричная с положительными собственными значениями.      
@@ -15,7 +15,7 @@
 \begin{proof}
     Оператор $\phi^* \cdot \phi$ - самосопряжённый: 
     $$(\phi^* \cdot \phi)^* = \phi^* \cdot (\phi^*)^* = \phi^* \cdot \phi$$
-    $\Longrightarrow $ все его собственые значения $\in \R$. Путсь $\mu$ - какое-то их них: $(\phi^* \cdot \phi)(v) = \mu v$ для подходящего $v \neq 0$. Вычислим $\mu$: 
+    $\Longrightarrow $ все его собственные значения $\in \R$. Путсь $\mu$ - какое-то их них: $(\phi^* \cdot \phi)(v) = \mu v$ для подходящего $v \neq 0$. Вычислим $\mu$: 
     $$((\phi^* \cdot \phi)(v),v) = \mu(v,v) = (\phi(v),(\phi^*)^*(v)) = (\phi(v), \phi(v)) \Longrightarrow \mu = \frac{(\phi(v),\phi(v))}{(v,v)}$$
     $\Longrightarrow \mu>0$     
 \end{proof} 
@@ -23,7 +23,7 @@
     Для любой вещественной матрицы $A$ она является $A = A_\phi$ в подходящем базисе (этот базис можно выбрать ортонормированным). Будем доказывать матричную версию, используя тот факт, что в ортонормированном базисе: $A_{\phi^*} = A_\phi^T$  
 \end{remark}
 \begin{proof}
-    Предположим, что разложение $A = QR$ уже найденно:
+    Предположим, что разложение $A = QR$ уже найдено:
     $$\Longrightarrow A^T = R^TQ^T =RQ^T \Longrightarrow A^TA = R(\underbrace{Q^TQ}_{=E})R = R^2$$ 
     - это симметричная матрица с положительными собственными значениями\\
     $\Longrightarrow R^2$ можно привести к диагональному виду: $\exists$ ортогональная матрица $C$ такая, что:

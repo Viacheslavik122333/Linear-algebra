@@ -2,7 +2,7 @@
 \section{Полуторалинейные, эрмитовы формы. Унитарные (эрмитовы) пространства}
 Далее всюду $F = \CC, V$ - в.п. над $\CC$.
 \begin{definition}
-    Функция $f(x, y): V\times V \rightarrow \CC$ наз. полуторалинейной, если:
+    Функция $f(x, y): V\times V \rightarrow \CC$ называется полуторалинейной, если:
     \begin{enumerate}
         \item $f(x_1 + x_2, y) = f(x_1, y) + f(x_2, y)$;\\
               $f(\lambda_x, y) = \lambda f(x, y) \ (\lambda \in \CC)$;
@@ -11,7 +11,7 @@
     \end{enumerate}
 \end{definition}
 \begin{definition}
-    $f(x,y)$ наз. эрмитово симметричной (эрмитовой), если 
+    $f(x,y)$ называется эрмитово симметричной (эрмитовой), если 
     \begin{enumerate}
         \item $f(x, y)$ линейна по $x$;
         \item $f(y, x) \equiv \overline{f(x,y)} \ (\Longrightarrow f(x, \lambda y) = \overline{\lambda}f(x,y) \ \forall \lambda \in \CC)$
@@ -46,3 +46,94 @@ $$(\sum \limits_{k=1}^n x_ke_k, \sum \limits_{j=1}^n y_je_j) = \sum \limits_{k=1
     Базис $e_1,...,e_n$ ортонормированный, если $(e_k, e_j) = \delta_{ij}$.
 \end{definition}
 В ортонормированном базисе $(x, y) = \sum \limits_{j=1}^n x_j\overline{y_j}$.
+
+Изменение матрицы полуторалинейной формы при замене базиса:\\
+Если $f(x, y)$ - полуторалинейная форма, то в некотором базисе $e: f(x, y) = X^TF\overline{Y}$, где $F = (f(e_i, e_j))$. Если $f$ эрмитово симметричная, т.е. $\overline{f(y, x)} = f(x, y)$, то $\overline{F}^T = F$.\\
+Тогда если $e' = Ce$, то в случае полуторалинейной формы:
+$$X = CX', Y = CY' \Rightarrow f(x, y) = (X')^T(C^TF\overline{C})\overline{Y'} = (X')^TF'\overline{Y'}$$
+В случае эрмитовой квадратичной формы $k(x) = f(x,x)$:
+$$k(x) = \sum \limits_{k,j = 1}^n x_k\overline{x}_jf_{kj} = ... + f_{kj}x_k\overline{x}_j + ... , \ f_{jk} = \overline{f}_{kj}$$
+Отсюда $f_{ii} = \overline{f}_{ii}$, т.е. $f_{ii} \in \R$.
+\begin{theorem}
+    Эрмитову квадратичную форму можно привести к диагональному виду $\alpha_1|x_1|^2 + ... + \alpha_r|x_r|^2$, где $r = \text{rk} F, \ \alpha_1,...,\alpha_r \in \R, \alpha_j \neq 0$. Количества положительных коэффициентов $p$ и отрицательных коэффициентов $q$ - инварианты для данной формы. 
+\end{theorem}
+\begin{proof}
+    Применим следующий вариант алгоритма Лагранжа:
+    Основной случай. Если $b_{11} \neq 0$, то необходимо выделить все одночлены, содержащие $x_1$ и $\overline{x}_1$:
+    \begin{multline*}
+    k(x_1,...,x_n) = (b_{11}x_1\overline{x}_1 + ... + b_{n1}x_n\overline{x}_1) + (b_{12}x_1\overline{x}_2 + ... + b_{1n}x_1\overline{x}_n) + \tilde{k}(x_2,...,x_n) =\\= \frac{1}{\overline{b}_{11}}(b_{11}x_1 + ... + b_{n1}x_n)(\overline{b_{11}x_1} + ... + \overline{b_{n1}x_n}) + \tilde{k}(x_2,...,x_n) =\\= \frac{1}{\overline{b}_{11}}|b_{11}x_1 + ... + b_{n1}x_n|^2 + \tilde{k}(x_2,...,x_n)
+    \end{multline*}
+    Заменяем $y_1 = b_{11}x_1 + ... + b_{n1}x_n$ и далее преобразуем $\tilde{k}$.
+    Особый случай: $b_{ii} = 0, i = 1,...,n$. По условию $k \not \equiv 0$, т.е. $\exists b_{ij} = \overline{b}_{ji} \neq 0$ и форма содержит члены $b_{ij}x_i\overline{x}_j + b_{ji}x_j\overline{x}_i = 2b_{ij}^2|y_i|^2 - 2b_{ij}^2|y_j|^2$ при замене $\begin{cases}
+        x_i = b_{ji}(y_i + y_j)\\
+        x_j = y_i - y_j
+    \end{cases}$\\
+    Далее можем продолжать по основному случаю.
+\end{proof}
+
+Сохраняют силу следующие утверждения и понятия:
+\begin{enumerate}
+    \item Теорема Якоби: $\Delta_1,...,\Delta_{n-1} \neq 0 \Longrightarrow k ~ \frac{\Delta_1}{\Delta_0}|y_1|^2 + ... + \frac{\Delta_n}{\Delta_{n-1}}|y_n|^2$;
+    \item Критерий Сильвестра: $k > 0 \Longleftrightarrow \Delta_i > 0, i = 1,...,n$;
+    \item Понятие $u^\perp$ и утверждение $V = U \oplus U^\perp$.
+\end{enumerate}
+\begin{remark}
+    Если $A^* = \overline{A}^T = A$, то $|A| = |\overline{A}^T| = |\overline{A}| = \overline{|A|}$, т.е. $|A| \in \R$
+\end{remark}
+\begin{algorithm} Процесс ортогонализации:\\
+    Дан произвольный базис $e_1,...,e_n \in V$. необходимо построить ортогональный базис $e'_1,...,e'_n$ такой, что $\langle e_1,...,e_k \rangle = \langle e'_1,...,e'_k \rangle$.
+\end{algorithm}
+Возьмём $e'_1 = e_1$.\\
+\textbf{Шаг алгоритма}: если $k > 1$ и $e'_1,...,e'_{k-1}$ уже построены, то будем искать $e'_k$ в виде $e_k - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}e'_j$. Тогда:
+$$0 = (e'_k, e'_i) = (e_k, e'_i) - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}(e'_j, e'_i) = (e_k, e_i) - \lambda_i^{(k)}(e'_i, e'_i) \Longrightarrow \lambda_i^{(k)} = \frac{(e_k, e'_i)}{(e'_i, e'_i)}$$ 
+\subsection{Линейные операторы в унитарном пространстве}
+\begin{enumerate}
+    \item Сопряжённый оператор $\phi^*$ к линейному оператору $\phi: V \rightarrow V$:
+    $$\forall x,y \in V, (\phi(x), y) = (x, \phi^*(y)) \ \ (1)$$
+    \item Самосопряжённый оператор: $\phi = \phi^* \ \ (2)$
+    \item Унитарный оператор:
+    $$\forall x,y \in V, (\phi(x), \phi(y)) = (x, y) \ \ (3)$$
+\end{enumerate}
+
+Для самосопряжённого оператора:
+$$(2) \Longleftrightarrow (\phi(x), y) \equiv (x, \phi(y)) \Longrightarrow (A_\phi X)^TG\overline{Y} = X^T(A_\phi^TG)\overline{Y} = X^T(G\overline{A}_\phi)\overline{Y}$$
+Отсюда
+$$A_\phi^TG = G\overline{A}_\phi \ \ (2')$$
+Если базис ортонормированный, то $A_\phi^T = \overline{A}_\phi \Longleftrightarrow A = A^*$
+
+Для унитарного оператора:
+$$(3) \Longleftrightarrow X^TG\overline{Y} = (A_\phi X)^TG\overline{A_\phi Y} = X^T(A_\phi^TG\overline{A_\phi})\overline{Y} \Longrightarrow A_\phi^TG\overline{A_\phi} = G  \ \ (3')$$
+Если базис ортонормированный, то $A_\phi^T\overline{A_\phi} = E \Longleftrightarrow A^{-1} = A^*$ (унитарная матрица).
+
+\begin{theorem}
+    Если $\phi$ - самосопряжённый линейный оператор в $V$, то
+    \begin{enumerate}
+        \item Все его характеристические корни $\in \R$;
+        \item Собственные векторы, соответствующие попарно различным собственным значениям, ортогональны;
+        \item Если $U$ - $\phi$-инвариантно в $V$, то $U^\perp$ также $\phi$-инвариантно;
+        \item В $V \ \exists$ базис из собственных векторов $\phi \Longleftrightarrow \phi = \phi^*$   
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Если $\phi$ - унитарный линейный оператор в $V$, то 
+    \begin{enumerate}
+        \item Все собственные значения имеют модуль 1;
+        \item Собственные векторы, соответствующие попарно различным собственным значениям, ортогональны;
+        \item Если $U$ - $\phi$-инвариантно в $V$, то $U^\perp$ также $\phi$-инвариантно;
+        \item В $V \ \exists$ базис из собственных векторов $\phi$, причём в этом базисе
+        $$A'_\phi = \begin{pmatrix}e^{i\omega_1}&\null&0\\\null&\ddots&\null\\0&\null&e^{i\omega_n}\end{pmatrix}$$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    За исключением примечаний ниже доказательство аналогично случаю евклидова пространства.\\
+    \textbf{К пункту 1 обоих теорем:}\\
+    Так как $\CC$ замкнуто, любой корень $\lambda$ характеристического многочлена для $\phi$ является собственным значением и имеет отвечающийй ему собственный вектор.\\
+    Для самосопряжённого оператора:
+    $$\lambda(x,x) = (\phi(x), x) = (x, \phi(x)) = \overline{\lambda}(x,x) \Longrightarrow \lambda \in \R$$
+    Для унитарного оператора:
+    $$(x,x) = (\phi(x), \phi(x)) = \lambda\overline{\lambda}(x, \phi(x)) \Longrightarrow \lambda\overline{\lambda} = |\lambda|^2 = 1 \Longrightarrow |\lambda| = 1$$
+    \textbf{К пункту 4 теоремы 2:}\\
+    Индукция по $n$:\\
+    База: $n = 1 \Rightarrow \phi(x) = e^{i\omega}x$;
+    Шаг: Выберем собственное значение $\lambda_1 = e^{i\omega_1}$, найдём для него собственный вектор $e_1$ и нормируем его. $\langle e_1 \rangle - \phi$-инвариантное подпространство $\Longrightarrow \ \langle e_1 \rangle^\perp - \phi$-инвариантно, и тогда по предположению индукции $\exists$ ортонормированный базис $e_2,...,e_n$ нужного вида для $\phi|_{\langle e_1 \rangle^\perp}$, а из ортогональности $e_1$ всем векторам этого базиса получаем, что $e_1,...,e_n$ - искомый базис.
+\end{proof}
