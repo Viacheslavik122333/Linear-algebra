@@ -85,7 +85,7 @@ $$k(x) = \sum \limits_{k,j = 1}^n x_k\overline{x}_jf_{kj} = ... + f_{kj}x_k\over
 \end{algorithm}
 Возьмём $e'_1 = e_1$.\\
 \textbf{Шаг алгоритма}: если $k > 1$ и $e'_1,...,e'_{k-1}$ уже построены, то будем искать $e'_k$ в виде $e_k - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}e'_j$. Тогда:
-$$0 = (e'_k, e'_i) = (e_k, e'_i) - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}(e'_j, e'_i) = (e_k, e_i) - \lambda_i^{(k)}(e'_i, e'_i) \Longrightarrow \lambda_i^{(k)} = \frac{(e_k, e'_i)}{(e'_i, e'_i)}$$ 
+$$0 = (e'_k, e'_i) = (e_k, e'_i) - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}(e'_j, e'_i) = (e_k, e'_i) - \lambda_i^{(k)}(e'_i, e'_i) \Longrightarrow \lambda_i^{(k)} = \frac{(e_k, e'_i)}{(e'_i, e'_i)}$$ 
 \subsection{Линейные операторы в унитарном пространстве}
 \begin{enumerate}
     \item Сопряжённый оператор $\phi^*$ к линейному оператору $\phi: V \rightarrow V$:
@@ -102,8 +102,8 @@ $$A_\phi^TG = G\overline{A}_\phi \ \ (2')$$
 Если базис ортонормированный, то $A_\phi^T = \overline{A}_\phi \Longleftrightarrow A = A^*$
 
 Для унитарного оператора:
-$$(3) \Longleftrightarrow X^TG\overline{Y} = (A_\phi X)^TG\overline{A_\phi Y} = X^T(A_\phi^TG\overline{A_\phi})\overline{Y} \Longrightarrow A_\phi^TG\overline{A_\phi} = G  \ \ (3')$$
-Если базис ортонормированный, то $A_\phi^T\overline{A_\phi} = E \Longleftrightarrow A^{-1} = A^*$ (унитарная матрица).
+$$(3) \Longleftrightarrow X^TG\overline{Y} = (A_\phi X)^TG\overline{A_\phi Y} = X^T(A_\phi^TG\overline{A}_\phi)\overline{Y} \Longrightarrow A_\phi^TG\overline{A}_\phi = G  \ \ (3')$$
+Если базис ортонормированный, то $A_\phi^T\overline{A}_\phi = E \Longleftrightarrow A^{-1} = A^*$ (унитарная матрица).
 
 \begin{theorem}
     Если $\phi$ - самосопряжённый линейный оператор в $V$, то
