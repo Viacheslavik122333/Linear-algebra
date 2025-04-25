@@ -1,0 +1,90 @@
+%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
+\section{Аффинные пространства и их преобразования}
+\begin{definition}
+    Аффинным пространством над полем $\F$ называется пара $\\(\A, V)$, где $\A$ - множество точек, $V$ - ассоциированное с ним векторное пространство (над $\F$), если задано отображение $\A \times V \rightarrow \A$ - операция прибавления вектора к точке (откладывание вектора от точки) со следующими аксиомами:
+    \begin{enumerate}
+        \item $\forall p \in \A, x,y \in V : \ p + (x + y) = (p + x) + y$;
+        \item $\forall p \in \A : \ p + 0 = p$;
+        \item $\forall p, q \in \A \ \exists! x \in V : p + x = q$
+    \end{enumerate}
+    Размерность аффинного пространства: $\dim \A = \dim V$.
+\end{definition}
+\begin{remark}
+    Если имеется векторное пространство $V$, то можно принять $\A = V$, понимая точки как радиус-векторы, если задать начальную точку $0 \in V$.
+\end{remark}
+
+\begin{subtheorem}
+    $\overrightarrow{pq} + \overrightarrow{qs} = \overrightarrow{ps}$
+\end{subtheorem}
+\begin{proof}
+    $q = p + x; \ s = q + y = (p + x) + y = p + (x + y)$
+\end{proof}
+
+\textbf{Аффинная система координат}\\
+Задаётся точкой $o \in \A$ - началом координат и базисом $e$ ассоциированного векторного пространства $V$. Обозначается $(o, e_1,...,e_n)$.\\
+Координаты точки $p$ - координаты радиус-вектора $\overrightarrow{op}$ в базисе $e$.
+$$\overrightarrow{op} = \sum \limits_{i=1}^n x_ie_i \Longrightarrow \overrightarrow{pq} = \overrightarrow{oq} - \overrightarrow{op} = \sum \limits_{i=1}^n (y_i - x_i)e_i$$
+Также можно задать точки $o, p_1,...,p_n$ общего положения (т.е. $\overrightarrow{op_1},...,\overrightarrow{op_n}$ линейно независимы) - тогда $(o, \overrightarrow{op_1},...,\overrightarrow{op_n})$ - система координат.\\
+\textbf{Изменение координат точки при замене системы координат}\\
+Пусть $(o, e)$ - старая система координат, $(o, e')$ - новая система координат.\\
+Заметим, что $\overrightarrow{op} = \overrightarrow{oo'} + \overrightarrow{o'p}$. Поэтому если $X$ - столбец координат точки $p$ в старых координатах, $X'$ - в новых координатах, а $X_o$ - столбец старых координат точки $o'$, то $$X = X_o + CX, \ \ (C = C_{e\rightarrow e'}) \ \ (1)$$
+Можно ввести аффинную матрицу перехода $\tilde{C} = \begin{pmatrix} C&X_0 \\ 0&1 \end{pmatrix}$ порядка $n + 1$ ($n = \dim V$) и дополненный столбец $\tilde{X} = \begin{pmatrix} X \\ 1 \end{pmatrix}$ высоты $n + 1$. Тогда из $(1)$:
+$$\tilde{X} = \tilde{C}\tilde{X}' \ \ (1')$$
+\textbf{Барицентрическая комбинация точек}\\
+Пусть даны $p_0,p_1,...,p_m (1 \leqslant m \leqslant n)$ с коэффициентами $\lambda_0,\lambda_1,...,\lambda_m, \ \sum \lambda_i = 1$.\\
+Барицентрической комбинацией будем называть 
+$$\sum \limits_{i=0}^m \lambda_ip_i := p + \sum \limits_{i=0}^m \lambda_i \overrightarrow{pp_i} = p + \sum \limits_{i=0}^m \lambda_i(p_i - p)\text{ для некоторой точки } p$$
+Покажем, что результат не зависит от выбора точки $p$: если $q = p + v$ - другая точка, то
+$$q + \sum \limits_{i=0}^m \lambda_i \overrightarrow{qp_i} = p+ v + \sum \limits_{i=0}^m \lambda_i(-v) + \sum \limits_{i=0}^m \lambda_i \overrightarrow{pp_i} = p + \sum \limits_{i=0}^m \lambda_i \overrightarrow{pp_i}$$
+\begin{consequense}
+    Если $m = n$ и $p_0,...,p_n$ - точки общего положения, то любую точку можно единственным образом представить в виде барицентрической комбинации этих точек: $p = \sum \limits_{i=0}^m x_ip_i, \ \sum \limits_{i=0}^m x_i = 1$.\\
+    $(x_0,...,x_n)$ называются барицентрическими координатами точки $p$.
+\end{consequense}
+\subsection{Аффинные плоскости (подпространства)}
+\begin{definition}
+    Зафиксируем точку $p_0 \in \A$ и подпространство $U \subseteq V$.\\
+    Аффинная плоскость $P$ с начальной точкой $p_0$ и направляющим подпространством $U$ - это множество точек $P := p_0 + U = \{p_0 + u | u \in U\}$.\\
+    Размерность плоскости: $\dim P = \dim U$.
+\end{definition}
+\begin{subtheorem}
+    $P$ не зависит от выбора точки $p_0$.
+\end{subtheorem}
+\begin{proof}
+    Пусть $P = p_0 + U, p_0' \in P$. Тогда:
+    $$p_0' = p_0 + u_0, u_0 \in U \Longrightarrow P' = p_0' + U = p_0 + u_0 + U = p_0 + U = P$$
+\end{proof}
+\begin{subtheorem}
+    Если $P = p_0 + U = p'_0 + U'$, то $U = U'$ (т.е. направляющее подпространство для плоскости определено однозначно).
+\end{subtheorem}
+\begin{proof}
+    $p_0' \in p_0 + U \Longrightarrow p_0 + U = p_0' + U = p_0' + U' \Longrightarrow U = U'$
+\end{proof}
+\begin{subtheorem}
+    $(P, U)$ является аффинным пространством относ. операции $p \rightarrow p + x$ для $x \in U$.
+\end{subtheorem}
+\begin{proof}
+    Проверим аксиомы:
+    \begin{enumerate}
+        \item $p + u \in p + U$ - операция определена на $P$ и $U$;
+        \item $p + (u_1 + u_2) = (p + u_1) + u_2 \in p' + U = P$;
+        \item Если $p, q \in P$, то $P = p + U, q = p + u \Longrightarrow \overrightarrow{pq} = u \in U$ - существует и единственный.
+    \end{enumerate}
+\end{proof}
+
+$\forall p \in P: \ p = p_0 + \sum \limits_{i=1}^m x_ie_i$ ($e_1,..,e_m$ - базис в $U$).\\
+Вместо точки $p_0$ и базиса $e_1,...,e_m$ можно рассмотреть точки $p_0,p_1,...,p_m$ общего положения - любую точку $p \in P$ можно представить в виде барицентрической комбинации точек $p_0,...,p_n$. 
+
+\textbf{Задание аффинной плоскости неоднородной СЛУ}\\
+Пусть $P = p_0 + U, \dim U = m, \dim V = n$. Тогда $\exists$ матрица $A$ такая, что $U = \{x = eX | AX = 0\}$ ($e$ - базис $V$).\\
+$\forall p \in P$ имеет координаты $X_0 + X$, где $X_0$ - столбец координат $p_0$, а $X$ - координаты $u \in U$.
+Тогда $A(X_0 + X) = AX_0 + AX = AX_0 := b \Longrightarrow$ координаты $p \in P$ удовлетворяют системе $AX = b$.\\
+Если $p_0$ заменить на $p'_0$ с координатами $X_0 + X', AX' = 0$, то $A(X_0 + X') = AX_0 = b$. Остюда получаем следующее утверждение:
+\begin{subtheorem}
+    Любую аффинную плоскость можно задать (неоднородной) системой линейных уравнений.
+\end{subtheorem}
+\begin{definition}
+    Аффинная оболочка множества точек $M$ - это наименьшая по включению аффинная плоскость, содержащая все точки $M$. В частности. если $M = \{p_0,...,p_k\}$, то $\langle M \rangle = p_0 + \langle \overrightarrow{p_0p_1},...,\overrightarrow{p_0p_k} \rangle$.
+\end{definition}
+
+
+
