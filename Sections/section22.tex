@@ -1,0 +1,84 @@
+\section{Евклидовы аффинные пространства}
+\begin{definition}
+    Аффинное простарнство $(\mathbb{A},\mathcal{E})$ - евклидово, если $\mathcal{E}$ - евклидово пространство (над $\R$), $\mathcal{E}$ ассоциированно с пространством точек $\mathbb{A}$.\\
+    Расстояние определяется как
+    \[\rho(p,q)=|\overline{pq}|\]
+    Для трех точек $a,b,c$ угол между лучами $(ab)$ и $(ac)$ - это угол между векторами $\overline{ab}$ и $\overline{ac}$ (если они ненулевые).
+\end{definition} 
+
+\begin{definition} $\\$
+    Расстояние от точки $p_1\in \mathbb{A}$ до плоскости $P=p_0+U,\ V\supset U\ne \{0\}$.\\
+    Либо $p_1\in P$, либо $\overline{p_0p_1}\not\in U$.\\
+    Можно рассматривать подпространтсво:
+    \[ \widetilde{U}=\langle \overline{p_0p_1}+U \rangle\supset V,\ \overline{p_0p_1}=y+z,\ y\in U,\ z\in U^{\perp}\Longrightarrow \min|\overline{p_1q}|=|z|\]
+\end{definition} 
+
+\begin{definition}
+    Параллелепипед с одной вершиной $p_0$ и ребрами $a_1,\dots,a_m$, где $m\leq n,\ a_i\in \mathcal{E}$:
+    \[\Pi_{\langle p_0,a_1,\dots,a_m \rangle}=\{p_0+\sum\limits_{i=1}^{m}\lambda_i a_i: 0\leq \lambda_i\leq 1\}\]
+\end{definition} 
+Определим $m$-мерный объем рекурсивно:
+для $m=1$:
+\[V(\Pi_{1})=|a_1|\]
+\[V(\Pi_m)=(a_m)_{\perp}\cdot V_{\{p_0,a_1,\dots,a_{m-1}\}}\]
+где $(a_m)_{\perp}$ - ортогональная сотавляющая ребра $a_m$ отностительно подпространства $\langle a_1,\dots, a_{m-1} \rangle$.\\
+Пусть $a_1,\dots,a_m$ линейно независимы. Тогда:
+\[V_{{p_0,a_1,...,a_m}}=|G_{\{a_1,...,a_m\}}|\]
+
+Можно ортогонализовать векторы $a_1,\dots,a_m$, причем матрица перехода от $a_1,\dots,a_m$ к $b_1,\dots,b_m$, где $b_1,\dots,b_m$ получены из алгоритма ортогонализации, выглядит так:
+\[C=\begin{pmatrix}
+    1 & \null & *\\
+    \null & \ddots & \null\\
+    0 & \null & 1
+\end{pmatrix}\]
+\[|G_{\{a_1,\dots,a_m\}}| = |G_{\{b_1,\dots,b_m\}}| = \begin{vmatrix}
+    |b_1^2| & \null & 0\\
+    \null & \ddots & \null\\
+    0 & \null & |b^2_m|
+\end{vmatrix} = |b_1|^2 \cdot ... \cdot |b_m|^2\]
+Значит:
+\[\rho(p_1,P)=\frac{\sqrt{|G_{\{a_1,\dots,a_m,\overline{p_0p_1}\}}|}}{\sqrt{|G_{\{a_1,\dots,a_m\}}|}}\]
+Если $P_1=p_1+U_1, P_2=p_2+U_2$ - две афиинные плоскости в аффинном пространстве, то назовем:
+\[\rho(P_1,P_2)=\inf\{|\overline{pq}|: p\in P_1, q\in P_2\}\]
+\begin{theorem}
+    $\rho(P_1,P_2)$ равно длине ортогональной сотавляющей вектора $\overline{p_1p_2}$ относительно $U_1+U_2$
+\end{theorem} 
+\begin{remark}
+    Если $P_1\cap P_2\ne \emptyset$, то $\rho(P_1,P_2)=0,\ \overline{p_1p_2} \in U_1+U_2$, так что $(p_1,p_2)_{\perp}=0$, что не противоречит утверждению теоремы.
+\end{remark} 
+\begin{proof}
+    Обозначим $W=U_1+U_2$, тогда $\mathcal{E}=W\oplus W^{\perp}$. Обозначим 
+    \[\overline{p_1p_2}=v=v_{\parallel}+v_{\perp},\ v_{\parallel}\in W,\ v_{\perp}\in W^{\perp}\] 
+    Попробуем доказать, что существуют 
+    \[a=p_1+u^0_1\in P_1,\ b=p_2+u^0_2\in P_2\] 
+    такие, что $\overline{ab}=v_{\perp}$. \\
+    Выберем произвольные точки $x=p_1+u_1\in P_1,\ y=p_2+u_2\in P_2$. Тогда:
+    \begin{multline*}
+        \rho^2(x,y)=|\overline{yx}|^2=|\overline{p_2p_1}+u_1-u_2|^2=|v+u_2-u_1|^2=\\
+        =|(v_{\parallel}+u_2-u_1)+v_{\perp}|^2=|v_{\parallel}+u_2-u_1|^2+|v_{\perp}|^2\geq |v_{\perp}|^2
+    \end{multline*}
+    где $v_{\perp}\in (U_1+U_2)^{\perp}$. Равенство достигается, если $v_{\parallel}=u_2-u_1 \Rightarrow \exists\ u_1, u_2$ такие, что $a=p_1+u_1,\ b=p_2+u_2: |\overline{ab}|=v_{\perp}$.
+\end{proof} 
+\begin{consequense}
+    Прямая $l=a+\langle \overline{ab} \rangle=(p_1+u_1)+\langle (\overline{p_1p_2})_{\perp} \rangle$ является общим перпендикуляром этих двух плоскостей.
+\end{consequense} 
+%ПАРАГРАФ
+\subsection{Афиинные отображения и преобразования}
+Пусть $(\mathbb{A}_1,V_1)$ и $(\mathbb{A}_2, V_2)$ - аффинные пространства над одним и тем же полем.
+\begin{definition}
+    Отображение $\Phi: \mathbb{A}_1 \to \mathbb{A}_2$ называется аффинно-линейным отображением, если существует линейное отображение $\phi: V_1\to V_2$ такое, что
+    \[\forall a,b\in \mathbb{A}_1: \overline{\Phi(a)\Phi(b)}=\phi(\overline{ab}) \eqno(1)\]
+    Такое определение равносильно следующему:
+    \[\forall a,b\in \mathbb{A}_1 : \ \Phi(b)=\Phi(a)+\phi(\overline{ab}) \eqno(2)\]
+\end{definition} 
+\begin{subtheorem} \tab
+    \begin{enumerate}
+        \item Пусть 
+        \[\mathbb{A}_1 \xrightarrow{\Phi_1} \mathbb{A}_2 \xrightarrow{\Phi_2} \mathbb{A}_3\]
+        где $\Phi_1,\Phi_2$ - аффинно-линейны, то
+        \[\Phi=\Phi_2\cdot \Phi_1: \ \mathbb{A}_1\to \mathbb{A}_3\]
+        тоже аффинно-линейно с линейной частью $\phi=\phi_2\cdot \phi_1$
+        \item $\mathbb{A}_1 \xrightarrow{\Phi} \mathbb{A}_2$ биективно $\Longleftrightarrow \phi$ - биективно, при этом $\Phi^{-1}$ является \\аффинно-линейным с линейной частью $\phi^{-1}$.
+    \end{enumerate}
+    
+\end{subtheorem}

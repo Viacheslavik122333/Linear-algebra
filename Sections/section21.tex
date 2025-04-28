@@ -87,4 +87,56 @@ $\forall p \in P$ имеет координаты $X_0 + X$, где $X_0$ - ст
 \end{definition}
 
 
+\newpage
+
+\begin{remark}
+    Аффинная плоскость $P=p_0+U$ представляет собой некоторый смежный класс пространства $V$ по $U$:
+    \[p_0'+U=p_0+U=P \Longleftrightarrow  \overline{p_op_0'}\in U\]
+\end{remark}
+\textbf{Взаимное расположение двух плоскостей:}\\ 
+Пусть $P_1=p_1+U_1,\ P_2=p_2+U_2$
+\begin{enumerate}
+    \item $P_1 \parallel P_2$ (в широком смысле), если $U_1\subseteq U_2$ или $U_2\subseteq U_1$. В истинном смысле: если они параллельны в широком смысле и не пересекаются. 
+    \item $P_1 \cap P_2\ne \emptyset$, но не параллельны.
+    \item $P_1$ и $P_2$ скрещиваются: $P_1\cap P_2=\emptyset$ и $U_1\cap U_2 =\{0\}$.
+\end{enumerate}
+\begin{subtheorem}
+    $P_1\cap P_2\ne \emptyset \Longleftrightarrow \overline{p_1p_2}\in U_1+U_2$
+\end{subtheorem} 
+\begin{proof} \tab
+    \begin{itemize}
+        \item[$\underline{\Longrightarrow}$] Пусть $p=p_1+u_1=p_2+u_2 \Rightarrow \overline{p_1p_2}=u_1-u_2\in U_1+U_2$
+        \item[$\underline{\Longleftarrow}$] Пусть существуют $u_i\in U_i,\ i=1,2: \overline{p_1p_2}=u_1-u_2$. 
+        Значит:
+        \[p_1+u_1=p_2+u_2\in P_1\cap P_2\]
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    Аффинная оболочка подмножества $M\subset \mathbb{A}$ - это
+    \[\text{Aff}(M)\equiv \langle M \rangle:=p_0+\langle\overline{pq} \ | \ p,q\in M\rangle,\ p_0\in M\]
+    Видно, что $<M>$ - аффинная плоскость с направляющим подпространством  
+    \[U_0=\langle\overline{pq}: p,q\in M\rangle\]
+    Если $P=p_0+U\supseteq M \Longrightarrow P\ni p_0+\overline{pq},\ p,q\in M \Longrightarrow P\supseteq \langle M \rangle$.
+    Если $P_1, P_2$ - аффинные плоскости, то:
+    \[\langle P_1,P_2 \rangle=p_0+\langle \overline{p_1p_2}, U_1, U_2 \rangle\]
+\end{definition} 
+\begin{theorem}
+    \[\dim{\langle P_1,P_2 \rangle}=\begin{cases}
+        \dim(U_1+U_2),\ \text{если}\ P_1\cap P_2\ne \emptyset,\\
+        \dim(U_1+U_2)+1,\ \text{если}\ P_1\cap P_2= \emptyset
+    \end{cases}\]
+\end{theorem}
+\begin{proof}
+    $\langle P_1,P_2 \rangle$ имеет направляющее подпространство:
+    \[\langle \overline{p_1p_2}, U_1, U_2 \rangle,\ \forall p_1\in P_1,\ p_2\in P_2\]
+    \[\dim{\langle \overline{p_1p_2}, U_1, U_2 \rangle}=\begin{cases}
+        \dim(U_1+U_2),\ \text{если}\ \overline{p_1p_2}\in U_1+U_2 \Longleftrightarrow P_1\cap P_2\ne \emptyset,\\
+        \dim(U_1+U_2)+1,\ \text{если}\ \overline{p_1p_2}\not\in U_1+U_2.
+    \end{cases}\]
+\end{proof}
+
+
+
+
 
