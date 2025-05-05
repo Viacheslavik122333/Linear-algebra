@@ -1,0 +1,74 @@
+\section{Тензоры}
+\subsection{Основные определения и первоначальные конструкции}
+Если векторное пространство над $F$ конечномерно, то $(V^*)^*\simeq V$. Соглашение: векторное пространство $V$ отождествляется с пространством линейных функций на $V^*$.
+Пока что будем считать что поле $F$ - произвольное.
+\begin{definition}
+    Пусть $p,q\in \N_0$. Тензор типа $(p,q)$ - это полилинейная функция 
+    \[f: \underbrace{V\times \dots\times V}_p \times \underbrace{V^*\times \dots\times V^*}_q \]
+    $p$ - ковариантная валентность тензора $f,\ q$ - контрвариантная валентность тензора $f,\ p+q$ - ранг тензора $f$. 
+    Обозначают 
+    \[T^q_p(v)=T^q_p\]
+    множество всех тензоров типа $(p,q)$
+\end{definition} 
+\subsubsection*{Линейные операции на $T^q_p$}
+\begin{enumerate}
+    \item Сложение: 
+    \begin{multline*}
+        f_1(v_1,\dots,v_p,u_1,\dots,u_q)+f_2(v_1,\dots,v_p,u_1,\dots,u_q)=\\
+        =(f_1+f_2)(v_1,\dots,v_p,u_1,\dots,u_q)
+    \end{multline*}
+    \item Умножение на $\lambda\in F$:
+    \[(\lambda f)(v_1,\dots,v_p,u_1,\dots,u_q)=\lambda f(v_1,\dots,v_p,u_1,\dots,u_q)\] 
+    \item Произведение тензоров:\\
+    Пусть $f_1\in T_p^q(V),\ f_2\in T_r^s(V)$, определим функцию:
+    \begin{multline*}
+        (f_1\otimes f_2)(v_1,\dots,v_p,v_{p+1},\dots,v_{p+r},u_1,\dots,u_q,u_{q+1},\dots,u_{q+s})=\\
+        =f_1(v_1,\dots,v_p,u_1,\dots,u_q)\cdot f_2(v_{p+1},\dots,v_{p+r},u_{q+1},\dots,u_{q+s})
+    \end{multline*}
+\end{enumerate}
+\begin{subtheorem}
+    $T_p^q$ с введенными операциями - векторное пространство над полем $F$.
+\end{subtheorem}
+\begin{subtheorem}
+    \begin{enumerate}
+        \item $f_1\otimes f_2\in T_{p+r}^{q+s}(V)$
+        \item Операция $\otimes$ ассоциативна
+        \item $(\alpha_1f_1+\alpha_2f_2)\otimes f_3=\alpha_1(f_1\otimes f_3)+\alpha_2(f_2\otimes f_3)$ %ЛЕВАЯ ДИСТРИБУТИВНОСТЬ ТОЖЕ ВЕРНА СЛАВА ДОПИШИ ПЖ :)))))
+    \end{enumerate}
+\end{subtheorem}
+\subsubsection*{Отождествелние тензоров малых валентностей с известными объектами из линейной алгебры}
+\begin{theorem}
+    \begin{enumerate}
+        \item $T_1^0(V)=V^*$
+        \item $T_0^1(V)=(V^*)^* \equiv V$
+        \item $T_2^0(V)$ - билинейные функции
+        \item $T_1^1(V) \equiv L(V)$ - линейные операторы на $V$.
+    \end{enumerate}
+\end{theorem} 
+\begin{proof}
+    Докажем для случая линейных операторов. Первое доказательво (без матриц):\\
+    Пусть $f\in T_1^1(V)$, то есть $f=f(v,u)$, где $v\in V,\ u\in V^*$. Изоморфизм между $V$ и $V^{**}$ задавался правилом:
+    \[\forall u\in V^*,\ \forall v\in V:\ \phi_v(u)=u(v)\]
+    при фиксированном $v$, $f(v,u)$ - линейная функция на $V^*$, значит
+    \[f(v,u)=\phi'_v(u)=u(\phi'_v)=u(y_v)\] % Чубаров сказал что подумает как лучше обозначить (про phi')
+    где $\phi_v=y_v\in V$. Соответсвие $\psi: V\to y_v$ является линейным оператором на $V$, так как 
+    \[f(v_1+v_2,u)=u(y_{v_1+v_2})\]
+    и 
+    \[f(v_1+v_2,u)=f(v_1,u)+f(v_2,u)=u(y_{v_1})+u(y_{v_2})=u(y_{v_1}+y_{v_2})\]
+    Также очевидно, что 
+    \[\psi(\lambda v)=\lambda\psi(v)\]
+    Обратно: если $\phi: V\to V$ - линейный оператор, то $f(v,u):=u(\phi(v))$ - функция, линейная по $v$ и $u$, то есть $f\in T^1_1(V)$. Значит, можем установить изоморфизм
+    \[T_1^1(V)\simeq L(V)\]
+\end{proof} 
+\subsubsection*{Построение базиса в пространстве $T_p^q(V)$}
+Пусть $e=(e_1,\dots,e_n)$ - базис $V,\ e^*=(e^1,\dots,e^n)$ - дуальный базис к $e$ в $V^*$.
+Для любых значений $\{i_1,\dots i_p,j_1,\dots,j_q\}\in \{1,\dots,n\}$ можно определить тензоры
+\[e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\in T_p^q(V)\]
+\begin{multline*}
+    (e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p})(v_1,\dots,v_p,u^1,\dots,u^q)=\\
+    =e^{i_1}(v_1)\cdot \dots \cdot e^{i_p}(v_p)\cdot e_{j_1}(u^1)\cdot \dots \cdot e_{j_q}(u^q)
+\end{multline*}
+\begin{theorem}
+    Тензоры $\{e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\}$ - базис в пространстве $T_p^q(V)$
+    \[\dim{(T_p^q)}(V)=n^{p+q}\]
+\end{theorem} 

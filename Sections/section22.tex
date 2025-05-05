@@ -183,7 +183,7 @@ D: \mathbb{F}^n \to \mathbb{F}^m
         \item Пусть $b_1, a_1\in \A_1$
         \[\Phi_1(b_1)=\Phi_1(a_1)+\phi_1(\overline{a_1b_1})\]
         \[\Phi_2(\Phi_1(b_1))=\Phi_2(\Phi_1(a_1))+\phi_2(\phi_1(\overline{a_1b_1}))\]
-        \item Если $\phi_1$ - биективно, то $\forall\ \overline{a_2b_2}\in V_2$ существует единсвтенный вектор
+        \item Если $\phi_1$ - биективно, то $\forall\ \overline{a_2b_2}\in V_2$ существует единственный вектор
         \[\overline{a_1b_1}\in V_1: \phi(\overline{a_1b_1})=\overline{a_2b_2}\]
         Определим отображение 
         \[\Phi': \A_2\to \A_1\]
@@ -264,17 +264,122 @@ D: \mathbb{F}^n \to \mathbb{F}^m
     Движение называется собственным, если $\det{A_{\phi}}=1$ и несобственным, если $\det{A_{\phi}}=-1$
 \end{definition} 
 \begin{remark}
-    (Уточнение к теореме о разложении: $\Phi=t_v\cdots\Psi$)\\
+    (Уточнение к теореме о разложении: $\Phi=t_v\cdot\Psi$)\\
     Для любой точки $a$ и любого движения $\Phi:\A\to \A$ с линейной частью $\phi$ существует $u\in V$ такой, что
     \[\Phi=t_u\cdot \Psi\]
     причем $\phi(u)=u$.
 \end{remark}
 \begin{proof}
-    Пусть $a\in \A$ - произвольная точка. Обозначим $v:=\overline{a\Phi(u)}$. Пусть $\lambda=1$ является собственным значением оператора $\phi$. а также:
+    Пусть $a\in \A$ - произвольная точка. Обозначим $v:=\overline{a\Phi(u)}$. Пусть $\lambda=1$ является собственным значением оператора $\phi$, а также:
     \[U=\{u\in V:\ \phi(u)=u\}\ne \{0\},\ W=U^{\perp}\]
     тогда
     \[V=U\oplus W\]
     $v=u+w$, где $\phi(u)=u,\ (w,u)=0$. Определим $\Psi=t_u\cdot \Phi$. Поищем для $\Psi$ неподвижную точку в виде $b=a+\widetilde{w},\ \widetilde{w}\in W$. Вычислим 
-    \[\Psi(b)=(t_{-u}\Phi)(b)=b\ ??\]
-    ПРОДОЛЖЕНИЕ СЛЕДУЕТ
+    \[\Psi(b)=(t_{-u}\Phi)(b)\]
+    \begin{multline*}
+        \Psi(a+\widetilde{w})=t_{-u}(\Psi(a)+\phi(\widetilde{w}))=t_{-u}(a+v+\phi(\widetilde{w}))=\\
+        =a+(v-u)+\phi(\widetilde{w})=a+w+\phi(\widetilde{w})=a+(w+\widetilde{w})+(\phi(\widetilde{w})-\widetilde{w})=\\
+        =a+\widetilde{w}+w+(\phi-\text{Id})(\widetilde{w})=a+\widetilde{w}
+    \end{multline*}
+    Поледнее равенство выполнено $\Longleftrightarrow (\phi-\text{Id})\widetilde{w}=-w,\ \widetilde{w}\in W$ - инвариантное подпространство для $\phi-\text{Id}$, но у $\phi|_W$ нет собственного значения $\lambda=1\\
+    \Longrightarrow\ \exists\ (\phi-\text{Id})^{-1}$ и $\widetilde{w}=-(\phi-\text{Id})^{-1}(w) \Longrightarrow \Psi(b)=b$. Если $\lambda=1$ не является собственным значением, то рассуждения сохраняют силу с $U=0$ и $W=V,\\
+     t_u=\text{Id},\ \Psi=\Phi$ имеет неподвижную точку.
 \end{proof}
+Наблюдение: Если $\lambda=1$ - не собственное значение оператора $\phi$, то $\Phi$ имеет неподвижную точку. Если же $\lambda =1$ - собственное значение, $u_0$ - собственный вектор: $\phi(u_0)=u_0$, то все точки прямой
+\[l=b+\langle u_0 \rangle\] 
+неподвижны, а $\Psi$ определяется своим действием в гиперплоскости ортогональной к этой прямой:
+\[P=b+\langle u_0 \rangle^{\perp}\]
+\subsubsection*{Классификация движений при $n=1,2,3$}
+\begin{enumerate}
+    \item $n=1$: $\Phi$ - либо параллельный перенос, либо центральная симметрия относительно неподвижной точки.
+    \item $n=2$: Координатная запись одна из следующих:
+    \begin{enumerate}
+        \item Параллельный перенос:
+        \[\begin{cases}
+            x'=x+a,\\
+            y'=y+b
+        \end{cases}
+        \]
+        \item Композиция параллельного переноса в доль оси и симметрии относительно оси:
+        \[
+        \begin{cases}
+            x'=x+a,\\
+            y'=-y+b
+        \end{cases} \Longrightarrow
+        \begin{cases}
+            \widetilde{x}'=x'+a,\\
+            \widetilde{y}'=-y'
+        \end{cases}
+        \] 
+        \item Поворот:
+        \[
+        \begin{cases}
+            x'=x\cos{\alpha}-y\sin{\alpha}+a,\\
+            y'=x\sin{\alpha}+y\cos{\alpha}+b
+        \end{cases}
+        \]
+        Согласно общей теореме, существует неподвижаня точка, что после переноса в эту точку остается только поворот.
+    \end{enumerate}
+    \item $n=3$: Четыре варианта в каноническом базисе для оператора $\phi$:
+    \begin{enumerate}
+        \item Параллельный перенос ($\lambda_{1,2,3}=1$)
+        \[
+        \begin{cases}
+            x'=x+a,\\
+            y'=y+b,\\
+            z'=z+c
+        \end{cases}
+        \]
+        \item $\lambda_{1,2}=1, \lambda_3=-1$
+        \[
+        \begin{cases}
+            x'=x+a,\\
+            y'=y+b,\\
+            z'=-z+c
+        \end{cases}
+        \]
+        Можно заменить координаты  $(x,y,z)\to(\xi, \eta, \zeta)$ и получить 
+        \[
+        \begin{cases}
+            \xi'=\xi+a,\\
+            \eta'=\eta+b,\\
+            \zeta'=-\zeta
+        \end{cases}
+        \]
+        что является композицией ортогональной симметрии относительно плоскости $\xi=\eta=0$ и параллельного переноса на вектор $(a,b,0)$, параллельно этой плоскости.
+        \item
+        \[
+        \begin{cases}
+            x'=x\cos{\alpha}-y\sin{\alpha}+a,\\
+            y'=x\sin{\alpha}+y\cos{\alpha}+b,\\
+            z'=z=c
+        \end{cases}
+        \]
+        Можно сделать замену координат $(x,y,z)\to(\xi, \eta, \zeta)$, чтобы осталось (упражнение):
+        \[\begin{cases}
+            \xi'=\xi\cos{\alpha}-\eta\sin{\alpha},\\
+            \eta'=\xi\sin{\alpha}+\eta\cos{\alpha},\\
+            \zeta'=\zeta+c
+        \end{cases}
+        \]
+        что является композицией поворота вокруг прямой, параллельной $(0,0,1)$ на угол $\alpha$ и переноса на вектор $(0,0,c)$ вдоль этой прямой (винтовое движение).
+        \item
+        \[\begin{cases}
+            x'=x\cos{\alpha}-y\sin{\alpha}+a,\\
+            y'=x\sin{\alpha}+y\cos{\alpha}+b,\\
+            z'=-z+c
+        \end{cases}
+        \]
+        Можно сделать замену координат $(x,y,z)\to(\xi, \eta, \zeta)$, чтобы осталось:
+        \[
+        \begin{cases}
+            \xi'=\xi\cos{\alpha}-\eta\sin{\alpha},\\
+            \eta'=\xi\sin{\alpha}+\eta\cos{\alpha},\\
+            \zeta'=-\zeta+c
+        \end{cases}
+        \]
+        что является композицией симметрии относительно плоскости $\zeta=c$, повотора вокруг прямойЮ перпендикулярной этой плоскости, и параллельного переноса на вектор $(0,0,c)$, который параллелен этой плоскости.
+    \end{enumerate}
+\end{enumerate}
+
+
