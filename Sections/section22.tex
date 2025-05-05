@@ -41,7 +41,7 @@
 Если $P_1=p_1+U_1, P_2=p_2+U_2$ - две афиинные плоскости в аффинном пространстве, то назовем:
 \[\rho(P_1,P_2)=\inf\{|\overline{pq}|: p\in P_1, q\in P_2\}\]
 \begin{theorem}
-    $\rho(P_1,P_2)$ равно длине ортогональной сотавляющей вектора $\overline{p_1p_2}$ относительно $U_1+U_2$
+    $\rho(P_1,P_2)$ равно длине ортогональной составляющей вектора $\overline{p_1p_2}$ относительно $U_1+U_2$
 \end{theorem} 
 \begin{remark}
     Если $P_1\cap P_2\ne \emptyset$, то $\rho(P_1,P_2)=0,\ \overline{p_1p_2} \in U_1+U_2$, так что $(p_1,p_2)_{\perp}=0$, что не противоречит утверждению теоремы.
@@ -67,9 +67,12 @@
 Пусть $(\mathbb{A}_1,V_1)$ и $(\mathbb{A}_2, V_2)$ - аффинные пространства над одним и тем же полем.
 \begin{definition}
     Отображение $\Phi: \mathbb{A}_1 \to \mathbb{A}_2$ называется аффинно-линейным отображением, если существует линейное отображение $\phi: V_1\to V_2$ такое, что
-    \[\forall a,b\in \mathbb{A}_1: \overline{\Phi(a)\Phi(b)}=\phi(\overline{ab}) \eqno(1)\]
+    \[\forall a,b\in \mathbb{A}_1:\ \overline{\Phi(a)\Phi(b)}=\phi(\overline{ab}) \eqno(1)\]
     Такое определение равносильно следующему:
     \[\forall a,b\in \mathbb{A}_1 : \ \Phi(b)=\Phi(a)+\phi(\overline{ab}) \eqno(2)\]
+    Если задано $\Phi$ и какая-то точка $a$, то $\phi$ определяется однозначно.\\
+    Если $\overline{ab}=\overline{a_1b_1}=v$
+    \[\Phi(a_1)+\phi'(v)=\Phi(b_1)=\Phi(a_1)+\phi'(\overline{a_1b_1}) \Rightarrow \phi=\phi'\]
 \end{definition} 
 \begin{subtheorem} \tab
     \begin{enumerate}
@@ -80,5 +83,198 @@
         тоже аффинно-линейно с линейной частью $\phi=\phi_2\cdot \phi_1$
         \item $\mathbb{A}_1 \xrightarrow{\Phi} \mathbb{A}_2$ биективно $\Longleftrightarrow \phi$ - биективно, при этом $\Phi^{-1}$ является \\аффинно-линейным с линейной частью $\phi^{-1}$.
     \end{enumerate}
-    
 \end{subtheorem}
+\subsubsection*{Координатная запись}
+Выберем систему координат с началом в точке $O$ и базисом $e$
+\[\forall b(x_1,\dots,x_n)=\overline{Ob},\ \Phi(O)=O'(x_1^0,\dots,x_n^0)\]
+\[\Phi(b)=\Phi(O)+\phi(\overline{Ob})\]
+Обозначим $\Phi(b)(y_1,\dots,y_m)$, тогда
+\[\begin{pmatrix}
+    y_1\\
+    \vdots\\
+    y_m
+\end{pmatrix}
+=
+\begin{pmatrix}
+    x_1^0\\
+    \vdots\\
+    x_m^0
+\end{pmatrix}
++A_{\phi,e,f}\cdot
+\begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_n
+\end{pmatrix}
+\]
+где $f$ - базис в $V_2$
+\[\widetilde{A}=\begin{pmatrix}
+    A_{\phi} & X_0\\
+    0\dots0 & 1
+\end{pmatrix}
+\]
+\[(2) \Longleftrightarrow \widetilde{Y}=\widetilde{A}\cdot \widetilde{X}\]
+где
+\[
+\widetilde{X}=\begin{pmatrix}
+    X\\
+    1
+\end{pmatrix},
+\widetilde{Y}=\begin{pmatrix}
+    Y\\
+    1
+\end{pmatrix}
+\]
+Подробная запись:
+\[\begin{cases}
+    y_1=a_{11}x_1+\dots+a_{1n}x_n+x_1^0,\\
+    \vdots\\
+    y_m=a_{m1}x_1+\dots+a_{mn}x_n+x_m^0
+\end{cases}
+\Longrightarrow
+\begin{cases}
+    dy_1=a_{11}dx_1+\dots+a_{1n}dx_n,\\
+    \vdots\\
+    dy_m=a_{m1}dx_1+\dots+a_{mn}dx_n
+\end{cases}
+\]
+Отсюда
+\[\begin{pmatrix}
+    dy_1\\
+    \vdots\\
+    dy_m
+\end{pmatrix}
+=A_{\phi}\cdot
+\begin{pmatrix}
+    dx_1\\
+    \vdots\\
+    dx_n
+\end{pmatrix}
+\]
+Значит $A_{\phi}$ действует на столбцы
+\[\begin{pmatrix}
+    dx_1\\
+    \vdots\\
+    dx_n
+\end{pmatrix}
+\]
+как оператор $\phi$.
+Обозначим
+\[DY=\begin{pmatrix}
+    dy_1\\
+    \vdots\\
+    dy_m
+\end{pmatrix},\
+D: \mathbb{F}^n \to \mathbb{F}^m
+\]
+\begin{subtheorem} \tab
+    \begin{enumerate}
+        \item Пусть 
+        \[\mathbb{A}_1 \xrightarrow{\Phi_1} \mathbb{A}_2 \xrightarrow{\Phi_2} \mathbb{A}_3\]
+        где $\Phi_1,\Phi_2$ - аффинно-линейны, то
+        \[\Phi=\Phi_2\cdot \Phi_1: \ \mathbb{A}_1\to \mathbb{A}_3\]
+        тоже, причем 
+        \[D(\Phi_2\cdot \Phi_1)=D\Phi_2\cdot D\phi_1=\phi_2\cdot\phi_1\]
+        \item $\Phi_1$ - биективно $\Longleftrightarrow \phi_1$ - биективно, и линейная часть $\Phi_1^{-1}$ есть $\phi_1^{-1}$
+    \end{enumerate}
+\end{subtheorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Пусть $b_1, a_1\in \A_1$
+        \[\Phi_1(b_1)=\Phi_1(a_1)+\phi_1(\overline{a_1b_1})\]
+        \[\Phi_2(\Phi_1(b_1))=\Phi_2(\Phi_1(a_1))+\phi_2(\phi_1(\overline{a_1b_1}))\]
+        \item Если $\phi_1$ - биективно, то $\forall\ \overline{a_2b_2}\in V_2$ существует единсвтенный вектор
+        \[\overline{a_1b_1}\in V_1: \phi(\overline{a_1b_1})=\overline{a_2b_2}\]
+        Определим отображение 
+        \[\Phi': \A_2\to \A_1\]
+        \[\Phi'(a_2)=a_1,\ \Phi'(b_2)=\Phi'(a_2)+\phi^{-1}(\overline{a_2b_2})\]
+        Значит $\Phi'$ - аффинно-линейное отображение.
+        \[\Phi(a_1)=a_2,\ \Phi(b_1)=\Phi(a_1)+\phi(\overline{a_1b_1})=\Phi(a_1)+\overline{a_2b_2}=b_2\]
+        \[(\Phi'\Phi)(a_1)=\Phi'(a_2)=a_1 \Longrightarrow \Phi'\Phi = \text{Id}_{\A_1}\] 
+        Аналогично в другом порядке.
+    \end{enumerate}
+\end{proof} 
+\subsection*{Аффинные преобразования}
+\begin{definition}
+    Пусть $\Phi:\A\to \A$ - аффинно-линейное преобразование. Если $\Phi$ биективно, то будем называть его просто аффинным.
+\end{definition} 
+\begin{example}
+    \begin{enumerate}
+        \item Параллельный перенос на вектор $v\in V$:
+        \[\forall a\in \A:\ t_v(a)=a+v\]
+        ясно что 
+        \[t^{-1}_v=t_{-v},\ Dt_v=\text{Id}\]
+        \item Гомотетия с центром в точке $O$:
+        \[\forall v\in V:\ \Phi(O+v)=O+\lambda v\]
+        где $\lambda\ne 0$ - коэффициент гомотетии.
+        Например, при $\lambda=-1$ - это центральная симметрия.
+    \end{enumerate}
+\end{example}
+\begin{theorem}
+    Любое (биективное) аффинное преобразование $\Phi$ для любой точки $a\in A$ представляется единственным образом в виде композиции 
+    \[\Phi=t_v\cdot \Psi\]
+    где $\Psi$ - аффинное преобразование такое, что $\Psi(a)=a$. 
+\end{theorem} 
+\begin{proof}
+    Для заданной точки $a$ обозначим $v:=\overline{a\Phi(a)}$. Рассмотрим преобразование $\Psi = t_{-v}\cdot \Phi$, тогда $\Psi$ - аффинное.
+    \[\Psi(a)=\Phi(a)-v=a \Longrightarrow \Phi=t_v\cdot \Psi\]
+    Докажем единственность: Пусть 
+    \[\Phi=t_v\cdot \Psi=t_{v'}\cdot \Psi',\ \Psi'(a)=a\]
+    значит
+    \[t_{v-v'}=\Psi'\cdot\Psi^{-1},\ \text{т.к}\ \Psi'(a)=\Psi(a)=a\]
+    отсюда
+    \[\Psi'\cdot \Psi^{-1}(a)=a=a+(v-v') \Longrightarrow v'=v\]
+    следовательно
+    \[\Psi'\cdot\Psi^{-1}=t_0=\text{Id}\]
+\end{proof} 
+\begin{theorem}
+    Для любых двух наборов точек общего положения $\{a_0, a_1,\dots,a_n\}$ и $\{b_0,b_1,\dots,b_n\}$ существует единственное аффинное преобразование $\Psi: \A\to \A$\\
+    $n$-мерного аффинного пространства такое, что
+    \[\Phi(a_i)=b_i,\ \forall i=0,\dots,n\]
+\end{theorem} 
+\begin{proof}
+    По условию $\{\overline{a_0a_1},\dots,\overline{a_0a_n}\}$ и $\{\overline{b_0b_1},\dots,\overline{b_0b_n}\}$ - базисы в ассоциированном с $\A$ векторном пространстве $V$. Значит существует единственный линеный оператор $\phi: V\to V$ такой, что
+    \[\phi(\overline{a_0a_i})=\overline{b_0b_i},\ i=0,\dots, n\]
+    Тогда $\Phi(a_0+v)=b_0+\phi(v)$ - требуемое преобразование.
+\end{proof} 
+\subsection*{Ортогональные преобразования (движения или изометрии)}
+\begin{definition}
+    Пусть $(\A,V)$ - аффинное евклидово пространтсво, то есть $V$ - евклидово пространство.\\
+    Аффинное преобразование $\Phi: \A\to \A$ называется ортогональным или движением, если $\forall a,b\in \A:$
+    \[\rho(\Phi(a),\Phi(b))=\rho(a,b),\ \text{т.е}\ |\overline{\Phi(a),\Phi(b)}|=|\overline{ab}|\]
+\end{definition} 
+\begin{exercise}
+    Доказать, что если преобразование $\Phi: \A\to \A$ сохраняет расстояния между точками, то оно является аффинным, то есть $\forall a:$
+    \[\Phi(a+v)=\Phi(a)+\phi(v)\]
+    где $\phi$ - линейный оператор.
+\end{exercise}
+На этом основании можно называть $\Phi$ изометрией
+\begin{remark}
+    Если $\Phi$ - движение, то $D\Phi=\phi$ - ортогональный оператор:
+    \[|\overline{\Phi(a),\Phi(b)}|=|\overline{ab}|,\ \Phi(b)=\Phi(a)+\phi(\overline{ab})\]
+    значит
+    \[|\phi(\overline{ab})|=|\overline{ab}|,\ b-a+v,\ \forall v\in V\]
+    следовательно $\phi$ сохраняет длины векторов, а значит и скалярное произведение.
+\end{remark}
+Запишем $\Phi$ в координатах в ортонормированной системе координат.
+\[Y=X_0+A_{\phi}\cdot X,\ A_{\phi}^T=A_{\phi}^{-1} \Longrightarrow \det{A_{\phi}}=\pm 1\]
+поскольку
+\[A_{\phi}^T\cdot A_{\phi}=E \Longrightarrow (\det{A_{\phi}})^2=1 \Longrightarrow \det{A_{\phi}}=\pm 1\]
+\begin{definition}
+    Движение называется собственным, если $\det{A_{\phi}}=1$ и несобственным, если $\det{A_{\phi}}=-1$
+\end{definition} 
+\begin{remark}
+    (Уточнение к теореме о разложении: $\Phi=t_v\cdots\Psi$)\\
+    Для любой точки $a$ и любого движения $\Phi:\A\to \A$ с линейной частью $\phi$ существует $u\in V$ такой, что
+    \[\Phi=t_u\cdot \Psi\]
+    причем $\phi(u)=u$.
+\end{remark}
+\begin{proof}
+    Пусть $a\in \A$ - произвольная точка. Обозначим $v:=\overline{a\Phi(u)}$. Пусть $\lambda=1$ является собственным значением оператора $\phi$. а также:
+    \[U=\{u\in V:\ \phi(u)=u\}\ne \{0\},\ W=U^{\perp}\]
+    тогда
+    \[V=U\oplus W\]
+    $v=u+w$, где $\phi(u)=u,\ (w,u)=0$. Определим $\Psi=t_u\cdot \Phi$. Поищем для $\Psi$ неподвижную точку в виде $b=a+\widetilde{w},\ \widetilde{w}\in W$. Вычислим 
+    \[\Psi(b)=(t_{-u}\Phi)(b)=b\ ??\]
+    ПРОДОЛЖЕНИЕ СЛЕДУЕТ
+\end{proof}
