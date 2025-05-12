@@ -9,6 +9,7 @@
     Множество всех тензоров типа $(p,q)$ обозначают 
     \[T^q_p(v)=T^q_p\]
 \end{definition} 
+По определению $T_0^0 := F$.
 \subsubsection*{Линейные операции на $T^q_p$}
 \begin{enumerate}
     \item Сложение: 
@@ -48,10 +49,10 @@
     Докажем что тензор типа (1,1) - это линейный оператор.\\
     % Первое доказательство (без матриц):\\
     Пусть $f\in T_1^1(V)$, то есть $f=f(v,u)$, где $v\in V,\ u\in V^*$. Изоморфизм между $V$ и $V^{**}$ задавался правилом:
-    \[\forall u\in V^*,\ \forall v\in V:\ \phi_v(u)=u(v)\]
-    при фиксированном $v$, $f(v,u)$ - линейная функция на $V^*$, значит
-    \[f(v,u)=\phi'_v(u)=u(\phi'_v)=u(y_v)\] % Чубаров сказал что подумает как лучше обозначить (про phi')
-    где $\phi_v=y_v\in V$. Соответсвие $v\xrightarrow{\psi} y_v$ является линейным оператором на $V$, так как 
+    \[ \forall v\in V: \phi_v \text{ - линейная функция на } V^*: \forall u\in V^*\ \ \phi_v(u)=u(v)\]
+    При фиксированном $v$ $f(v,u)$ - линейная функция на $V^*$, а значит
+    \[\exists y_v = \phi^{-1}(f(v, u))\]
+    где $y_v\in V$. Соответсвие $v\xrightarrow{\psi} y_v$ является линейным оператором на $V$, так как 
     \[f(v_1+v_2,u)=u(y_{v_1+v_2})\]
     и 
     \[f(v_1+v_2,u)=f(v_1,u)+f(v_2,u)=u(y_{v_1})+u(y_{v_2})=u(y_{v_1}+y_{v_2})\]
@@ -59,16 +60,50 @@
     \[\psi(\lambda v)=\lambda\psi(v)\]
     Обратно: если $\phi: V\to V$ - линейный оператор, то $f(v,u):=u(\phi(v))$ - функция, линейная по $v$ и $u$, то есть $f\in T^1_1(V)$. Значит, можем установить изоморфизм
     \[T_1^1(V)\simeq L(V)\]
-\end{proof} 
+\end{proof}  
+\subsubsection*{Правило Эйнштейна}
+Некоторые индексы пишутся снизу, а некоторые сверху: например, базисные векторы записываются как $e_i \ (= (e_1,...,e_n))$, а координаты векторов имеют верхние индексы, а также $e^i (=(e^1,...,e^n))$ - дуальный базис.\\
+Также опускается знак суммирования. если один и тот же инвариантныедекс повторяется сверху и снизу: $x = x^ie_i$ подразумевает $\sum \limits_{i=1}^n x_ie_i$.
+
+Матрицы линейных операторов по этому правилу можно записывать так: $A_\phi = (a_j^i)$, где $i$ - номер строки, $j$ - номер столбца. Также:
+\begin{enumerate}
+    \item $\textup{tr} A_\phi = a_i^i$ (след матрицы);
+    \item $Y = A_\phi X \Longrightarrow y^i = a_j^ix^j$ (умножение матрицы на вектор);
+    \item $b(x, y) = b_{ij}x^iy^j$ (билинейная форма)
+\end{enumerate}
+
 \subsubsection*{Построение базиса в пространстве $T_p^q(V)$}
-Пусть $e=(e_1,\dots,e_n)$ - базис $V,\ e^*=(e^1,\dots,e^n)$ - дуальный базис к $e$ в $V^*$.
-Для любых значений $\{i_1,\dots i_p,j_1,\dots,j_q\}\in \{1,\dots,n\}$ можно определить тензоры
-\[e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\in T_p^q(V)\]
+Для любых значений $\{i_1,\dots i_p,j_1,\dots,j_q\}\in \{1,\dots,n\}$ и чисел $p,q \in \N_0$ можно определить тензоры:
+\[e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_q}\in T_p^q(V)\]
 \begin{multline*}
-    (e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p})(v_1,\dots,v_p,u^1,\dots,u^q)=\\
-    =e^{i_1}(v_1)\cdot \dots \cdot e^{i_p}(v_p)\cdot e_{j_1}(u^1)\cdot \dots \cdot e_{j_q}(u^q)
+    (e^{i_1}\otimes ... \otimes e^{i_p}\otimes e_{j_1}\otimes ... \otimes e_{j_q})(e_{k_1}, ... ,e_{k_p},e^{l_1},...,e^{l_q})=\\
+    =e^{i_1}(e_{k_1})\cdot ... \cdot e^{i_p}(e_{k_p})\cdot e_{j_1}(e^{l_1})\cdot \dots \cdot e_{j_q}(e^{l_q}) = \delta_{k_1}^{i_1}\cdot ... \cdot \delta_{k_p}^{i_p} \cdot \delta_{j_1}^{l_1}\cdot ... \cdot \delta_{j_q}^{l_q} (*)
 \end{multline*}
 \begin{theorem}
     Тензоры вида $\{e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\}$ образуют базис в пространстве $T_p^q(V)$, причем
     \[\dim{(T_p^q)}(V)=n^{p+q}\]
-\end{theorem} 
+\end{theorem}
+\begin{proof}
+    Пусть $f \in T_p^q(V)$. Вычислим $f(v_1,...,v_p; u^1,...,u^q)$:
+    \[v_i = v_i^{k_i}e_{k_i}, \ i = 1,...,p; \\ u^j = u_{l_j}^j e^{l_j}, \ j = 1,...,q;\]
+    Тогда:
+    \begin{multline*}
+        f(...,v_i^{k_i}e_{k_i},...; \ ...,u_{l_j}^j e^{l_j},...) = f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q})v_1^{k_1}...v_p^{k_p}u_{l_1}^1...u_{l_q}^q =\\= f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q}) e^{k_1}\otimes...\otimes e^{k_p}\otimes e_{l_1}\otimes...\otimes  e_{l_q} (v_1,...,v_p; u^1,...,u^q) 
+    \end{multline*}
+    в силу равенства $(*)$. Это значит, что
+    \[f = f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q})(e^{k_1}\otimes...\otimes e^{k_p}\otimes e_{l_1}\otimes...\otimes e_{l_q})\]
+    Коэффициенты, очевидно, определены однозначно при фиксированном базисе $e_1,...,e_n$, а значит $\{e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\}$ - базис в пространстве $T_p^q(V)$.  
+\end{proof}
+\begin{definition}
+    Матрицей тензора $f$ называется матрица $A_{i_1,...,i_p}^{j_1,...,j_q}$ такая, что $a_{k_1,...,k_p}^{l_1,...,l_q} := f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q})$.
+\end{definition}
+\subsubsection*{Закон изменения матрицы координат тензора при замене базиса}
+Пусть $(e'_1,...,e'_n) = (e_1,...,e_n)C$, $\begin{pmatrix} e'^1 \\ \vdots \\ e'^n \end{pmatrix} = D\begin{pmatrix} e^1 \\ \vdots \\ e^n \end{pmatrix}$. Тогда:
+\[DC = D\begin{pmatrix} e^1 \\ \vdots \\ e^n \end{pmatrix}(e_1,...,e_n)C = \begin{pmatrix} e'^1 \\ \vdots \\ e'^n \end{pmatrix}(e'_1,...,e'_n) = E \Rightarrow D = C^{-1}\]
+Отсюда:
+\[f = A_{i_1,...,i_p}^{j_1,...,j_q}x_1^{i_1}...x_p^{i_p}u_{j_1}^1...u_{j_q}^q\]
+\[x_k^{i_k} = c_{i'_k}^{i_k}{x'}^{i'_k}_k; \ \ u_{j_l}^{l} = d_{j_l}^{j'_l}u'^l_{j'_l}\]
+Отсюда новые коэффициенты линейной формы:
+\[(u'_1,...,u'_n) = (u_1,...,u_n)C \Longrightarrow (u_1,...,u_n) = (u'_1,...,u'_n)D\]
+Итак, в новом базисе
+\[f = A_{i_1,...,i_p}^{j_1,...,j_q} c_{i'_1}^{i_1}...c_{i'_p}^{i_p}d_{j_1}^{j'_1}...d_{j_q}^{j'_q}{x'}^{i'_1}_1...{x'}^{i'_p}_p {u'}^{1}_{j'_1}...{u'}^{q}_{j'_q}\]

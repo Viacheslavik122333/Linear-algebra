@@ -150,7 +150,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
     $$z \perp (y-v) \Longrightarrow |x-v|^2 = |z|^2 + |y-v| \geqslant |z|^2$$
     причём равенство при $|y - v| = 0 \Longrightarrow y = v$.
 \end{proof}
-Это подтвержает осмысленность определения $\rho(x, U) = |x_{\perp}|$.
+Это подтверждает осмысленность определения $\rho(x, U) = |x_{\perp}|$.
 \begin{exercise}
     Докажите отсюда, что $\angle(x, v) \geqslant \angle(x, y)$.
 \end{exercise}
@@ -323,6 +323,16 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     Т.к. $\phi$ обратим, $\exists x': x = \phi(x')$, т.е. $x' = \phi^{-1}(x) \in U$. Отсюда:
     $$(x, \phi(y)) = (\phi(x'), \phi(y)) = (x', y) = 0, \text{ т.к. } x' \in U, \ y \in U^\perp$$
 \end{proof}
+\begin{definition}
+    В пространстве $\mathcal{C}^n$ введем скалярное произведение с требованиями:
+\begin{enumerate}
+    \item Линейность по 1 аргументу
+    \item Вместо симметричности потребуем:
+    $$(y,x) = \overline{(x,y)}$$
+    \item $(x,x) \neq 0, \ (x,x) = 0$, если $x=0$   
+\end{enumerate}
+Следовательно, если $\lambda \in \CC$, то $(x,\lambda y) = \overline{\lambda}(x,y)$ 
+\end{definition}
 \begin{theorem}
     Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор.
     \begin{enumerate}
@@ -336,26 +346,13 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         $$(x, x) = (\phi(x), \phi(x)) = \lambda^2(x,x) \Longrightarrow \lambda^2 = 1 \Longrightarrow \lambda = \pm 1$$ 
         Если $\phi(x) = x, \phi(y) = -y (x,y \neq 0)$, то
         $$(x, y) = (\phi(x), \phi(y)) = -(x, y) \Longrightarrow (x, y) = 0$$
+        \item Будем обозначать через $\phi: \ \CC^n \to \CC^n$ заданной матрицей $A_\phi$ \\
+        Если $\lambda = \alpha- i\beta$ - характеристическое число для $\phi$, то: 
+        $$\exists \ v \in \CC^n: \ \phi(v) = \lambda(v)$$
+        Вычислим $(\phi(v), \phi(v)) \xrightarrow
+        {\text{ортогонализируем}} (\phi, \phi) = (\lambda v, \lambda v) = \lambda \overline{\lambda}(v,v) \Longrightarrow \lambda \overline{\lambda} = |\lambda| = 1$, или $\lambda = \cos(\theta) \pm i \sin(\theta)$.
     \end{enumerate}
 \end{proof}
-
-\begin{definition}
-    В пространсве $\mathcal{C}^n$ введем скалярное произведение с требованиями:
-\begin{enumerate}
-    \item Линейность по 1 аргументу
-    \item Вместо симметричности потребуем:
-    $$(y,x) = (\overline{x,y})$$
-    \item $(x,x) \neq 0, \ (x,x) = 0$, если $x=0$   
-\end{enumerate}
-Следовательно, если $\lambda \in \mathcal{C}$, то $(x,\lambda y) = \overline{\lambda}(x,y)$ 
-\end{definition}
-Будем обозначать через $\phi: \ \mathcal(C)^n \to \mathcal(C)^n$ заданной матрицей $A_\phi$ \\
-Если $\lambda = \alpha- i\beta$ - характеристическое число для $\phi$, то: 
-$$\exists \ v \in \mathcal(C)^n: \ \phi(v) = \lambda(v)$$
-Вычислим $(\phi(v), \phi(v)) \xrightarrow
-{\text{ортогонализируем}} (\phi, \phi) = (\lambda v, \lambda v) = \lambda \overline{\lambda}(v,v) \Longrightarrow \lambda \overline{\lambda} = |\lambda| = 1$\\
-Т.о. $\lambda = \cos(\theta) \pm i \sin(\theta)$  
-(это мы что то доказали)
 \begin{theorem}
     Если $\phi: \ \E \to \E$ - ортогональный оператор, то в $\E \ \exists$ ортонормированный базис, в котором:
     $$A^{\phi,f} = \begin{pmatrix}
@@ -374,7 +371,7 @@ $$\exists \ v \in \mathcal(C)^n: \ \phi(v) = \lambda(v)$$
 \begin{definition}
     Оператор $\phi$ собственный, если $\dim \phi = 1$, при $\dim \phi = -1$ -  не собственный  
 \end{definition}
-Частный случай теоремы: $\forall$ собственный оператор $\phi$ в трехмерном пространсве - это поворот вокруг оси на некоторый угол.\\
+Частный случай теоремы: $\forall$ собственный оператор $\phi$ в трехмерном пространстве - это поворот вокруг оси на некоторый угол.\\
 Объяснение: Т.к. 3 - нечетное число, то у $\phi$ есть вещественное собственное значение $\lambda=\pm 1$, т.к. $\det \phi > 0$, то $\lambda=1$ и $e_3$ - собственный вектор для этого $\lambda$, тогда плоскость $\langle e_3 \rangle^{\bot}$ - инвариантная плоскость и она поворачивается на некоторый угол. 
 \begin{proof}      
     Если все собственные значения $\phi$ - вещественные, т.е. $\lambda = \pm 1$, то $\phi$  будет также сопряженным. Если $\lambda_1 = 1$,  то $\langle e_1 \rangle$ и $\langle e_1 \rangle^\bot$  - инвариантно \\
