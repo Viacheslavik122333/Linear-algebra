@@ -107,3 +107,88 @@
 \[(u'_1,...,u'_n) = (u_1,...,u_n)C \Longrightarrow (u_1,...,u_n) = (u'_1,...,u'_n)D\]
 Итак, в новом базисе
 \[f = A_{i_1,...,i_p}^{j_1,...,j_q} c_{i'_1}^{i_1}...c_{i'_p}^{i_p}d_{j_1}^{j'_1}...d_{j_q}^{j'_q}{x'}^{i'_1}_1...{x'}^{i'_p}_p {u'}^{1}_{j'_1}...{u'}^{q}_{j'_q}\]
+\textbf{Пупупу.}
+\subsection{Свёртка тензора}
+\begin{example}
+    \begin{enumerate}
+        \item $A = a^i_j \in T_1^1(V): \ \ \textup{tr} A = a_i^i$\\
+        Из тензора $a^i_j$ получили тензор $\textup{tr} A \in T_0^0$.
+        \item Действие оператора на вектор, т.е. умножение матрицы на столбец:
+        \[A = a^i_k, \ x = x^j \Longrightarrow A \otimes X = a^i_kx^j, \ \ j := k \Longrightarrow a^i_kx^k\]
+        $A \in T_1^1, X \in T^1_0 \Longrightarrow A \otimes X \in T^2_1$ - из него получили тензор $\in T^1_0$.
+        \item Произведение матриц:
+        \[A = a^i_k, \ B = b^l_j \Longrightarrow A \otimes B = a^i_kb^l_j, \ \ l := k \Longrightarrow a^i_kb^k_j = (AB)^i_j\]
+        Из тензора $\in T^2_2$ получили тензор $T^1_1$.
+    \end{enumerate}
+\end{example}
+\begin{definition}
+    Пусть $f \in T^q_p(V)$, причём $p \geqslant 1, q \geqslant 1$, т.е. $f(x_1,...,x_p, u^1,...,u^q)$. Выберем пару индексов $s \in \{1,...,p\}, r\in \{1,...,q\}$ и рассмотрим функцию 
+    \[\overline{f}(x_1,...,x'_s,...,x_p,u^1,...,u'^r,...,u^q) := \sum \limits_{k=1}^n f(x_1,...,\undermat{s}{e}_k,...,x_p,u^1,...,\undermat{r}{e}^k,...,u^q)\] 
+    Ясно, что $\overline{f} \in T^{q-1}_{p-1}$.\\
+    Типичное обозначение: $\overline{f} = \textup{tr}_s^r(f)$\\
+    В матрицах: $\overline{A}_{...}^{...}$ - матрица тензора $\overline{f}$, тогда
+    \[\overline{A}_{i_1,...,i'_s,...i_p}^{j_1,...,j'_r,...,j_q} = A_{i_1,...,k,...i_p}^{j_1,...,k,...,j_q}\]
+\end{definition}
+Если $p=q$, то тензор можно свернуть по всем парам индексов и получить инвариант (тензор $\in T_0^0$).\\
+Можно сначала рассмотреть произведение тензоров, а после этого свернуть получившийся тензор.
+\begin{example1}
+    Пусть $\mathcal{A}$ - конечномерная (как векторное пространство) алгебра с операциями $+, \lambda\cdot, \cdot, \ e_1,...,e_n$ - линейный базис (базис в.п.).\\
+    Тогда $\forall i,j e_ie_j = a_{ij}^ke_k$, где $a_{ij}^k$ - структруные константы - структурный тензор типа (2,1).
+\end{example1}
+\begin{exercise}
+    Найдите структурный тензор для $M_n(F)$.
+\end{exercise}
+\subsection{Симметрические, кососимметрические тензоры}
+\begin{definition}
+    Тензор $f \in T_p^q(V)$ - симметрический, если $\forall x_1,...,x_p \in V, \sigma \in S_p$
+    \[f(x_{\sigma(1)},...,x_{\sigma(p)}) = f(x_1,...,x_p) \ \ (1)\]
+    Аналогично, если $g \in T_0^q(V)$, то $g$ - симметрический, если $\forall u^1,...,u^q \in V^*, \sigma \in S_p$
+    \[f(u^{\sigma(1)},...,u^{\sigma(p)}) = f(u^1,...,u^p) \ \ (1')\] 
+    Тензор $f \in T_p^q(V)$ $(\textup{char} F \neq 2)$ - кососимметрический, если $\forall x_1,...,x_p \in V, \sigma \in S_p$
+    \[f(x_{\sigma(1)},...,x_{\sigma(p)}) = \sgn(\sigma)f(x_1,...,x_p) \ \ (2)\]
+    Аналогично для $T_0^q(V)$.
+    Обозначения:\\
+    $T_p^+$ - симметрические тензоры типа (p, 0);\\
+    $T^{q, -}$, либо $\Lambda^q(V^*)$ - кососимметрические тензоры типа (0, q)\\
+    Очевидно, для определения кососимметричности достаточно выполнения условия $(2)$ только для транспозиций.
+\end{definition}
+Очевидно, что $T_2^0 = T_2^+ \oplus T_2^-$
+\begin{exercise}
+    Доказать, что такого разложения для $T_p^0$ нет при $p > 2$.
+\end{exercise}
+\subsubsection*{Тензорная алгебра пространства V}
+$T(V) = \oplus_{q = 0}^\infty T_0^q(V)$ - множество финитных последовательностей тензоров $(f_0,...,f_s, 0,...)$.\\
+$f_i \in T_0^i, f_j \in T_0^j \Longrightarrow f_i \otimes f_j \in T_0^{i+j}$.
+Последовательности перемножаются по правилу перемножения многочленов (от одной переменной).
+\subsubsection*{Симметризация и альтернирование}
+Далее $\textup{char} F = 0$.
+\begin{enumerate}
+    \item Симметризация: для тензора $f \in T_p^0(V)$:
+    \[\textup{Sym}(f)(x_1,...,x_p) = \frac{1}{p!}\sum \limits_{\sigma \in S_p}f(x_{\sigma(1)},...,x_{\sigma(p)})\]
+    Свойства:
+    \begin{enumerate}
+        \item $\textup{Sym}: T_p^0(V) \rightarrow T_p^0(V)$ - линейное отображение, $\textup{Im }\textup{Sym} = T_p^+(V)$;
+        \item $\textup{Sym}(\textup{Sym}(f)) = \textup{Sym}(f)$, т.е. $\textup{Sym}^2 = \textup{Sym}$.
+    \end{enumerate}
+    \item Альтернирование: для тензора $f \in T_p^0(V)$:
+    \[\textup{Alt}(f)(x_1,...,x_p) = \frac{1}{p!}\sum \limits_{\sigma \in S_p} \sgn(\sigma)f(x_{\sigma(1)},...,x_{\sigma(p)})\]
+    $\textup{Alt}(f)$ - кососимметрический тензор, обозначим $g = \textup{Alt}(f)$ - полилинейная функция $\in T_p^0(V)$.\\
+    Тогда $g(x_1,...,x_p);\ \forall \pi \in S_p$ рассмотрим
+    \begin{multline*}
+        g(x_{\pi(1)},...,x_{\pi(p)}) = \frac{1}{p!}\sum \limits_{\sigma \in S_p} \sgn(\sigma)f(x_{\sigma(\pi(1))},...,x_{\sigma(\pi(p))}) =\\= \frac{1}{p!}\sgn(\sigma)\sum \limits_{\tau \in S_p} \sgn(\tau)f(x_{\tau(1)},...,x_{\tau(p)}) = \sgn(\pi)g(x_1,...,x_p)
+    \end{multline*}
+     Свойства:
+    \begin{enumerate}
+        \item $\textup{Alt}: T_p^0(V) \rightarrow T_p^0(V)$ - линейное отображение, $\textup{Im }\textup{Alt} = \Lambda_p$ ($\Lambda(V) = \oplus_{p = 0}^\infty \Lambda_p$ - как в.п.);
+        \item $\textup{Alt}^2 = \textup{Alt}$.
+    \end{enumerate}
+\end{enumerate}
+\subsubsection*{Внешнее произведение кососимметрических тензоров}
+\begin{definition}
+    Пусть $f \in T_p^0, g \in T_r^0$. Тогда $Alt(f) \in \Lambda_p, \ Alt(g) \in \Lambda_r$, и
+    \[f \wedge g := \textup{Alt}(f \otimes g) \in \Lambda_{p+r}\]
+\end{definition}
+\begin{remark}
+    Если $f, g$ кососимметрические, то $f \otimes g$ не обязано быть кососимметрическим.
+\end{remark}
+Из определения следует, что $\Lambda_p \wedge \Lambda_q \subseteq \Lambda_{p+q}$
