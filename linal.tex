@@ -6,7 +6,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english, russian]{babel}
-\usepackage{amssymb, amsmath, amsthm, mathtools}
+\usepackage{amssymb, amsmath, amsthm, mathtools, scalerel}
 
 % Отображение содержания
 \usepackage{tocloft}
@@ -119,6 +119,8 @@
 \newtheorem*{remark}{Замечание}
 \newtheorem*{offer}{Предложение}
 % \newtheorem{offernum}[offercount]{Предложение}
+
+\DeclareMathOperator*{\circledplus}{\scalerel*{\oplus}{\sum}}
 
 
 \begin{document}

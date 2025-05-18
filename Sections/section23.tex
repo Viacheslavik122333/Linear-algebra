@@ -36,7 +36,7 @@
         \item $(\alpha_1f_1+\alpha_2f_2)\otimes f_3=\alpha_1(f_1\otimes f_3)+\alpha_2(f_2\otimes f_3)$ %ЛЕВАЯ ДИСТРИБУТИВНОСТЬ ТОЖЕ ВЕРНА СЛАВА ДОПИШИ ПЖ :)))))
     \end{enumerate}
 \end{subtheorem}
-\subsubsection*{Отождествелние тензоров малых валентностей с известными объектами из линейной алгебры}
+\subsubsection*{Отождествление тензоров малых валентностей с известными объектами из линейной алгебры}
 \begin{theorem}\tab
     \begin{enumerate}
         \item $T_1^0(V)=V^*$
@@ -46,13 +46,12 @@
     \end{enumerate}
 \end{theorem} 
 \begin{proof}
-    Докажем что тензор типа (1,1) - это линейный оператор.\\
-    % Первое доказательство (без матриц):\\
+    Докажем, что тензор типа (1,1) - это линейный оператор.\\
     Пусть $f\in T_1^1(V)$, то есть $f=f(v,u)$, где $v\in V,\ u\in V^*$. Изоморфизм между $V$ и $V^{**}$ задавался правилом:
     \[ \forall v\in V: \phi_v \text{ - линейная функция на } V^*: \forall u\in V^*\ \ \phi_v(u)=u(v)\]
-    При фиксированном $v$ $f(v,u)$ - линейная функция на $V^*$, а значит
+    При фиксированном $v$ $f(v,u)$ - линейная функция на $V^*$, а значит,
     \[\exists y_v = \phi^{-1}(f(v, u))\]
-    где $y_v\in V$. Соответсвие $v\xrightarrow{\psi} y_v$ является линейным оператором на $V$, так как 
+    где $y_v\in V$. Соответствие $v\xrightarrow{\psi} y_v$ является линейным оператором на $V$, так как 
     \[f(v_1+v_2,u)=u(y_{v_1+v_2})\]
     и 
     \[f(v_1+v_2,u)=f(v_1,u)+f(v_2,u)=u(y_{v_1})+u(y_{v_2})=u(y_{v_1}+y_{v_2})\]
@@ -63,7 +62,7 @@
 \end{proof}  
 \subsubsection*{Правило Эйнштейна}
 Некоторые индексы пишутся снизу, а некоторые сверху: например, базисные векторы записываются как $e_i \ (= (e_1,...,e_n))$, а координаты векторов имеют верхние индексы, а также $e^i (=(e^1,...,e^n))$ - дуальный базис.\\
-Также опускается знак суммирования. если один и тот же инвариантныедекс повторяется сверху и снизу: $x = x^ie_i$ подразумевает $\sum \limits_{i=1}^n x_ie_i$.
+Также опускается знак суммирования. если один и тот же индекс повторяется сверху и снизу: $x = x^ie_i$ подразумевает $\sum \limits_{i=1}^n x_ie_i$.
 
 Матрицы линейных операторов по этому правилу можно записывать так: $A_\phi = (a_j^i)$, где $i$ - номер строки, $j$ - номер столбца. Также:
 \begin{enumerate}
@@ -77,7 +76,7 @@
 \[e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_q}\in T_p^q(V)\]
 \begin{multline*}
     (e^{i_1}\otimes ... \otimes e^{i_p}\otimes e_{j_1}\otimes ... \otimes e_{j_q})(e_{k_1}, ... ,e_{k_p},e^{l_1},...,e^{l_q})=\\
-    =e^{i_1}(e_{k_1})\cdot ... \cdot e^{i_p}(e_{k_p})\cdot e_{j_1}(e^{l_1})\cdot \dots \cdot e_{j_q}(e^{l_q}) = \delta_{k_1}^{i_1}\cdot ... \cdot \delta_{k_p}^{i_p} \cdot \delta_{j_1}^{l_1}\cdot ... \cdot \delta_{j_q}^{l_q} (*)
+    =e^{i_1}(e_{k_1})\cdot ... \cdot e^{i_p}(e_{k_p})\cdot e_{j_1}(e^{l_1})\cdot ... \cdot e_{j_q}(e^{l_q}) = \delta_{k_1}^{i_1}\cdot ... \cdot \delta_{k_p}^{i_p} \cdot \delta_{j_1}^{l_1}\cdot ... \cdot \delta_{j_q}^{l_q} (*)
 \end{multline*}
 \begin{theorem}
     Тензоры вида $\{e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\}$ образуют базис в пространстве $T_p^q(V)$, причем
@@ -92,7 +91,7 @@
     \end{multline*}
     в силу равенства $(*)$. Это значит, что
     \[f = f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q})(e^{k_1}\otimes...\otimes e^{k_p}\otimes e_{l_1}\otimes...\otimes e_{l_q})\]
-    Коэффициенты, очевидно, определены однозначно при фиксированном базисе $e_1,...,e_n$, а значит $\{e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\}$ - базис в пространстве $T_p^q(V)$.  
+    Коэффициенты, очевидно, определены однозначно при фиксированном базисе $e_1,...,e_n$, а значит, $\{e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\}$ - базис в пространстве $T_p^q(V)$.  
 \end{proof}
 \begin{definition}
     Матрицей тензора $f$ называется матрица $A_{i_1,...,i_p}^{j_1,...,j_q}$ такая, что $a_{k_1,...,k_p}^{l_1,...,l_q} := f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q})$.
@@ -123,28 +122,28 @@
 \end{example}
 \begin{definition}
     Пусть $f \in T^q_p(V)$, причём $p \geqslant 1, q \geqslant 1$, т.е. $f(x_1,...,x_p, u^1,...,u^q)$. Выберем пару индексов $s \in \{1,...,p\}, r\in \{1,...,q\}$ и рассмотрим функцию 
-    \[\overline{f}(x_1,...,x'_s,...,x_p,u^1,...,u'^r,...,u^q) := \sum \limits_{k=1}^n f(x_1,...,\undermat{s}{e}_k,...,x_p,u^1,...,\undermat{r}{e}^k,...,u^q)\] 
+    \[\overline{f}(x_1,...,\hat{x}_s,...,x_p,u^1,...,\hat{u}'^r,...,u^q) := \sum \limits_{k=1}^n f(x_1,...,\underbrace{e_k}_{s},...,x_p,u^1,...,\underbrace{e^k}_{r},...,u^q)\] 
     Ясно, что $\overline{f} \in T^{q-1}_{p-1}$.\\
     Типичное обозначение: $\overline{f} = \textup{tr}_s^r(f)$\\
     В матрицах: $\overline{A}_{...}^{...}$ - матрица тензора $\overline{f}$, тогда
-    \[\overline{A}_{i_1,...,i'_s,...i_p}^{j_1,...,j'_r,...,j_q} = A_{i_1,...,k,...i_p}^{j_1,...,k,...,j_q}\]
+    \[\overline{A}_{i_1,...,\hat{i}_s,...i_p}^{j_1,...,\hat{j}_r,...,j_q} = A_{i_1,...,k,...i_p}^{j_1,...,k,...,j_q}\]
 \end{definition}
 Если $p=q$, то тензор можно свернуть по всем парам индексов и получить инвариант (тензор $\in T_0^0$).\\
 Можно сначала рассмотреть произведение тензоров, а после этого свернуть получившийся тензор.
 \begin{example1}
     Пусть $\mathcal{A}$ - конечномерная (как векторное пространство) алгебра с операциями $+, \lambda\cdot, \cdot, \ e_1,...,e_n$ - линейный базис (базис в.п.).\\
-    Тогда $\forall i,j e_ie_j = a_{ij}^ke_k$, где $a_{ij}^k$ - структруные константы - структурный тензор типа (2,1).
+    Тогда $\forall i,j e_ie_j = a_{ij}^ke_k$, где $a_{ij}^k$ - структурные константы - составляют структурный тензор типа (2,1).
 \end{example1}
 \begin{exercise}
     Найдите структурный тензор для $M_n(F)$.
 \end{exercise}
 \subsection{Симметрические, кососимметрические тензоры}
 \begin{definition}
-    Тензор $f \in T_p^q(V)$ - симметрический, если $\forall x_1,...,x_p \in V, \sigma \in S_p$
+    Тензор $f \in T_p^0(V)$ - симметрический, если $\forall x_1,...,x_p \in V, \sigma \in S_p$
     \[f(x_{\sigma(1)},...,x_{\sigma(p)}) = f(x_1,...,x_p) \ \ (1)\]
     Аналогично, если $g \in T_0^q(V)$, то $g$ - симметрический, если $\forall u^1,...,u^q \in V^*, \sigma \in S_p$
     \[f(u^{\sigma(1)},...,u^{\sigma(p)}) = f(u^1,...,u^p) \ \ (1')\] 
-    Тензор $f \in T_p^q(V)$ $(\textup{char} F \neq 2)$ - кососимметрический, если $\forall x_1,...,x_p \in V, \sigma \in S_p$
+    Тензор $f \in T_p^0(V)$ $(\textup{char} F \neq 2)$ - кососимметрический, если $\forall x_1,...,x_p \in V, \sigma \in S_p$
     \[f(x_{\sigma(1)},...,x_{\sigma(p)}) = \sgn(\sigma)f(x_1,...,x_p) \ \ (2)\]
     Аналогично для $T_0^q(V)$.
     Обозначения:\\
@@ -157,8 +156,7 @@
     Доказать, что такого разложения для $T_p^0$ нет при $p > 2$.
 \end{exercise}
 \subsubsection*{Тензорная алгебра пространства V}
-$T(V) = \oplus_{q = 0}^\infty T_0^q(V)$ - множество финитных последовательностей тензоров $(f_0,...,f_s, 0,...)$.\\
-$f_i \in T_0^i, f_j \in T_0^j \Longrightarrow f_i \otimes f_j \in T_0^{i+j}$.
+Определим $T(V) = \circledplus \limits_{q = 0}^\infty T_0^q(V)$ - множество финитных последовательностей тензоров $(f_0,...,f_s, 0,...)$. $f_i \in T_0^i, f_j \in T_0^j \Longrightarrow f_i \otimes f_j \in T_0^{i+j}$.\\
 Последовательности перемножаются по правилу перемножения многочленов (от одной переменной).
 \subsubsection*{Симметризация и альтернирование}
 Далее $\textup{char} F = 0$.
@@ -179,13 +177,13 @@ $f_i \in T_0^i, f_j \in T_0^j \Longrightarrow f_i \otimes f_j \in T_0^{i+j}$.
     \end{multline*}
      Свойства:
     \begin{enumerate}
-        \item $\textup{Alt}: T_p^0(V) \rightarrow T_p^0(V)$ - линейное отображение, $\textup{Im }\textup{Alt} = \Lambda_p$ ($\Lambda(V) = \oplus_{p = 0}^\infty \Lambda_p$ - как в.п.);
+        \item $\textup{Alt}: T_p^0(V) \rightarrow T_p^0(V)$ - линейное отображение, $\textup{Im }\textup{Alt} = \Lambda_p$ ($\Lambda(V) = \circledplus \limits_{p = 0}^\infty \Lambda_p$ - как в.п.);
         \item $\textup{Alt}^2 = \textup{Alt}$.
     \end{enumerate}
 \end{enumerate}
 \subsubsection*{Внешнее произведение кососимметрических тензоров}
 \begin{definition}
-    Пусть $f \in T_p^0, g \in T_r^0$. Тогда $Alt(f) \in \Lambda_p, \ Alt(g) \in \Lambda_r$, и
+    Пусть $f \in T_p^0, g \in T_r^0$. Тогда $\textup{Alt}(f) \in \Lambda_p, \ \textup{Alt}(g) \in \Lambda_r$, и
     \[f \wedge g := \textup{Alt}(f \otimes g) \in \Lambda_{p+r}\]
 \end{definition}
 \begin{remark}

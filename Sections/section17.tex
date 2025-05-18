@@ -23,11 +23,11 @@
     $\forall x, y \in \mathcal{E} : \ |x+y| \leq |x| + |y|$ \ (равенство выполнено $\Longleftrightarrow x \uparrow \uparrow y$ ) 
 \end{theorem}
 \begin{proof}
-    $$(x+y, x+y) = (x, x) + 2(x, y) + (y, y) \leq |x|^2 + 2|x||y| = (|x|+|y|)^2$$
-    $$|x+y|^2 \Longleftrightarrow |x+y| \leq |x| + |y|$$  
+    $$(x+y, x+y) = (x, x) + 2(x, y) + (y, y) \leq |x|^2 + 2|x||y| + |y|^2 = (|x|+|y|)^2$$
+    $$|x+y|^2 \leqslant (|x|+|y|)^2 \Longleftrightarrow |x+y| \leq |x| + |y|$$  
 \end{proof}
 Координатная запись: пусть в $V$ фиксированный базис $e_1,...,e_n$, то: 
-$$(x,y) = (\sum \limits_{i=1}^nx_ie_i), \sum \limits_{j=1}^ny_je_j = \sum \limits_{i,j=1}^nx_iy_j(e_i,e_j)$$
+$$(x,y) = (\sum \limits_{i=1}^nx_ie_i, \sum \limits_{j=1}^ny_je_j) = \sum \limits_{i,j=1}^nx_iy_j(e_i,e_j)$$
 \begin{definition}
     $G_e = ((e_i,e_j))$ - матрица Грама базиса $e$
     $$G_e^T = G_e$$ 
@@ -131,7 +131,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
         То есть $(U_1+U_2)^\perp \subseteq U_1^\perp \cap U_2^\perp \Longrightarrow $ имеет место равенство:
         $$(U_1+U_2)^\perp=U_1^\perp\cap U_2^\perp$$
 
-        \item Возьмем $(U_1^\perp+U_2^\perp)=(U_1^\perp)^\perp \cap (U_2^\perp)^\perp=U_1 \cap U_2$
+        \item Возьмем $(U_1^\perp+U_2^\perp)^\perp=(U_1^\perp)^\perp \cap (U_2^\perp)^\perp=U_1 \cap U_2$
         $$\Longrightarrow  ((U_1^\perp+U_2^\perp)^\perp)^\perp=(U_1\cap U_2)^\perp \Longrightarrow  U_1^\perp+U_2^\perp=(U_1 \cap U_2)^\perp$$
     \end{enumerate}
 \end{proof}
@@ -147,7 +147,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
     Докажем, что $|x-v|\geqslant |z|$, причём равенство достигается при $v = y$:
     $$x - v = x - y + y - v = z + y - v$$
     Т.к. $z \in U^{\perp}, (y - v) \in U$,
-    $$z \perp (y-v) \Longrightarrow |x-v|^2 = |z|^2 + |y-v| \geqslant |z|^2$$
+    $$z \perp (y-v) \Longrightarrow |x-v|^2 = |z|^2 + |y-v|^2 \geqslant |z|^2$$
     причём равенство при $|y - v| = 0 \Longrightarrow y = v$.
 \end{proof}
 Это подтверждает осмысленность определения $\rho(x, U) = |x_{\perp}|$.
@@ -204,7 +204,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     $$\phi^{*} = \phi \Longleftrightarrow  A_{\phi}^TG_e = G_eA_{\phi} (2')$$
     Если $e$ - ортонормированный, то $G_e = E$, и $A_{\phi}^T = A_{\phi}$, т.е. $A_{\phi}$ - симметрическая матрица.\\
     (3): $\phi$ - ортогональный $\Longleftrightarrow  \ \forall X, Y \in \R^n$ выполнено:
-    $$(A_{\phi}X)^TG_e(A_{\phi}Y) = G_eY \Longrightarrow A_{\phi}^TG_eA_{\phi} = G_e (3')$$
+    $$(A_{\phi}X)^TG_e(A_{\phi}Y) = X^TG_eY \Longrightarrow A_{\phi}^TG_eA_{\phi} = G_e (3')$$
     Если $G_e = E$, то $A_{\phi}^TA_{\phi} = E$, т.е. $A_{\phi}$ - ортогональная матрица.
 \begin{theorem}\textbf{Свойства сопряжённых операторов}
     \begin{enumerate}
@@ -221,10 +221,10 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         \item Сравним размерности:
         $$\dim \textup{Ker}\phi^{*} = n - \textup{rk}(A_{\phi^{*}}) = n - \textup{rk}(A_{\phi}^T) = n - \textup{rk}(A_{\phi})$$
         $$\dim \textup{Im}\phi = \textup{rk} A_{\phi} \Longrightarrow \dim (\textup{Im}\phi)^{\perp} = \textup n - {rk} A_{\phi}$$
-        Докажем, что $\textup{Im}\phi \subseteq (\textup{Ker}\phi^{*})^{\perp}$  (отсюда $(\textup{Im}\phi)^{\perp} \subseteq \textup{Ker}\phi^{*}$):\\
+        Докажем, что $\textup{Im}\phi \subseteq (\textup{Ker}\phi^{*})^{\perp}$  (отсюда $\textup{Ker}\phi^{*} \subseteq (\textup{Im}\phi)^{\perp}$):\\
         Пусть $v \in \textup{Im}\phi \Longrightarrow v = \phi(x)$, $y \in \textup{Ker}\phi^{*}$. Тогда:
         $$(v, y) = (\phi(x), y) = (x, \phi^{*}(y)) = (x, 0) = 0 \Longrightarrow v \perp \textup{Ker}\phi^{*}$$
-        Т.к. размерности равны и $(\textup{Im}\phi)^{\perp} \subseteq \textup{Ker}\phi^{*}$, то $\textup{Ker}\phi^{*} = (\textup{Im}\phi)^{\perp}$.
+        Т.к. размерности равны и $\textup{Ker}\phi^{*} \subseteq (\textup{Im}\phi)^{\perp}$, то $\textup{Ker}\phi^{*} = (\textup{Im}\phi)^{\perp}$.
         \item Следует из (2) подстановкой $\phi^{*}$ вместо $\phi$.
     \end{enumerate}
 \end{proof}
@@ -238,7 +238,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
 \end{proof}
 \subsection{Самосопряжённые операторы}
 \begin{lemma}
-    Пусть $\phi: \E \rightarrow \E$ - лин. оператор, $U \subset E: \phi(U) \subseteq U$.\\
+    Пусть $\phi: \E \rightarrow \E$ - лин. оператор, $U \subset \E: \phi(U) \subseteq U$.\\
     Тогда $\phi^*(U^\perp) \subseteq U^\perp$.
 \end{lemma}
 \begin{proof}
@@ -349,8 +349,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         \item Будем обозначать через $\phi: \ \CC^n \to \CC^n$ заданной матрицей $A_\phi$ \\
         Если $\lambda = \alpha- i\beta$ - характеристическое число для $\phi$, то: 
         $$\exists \ v \in \CC^n: \ \phi(v) = \lambda(v)$$
-        Вычислим $(\phi(v), \phi(v)) \xrightarrow
-        {\text{ортогонализируем}} (\phi, \phi) = (\lambda v, \lambda v) = \lambda \overline{\lambda}(v,v) \Longrightarrow \lambda \overline{\lambda} = |\lambda| = 1$, или $\lambda = \cos(\theta) \pm i \sin(\theta)$.
+        Тогда $(v, v) = (\phi(v), \phi(v)) = (\lambda v, \lambda v) = \lambda \overline{\lambda}(v,v) \Longrightarrow \lambda \overline{\lambda} = |\lambda| = 1$, или $\lambda = \cos(\theta) \pm i \sin(\theta)$.
     \end{enumerate}
 \end{proof}
 \begin{theorem}
