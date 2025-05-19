@@ -2,6 +2,8 @@
 
 \usepackage{import}
 
+\usepackage{cmap}            % Русский поиск в PDF документе
+
 % Корректность отображения всех шрифтов, кодировок и мат. символов
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -39,10 +41,9 @@
 % Отступы на странице
 \usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
 
-\usepackage{cmap}            % Русский поиск в PDF документе
 \usepackage{etoolbox}
 \usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
-\usepackage{soulutf8}        % Поддержка UTF8 в soul
+%\usepackage{soulutf8}        % Поддержка UTF8 в soul
 
 \usepackage{titlesec}        % Форматирование заголовков
 \titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
