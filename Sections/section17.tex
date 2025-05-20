@@ -77,9 +77,13 @@ $$(x,y) = (\sum \limits_{i=1}^nx_ie_i, \sum \limits_{j=1}^ny_je_j) = \sum \limit
     \end{enumerate}    
 \end{proof}
 \begin{lemma}
-    Если $a_1,...,a_m \in \mathcal{E}$ - ортогональная система векторов\\ 
-    \tab[13cm] $\Longrightarrow  a_1,...,a_m$ ЛНЗ  
+    Если $a_1,...,a_m \in \mathcal{E}$ - ортогональная система векторов, то $a_1,...,a_m$ ЛНЗ. 
 \end{lemma}
+\begin{proof}
+    Пусть $\sum \limits_{i=1}^m \lambda_ia_i = 0$. Скалярно умножим обе части на $a_j$:
+    \[(\sum \limits_{i=1}^m \lambda_ia_i, a_j) = \sum \limits_{i=1}^m \lambda_i(a_i, a_j) = \lambda_j(a_j, a_j) = 0 \Longrightarrow \lambda_j = 0\]
+    Проведя такие рассуждения для $j = 1,...,m$, получим, что все коэффициенты должны быть равны 0, т.е. $a_1,...,a_m$ ЛНЗ.
+\end{proof}
 Т.о. $\forall x \in \mathcal{E}$ единственным образом разлагается в сумму $x = x_{\shortparallel} + x_{\perp}$
 \begin{center}
     \includegraphics[width=10cm]{image/Asymptote/3/linal-3-1.pdf}
@@ -156,7 +160,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
 \end{exercise}
 \begin{definition}
     Углом между вектором и подпространством будем называть: 
-    $$\angle(x, v) = \angle(x, y)$$
+    $$\angle(x, U) = \angle(x, y)$$
 \end{definition}
 
 Частный случай: $\dim U = n-1$ ("гиперплоскость"):\\
@@ -266,7 +270,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     \end{enumerate}
 \end{proof}
 \begin{theorem}
-    Для любого самосопряжённого оператора $\phi: \mathcal{E} \rightarrow \mathcal{E}$ в $\mathcal{E}$ существует базис из собственных векторов этого оператора.
+    Для любого самосопряжённого оператора $\phi: \mathcal{E} \rightarrow \mathcal{E}$ в $\mathcal{E}$ существует ортонормированный базис из собственных векторов этого оператора.
 \end{theorem}
 \begin{proof}
     Индукция по $\dim \E = n$:\\
@@ -347,28 +351,30 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         Если $\phi(x) = x, \phi(y) = -y (x,y \neq 0)$, то
         $$(x, y) = (\phi(x), \phi(y)) = -(x, y) \Longrightarrow (x, y) = 0$$
         \item Будем обозначать через $\phi: \ \CC^n \to \CC^n$ заданной матрицей $A_\phi$ \\
-        Если $\lambda = \alpha- i\beta$ - характеристическое число для $\phi$, то: 
+        Если $\lambda = \alpha + i\beta$ - характеристическое число для $\phi$, то: 
         $$\exists \ v \in \CC^n: \ \phi(v) = \lambda(v)$$
-        Тогда $(v, v) = (\phi(v), \phi(v)) = (\lambda v, \lambda v) = \lambda \overline{\lambda}(v,v) \Longrightarrow \lambda \overline{\lambda} = |\lambda| = 1$, или $\lambda = \cos(\theta) \pm i \sin(\theta)$.
+        Тогда $(v, v) = (\phi(v), \phi(v)) = (\lambda v, \lambda v) = \lambda \overline{\lambda}(v,v) \Longrightarrow \lambda \overline{\lambda} = |\lambda|^2 = 1$, или $\lambda = \cos(\theta) \pm i \sin(\theta)$.
     \end{enumerate}
 \end{proof}
 \begin{theorem}
     Если $\phi: \ \E \to \E$ - ортогональный оператор, то в $\E \ \exists$ ортонормированный базис, в котором:
     $$A^{\phi,f} = \begin{pmatrix}
         \text{\fbox{$\Phi_1$}}\\
-        \null & \text{\fbox{$\Phi_2$}}\\
-        \null & \null & \ddots\\
-        \null & \null & \null & \text{\fbox{$\Phi_s$}}\\
-        \null & \null & \null & \null & \text{\fbox{$1$}} \\
-        \null & \null & \null & \null & \null & \ddots \\
-        \null & \null & \null & \null & \null & \null & \text{\fbox{$1$}}
-    \end{pmatrix}, \ \text{ где } \Phi_i = \begin{pmatrix}
-        \cos_i \alpha & -\sin_i \alpha \\ \sin_i \alpha & \cos_i \alpha
+        \null & \ddots\\
+        \null & \null & \text{\fbox{$\Phi_s$}}\\
+        \null & \null & \null & \text{\fbox{$1$}} \\
+        \null & \null & \null & \null & \ddots \\
+        \null & \null & \null & \null & \null & \text{\fbox{$1$}}\\
+        \null & \null & \null & \null & \null & \null & \text{\fbox{$-1$}} \\
+        \null & \null & \null & \null & \null & \null & \null & \ddots \\
+        \null & \null & \null & \null & \null & \null & \null & \null & \text{\fbox{$-1$}}
+    \end{pmatrix}, \ \Phi_i = \begin{pmatrix}
+        \cos \alpha_i & -\sin \alpha_i \\ \sin \alpha_i & \cos \alpha_i
     \end{pmatrix}$$   
     Порядок матрицы равен $ n = \dim \E$ ($s$ - количество 1 и -1 - определяется единственным образом) 
 \end{theorem}
 \begin{definition}
-    Оператор $\phi$ собственный, если $\dim \phi = 1$, при $\dim \phi = -1$ -  не собственный  
+    Оператор $\phi$ собственный, если $\det \phi = 1$, при $\det \phi = -1$ -  не собственный  
 \end{definition}
 Частный случай теоремы: $\forall$ собственный оператор $\phi$ в трехмерном пространстве - это поворот вокруг оси на некоторый угол.\\
 Объяснение: Т.к. 3 - нечетное число, то у $\phi$ есть вещественное собственное значение $\lambda=\pm 1$, т.к. $\det \phi > 0$, то $\lambda=1$ и $e_3$ - собственный вектор для этого $\lambda$, тогда плоскость $\langle e_3 \rangle^{\bot}$ - инвариантная плоскость и она поворачивается на некоторый угол. 

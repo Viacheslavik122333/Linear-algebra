@@ -36,11 +36,11 @@ $$b(\sum \limits_{i=1}^nx_ie_i, \sum \limits_{j=1}^ny_je_j) = \sum \limits_{i,j=
     
 \end{definition} 
 \subsection{Изменение матрицы билинейной формы при замене базиса}
-Пусть $e' = eC$, \ $C$ - матрица перехода от $e$ к $e'$\\
+Пусть $e' = eC$, т.е. $C$ - матрица перехода от $e$ к $e'$\\
 Тогда: 
 $$X = CX', \ Y = CY' \eqno (2)$$
 По определению матрицы билинейной функции, в новом базисе: 
-$$b(x, y) = X'^TB'Y' \ \ (B' = Be')$$ 
+$$b(x, y) = X'^TB'Y' \ \ (B' = B_{e'})$$ 
 Подставим в формулу $(1)$ выраженеие $(2)$:
 $$b(x, y) = X'^TC^TBCY' = X'^T(C^TBC)Y' = X'^TB'Y' \ \ (\forall X',Y' \in \F^n)$$
 $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$    
@@ -68,7 +68,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \end{proof} 
 
 \begin{subtheorem}
-    Билинейная функция $b(x,y)$ симметрична (кососимметрич-\\-на)$\Longleftrightarrow$ в любом базисе $e$: 
+    Билинейная функция $b(x,y)$ симметрична (кососимметрична) $\Longleftrightarrow$ в любом базисе $e$: 
     $$B_e^T=B_e \ (B_e^T=-B_e)$$
 \end{subtheorem}
 \begin{proof} (Докажем для симметрической, для кососимметрической \\аналогично)
@@ -77,7 +77,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
         $$\forall x, y\in V, \ b(x,y)= b(y,x) \Longrightarrow  
         b(e_j, e_i) = b(e_i, e_j)$$
         \item[$\underline{\Longleftarrow}$]  
-        $$b(x,y)= X^TBY, b(y,x) = Y^TBX = (X^TB^TY)^T = (X^TBY)^T = b(x,y)$$
+        $$b(x,y)= X^TBY, \ b(y,x) = Y^TBX = (X^TB^TY)^T = (X^TBY)^T = b(x,y)$$
     \end{itemize}
 \end{proof}
   Утверждение (1) $\Longleftrightarrow$ $\forall$ матрицы $B$ некоторой билинейной функции верно, что $B = B_++B_-$, где $B_+$ - матрица симметрической билинейной функции, а $B_-$ - матрица кососимметрической билинейной функции.
@@ -154,7 +154,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
         Затем для формы $k_2(x_2,\ldots, x_n)=\sum\limits_{i=2}^nb_{ii}'x_i^2+\sum\limits_{2\leqslant i<j\leqslant n}b_{ij}'x_ix_j$ найдём коэффициент $b_{jj}'\neq0$ и выделим квадрат как на предыдущем шаге. На каждом шаге число переменных уменьшается на единицу, а значит, за конечное число шагов (а именно $\leqslant n-2$) форма приобретёт диагональный вид.
         \item Особый случай: \\
         $\forall i: \ b_{ii}=0$, но так как $k(x)\not\equiv0$ $\Longrightarrow$ $\exists$ индексы $i$ и $j$ такие, что $b_{ij}\neq0$, то есть в выражение $k(x)$ входит одночлен $2b_{ij}x_ix_j$.\\
-        Пусть $x_i=x_i'+x_j'$ и $x_j=x_i'-x_j'$, тогда $x_ix_j = x_i'^2-x_j'^2$, то есть появился квадрат с коэффициентом, не равным нулю $\Longrightarrow$ можно перейти к общему случаю.
+        Пусть $x_i=x_i'+x_j'$ и $x_j=x_i'-x_j'$, тогда $x_ix_j = x_i'^2-x_j'^2$, то есть появился квадрат с коэффициентом, не равным нулю $\Longrightarrow$ можно перейти к общему случаю. (Квадраты появятся только в этом одночлене, т.к. $x'_i$ и $x'_j$ ни в одном другом не встретятся дважды, поэтому и после приведения подобных коэффициенты перед ними будут ненулевые)
     \end{enumerate}
 \end{proof}
 \begin{remark}
@@ -193,7 +193,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \end{definition}
 \begin{theorem} \textbf{единственности (закон инерции)} \\
     %Для данной квадратичной формы над $\R$ числа $p$ и $q$ (количество +1 и \\количество -1 в каноническом виде) определены единственным образом
-    Если в некоторых базисах $e_1,...e_n$ и $f_1,...,f_n$ квардатичная форма $k$ имеет канонический вид 
+    Если в некоторых базисах $e_1,...e_n$ и $f_1,...,f_n$ квадратичная форма $k$ имеет канонические виды 
     $$k = \sum \limits_{i=1}^p y_i^2 - \sum \limits_{j=p+1}^{p+q} y_j^2 = \sum \limits_{i=1}^{p'} z_i^2 - \sum \limits_{j=p'+1}^{p'+q'} z_j^2$$
     то $p = p', q = q'$.
 \end{theorem} 
@@ -207,7 +207,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     $$v = \sum \limits_{i=1}^{p} \alpha_i e_i \Rightarrow k(v) = \sum \limits_{i=1}^{p} \alpha_i^2 \geq 0$$
     С другой стороны:
     $$v = \sum \limits_{k=p'+1}^{n} \beta_k f_k \Rightarrow k(v) = -\sum \limits_{k=p'+1}^{n} \beta_k^2 \leq 0$$
-    Противоречие с $v \neq 0$.
+    Отсюда $k(v) = 0 \Longrightarrow \forall i = 1,...,p \ \ \alpha_i = 0 \Longrightarrow v = 0$ - противоречие.
 \end{proof}
 \subsection{Знакоопределённые квадратичные формы}
 \begin{definition}
@@ -238,7 +238,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     $B$ - матрица билин. формы $b(x, y)$ в базисе $e$, $B'$ - в базисе $e'$, который мы строим.
     $$B'_{k | \langle e'_1,...,e'_k \rangle} = C_k^T B_{k | \langle e_1,...,e_k \rangle} C_k \Rightarrow \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = (\det C_k)^2 \cdot \det B_{k | \langle e_1,...,e_k \rangle}$$
     $$\Delta'_k = \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = b'_{11}...b'_{kk} = \Delta_k$$
-    $$\frac{\Delta_1}{\Delta_0}\cdot\frac{\Delta_2}{\Delta_1}\cdot...\cdot\frac{\Delta_{k-1}}{\Delta_{k-2}}\cdot b_{kk} = \Delta_k \Rightarrow b_{kk} = \frac{\Delta_k}{\Delta_{k-1}}$$
+    $$\frac{\Delta_1}{\Delta_0}\cdot\frac{\Delta_2}{\Delta_1}\cdot...\cdot\frac{\Delta_{k-1}}{\Delta_{k-2}}\cdot b'_{kk} = \Delta_k \Rightarrow b'_{kk} = \frac{\Delta_k}{\Delta_{k-1}}$$
 \end{proof}
 Далее рассматриваем $F = \R$.
 \begin{definition}
@@ -304,7 +304,7 @@ $$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Rightarrow b(x,y) = -b(y,x
 \end{lemma}
 \begin{proof}
     $U^{\perp} = \{y\in V: \ b(x,y) = 0  \ \forall x\in U\}$.\\
-    В координатах: если выбрать базис $e_1,...,e_n$ в $U$ ($m = \dim U, 0<m<n$), то $y \in U^{\perp} \Leftrightarrow b(e_i, y) = 0, \ i = 1,...,m$.\\
+    В координатах: если выбрать базис $e_1,...,e_m$ в $U$ ($m = \dim U, 0<m<n$), то $y \in U^{\perp} \Leftrightarrow b(e_i, y) = 0, \ i = 1,...,m$.\\
     Если $b(x,y) = 0 \ \forall x \in U$, то $b(e_i, y) = 0, \ i = 1,...,m$\\
     Обратно, если $b(e_i, y) = 0, \ i = 1,...,m$, то $\forall x \in U \ x = \sum \limits_{i=1}^m x_ie_i \Rightarrow b(x,y) = \sum \limits_{i=1}^m x_ib(e_i,y) = 0$.\\
     Запишем систему уравнений для нахождения $y$, выбрав базис $e_1,...,e_m \in U$ и дополнив его до базиса $e_1,...,e_n \in V$. В этом базисе $e_i^{\uparrow} = \begin{pmatrix} 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \ b(e_i, y) = (0,...,1,...,0)B \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = (b_{i1},...,b_{in})Y^{\uparrow}$\\
@@ -332,7 +332,7 @@ $$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Rightarrow b(x,y) = -b(y,x
 \begin{proof}
     Т.к. $b(x,y) \not \equiv 0$, $\exists$ векторы $e_1, e_2 \in V$ такие, что $b(e_1, e_2) = \beta_{12} \neq 0$. Рассмотрим
     $$f_1 = \frac{e_1}{\beta_{12}}, f_2 = e_2 \Rightarrow b(f_1,f_2) = 1, b(f_2,f_1) = -b(f_1,f_2) = -1$$
-    Возьмём $W = U^{\perp}$ в пр-ве $V$. Тогда $V = U \oplus U^{\perp}$ и $\tilde{b} = b|_{U^{\perp}}$ также кососимметрическая форма, т.е. можем провести индукцию по $n = \dim V$ (базу $n = 2$ доказали). $\dim W = n-2$, т.е. $\exists$ базис $f_3,...,f_n$, в котором матрица $b|_{U^{\perp}}$ имеет вид $\begin{pmatrix}
+    Пусть $U = \langle e_1, e_2\rangle$. Возьмём $W = U^{\perp}$ в пр-ве $V$. Тогда $V = U \oplus U^{\perp}$ и $\tilde{b} = b|_{U^{\perp}}$ также кососимметрическая форма, т.е. можем провести индукцию по $n = \dim V$ (базу $n = 2$ доказали). $\dim W = n-2$, т.е. $\exists$ базис $f_3,...,f_n$, в котором матрица $b|_{U^{\perp}}$ имеет вид $\begin{pmatrix}
     \text{\fbox{$I$}}\\
     \null & \ddots\\
     \null & \null & \text{\fbox{$I$}}\\
