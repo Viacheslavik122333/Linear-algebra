@@ -78,7 +78,7 @@
     \begin{enumerate}
         \item Пусть 
         \[\mathbb{A}_1 \xrightarrow{\Phi_1} \mathbb{A}_2 \xrightarrow{\Phi_2} \mathbb{A}_3\]
-        где $\Phi_1,\Phi_2$ - аффинно-линейны, то
+        где $\Phi_1,\Phi_2$ - аффинно-линейны, тогда
         \[\Phi=\Phi_2\cdot \Phi_1: \ \mathbb{A}_1\to \mathbb{A}_3\]
         тоже аффинно-линейно с линейной частью $\phi=\phi_2\cdot \phi_1$
         \item $\mathbb{A}_1 \xrightarrow{\Phi} \mathbb{A}_2$ биективно $\Longleftrightarrow \phi$ - биективно, при этом $\Phi^{-1}$ является \\аффинно-линейным с линейной частью $\phi^{-1}$.
@@ -171,10 +171,10 @@ D: \mathbb{F}^n \to \mathbb{F}^m
     \begin{enumerate}
         \item Пусть 
         \[\mathbb{A}_1 \xrightarrow{\Phi_1} \mathbb{A}_2 \xrightarrow{\Phi_2} \mathbb{A}_3\]
-        где $\Phi_1,\Phi_2$ - аффинно-линейны, то
+        где $\Phi_1,\Phi_2$ - аффинно-линейны, тогда
         \[\Phi=\Phi_2\cdot \Phi_1: \ \mathbb{A}_1\to \mathbb{A}_3\]
-        тоже, причем 
-        \[D(\Phi_2\cdot \Phi_1)=D\Phi_2\cdot D\phi_1=\phi_2\cdot\phi_1\]
+        тоже аффинно-линейны, причем 
+        \[D(\Phi_2\cdot \Phi_1)=D\Phi_2\cdot D\Phi_1=\phi_2\cdot\phi_1\]
         \item $\Phi_1$ - биективно $\Longleftrightarrow \phi_1$ - биективно, и линейная часть $\Phi_1^{-1}$ есть $\phi_1^{-1}$
     \end{enumerate}
 \end{subtheorem}
@@ -254,7 +254,7 @@ D: \mathbb{F}^n \to \mathbb{F}^m
     \[|\overline{\Phi(a),\Phi(b)}|=|\overline{ab}|,\ \Phi(b)=\Phi(a)+\phi(\overline{ab})\]
     значит,
     \[|\phi(\overline{ab})|=|\overline{ab}|,\ b-a+v,\ \forall v\in V\]
-    следовательно $\phi$ сохраняет длины векторов, а отсюда и скалярное произведение.
+    следовательно, $\phi$ сохраняет длины векторов, а отсюда и скалярное произведение.
 \end{remark}
 Запишем $\Phi$ в координатах в ортонормированной системе координат.
 \[Y=X_0+A_{\phi}\cdot X,\ A_{\phi}^T=A_{\phi}^{-1} \Longrightarrow \det{A_{\phi}}=\pm 1\]
@@ -270,14 +270,14 @@ D: \mathbb{F}^n \to \mathbb{F}^m
     причем $\phi(u)=u$.
 \end{remark}
 \begin{proof}
-    Пусть $a\in \A$ - произвольная точка. Обозначим $v:=\overline{a\Phi(u)}$. Пусть $\lambda=1$ является собственным значением оператора $\phi$, а также:
+    Пусть $a\in \A$ - произвольная точка. Обозначим $v:=\overline{a\Phi(a)}$. Пусть $\lambda=1$ является собственным значением оператора $\phi$, а также:
     \[U=\{u\in V:\ \phi(u)=u\}\ne \{0\},\ W=U^{\perp}\]
     тогда
     \[V=U\oplus W\]
-    $v=u+w$, где $\phi(u)=u,\ (w,u)=0$. Определим $\Psi=t_u\cdot \Phi$. Поищем для $\Psi$ неподвижную точку в виде $b=a+\widetilde{w},\ \widetilde{w}\in W$. Вычислим 
+    $v=u+w$, где $\phi(u)=u,\ (w,u)=0$. Определим $\Psi=t_{-u}\cdot \Phi$. Поищем для $\Psi$ неподвижную точку в виде $b=a+\widetilde{w},\ \widetilde{w}\in W$. Вычислим 
     \[\Psi(b)=(t_{-u}\Phi)(b)\]
     \begin{multline*}
-        \Psi(a+\widetilde{w})=t_{-u}(\Psi(a)+\phi(\widetilde{w}))=t_{-u}(a+v+\phi(\widetilde{w}))=\\
+        \Psi(a+\widetilde{w})=t_{-u}(\Phi(a)+\phi(\widetilde{w}))=t_{-u}(a+v+\phi(\widetilde{w}))=\\
         =a+(v-u)+\phi(\widetilde{w})=a+w+\phi(\widetilde{w})=a+(w+\widetilde{w})+(\phi(\widetilde{w})-\widetilde{w})=\\
         =a+\widetilde{w}+w+(\phi-\text{Id})(\widetilde{w})=a+\widetilde{w}
     \end{multline*}
@@ -287,7 +287,7 @@ D: \mathbb{F}^n \to \mathbb{F}^m
 \end{proof}
 Наблюдение: Если $\lambda=1$ - не собственное значение оператора $\phi$, то $\Phi$ имеет неподвижную точку. Если же $\lambda =1$ - собственное значение, $u_0$ - собственный вектор: $\phi(u_0)=u_0$, то все точки прямой
 \[l=b+\langle u_0 \rangle\] 
-неподвижны, а $\Psi$ определяется своим действием в гиперплоскости ортогональной к этой прямой:
+неподвижны, а $\Psi$ определяется своим действием в гиперплоскости, ортогональной этой прямой:
 \[P=b+\langle u_0 \rangle^{\perp}\]
 \subsubsection*{Классификация движений при $n=1,2,3$}
 \begin{enumerate}
@@ -362,7 +362,7 @@ D: \mathbb{F}^n \to \mathbb{F}^m
             \zeta'=\zeta+c
         \end{cases}
         \]
-        - композиция поворота вокруг прямой, параллельной $(0,0,1)$ на угол $\alpha$ и переноса на вектор $(0,0,c)$ вдоль этой прямой (винтовое движение).
+        - композиция поворота вокруг прямой, параллельной $(0,0,1)$, на угол $\alpha$ и переноса на вектор $(0,0,c)$ вдоль этой прямой (винтовое движение).
         \item
         \[\begin{cases}
             x'=x\cos{\alpha}-y\sin{\alpha}+a,\\

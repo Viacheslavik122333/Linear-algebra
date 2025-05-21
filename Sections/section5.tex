@@ -8,8 +8,43 @@
             \item $\forall v \in V_1, \lambda \in \F \ : \ \phi(\lambda v) = \lambda\phi(v)$;
         \end{enumerate}
     \end{definition}
-        Из курса $\textup{I}$ семестра известно, что $\phi (0_{v_1}) = 0_{V_2}$
+        Из курса $\textup{I}$ семестра известно, что $\phi (0_{V_1}) = 0_{V_2}$
     \begin{definition}
         Ядром $\phi$ называется множество $\textup{Ker}(\phi) = \{v \in V_1 \ | \ \phi(v) = 0_{v_2}\}$. Образом $\phi$ называется множество $\text{Im}(\phi) = \phi(V_1)$.
     \end{definition}
+    \begin{subtheorem}
+    \begin{enumerate}
+      \item $\textup{Ker}\phi$ - подпространство в $V_1$
+      \item Отображение $\phi$ инъективно $\Longleftrightarrow$ $\textup{Ker}\phi=\{0_{V_1}\}$
+      \item $\textup{Im}\phi$ - подпространство в $V_2$
+    \end{enumerate}
+  \end{subtheorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item \[\forall u_1, u_2\in \textup{Ker}\phi: 
+      \phi(u_1+u_2)=\phi(u_1)+\phi(u_2)=0_{V_2}+0_{V_2}=0_{V_2}\]
+      \[\forall u\in \textup{Ker}\phi, \ \forall\lambda\in\F: \ \ \phi(\lambda u)=\lambda\phi(u)=\lambda\cdot 0_{V_2}=0_{V_2}\]
+      - подпространство по определению.
+      \item $\underline{\Longrightarrow}$ Пусть отображение $\phi$ инъективно, то есть если $\phi(v)=\phi(w)$ для $v$, $w\in V$, то $v=w$. Возьмём $v=0_{V_1}$, $w\in \textup{Ker}\phi$. Так как $0_{V_1} \in \textup{Ker}\phi$, то $\phi(v)=0_{V_2}=\phi(w)$ $\Longrightarrow$ $v=w=0_{V_1}$, так как отображение $\phi$ инъективно $\Longrightarrow$ $\textup{Ker}\phi=\{0_{V_1}\}$\\
+      $\underline{\Longleftarrow}$ Пусть $\textup{Ker}\phi=\{0_{V_1}\}$ и $v$, $w\in V_1$ : $\phi(v)=\phi(w)$ $\Leftrightarrow$ $\phi(v-w)=0_{V_2}$, то есть $(v-w)\in \textup{Ker}\phi=\{0_{V_1}\}$ $\Longrightarrow$ $w=v$
+      \item $\forall w_1$, $w_2\in V_2$ $\exists v_1$, $v_2\in V_1$ : $\phi(v_1)=w_1$, $\phi(v_2)=w_2$ $\Longrightarrow$ $w_1+w_2=\phi(v_1)+\phi(v_2)=\phi(v_1+v_2)\in \textup{Im}\phi$
+    \end{enumerate}
+  \end{proof}
+  \begin{definition}
+    Линейное отображение $\phi$ : $V_1 \to V_2$ называется изоморфизмом, если $\phi$ линейно и биективно. $V_1$ и $V_2$ называются изоморфными, если существует изоморфизм $\phi$ : $V_1 \to V_2$. Обозначается: $V_1 \cong V_2$.
+  \end{definition}
+  \begin{theorem}(Об изоморфизме)
+    Конечномерные векторные пространства $V_1$ и $V_2$ изоморфны тогда и только тогда, когда $dimV_1 = dimV_2$. 
+  \end{theorem}
+  \begin{proof}
+    $\underline{\Longleftarrow}$ Пусть $\dim V_1=\dim V_2=n$. Выберем $e_1$, $\ldots$, $e_n$ - базис в $V_1$, а $f_1$, $\ldots$, $f_n$ - базис в $V_2$, тогда $\forall v \in V_1 \ $ $v=\sum\limits_{i=1}^nx_ie_i$.\\ Определим отображение $\phi$ : $V_1 \to V_2$ формулой $\phi(v):=\sum\limits_{i=1}^nx_if_i$.
+    \begin{enumerate}
+      \item (линейность) Пусть $v_1$, $v_2$ $\in V_1$, $v_1=\sum\limits_{i=1}^nx_ie_i$ и $v_2=\sum\limits_{i=1}^ny_ie_i$, тогда\\ $v_1+v_2=\sum\limits_{i=1}^n(x_i+y_i)e_i$ $\Longrightarrow$\\ $\Longrightarrow$ $\phi(v_1+v_2) = \sum\limits_{i=1}^n(x_i+y_i)f_i=\sum\limits_{i=1}^nx_if_i+\sum\limits_{i=1}^ny_if_i=\phi(v_1)+\phi(v_2)$.\\ $\forall\lambda\in\F$ и $\forall v\in V_1$ $\phi(\lambda v)=\sum\limits_{i=1}^n(\lambda x_i)f_i =\lambda\sum\limits_{i=1}^nx_if_i=\lambda\phi(v)$.
+      \item (инъективность) $\textup{Ker}\phi = \{v\in V_1 | \phi(v)=0_{V_2}\}$. Пусть $v\in V_1$ и $v\in \textup{Ker}\phi$, тогда $v=\sum\limits_{i=1}^n\alpha_ie_i$ $\Longrightarrow$\\$\Longrightarrow$ $\phi(v)=\sum\limits_{i=1}^n\alpha_if_i=0$, а так как $f_1$, $\ldots$, $f_n$ - линейно независимы $\Longrightarrow$ $\forall i$ $\alpha_i=0$ $\Longrightarrow$ $v=\sum\limits_{i=1}^n\alpha_ie_i=0 \Longrightarrow \textup{Ker}\phi=\{0\}$.
+      \item (сюръективность) $\forall w\in V_2$ $w=\sum\limits_{j=1}^n\alpha_jf_j$ $\Longrightarrow$ $w=\phi(v)$, $v=\sum\limits_{j=1}^n\alpha_je_j$ $\Longrightarrow$ $\phi(V_1)=V_2$.
+    \end{enumerate}
+    $\underline{\Longrightarrow}$ Пусть $V_1\cong V_2$, $\dim V_1=n$, $\phi$ : $V_1 \to V_2$ - изоморфизм $V_1$ и $V_2$. Выберем базис $e_1$, $\ldots$, $e_n$ в $V_1$ и покажем, что $\phi(e_1)$, $\ldots$, $\phi(e_n)$ - базис в $V_2$.\\
+    $\forall w\in V_2$ $\exists v\in V_1$ : $\phi(v)=w$. Пусть $v=\sum\limits_{i=1}^nx_ie_i$, тогда $\phi(v)=w=\sum\limits_{i=1}^nx_i\phi(e_i)$ $\Longrightarrow$\\ $\Longrightarrow$ $V_2=\langle\phi(e_1),$ $\ldots$, $\phi(e_n)\rangle$. Проверим линейную независимость\\
+    Предположим, что $\exists\mu_i\in\F$ : $0_{V_2}=\sum\limits_{i=1}^n\mu_i\phi(e_i)=\phi(\sum\limits_{i=1}^n\mu_ie_i)$ $\Longrightarrow$ $\sum\limits_{i=1}^n\mu_ie_i\in \textup{Ker}\phi=\{0\}$, так как $\phi$ - биекция.\\ Так как $\{e_i\}$ линейно независимы $\Longrightarrow$ $\mu_i=0$ $\forall i$ $\Longrightarrow$ $\phi(e_1)$, $\ldots$, $\phi(e_n)$ линейно независимы.
+  \end{proof}
 
