@@ -1,0 +1,144 @@
+\section{Факультативный материал}
+\subsubsection*{Попарно коммутирующие линейные операторы}
+Пусть $\phi_1, \phi_2: V \to V$ над полем $\F$ и $\phi_1 \phi_2 = \phi_2 \phi_1$. Если $\phi_1(U) \subseteq U$, то $\phi_2(U) \subseteq U$, где $U$ — собственное подпространство для $\phi_1$, то есть $\phi_1(u) = \lambda_1 u \ \forall u \in U$.
+
+Возьмём $u \in U \Longrightarrow \phi_1(u) \in U$.
+\[\phi_1(\phi_2(u)) = \phi_2(\phi_1(u)) = \lambda \phi_2(u)\]
+$\Longrightarrow \phi_2(u)$ - собственный вектор для $\phi_1$ $\Longrightarrow \phi_2(u) \in U$.
+
+\begin{theorem}
+    Если $\left\{\phi_i \ | \ i \in i\right\}$ - семейство попарно коммутирующих операторов в пространстве $V$ над алгебраически замкнутым полем $\F$, $\dim{V} < \infty$, то для любого $i$ $\phi_i$ имеют общий собственный вектор.
+\end{theorem} 
+\begin{proof}
+    Индукция по $n = \dim{V}$.\\
+    \noindent \underline{n = 1:} $\forall i \ \phi_i(v) = \lambda_i v, \ \forall v \neq 0.$\\
+    \noindent \underline{n > 1:} Предположение индукции: в пространстве $U$, $0 < \dim{U} < \dim{V}$ у попарно коммутирующих операторов есть общий собственный вектор. Если $\forall i \in I$, $\phi_i = \lambda_i Id$ $\Longrightarrow$ любой ненулевой вектор - собственный для всех $\phi_i$.
+
+    Если существует $\phi_1$ - нескалярный, он имеет собственное значение $\lambda_1$ и $U = V_{\lambda_1}$ - собственное подпространство для $\phi_1$, то $\forall i \in I$ $U$ инвариантно относительно $\phi_i$, причём $0 < \dim{U} < \dim{V}$ $\Longrightarrow$ у операторов $\phi_i |_U$ есть общий собственный вектор, исходя из предположения индукции (включая $\phi_1$, по построению).
+\end{proof} 
+
+\begin{consequense}
+    \begin{enumerate}
+        $\empty$
+        \item Если $G$ - коммутативная группа линейных операторов в пространстве $V$, $\overline{\F} = \F$ (то есть $\F$ алгебраически замкнуто), то все элементы этой группы имеют общий собственный вектор.
+        \item Если не существует инвариантного относительно всех $g \in G$, кроме $\{0\}$ и $V$, то $\dim{V} = 1$.
+    \end{enumerate}
+\end{consequense}
+
+По теореме, если $v_0$ - собственный вектор $\forall g \in G$, то подпространство $<v_0>$ инвариантно $\forall g \in G$ $\Longrightarrow$ по условию 2 $\Longrightarrow$ $<v_0> = V$.
+
+
+\subsection{Некоторые группы линейных и аффинных операторов}
+\begin{definition}
+    Множество $G$ называется группой, если на $G$ задана бинарная операция:
+    \[\forall (a,b) \in G \times G \longmapsto  a \circ b \in G:\]
+    \begin{enumerate}
+        \item операция ассоциативна;
+        \item $\exists e \in G: eg = ge = g \forall g \in G$;
+        \item $\forall g \in G \exists g^{-1} \in G: g^{-1}g = gg^{-1} = e.$
+    \end{enumerate}
+    Более того, $G$ коммутативна, если $\forall g_1, g_2 \in G: g_1g_2 = g_2g_1$.
+\end{definition}
+
+Мы будем рассматривать $G \subseteq GL(V)$, где $GL(V)$ - множество обратимых линейных операторов.
+\begin{example1}
+    Множество всех обратимых линейных операторов на $V$ с операцией «$\circ$» - группа.
+
+    Знаем: если $\phi, \psi$ - линейные операторы, то $\phi \circ \psi$ - тоже, $e = Id$ - тождественный оператор. Если $\phi$ - обратимый линейный оператор, то есть $\phi \in GL(V)$, то $\phi^{-1} \in GL(V)$.
+\end{example1}
+
+\begin{definition}
+    Подмножество $H \subseteq G$ - подгруппа группы $G$, если:
+    \begin{enumerate}
+        \item $H \neq \emptyset$;
+        \item $\forall h_1, h_2 \in H \Longrightarrow h_1 \cdot h_2 \in H$;
+        \item $\forall h \in H \Longrightarrow h^{-1} \in H \Longrightarrow h h^{-1} = e_G \in H$.
+    \end{enumerate}
+\end{definition} 
+
+\begin{definition}
+    Отображение $\phi: G_1 \to G_2$ называется гомоморфизмом, если $\forall a,b \in G: \phi(ab) = \phi(a)\phi(b)$.
+\end{definition} 
+
+\begin{definition}
+    Отображение $\phi$ - изоморфизм, если $\phi$ - биективный гомоморфизм.
+\end{definition} 
+
+Обозначение: $G_1 \cong G_2$ - изоморфны, если существует изоморфизм $\phi: G_1 \to G_2$.
+
+\begin{example1}
+    Обозначим $GL(n, \F)$ - множество всех матриц $A$ над $\F$ порядка $n$ с $\det{A} \neq 0$; $GL(n, \F)$ - группа с операцией умножения матриц.
+
+    Если $\dim{V} = n$, в $V$ фиксируем базис $e = (e_1, \dots, e_n)$, то $\forall \phi \in GL(V)$, $\phi \longleftrightarrow A_{\phi} \in GL(n, \F)$ и $A_{\phi \psi} = A_{\phi}A_{\psi}$ $\Longrightarrow$ группы $GL(V)$ и $GL(n, \F)$ изоморфны.
+
+    Рассмотрим некоторые подгруппы в $GL(n, \F)$:
+    \[SL(n, \F) = \left\{A \in GL(n, \F) \ | \ \det{A} = 1\right\} - \]
+    подгруппа  в группе $GL(n, \F)$.
+
+    $GL(n, \F)$ 0 полная (= общая) линейная группа, $SL(n, \F)$ - специальная линейная группа.
+\end{example1}
+
+
+\subsubsection*{Группы, сохраняющие билинейную форму}
+\begin{definition}
+    Билинейная функция на $V$ $f(x,y)$ инвариантна относительно оператора $\phi: V \to V$ (то есть $\phi$ сохраняет эту билинейную форму), если \[\forall x, y \in V: f(\phi(x), \phi(y)) = f(x,y).\]
+    В частности, если $f(x,y)$ - скалярное произведение, то $\phi$ — ортогональный оператор.
+\end{definition} 
+
+\begin{lemma}
+    Множество $G_f = \left\{\phi \in GL(V)\right\}$, где $\phi$ сохраняет форму $f$ - подгруппа в $GL(V)$.
+\end{lemma} 
+\begin{proof}
+    $Id \in G_f$; если $\phi_1, \phi_2$ таковы, что 
+    \[f(\phi(x), \phi(y)) = f(x,y),\]
+    то 
+    \[f(\phi_1(\phi_2(x)), \phi_1(\phi_2(y))) = f(\phi_2(x), \phi_2(y)) = f(x,y).\]
+    Если $\phi \in G_f$, то $\phi^{-1} \in G_f$.
+
+    Проверим, что $f(\phi(x), \phi(y)) = f(x,y)$, где $x' = \phi(x), \ y' = \phi(y)$. Тогда $x = \phi^{-1}(x'), \ y = \phi^{-1}(y')$.
+    \[f(x',y') = f(\phi^{-1}(x'), \phi^{-1}(y')),\]
+    так как $\phi$ биективно, а $x',y'$ любые. Следовательно, $\phi^{-1} \in G_f$.
+\end{proof} 
+
+Если $V$ - евклидово пространство, $f = (x,y)$, то $G_f$ - группа всех ортогональных операторов. Обозначение: $O(V)$ - ортогональная группа.
+
+Если в $V$ выбрать ортонормированный базис, то в нём $\forall \phi \in O(V)$, $\phi \longleftrightarrow A_{\phi}$ - ортогональная матрица и $O(n, \R)$ - группа ортогональных матриц.
+
+Таким образом, $O(V) \cong O(n, \R)$. Введём следующую группу:
+\[O(n, \R) \cap SL(n, \R) = SO(n, \R) - \]
+специальная ортогональная группа.
+
+При $n = 3$ получается группа $SO(3)$ - группа вращения трёхмерного пространства (другие поля здесь не рассматриваем, поэтому $\R$ не пишем).
+
+\subsubsection*{Общий случай}
+В общем случае условие
+\[f(\phi(x), \phi(y)) = f(x,y)\]
+записывается в матричном виде следующим образом:
+\[X^T(A_{\phi}^T F A_{\phi}) Y = X^T F Y \Longleftrightarrow A_{\phi}^T F A_{\phi} = F, \ \forall X, Y \in \R^n,\]
+где $F$ - некоторая матрица.
+
+Будем предполагать, что $f$ невырожденна, то есть $|F| \neq 0$, тогда
+\[(\det{A_{\phi}})^2 \cdot |F| = |F| \Longrightarrow \det{A_{\phi}} = \pm 1.\]
+
+\subsubsection*{Симплектическая группа}
+$char \F \neq 2$, достаточно считать, что $\F = \R$.
+
+Если на $V$ задана кососимметрическая невырожденная билинейная форма, то $\dim{V} = n = 2m$ и существует базис, в котором матрица 
+\[F = \begin{pmatrix}
+    0 & -1 & \empty & \empty & 0\\
+    1 & 0 & \empty & \empty & \empty\\
+    \empty & \empty & \dots & \empty \empty\\
+    \empty & \empty & \empty & 0 & -1\\
+    0 & \empty & \empty & 1 & 0\\
+\end{pmatrix}\]
+Обозначение: 
+\[Sp(2m, \F) = \left\{A \in GL(2m, \F) \ | \ A^T F A = F\right\}.\]
+
+\subsubsection*{Некоторые аффинные группы}
+$A$ - аффинное пространство над пространством $V$, $Aff(A)$ - множество всех аффинных биективных преобразований $A$.
+
+Было доказано, что для любого биективного аффинного преобразования $\Phi t_v \Psi, \ \Psi(0) = O$, ($O$ - начало координат), причём разложение единственно.
+
+$\{\Psi: \ \Psi(0) = O\}$ - подгруппа в $Aff(A)$, $T(V) = \{t_v \ | \ v \in V\}$ - подгруппа параллельных переносов.
+
+$T(V) \cong V$ - как группе с операцией «+».
