@@ -1,6 +1,6 @@
 \section{Евклидовы аффинные пространства}
 \begin{definition}
-    Аффинное простарнство $(\mathbb{A},\mathcal{E})$ - евклидово, если $\mathcal{E}$ - евклидово пространство (над $\R$), $\mathcal{E}$ ассоциировано с пространством точек $\mathbb{A}$.\\
+    Аффинное пространство $(\mathbb{A},\mathcal{E})$ - евклидово, если $\mathcal{E}$ - евклидово пространство (над $\R$), $\mathcal{E}$ ассоциировано с пространством точек $\mathbb{A}$.\\
     Расстояние определяется как
     \[\rho(p,q)=|\overline{pq}|\]
     Для трех точек $a,b,c$ угол между лучами $(ab)$ и $(ac)$ - это угол между векторами $\overline{ab}$ и $\overline{ac}$ (если они ненулевые).
@@ -9,7 +9,7 @@
 \begin{definition} $\\$
     Расстояние от точки $p_1\in \mathbb{A}$ до плоскости $P=p_0+U,\ V\supset U\ne \{0\}$.\\
     Либо $p_1\in P$, либо $\overline{p_0p_1}\not\in U$.\\
-    Можно рассматривать подпространтсво:
+    Можно рассматривать подпространство:
     \[ \widetilde{U}=\langle \overline{p_0p_1}+U \rangle\supset V,\ \overline{p_0p_1}=y+z,\ y\in U,\ z\in U^{\perp}\Longrightarrow \min|\overline{p_1q}|=|z|\]
 \end{definition} 
 
@@ -239,7 +239,7 @@ D: \mathbb{F}^n \to \mathbb{F}^m
 \end{proof} 
 \subsection*{Ортогональные преобразования (движения, изометрии)}
 \begin{definition}
-    Пусть $(\A,V)$ - аффинное евклидово пространтсво, то есть $V$ - евклидово пространство.\\
+    Пусть $(\A,V)$ - аффинное евклидово пространство, то есть $V$ - евклидово пространство.\\
     Аффинное преобразование $\Phi: \A\to \A$ называется ортогональным или движением, если $\forall a,b\in \A:$
     \[\rho(\Phi(a),\Phi(b))=\rho(a,b),\ \text{т.е}\ |\overline{\Phi(a),\Phi(b)}|=|\overline{ab}|\]
 \end{definition} 
@@ -265,25 +265,23 @@ D: \mathbb{F}^n \to \mathbb{F}^m
 \end{definition} 
 \begin{remark}
     (Уточнение к теореме о разложении: $\Phi=t_v\cdot\Psi$)\\
-    Для любой точки $a$ и любого движения $\Phi:\A\to \A$ с линейной частью $\phi$ существует $u\in V$ такой, что
+    Для любого движения $\Phi:\A\to \A$ с линейной частью $\phi$ существует $u\in V$ такой, что
     \[\Phi=t_u\cdot \Psi\]
-    причем $\phi(u)=u$.
+    причем $\phi(u)=u$ (возможно, $u = 0$) и $\Psi$ имеет неподвижную точку.
 \end{remark}
 \begin{proof}
-    Пусть $a\in \A$ - произвольная точка. Обозначим $v:=\overline{a\Phi(a)}$. Пусть $\lambda=1$ является собственным значением оператора $\phi$, а также:
-    \[U=\{u\in V:\ \phi(u)=u\}\ne \{0\},\ W=U^{\perp}\]
-    тогда
+    Пусть $a\in \A$ - произвольная точка. Обозначим $v:=\overline{a\Phi(a)}$. Пусть $\lambda=1$ является собственным значением оператора $\phi$, то есть:
+    \[U=\{u\in V:\ \phi(u)=u\}\ne \{0\},\]
+    Обозначим $W=U^{\perp}$, тогда
     \[V=U\oplus W\]
-    $v=u+w$, где $\phi(u)=u,\ (w,u)=0$. Определим $\Psi=t_{-u}\cdot \Phi$. Поищем для $\Psi$ неподвижную точку в виде $b=a+\widetilde{w},\ \widetilde{w}\in W$. Вычислим 
-    \[\Psi(b)=(t_{-u}\Phi)(b)\]
+    и имеет место разложение $v=u+w$, где $\phi(u)=u,\ (w,u)=0$. Определим $\Psi=t_{-u}\cdot \Phi$. Поищем для $\Psi$ неподвижную точку в виде $b=a+\widetilde{w},\ \widetilde{w}\in W$. Вычислим $\Psi(b) = \Psi(a+\widetilde{w})$:
     \begin{multline*}
-        \Psi(a+\widetilde{w})=t_{-u}(\Phi(a)+\phi(\widetilde{w}))=t_{-u}(a+v+\phi(\widetilde{w}))=\\
+        a+\widetilde{w} = \Psi(a+\widetilde{w})=t_{-u}(\Phi(a)+\phi(\widetilde{w}))=t_{-u}(a+v+\phi(\widetilde{w}))=\\
         =a+(v-u)+\phi(\widetilde{w})=a+w+\phi(\widetilde{w})=a+(w+\widetilde{w})+(\phi(\widetilde{w})-\widetilde{w})=\\
-        =a+\widetilde{w}+w+(\phi-\text{Id})(\widetilde{w})=a+\widetilde{w}
+        =a+\widetilde{w}+w+(\phi-\text{Id})(\widetilde{w})
     \end{multline*}
-    Поледнее равенство выполнено $\Longleftrightarrow (\phi-\text{Id})\widetilde{w}=-w,\ \widetilde{w}\in W$ - инвариантное подпространство для $\phi-\text{Id}$, но у $\phi|_W$ нет собственного значения $\lambda=1\\
-    \Longrightarrow\ \exists\ (\phi-\text{Id})^{-1}$ и $\widetilde{w}=-(\phi-\text{Id})^{-1}(w) \Longrightarrow \Psi(b)=b$. Если $\lambda=1$ не является собственным значением, то рассуждения сохраняют силу с $U=0$ и $W=V,\\
-     t_u=\text{Id},\ \Psi=\Phi$ имеет неподвижную точку.
+    Из полученного равенства $(\phi-\text{Id})(\widetilde{w}) = -w$. Так как $\phi|_W$ не имеет собственного значения 1, $(\phi - \textup{Id})|_W$ невырожденный, а значит обратимый оператор. Тогда $\widetilde{w} = -(\phi-\text{Id})^{-1}(w)$, и тогда $a + \widetilde{w}$ - неподвижная точка для $\Psi$.\\
+    Если $\lambda=1$ не является собственным значением, то рассуждения сохраняют силу с $U=0$ и $W=V, t_u=\text{Id},\ \Psi=\Phi$ имеет неподвижную точку.
 \end{proof}
 Наблюдение: Если $\lambda=1$ - не собственное значение оператора $\phi$, то $\Phi$ имеет неподвижную точку. Если же $\lambda =1$ - собственное значение, $u_0$ - собственный вектор: $\phi(u_0)=u_0$, то все точки прямой
 \[l=b+\langle u_0 \rangle\] 
