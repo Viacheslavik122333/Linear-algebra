@@ -7,7 +7,7 @@
 $\Longrightarrow \phi_2(u)$ - собственный вектор для $\phi_1$ $\Longrightarrow \phi_2(u) \in U$.
 
 \begin{theorem}
-    Если $\left\{\phi_i \ | \ i \in i\right\}$ - семейство попарно коммутирующих операторов в пространстве $V$ над алгебраически замкнутым полем $\F$, $\dim{V} < \infty$, то для любого $i$ $\phi_i$ имеют общий собственный вектор.
+    Если $\left\{\phi_i \ | \ i \in I\right\}$ - семейство попарно коммутирующих операторов в пространстве $V$ над алгебраически замкнутым полем $\F$, $\dim{V} < \infty$, то все $\phi_i$ имеют общий собственный вектор.
 \end{theorem} 
 \begin{proof}
     Индукция по $n = \dim{V}$.\\
@@ -21,11 +21,11 @@ $\Longrightarrow \phi_2(u)$ - собственный вектор для $\phi_1
     \begin{enumerate}
         $\empty$
         \item Если $G$ - коммутативная группа линейных операторов в пространстве $V$, $\overline{\F} = \F$ (то есть $\F$ алгебраически замкнуто), то все элементы этой группы имеют общий собственный вектор.
-        \item Если не существует инвариантного относительно всех $g \in G$, кроме $\{0\}$ и $V$, то $\dim{V} = 1$.
+        \item Если в $V$ не существует инвариантного подпространства относительно всех $g \in G$, кроме $\{0\}$ и $V$, то $\dim{V} = 1$.
     \end{enumerate}
 \end{consequense}
 
-По теореме, если $v_0$ - собственный вектор $\forall g \in G$, то подпространство $<v_0>$ инвариантно $\forall g \in G$ $\Longrightarrow$ по условию 2 $\Longrightarrow$ $<v_0> = V$.
+По теореме, если $v_0$ - собственный вектор $\forall g \in G$, то подпространство $\langle v_0 \rangle$ инвариантно $\forall g \in G$ $\Longrightarrow$ по условию 2 $\Longrightarrow$ $\langle v_0 \rangle = V$.
 
 
 \subsection{Некоторые группы линейных и аффинных операторов}
@@ -34,8 +34,8 @@ $\Longrightarrow \phi_2(u)$ - собственный вектор для $\phi_1
     \[\forall (a,b) \in G \times G \longmapsto  a \circ b \in G:\]
     \begin{enumerate}
         \item операция ассоциативна;
-        \item $\exists e \in G: eg = ge = g \forall g \in G$;
-        \item $\forall g \in G \exists g^{-1} \in G: g^{-1}g = gg^{-1} = e.$
+        \item $\exists e \in G: eg = ge = g \ \forall g \in G$;
+        \item $\forall g \in G \ \exists g^{-1} \in G: g^{-1}g = gg^{-1} = e.$
     \end{enumerate}
     Более того, $G$ коммутативна, если $\forall g_1, g_2 \in G: g_1g_2 = g_2g_1$.
 \end{definition}
@@ -44,7 +44,7 @@ $\Longrightarrow \phi_2(u)$ - собственный вектор для $\phi_1
 \begin{example1}
     Множество всех обратимых линейных операторов на $V$ с операцией «$\circ$» - группа.
 
-    Знаем: если $\phi, \psi$ - линейные операторы, то $\phi \circ \psi$ - тоже, $e = Id$ - тождественный оператор. Если $\phi$ - обратимый линейный оператор, то есть $\phi \in GL(V)$, то $\phi^{-1} \in GL(V)$.
+    Знаем: если $\phi, \psi$ - линейные операторы, то $\phi \circ \psi$ - тоже, $e = \textup{Id}$ - тождественный оператор. Если $\phi$ - обратимый линейный оператор, то есть $\phi \in GL(V)$, то $\phi^{-1} \in GL(V)$.
 \end{example1}
 
 \begin{definition}
