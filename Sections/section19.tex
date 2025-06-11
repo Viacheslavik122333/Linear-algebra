@@ -2,7 +2,7 @@
 \section{Квадратичные формы}
 Пусть $k(x) = b(x,x)$ - квадратичная форма на пространстве $\E$, $B$ - её матрица в некотором базисе ($B^T = B$).
 \begin{theorem}
-    В $\E \ \exists$ ортонормированный базис $f = eC$, в котором эта форма имеет вид $k(x) = \lambda_1y_1^2 + ... + \lambda_n y_n^2$, где $\lambda_1,...,\lambda_n$ - собственные значения $B$.
+    В $\E \ \exists$ ортонормированный базис $f = eC$, в котором эта форма имеет вид: $k(x) = \lambda_1y_1^2 + ... + \lambda_n y_n^2$, где $\lambda_1,...,\lambda_n$ - собственные значения $B$.
 \end{theorem}
 \begin{remark}
     Векторы базиса $f$ называются главными осями для квадратичной формы $k$, а сама замена - приведением формы к главным осям. 
@@ -16,12 +16,14 @@
     Если $\E$ - евклидово пр-во, то $\E^*$ изоморфно $E$.
 \end{subtheorem}
 \begin{proof}
-    Достаточно показать, что $\forall f: \E \rightarrow \R \ \ \exists! a \in \E$ такой, что $\forall x \in \E, f(x) = (a, x)$.\\
-    Выберем в $\E$ ортонормированный базис $e = \{e_1,...,e_n\}$, тогда в нём $f(x) = \sum \limits_{i=1}^n a_ix_i = (a, x)$, где $a = \begin{psmallmatrix} a_1 \\ \vdots \\ a_n \end{psmallmatrix}$.
+    Достаточно показать, что $\forall f: \E \rightarrow \R \ \ \exists! a \in \E$ такой, что: 
+    $$\forall x \in \E, f(x) = (a, x)$$
+    Выберем в $\E$ ортонормированный базис $e = \{e_1,...,e_n\}$, тогда в нём: 
+    $$f(x) = \sum \limits_{i=1}^n a_ix_i = (a, x), \text{ где } a = \begin{psmallmatrix} a_1 \\ \vdots \\ a_n \end{psmallmatrix}$$
 \end{proof}
 \begin{lemma}
-    Для любой билинейной функции $b(x, y)$ на евклидовом пространстве $\E \ \exists!$ линейный оператор $\phi: \E \rightarrow \E$ такой, что
-    $$\forall x, y \in \E: \ b(x, y) = (x, \phi(y)) \ \ \ (1)$$
+    Для любой билинейной функции $b(x, y)$ на евклидовом пространстве $\E \ \exists!$ линейный оператор $\phi: \E \rightarrow \E$ такой, что:
+    $$\forall x, y \in \E: \ b(x, y) = (x, \phi(y)) \eqno(1)$$
 \end{lemma}
 \begin{proof}
     Выберем произвольный базис $e$ в $\E$ с матрицей Грама $G$ $(\dim \E = n)$. Тогда:
@@ -32,21 +34,24 @@
     $$(x, \phi^*(y)) = (\phi(x), y) = (y, \phi(x)) = b(y, x) = b(x, y) = (x, \phi(y)) \Rightarrow \phi^* = \phi$$
 \end{remark}
 \begin{theorem}
-    Пусть $V$ - векторное пространство над $\R \ (\dim V = n), \ f, g$ - квадратичные формы на $V$, причём $g$ знакоопределена (в частности, $g > 0$). Тогда $\exists$ базис, в котором $f(x) = \sum \limits_{i=1}^n \lambda_i x_i^2; \ g(x) = \sum \limits_{i=1}^n x_i^2$ (для $g < 0 \ g(x) = -\sum \limits_{i=1}^n x_i^2$ ). 
+    Пусть $V$ - векторное пространство над $\R \ (\dim V = n), \ f, g$ - квадратичные формы на $V$, причём $g$ знакоопределена (в частности, $g > 0$). Тогда $\exists$ базис, в котором: 
+    $$f(x) = \sum \limits_{i=1}^n \lambda_i x_i^2; \ g(x) = \sum \limits_{i=1}^n x_i^2 \ (\text{для } g < 0 \ g(x) = -\sum \limits_{i=1}^n x_i^2)$$. 
 \end{theorem}
 \begin{proof}
-    Рассмотрим порождающие $f, g$ симметрические билинейные формы $f(x, y)$ и $g(x, y)$, т.е. $f(x,x) \equiv f(x), g(x, x) \equiv g(x)$, и обозначим за $F,G$ матрицы этих форм в некотором базисе. Тогда можем задать на пр-ве $V$ скалярное произведение с помощью формы $g: (x,y) = g(x,y)$.\\
-    По лемме $\exists! \ \phi: V\rightarrow V$ - самосопряжённый оператор такой, что $f(x, y) \equiv g(x, \phi(y))$. Заметим также, что $G$ - матрица Грама для базиса, в котором функция $g(x, y)$ имеет матрицу $G$. Тогда $A_\phi = G^{-1}F$.\\
-    Так как $\phi \equiv \phi^*$, в $V$ существует ортонормированный базис, в котором $A_{\phi, e'} = \begin{psmallmatrix}  \lambda_1&\null&0 \\ \null&\ddots&\null \\ 0&\null&\lambda_n \end{psmallmatrix}$. Если $C = C_{e\rightarrow e'}$, то $A_{\phi, e'} = C^{-1}A_\phi C, \ F_{e'} = C^TFC$.\\
+    Рассмотрим порождающие $f, g$ симметрические билинейные формы $f(x, y)$ и $g(x, y)$, т.е. $f(x,x) \equiv f(x), \ g(x, x) \equiv g(x)$, и обозначим за $F,G$ матрицы этих форм в некотором базисе. Тогда можем задать на пр-ве $V$ скалярное произведение с помощью формы $g: (x,y) = g(x,y)$.\\
+    По лемме $\exists! \ \phi: V\rightarrow V$ - самосопряжённый оператор такой, что: 
+    $$f(x, y) \equiv g(x, \phi(y))$$ 
+    Заметим также, что $G$ - матрица Грама для  базиса, в котором функция $g(x, y)$ имеет матрицу $G$. Тогда $A_\phi = G^{-1}F$.\\
+    Так как $\phi \equiv \phi^*$, в $V \ \exists$ ортонормированный базис, в котором $A_{\phi, e'} = \begin{psmallmatrix}  \lambda_1&\null&0 \\ \null&\ddots&\null \\ 0&\null&\lambda_n \end{psmallmatrix}$. Если $C = C_{e\rightarrow e'}$, то $A_{\phi, e'} = C^{-1}A_\phi C, \ F_{e'} = C^TFC$.\\
     Тогда во-первых, $C^TGC = G_{e'} = E$, т.к базис ортонормированный, а во-вторых
     $$C^{-1}A_{\phi, e}C = C^{-1}G^{-1}FC = C^{-1}(CC^T)FC = (C^{-1}C)C^TFC = C^TFC = F_{e'}$$
     т.е. в новых координатах $F_{e'} = A_{\phi, e'} = \begin{psmallmatrix}  \lambda_1&\null&0 \\ \null&\ddots&\null \\ 0&\null&\lambda_n \end{psmallmatrix}$ и $f(x') = \sum \limits_{i=1}^n \lambda_i {x_i'}^2$
 \end{proof}
 \begin{remark}
-    $\lambda_1,...,\lambda_n$ - корни характеристического ур-я 
-    $$|A_\phi - \lambda E| = 0 \Longleftrightarrow |G^{-1}F - \lambda E| = 0 \Longleftrightarrow |F - \lambda G| = 0  \ \ (2)$$
+    $\lambda_1,...,\lambda_n$ - корни характеристического уравнения 
+    $$|A_\phi - \lambda E| = 0 \Longleftrightarrow |G^{-1}F - \lambda E| = 0 \Longleftrightarrow |F - \lambda G| = 0 \eqno(2)$$
     т.е. соответствующие собственные векторы будут решениями СЛУ 
-    $$(F-\lambda G)X = 0 \ \ \ (3)$$
+    $$(F-\lambda G)X = 0 \eqno(3)$$
     Для каждого собственного значения $\lambda_i$ нужно найти ФСР для $(3)$ и ортонормировать относительно $g(x, y)$.
 \end{remark}
 

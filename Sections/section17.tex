@@ -15,9 +15,11 @@
     $\forall \ x,y\in\mathcal{E}: \ |(x,y)|\leqslant|x|\cdot|y|$, причём равенство выполнено $\Longleftrightarrow  x \parallel y$ (либо $x = 0$ или $y = 0$, либо $y = \lambda x$).
 \end{theorem}
 \begin{proof}
-    Рассмотрим функцию $f(t) = (tx-y, tx-y) = t^2(x,x) -2t(x,y) + (y,y) \geqslant 0$. Это квадратичная функция относительно $t$:
-    $$f(t)\geqslant 0 \Longleftrightarrow  \frac{\mathcal{D}}{4} = (x,y)^2 - (x,x)(y,y) \leqslant 0 \Rightarrow (x,y) \leq \sqrt{(x,x)(y,y)} = |x|\cdot|y|$$
-    Равенство выполнено $\Longleftrightarrow  (tx-y, tx-y) = 0 \Rightarrow y = tx$.
+    Рассмотрим функцию: 
+    $$f(t) = (tx-y, tx-y) = t^2(x,x) -2t(x,y) + (y,y) \geqslant 0$$
+    Это квадратичная функция относительно $t$:
+    $$f(t)\geqslant 0 \Longleftrightarrow  \frac{\mathcal{D}}{4} = (x,y)^2 - (x,x)(y,y) \leqslant 0 \Longrightarrow  (x,y) \leq \sqrt{(x,x)(y,y)} = |x|\cdot|y|$$
+    Равенство выполнено $\Longleftrightarrow  (tx-y, tx-y) = 0 \Longrightarrow  y = tx$.
 \end{proof}
 \begin{theorem} \textbf{Неравенство треугольника}\\
     $\forall x, y \in \mathcal{E} : \ |x+y| \leq |x| + |y|$ \ (равенство выполнено $\Longleftrightarrow x \uparrow \uparrow y$ ) 
@@ -126,7 +128,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
 \begin{proof}\tab
     \begin{enumerate}
         \item Пусть $x\in U,\ y\in U^\perp$, тогда: 
-        $$(y,x)=0\ \forall y\in U^\perp \Rightarrow x\in (U^\perp)^\perp \Longrightarrow  U\subseteq (U^\perp)^\perp$$ 
+        $$\forall y\in U^\perp: \ (y,x)=0 \Longrightarrow  x\in (U^\perp)^\perp \Longrightarrow  U\subseteq (U^\perp)^\perp$$ 
         Причем: 
         $$\dim{(U^\perp)^\perp}=n-\dim{U^\perp}=n-(n-\dim{U})=\dim{U}\Longrightarrow  U=(U^\perp)^\perp$$
 
@@ -152,7 +154,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
     Обозначим $x_{\shortparallel} = y, \ x_{\perp} = z$, а вектор из начала $x$ в произвольную точку $U$ - вектор $v$
     \begin{center}
         % 
-        Какой тут рисунок то?
+        Какой тут рисунок то? ( если кто знает, киньте в личку, нарисую )
     \end{center}
     Докажем, что $|x-v|\geqslant |z|$, причём равенство достигается при $v = y$:
     $$x - v = x - y + y - v = z + y - v$$
@@ -255,7 +257,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     Покажем, что $\forall y \in U^\perp, x \in U$ выполнено $(x, \phi^*(y)) = 0$:
     $$(x, \phi^*(y)) = (\phi(x), y) = 0, \text{ т.к. } \phi(x) \in U, \ y \in U^\perp$$
 \end{proof}
-\begin{subtheorem}
+\begin{subtheorem} \tab
     \begin{enumerate}
         \item Если $\lambda_1, \lambda_2$ - различные собственные значения самосопряжённого оператора $\phi$, $x_1, x_2$ - соответсвующие им собственные векторы, то $x_1 \perp x_2$;
         \item Все характеристические числа самосопряжённого оператора $\in \R$.
@@ -364,7 +366,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
 \end{proof}
 \begin{theorem}
     Если $\phi: \ \E \to \E$ - ортогональный оператор, то в $\E \ \exists$ ортонормированный базис, в котором:
-    $$A^{\phi,f} = \begin{pmatrix}
+    $$A_{\phi,f} = \begin{pmatrix}
         \text{\fbox{$\Phi_1$}}\\
         \null & \ddots\\
         \null & \null & \text{\fbox{$\Phi_s$}}\\
