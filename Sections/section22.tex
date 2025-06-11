@@ -1,3 +1,5 @@
+%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
+
 \section{Евклидовы аффинные пространства}
 \begin{definition}
     Аффинное простарнство $(\mathbb{A},\mathcal{E})$ - евклидово, если $\mathcal{E}$ - евклидово пространство (над $\R$), $\mathcal{E}$ ассоциированно с пространством точек $\mathbb{A}$.\\
@@ -63,7 +65,7 @@
     Прямая $l=a+\langle \overline{ab} \rangle=(p_1+u_1)+\langle (\overline{p_1p_2})_{\perp} \rangle$ является общим перпендикуляром этих двух плоскостей.
 \end{consequense} 
 %ПАРАГРАФ
-\subsection{Аффинные отображения и преобразования}
+\subsection{Аффинные отображения}
 Пусть $(\mathbb{A}_1,V_1)$ и $(\mathbb{A}_2, V_2)$ - аффинные пространства над одним и тем же полем.
 \begin{definition}
     Отображение $\Phi: \mathbb{A}_1 \to \mathbb{A}_2$ называется аффинно-линейным отображением, если существует линейное отображение $\phi: V_1\to V_2$ такое, что
@@ -194,11 +196,11 @@ D: \mathbb{F}^n \to \mathbb{F}^m
         Аналогично в другом порядке.
     \end{enumerate}
 \end{proof} 
-\subsection*{Аффинные преобразования}
+\subsection{Аффинные преобразования}
 \begin{definition}
     Пусть $\Phi:\A\to \A$ - аффинно-линейное преобразование. Если $\Phi$ биективно, то будем называть его просто аффинным.
 \end{definition} 
-\begin{example}
+\begin{example}\tab
     \begin{enumerate}
         \item Параллельный перенос на вектор $v\in V$:
         \[\forall a\in \A:\ t_v(a)=a+v\]
@@ -237,7 +239,7 @@ D: \mathbb{F}^n \to \mathbb{F}^m
     \[\phi(\overline{a_0a_i})=\overline{b_0b_i},\ i=0,\dots, n\]
     Тогда $\Phi(a_0+v)=b_0+\phi(v)$ - требуемое преобразование.
 \end{proof} 
-\subsection*{Ортогональные преобразования (движения, изометрии)}
+\subsection{Ортогональные преобразования (движения, изометрии)}
 \begin{definition}
     Пусть $(\A,V)$ - аффинное евклидово пространтсво, то есть $V$ - евклидово пространство.\\
     Аффинное преобразование $\Phi: \A\to \A$ называется ортогональным или движением, если $\forall a,b\in \A:$
@@ -289,10 +291,10 @@ D: \mathbb{F}^n \to \mathbb{F}^m
 \[l=b+\langle u_0 \rangle\] 
 неподвижны, а $\Psi$ определяется своим действием в гиперплоскости, ортогональной этой прямой:
 \[P=b+\langle u_0 \rangle^{\perp}\]
-\subsubsection*{Классификация движений при $n=1,2,3$}
-\begin{enumerate}
-    \item $n=1$: $\Phi$ - либо параллельный перенос, либо центральная симметрия относительно неподвижной точки.
-    \item $n=2$: Координатная запись одна из следующих:
+\subsubsection*{Классификация движений при n=1,2,3}
+\begin{itemize}
+    \item[$n=1$:] $\Phi$ - либо параллельный перенос, либо центральная симметрия относительно неподвижной точки.
+    \item[$n=2$:] Координатная запись одна из следующих:
     \begin{enumerate}
         \item Параллельный перенос:
         \[\begin{cases}
@@ -320,7 +322,7 @@ D: \mathbb{F}^n \to \mathbb{F}^m
         \]
         Согласно общей теореме, существует неподвижная точка такая, что после переноса в эту точку остается только поворот.
     \end{enumerate}
-    \item $n=3$: Четыре варианта в каноническом базисе для оператора $\phi$:
+    \item[$n=3$:] Четыре варианта в каноническом базисе для оператора $\phi$:
     \begin{enumerate}
         \item Параллельный перенос ($\lambda_{1,2,3}=1$)
         \[
@@ -380,6 +382,6 @@ D: \mathbb{F}^n \to \mathbb{F}^m
         \]
         что является композицией симметрии относительно плоскости $\zeta=c$, повотора вокруг прямой, перпендикулярной этой плоскости, и параллельного переноса на вектор $(0,0,c)$, который параллелен этой плоскости.
     \end{enumerate}
-\end{enumerate}
+\end{itemize}
 
 

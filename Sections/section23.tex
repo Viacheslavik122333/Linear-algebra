@@ -1,3 +1,4 @@
+%chktex-file 1 %chktex-file 7 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Тензоры}
 \subsection{Основные определения и первоначальные конструкции}
 Если векторное пространство $V$ над $F$ конечномерно, то $(V^*)^*\simeq V$. Соглашение: векторное пространство $V$ отождествляется с пространством линейных функций на $V^*$.
@@ -5,7 +6,9 @@
 \begin{definition}
     Пусть $p,q\in \N_0$. Тензор типа $(p,q)$ - это полилинейная функция 
     \[f: \underbrace{V\times \dots\times V}_p \times \underbrace{V^*\times \dots\times V^*}_q \to F\]
-    $p$ - ковариантная валентность тензора $f,\ q$ - контрвариантная валентность тензора $f,\ p+q$ - ранг тензора $f$. 
+    $p$ - ковариантная валентность тензора $f$\\
+    $q$ - контрвариантная валентность тензора $f$ \\
+    $p+q$ - ранг тензора $f$. \\
     Множество всех тензоров типа $(p,q)$ обозначают 
     \[T^q_p(v)=T^q_p\]
 \end{definition} 
@@ -61,7 +64,7 @@
     \[T_1^1(V)\simeq L(V)\]
 \end{proof}  
 \subsubsection*{Правило Эйнштейна}
-Некоторые индексы пишутся снизу, а некоторые сверху: например, базисные векторы записываются как $e_i \ (= (e_1,...,e_n))$, а координаты векторов имеют верхние индексы, а также $e^i (=(e^1,...,e^n))$ - дуальный базис.\\
+Некоторые индексы пишутся снизу, а некоторые сверху: например, базисные векторы записываются как $e_i \ (= (e_1,...,e_n))$, а координаты векторов имеют верхние индексы, а также $e^i \ (=(e^1,...,e^n))$ - дуальный базис.\\
 Также опускается знак суммирования. если один и тот же индекс повторяется сверху и снизу: $x = x^ie_i$ подразумевает $\sum \limits_{i=1}^n x_ie_i$.
 
 Матрицы линейных операторов по этому правилу можно записывать так: $A_\phi = (a_j^i)$, где $i$ - номер строки, $j$ - номер столбца. Также:
@@ -76,8 +79,8 @@
 \[e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_q}\in T_p^q(V)\]
 \begin{multline*}
     (e^{i_1}\otimes ... \otimes e^{i_p}\otimes e_{j_1}\otimes ... \otimes e_{j_q})(e_{k_1}, ... ,e_{k_p},e^{l_1},...,e^{l_q})=\\
-    =e^{i_1}(e_{k_1})\cdot ... \cdot e^{i_p}(e_{k_p})\cdot e_{j_1}(e^{l_1})\cdot ... \cdot e_{j_q}(e^{l_q}) = \delta_{k_1}^{i_1}\cdot ... \cdot \delta_{k_p}^{i_p} \cdot \delta_{j_1}^{l_1}\cdot ... \cdot \delta_{j_q}^{l_q} (*)
-\end{multline*}
+    =e^{i_1}(e_{k_1})\cdot ... \cdot e^{i_p}(e_{k_p})\cdot e_{j_1}(e^{l_1})\cdot ... \cdot e_{j_q}(e^{l_q}) = \delta_{k_1}^{i_1}\cdot ... \cdot \delta_{k_p}^{i_p} \cdot \delta_{j_1}^{l_1}\cdot ... \cdot \delta_{j_q}^{l_q} \ \ (*)
+\end{multline*} 
 \begin{theorem}
     Тензоры вида $\{e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\}$ образуют базис в пространстве $T_p^q(V)$, причем
     \[\dim{(T_p^q)}(V)=n^{p+q}\]
@@ -94,7 +97,8 @@
     Коэффициенты, очевидно, определены однозначно при фиксированном базисе $e_1,...,e_n$, а значит, $\{e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_p}\}$ - базис в пространстве $T_p^q(V)$.  
 \end{proof}
 \begin{definition}
-    Матрицей тензора $f$ называется матрица $A_{i_1,...,i_p}^{j_1,...,j_q}$ такая, что $a_{k_1,...,k_p}^{l_1,...,l_q} := f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q})$.
+    Матрицей тензора $f$ называется матрица $A_{i_1,...,i_p}^{j_1,...,j_q}$ такая, что:
+    $$a_{k_1,...,k_p}^{l_1,...,l_q} := f(e_{k_1},...,e_{k_p}, e^{l_1},...,e^{l_q})$$
 \end{definition}
 \subsubsection*{Закон изменения матрицы координат тензора при замене базиса}
 Пусть $(e'_1,...,e'_n) = (e_1,...,e_n)C$, $\begin{pmatrix} e'^1 \\ \vdots \\ e'^n \end{pmatrix} = D\begin{pmatrix} e^1 \\ \vdots \\ e^n \end{pmatrix}$. Тогда:
@@ -106,9 +110,9 @@
 \[(u'_1,...,u'_n) = (u_1,...,u_n)C \Longrightarrow (u_1,...,u_n) = (u'_1,...,u'_n)D\]
 Итак, в новом базисе
 \[f = A_{i_1,...,i_p}^{j_1,...,j_q} c_{i'_1}^{i_1}...c_{i'_p}^{i_p}d_{j_1}^{j'_1}...d_{j_q}^{j'_q}{x'}^{i'_1}_1...{x'}^{i'_p}_p {u'}^{1}_{j'_1}...{u'}^{q}_{j'_q}\]
-\textbf{Пупупу.}
+\textbf{Пупупу} - согласен с Егором...
 \subsection{Свёртка тензора}
-\begin{example}
+\begin{example} \tab
     \begin{enumerate}
         \item $A = a^i_j \in T_1^1(V): \ \ \textup{tr} A = a_i^i$\\
         Из тензора $a^i_j$ получили тензор $\textup{tr} A \in T_0^0$.

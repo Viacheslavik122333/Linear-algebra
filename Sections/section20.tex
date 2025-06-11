@@ -5,7 +5,7 @@
     Функция $f(x, y): V\times V \rightarrow \CC$ называется полуторалинейной, если:
     \begin{enumerate}
         \item $f(x_1 + x_2, y) = f(x_1, y) + f(x_2, y)$;\\
-              $f(\lambda_x, y) = \lambda f(x, y) \ (\lambda \in \CC)$;
+              $f(\lambda x, y) = \lambda f(x, y) \ (\lambda \in \CC)$;
         \item $f(x, y_1 + y_2) = f(x, y_1) + f(x, y_2)$;\\
               $f(x, \lambda y) = \overline{\lambda} f(x, y) \ (\lambda \in \CC)$
     \end{enumerate}
@@ -39,23 +39,26 @@
 \end{definition}
 Скалярное произведение в координатах:
 $$(\sum \limits_{k=1}^n x_ke_k, \sum \limits_{j=1}^n y_je_j) = \sum \limits_{k=1}^n x_k(e_k, \sum \limits_{j=1}^n y_je_j) = \sum \limits_{k, j=1}^n x_k\overline{y_j}(e_k, e_j)$$
-Матрица Грама базиса $e$: $G_e = ((e_k, e_j))$. $G_e* = \overline{G_e}^T = G_e$.
+Матрица Грама базиса $e$: 
+$$G_e = ((e_k, e_j)). \ G_{e^*} = \overline{G_e}^T = G_e$$
 \begin{definition}
     $x \perp y \Longleftrightarrow (x, y) = 0$.\\
-    Базис $e_1,...,e_n$ ортогональный, если $(e_k, e_j) = 0, k \neq j$.\\
+    Базис $e_1,...,e_n$ ортогональный, если $(e_k, e_j) = 0, \ k \neq j$.\\
     Базис $e_1,...,e_n$ ортонормированный, если $(e_k, e_j) = \delta_{ij}$.
 \end{definition}
 В ортонормированном базисе $(x, y) = \sum \limits_{j=1}^n x_j\overline{y_j}$.
 
 Изменение матрицы полуторалинейной формы при замене базиса:\\
-Если $f(x, y)$ - полуторалинейная форма, то в некотором базисе $e: f(x, y) = X^TF\overline{Y}$, где $F = (f(e_i, e_j))$. Если $f$ эрмитово симметричная, т.е. $\overline{f(y, x)} = f(x, y)$, то $\overline{F}^T = F$.\\
+Если $f(x, y)$ - полуторалинейная форма, то в некотором базисе $e:$ 
+$$f(x, y) = X^TF\overline{Y}, \text{ где } F = (f(e_i, e_j))$$ 
+Если $f$ эрмитово симметричная, т.е. $\overline{f(y, x)} = f(x, y)$, то $\overline{F}^T = F$.\\
 Тогда если $e' = Ce$, то в случае полуторалинейной формы:
 $$X = CX', Y = CY' \Rightarrow f(x, y) = (X')^T(C^TF\overline{C})\overline{Y'} = (X')^TF'\overline{Y'}$$
 В случае эрмитовой квадратичной формы $k(x) = f(x,x)$:
 $$k(x) = \sum \limits_{k,j = 1}^n x_k\overline{x}_jf_{kj} = ... + f_{kj}x_k\overline{x}_j + ... , \ f_{jk} = \overline{f}_{kj}$$
 Отсюда $f_{ii} = \overline{f}_{ii}$, т.е. $f_{ii} \in \R$.
 \begin{theorem}
-    Эрмитову квадратичную форму можно привести к диагональному виду $\alpha_1|x_1|^2 + ... + \alpha_r|x_r|^2$, где $r = \text{rk} F, \ \alpha_1,...,\alpha_r \in \R, \alpha_j \neq 0$. Количества положительных коэффициентов $p$ и отрицательных коэффициентов $q$ - инварианты для данной формы. 
+    Эрмитову квадратичную форму можно привести к диагональному виду $\alpha_1|x_1|^2 + ... + \alpha_r|x_r|^2$, где $r = \text{rk} F, \ \alpha_1,...,\alpha_r \in \R, \alpha_j \neq 0$. Количество положительных коэффициентов $p$ и отрицательных коэффициентов $q$ - инварианты для данной формы. 
 \end{theorem}
 \begin{proof}
     Применим следующий вариант алгоритма Лагранжа:
@@ -63,11 +66,12 @@ $$k(x) = \sum \limits_{k,j = 1}^n x_k\overline{x}_jf_{kj} = ... + f_{kj}x_k\over
     \begin{multline*}
     k(x_1,...,x_n) = (b_{11}x_1\overline{x}_1 + ... + b_{n1}x_n\overline{x}_1) + (b_{12}x_1\overline{x}_2 + ... + b_{1n}x_1\overline{x}_n) + \tilde{k}(x_2,...,x_n) =\\= \frac{1}{\overline{b}_{11}}(b_{11}x_1 + ... + b_{n1}x_n)(\overline{b_{11}x_1} + ... + \overline{b_{n1}x_n}) + \tilde{k}(x_2,...,x_n) =\\= \frac{1}{\overline{b}_{11}}|b_{11}x_1 + ... + b_{n1}x_n|^2 + \tilde{k}(x_2,...,x_n)
     \end{multline*}
-    Заменяем $y_1 = b_{11}x_1 + ... + b_{n1}x_n$ и далее преобразуем $\tilde{k}$.
-    Особый случай: $b_{ii} = 0, i = 1,...,n$. По условию $k \not \equiv 0$, т.е. $\exists b_{ij} = \overline{b}_{ji} \neq 0$ и форма содержит члены $b_{ij}x_i\overline{x}_j + b_{ji}x_j\overline{x}_i = 2b_{ij}^2|y_i|^2 - 2b_{ij}^2|y_j|^2$ при замене $\begin{cases}
+    Заменяем $y_1 = b_{11}x_1 + ... + b_{n1}x_n$ и далее преобразуем $\tilde{k}$.\\
+    Особый случай: $b_{ii} = 0, i = 1,...,n$. По условию $k \not \equiv 0$, т.е. $\exists b_{ij} = \overline{b}_{ji} \neq 0$ и при замене $\begin{cases}
         x_i = b_{ji}(y_i + y_j)\\
         x_j = y_i - y_j
-    \end{cases}$\\
+    \end{cases}$ форма содержит члены: 
+    $$b_{ij}x_i\overline{x}_j + b_{ji}x_j\overline{x}_i = 2b_{ij}^2|y_i|^2 - 2b_{ij}^2|y_j|^2$$
     Далее можем продолжать по основному случаю.
 \end{proof}
 
@@ -81,28 +85,31 @@ $$k(x) = \sum \limits_{k,j = 1}^n x_k\overline{x}_jf_{kj} = ... + f_{kj}x_k\over
     Если $A^* = \overline{A}^T = A$, то $|A| = |\overline{A}^T| = |\overline{A}| = \overline{|A|}$, т.е. $|A| \in \R$
 \end{remark}
 \begin{algorithm} Процесс ортогонализации:\\
-    Дан произвольный базис $e_1,...,e_n \in V$. необходимо построить ортогональный базис $e'_1,...,e'_n$ такой, что $\langle e_1,...,e_k \rangle = \langle e'_1,...,e'_k \rangle$.
+    Дан произвольный базис $e_1,...,e_n \in V$. Необходимо построить ортогональный базис $e'_1,...,e'_n$ такой, что $\langle e_1,...,e_k \rangle = \langle e'_1,...,e'_k \rangle$.\\
+    Возьмём $e'_1 = e_1$.\\
+    \textbf{Шаг алгоритма}: \\
+    Если $k > 1$ и $e'_1,...,e'_{k-1}$ уже построены, то будем искать $e'_k$ в виде: 
+    $$e_k - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}e'_j$$ 
+    Тогда:
+    $$0 = (e'_k, e'_i) = (e_k, e'_i) - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}(e'_j, e'_i) = (e_k, e'_i) - \lambda_i^{(k)}(e'_i, e'_i) \Longrightarrow \lambda_i^{(k)} = \frac{(e_k, e'_i)}{(e'_i, e'_i)}$$ 
 \end{algorithm}
-Возьмём $e'_1 = e_1$.\\
-\textbf{Шаг алгоритма}: если $k > 1$ и $e'_1,...,e'_{k-1}$ уже построены, то будем искать $e'_k$ в виде $e_k - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}e'_j$. Тогда:
-$$0 = (e'_k, e'_i) = (e_k, e'_i) - \sum \limits_{j=1}^{k-1} \lambda_j^{(k)}(e'_j, e'_i) = (e_k, e'_i) - \lambda_i^{(k)}(e'_i, e'_i) \Longrightarrow \lambda_i^{(k)} = \frac{(e_k, e'_i)}{(e'_i, e'_i)}$$ 
 \subsection{Линейные операторы в унитарном пространстве}
 \begin{enumerate}
     \item Сопряжённый оператор $\phi^*$ к линейному оператору $\phi: V \rightarrow V$:
-    $$\forall x,y \in V, (\phi(x), y) = (x, \phi^*(y)) \ \ (1)$$
-    \item Самосопряжённый оператор: $\phi = \phi^* \ \ (2)$
+    $$\forall x,y \in V, (\phi(x), y) = (x, \phi^*(y)) \eqno(1)$$
+    \item Самосопряжённый оператор: $$\phi = \phi^* \eqno(2)$$
     \item Унитарный оператор:
-    $$\forall x,y \in V, (\phi(x), \phi(y)) = (x, y) \ \ (3)$$
+    $$\forall x,y \in V, (\phi(x), \phi(y)) = (x, y) \eqno(3)$$
 \end{enumerate}
 
 Для самосопряжённого оператора:
 $$(2) \Longleftrightarrow (\phi(x), y) \equiv (x, \phi(y)) \Longrightarrow (A_\phi X)^TG\overline{Y} = X^T(A_\phi^TG)\overline{Y} = X^T(G\overline{A}_\phi)\overline{Y}$$
 Отсюда
-$$A_\phi^TG = G\overline{A}_\phi \ \ (2')$$
+$$A_\phi^TG = G\overline{A}_\phi \eqno(2')$$
 Если базис ортонормированный, то $A_\phi^T = \overline{A}_\phi \Longleftrightarrow A = A^*$
 
 Для унитарного оператора:
-$$(3) \Longleftrightarrow X^TG\overline{Y} = (A_\phi X)^TG\overline{A_\phi Y} = X^T(A_\phi^TG\overline{A}_\phi)\overline{Y} \Longrightarrow A_\phi^TG\overline{A}_\phi = G  \ \ (3')$$
+$$(3) \Longleftrightarrow X^TG\overline{Y} = (A_\phi X)^TG\overline{A_\phi Y} = X^T(A_\phi^TG\overline{A}_\phi)\overline{Y} \Longrightarrow A_\phi^TG\overline{A}_\phi = G  \eqno(3')$$
 Если базис ортонормированный, то $A_\phi^T\overline{A}_\phi = E \Longleftrightarrow A^{-1} = A^*$ (унитарная матрица).
 
 \begin{theorem}

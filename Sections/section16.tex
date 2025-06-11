@@ -189,17 +189,19 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \end{example}
 Таким образом, в вещественном случае для любой квадратичной формы $k(x)$ существует замена координат $X = CY (|C| \neq 0)$ такая, что в новых координатах $k = \sum \limits_{i=1}^p x_i^2 - \sum \limits_{j=p+1}^{p+q} x_j^2$.
 \begin{definition}
-    p в такой записи называется положительным индексом инерции, q - отрицательным индексом инерции.
-\end{definition}
-\begin{theorem} \textbf{единственности (закон инерции)} \\
+    $p$ в такой записи называется положительным индексом инерции, $q$ - отрицательным индексом инерции.
+\end{definition} 
+\begin{theorem} \textbf{ Единственности (закон инерции)} \\
     %Для данной квадратичной формы над $\R$ числа $p$ и $q$ (количество +1 и \\количество -1 в каноническом виде) определены единственным образом
-    Если в некоторых базисах $e_1,...e_n$ и $f_1,...,f_n$ квадратичная форма $k$ имеет канонические виды 
+    Если в некоторых базисах $e_1,...e_n$ и $f_1,...,f_n$ квадратичная форма $k$ имеет канонические виды:
     $$k = \sum \limits_{i=1}^p y_i^2 - \sum \limits_{j=p+1}^{p+q} y_j^2 = \sum \limits_{i=1}^{p'} z_i^2 - \sum \limits_{j=p'+1}^{p'+q'} z_j^2$$
     то $p = p', q = q'$.
 \end{theorem} 
 \begin{proof}
     Так как $p + q = rk B = p' + q'$, достаточно доказать, что $p = p'$.
-    От противного: пусть $p' < p$. Рассмотрим подпространства $U_1 = \langle e_1,..,e_p \rangle, U_2 = \langle f_{p'+1},..,f_n \rangle$. Очевидно, $\dim U_1 = p, \dim U_2 = n- p'$.
+    От противного: пусть $p' < p$. Рассмотрим подпространства: 
+    $$U_1 = \langle e_1,..,e_p \rangle, \ U_2 = \langle f_{p'+1},..,f_n \rangle$$ 
+    Очевидно, что: $\dim U_1 = p, \dim U_2 = n- p'$.
     $$\dim U_1 + \dim U_2 = p - p' + n > n; \ \ U_1 + U_2 \subset V \Rightarrow dim(U_1 + U_2) \leq n$$
     Из формулы Грассмана:
     $$\dim (U_1 + U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2) \Rightarrow dim(U_1 \cap U_2) > 0$$
@@ -211,30 +213,32 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \end{proof}
 \subsection{Знакоопределённые квадратичные формы}
 \begin{definition}
-    Пусть $b(x, y)$ - симметрическая билинейная форма. Векторы $u, v$ называются \textit{ортогональными}, если $b(u, v) = 0$. Обозначается $u \perp v$.
+    Пусть $b(x, y)$ - симметрическая билинейная форма. Векторы $u, v$ называются \textit{ортогональными}, если $b(u, v) = 0$. Обозначается: $u \perp v$.
 \end{definition}
 \begin{definition} 
-    Базис $e_1,...,e_n$ в $V$ - \textit{ортогональный}, если $b(e_i, e_j) = 0 (i \neq j)$.
+    Базис $e_1,...,e_n$ в $V$ - \textit{ортогональный}, если $b(e_i, e_j) = 0 \ (i \neq j)$.
 \end{definition}
 \begin{definition}
-    Для квадратной матрицы $B$ главными минорами (угловыми минорами) называются миноры $\Delta_1,\Delta_2,...,\Delta_{n-1}$, где $\Delta_i = \begin{vmatrix} b_{11}&\dots&b_{1i}\\\vdots&\null&\vdots\\b_{i1}&\dots&b_{ii}\end{vmatrix}$. Определим $\Delta_n = |B|, \Delta_0 = 1$.
+    Для квадратной матрицы $B$ главными минорами (угловыми минорами) называются миноры $\Delta_1,\Delta_2,...,\Delta_{n-1}$, где $\Delta_i = \begin{vmatrix} b_{11}&\dots&b_{1i}\\\vdots&\null&\vdots\\b_{i1}&\dots&b_{ii}\end{vmatrix}$. \\
+    Определим $\Delta_n = |B|, \Delta_0 = 1$.
 \end{definition}
 \begin{theorem} \textbf{Якоби}
-    Пусть $k(x) (= b(x, x), b - \text{симм. б. ф.})$ такова, что главные миноры её матрицы $B$ в нек. базисе $e: \Delta_1,\Delta_2,...,\Delta_{n-1} \neq 0$
-    Тогда в $V$ существует базис (и замена координат $X = CY$), в котором 
+    Пусть $k(x) \ (k(x)=b(x, x), b - \text{симм. б. ф.})$ такова, что главные миноры её матрицы $B$ в нек. базисе $e: \Delta_1,\Delta_2,...,\Delta_{n-1} \neq 0$
+    Тогда в $V$ существует базис (и замена координат $X = CY$), в котором:
     $$k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$$
 \end{theorem}
 \begin{proof}
     Будем строить базис $e'$ из базиса $e$, ортогональный относительно $b(x, y)$ (алгоритм ортогонализации Грама/Шмидта).
     $$e'_1 := e_1; \ \ \forall k \geq 1 \ \langle e'_1,...,e'_k\rangle = \langle e_1,...,e_k\rangle$$
-    причём $b(e'_i, e'_j) = 0 (1 \leq i \neq j \leq k)$\\
+    причём $b(e'_i, e'_j) = 0 \ (1 \leq i \neq j \leq k)$\\
     Шаг алгоритма: допустим, что $k > 1$ и векторы $e'_1,...,e'_{k-1}$ уже построены. Будем искать $e'_{k}$ в виде 
     $$e'_k = e_k + \sum \limits_{i=1}^{k-1} \lambda_i e'_i$$
     где $\lambda_i$  найдём из условия $b(e'_k, e'_j) = 0, \ j = 0,...,k-1$
     $$b(e'_k, e'_j) = b(e_k, e'_j) + \sum \limits_{i=1}^{k-1} \lambda_j b(e'_i, e'_j) = b(e_k, e'_j) + \lambda_j b(e'_j, e'_j) = 0 \Rightarrow \lambda_j = -\frac{b(e_k, e'_j)}{b(e'_j, e'_j)}$$
     Покажем по индукции, что $b(e'_j, e'_j) = \frac{\Delta_j}{\Delta_{j-1}} \neq 0$.\\
     Обратим внимание, что матрица перехода от $e_1,...,e_{k-1}$ к $e'_1,...,e'_{k-1}$ - верхняя треугольная с 1 по диагонали (предп. индукции).
-    Запишем: $C_{(e_1,...,e_k)\rightarrow (e'_1,...,e'_k)} = \begin{pmatrix}C_{k-1}&*\\0&1\end{pmatrix}$, где по предположению индукции $C_{k-1} = \begin{pmatrix} 1&\null&* \\ \null&\ddots&\null \\ 0&\null&1 \end{pmatrix}$
+    Запишем: 
+    $$C_{(e_1,...,e_k)\rightarrow (e'_1,...,e'_k)} = \begin{pmatrix}C_{k-1}&*\\0&1\end{pmatrix}, \text{ где } C_{k-1} = \begin{pmatrix} 1&\null&* \\ \null&\ddots&\null \\ 0&\null&1 \end{pmatrix}$$
     $B$ - матрица билин. формы $b(x, y)$ в базисе $e$, $B'$ - в базисе $e'$, который мы строим.
     $$B'_{k | \langle e'_1,...,e'_k \rangle} = C_k^T B_{k | \langle e_1,...,e_k \rangle} C_k \Rightarrow \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = (\det C_k)^2 \cdot \det B_{k | \langle e_1,...,e_k \rangle}$$
     $$\Delta'_k = \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = b'_{11}...b'_{kk} = \Delta_k$$
@@ -253,11 +257,11 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \begin{subtheorem}
     Квадратичная форма $k(x)$ является
     \begin{enumerate}
-        \item положительно определённой $\Leftrightarrow p = n, q = 0$;
-        \item отрицательно определённой $\Leftrightarrow p = 0, q = n$;
-        \item неотрицательно определённой $\Leftrightarrow q = 0$;
-        \item неположительно определённой $\Leftrightarrow p = 0$;
-        \item знаконеопределённой $\Leftrightarrow p,q > 0$.
+        \item положительно определённой $\Longleftrightarrow  p = n, q = 0$;
+        \item отрицательно определённой $\Longleftrightarrow  p = 0, q = n$;
+        \item неотрицательно определённой $\Longleftrightarrow  q = 0$;
+        \item неположительно определённой $\Longleftrightarrow  p = 0$;
+        \item знаконеопределённой $\Longleftrightarrow  p,q > 0$.
     \end{enumerate}
 \end{subtheorem}
 \begin{proof}
@@ -267,8 +271,8 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     Если кв. форма $k > 0$, то $\det B = \Delta_n \neq 0$.
 \end{lemma}
 \begin{proof}
-    Т.к. $k>0$, $p = n$, т.е. существует базис, в котором $k(x') = {x'_1}^2 + ... + {x'_n}^2 \Rightarrow \Delta'_n = 1 > 0$.\\
-    А так как $B' = C^TBC$, $|B'| = |C|^2\cdot|B| \Rightarrow \det B > 0$.
+    Т.к. $k>0$, $p = n$, т.е. существует базис, в котором: $$k(x') = {x'_1}^2 + ... + {x'_n}^2 \Longrightarrow  \Delta'_n = 1 > 0$$
+    А так как $B' = C^TBC$, $|B'| = |C|^2\cdot|B| \Longrightarrow  \det B > 0$.
 \end{proof}
 \begin{theorem} \textbf{Критерий Сильвестра}\\
     Квадратичная форма $k(x)$, имеющая в некотором базисе матрицу $B$, является
@@ -277,10 +281,11 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
         \item отрицательно определённой $\Leftrightarrow \forall k \ (-1)^k\Delta_k > 0$.
     \end{enumerate} 
 \end{theorem}
-\begin{proof} Для положительной определённости: \\
-    $\Leftarrow : \ \ $ По теореме Якоби $\exists$ базис, в котором $k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$. Т.к все $\Delta_i > 0$ (знакочередующиеся для отрицательного случая), все коэффициенты $> 0 (< 0)$, т.е. значение формы на любом ненулевом векторе имеет необходимый нам знак.\\
-    $\\ \Rightarrow : \ \ $ $k>0 \Rightarrow \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0$ (k-ый минор ненулевой по лемме для угловой подматрицы)$ \Rightarrow$ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$.
-
+\begin{proof} Для положительной определённости:
+    \begin{itemize}
+        \item[ $\underline{\Longleftarrow }$ ] По теореме Якоби $\exists$ базис, в котором $k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$. Т.к все $\Delta_i > 0$ (знакочередующиеся для отрицательного случая), все коэффициенты $> 0 (< 0)$, т.е. значение формы на любом ненулевом векторе имеет необходимый нам знак.
+        \item[ $\underline{\Longrightarrow }$ ] $k>0 \Longrightarrow  \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0$ (k-ый минор ненулевой по лемме для угловой подматрицы) \ $\Longrightarrow $ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$
+    \end{itemize}
     Для отрицательной определённости: $k < 0 \Leftrightarrow -k > 0$, причём при домножении матрицы на $-1$ знак меняют только миноры нечётного порядка. 
 \end{proof}
 \begin{remark}
@@ -297,7 +302,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \subsection{Кососимметрические билинейные формы}
 $$\forall\ x,y \in V: \ \ b(y,x) = -b(x,y) \ \ \ (\text{char } \F \neq 2)$$
 Заметим, что $\forall x\in V: \ b(x,x) = 0$. Если же $b(x, x) \equiv 0$:
-$$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Rightarrow b(x,y) = -b(y,x)$$
+$$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Longrightarrow  b(x,y) = -b(y,x)$$
 Поэтому условие $b(x,x) \equiv 0$ не только эквивалентно кососимметричности формы, но и применимо в случае $\text{char } F = 2$.
 \begin{lemma}
     Пусть $b(x,y)$ - симметрическая или кососимметрическая билинейная форма на $V \ (\dim V = n < \infty), \ U\subset V$ такое, что $b|_U$ невырождена. Тогда $V = U \oplus U^{\perp}$.
@@ -306,9 +311,11 @@ $$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Rightarrow b(x,y) = -b(y,x
     $U^{\perp} = \{y\in V: \ b(x,y) = 0  \ \forall x\in U\}$.\\
     В координатах: если выбрать базис $e_1,...,e_m$ в $U$ ($m = \dim U, 0<m<n$), то $y \in U^{\perp} \Leftrightarrow b(e_i, y) = 0, \ i = 1,...,m$.\\
     Если $b(x,y) = 0 \ \forall x \in U$, то $b(e_i, y) = 0, \ i = 1,...,m$\\
-    Обратно, если $b(e_i, y) = 0, \ i = 1,...,m$, то $\forall x \in U \ x = \sum \limits_{i=1}^m x_ie_i \Rightarrow b(x,y) = \sum \limits_{i=1}^m x_ib(e_i,y) = 0$.\\
-    Запишем систему уравнений для нахождения $y$, выбрав базис $e_1,...,e_m \in U$ и дополнив его до базиса $e_1,...,e_n \in V$. В этом базисе $e_i^{\uparrow} = \begin{pmatrix} 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \ b(e_i, y) = (0,...,1,...,0)B \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = (b_{i1},...,b_{in})Y^{\uparrow}$\\
-    Система имеет вид 
+    Обратно, если $b(e_i, y) = 0, \ i = 1,...,m$, то: 
+    $$\forall x \in U: \ x = \sum \limits_{i=1}^m x_ie_i \Longrightarrow  b(x,y) = \sum \limits_{i=1}^m x_ib(e_i,y) = 0$$
+    Запишем систему уравнений для нахождения $y$, выбрав базис $e_1,...,e_m \in U$ и дополнив его до базиса $e_1,...,e_n \in V$. В этом базисе $e_i^{\uparrow} = \begin{pmatrix} 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{pmatrix}$ 
+    $$b(e_i, y) = (0,...,1,...,0)B \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = (b_{i1},...,b_{in})Y^{\uparrow}$$
+    Система имеет вид:
     $$\begin{pmatrix}
         b_{11}&\dots&b_{1n}\\
         \vdots&\null&\vdots\\
@@ -330,8 +337,9 @@ $$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Rightarrow b(x,y) = -b(y,x
     где $I_j = \begin{pmatrix} 0&1 \\ -1&0 \end{pmatrix}$, $\text{rk} B = 2s$
 \end{theorem}
 \begin{proof}
-    Т.к. $b(x,y) \not \equiv 0$, $\exists$ векторы $e_1, e_2 \in V$ такие, что $b(e_1, e_2) = \beta_{12} \neq 0$. Рассмотрим
-    $$f_1 = \frac{e_1}{\beta_{12}}, f_2 = e_2 \Rightarrow b(f_1,f_2) = 1, b(f_2,f_1) = -b(f_1,f_2) = -1$$
+    Т.к. $b(x,y) \not \equiv 0$, $\exists$ векторы $e_1, e_2 \in V$: \ $b(e_1, e_2) = \beta_{12} \neq 0$. \\
+    Рассмотрим:
+    $$f_1 = \frac{e_1}{\beta_{12}}, f_2 = e_2 \Longrightarrow  b(f_1,f_2) = 1, b(f_2,f_1) = -b(f_1,f_2) = -1$$
     Пусть $U = \langle e_1, e_2\rangle$. Возьмём $W = U^{\perp}$ в пр-ве $V$. Тогда $V = U \oplus U^{\perp}$ и $\tilde{b} = b|_{U^{\perp}}$ также кососимметрическая форма, т.е. можем провести индукцию по $n = \dim V$ (базу $n = 2$ доказали). $\dim W = n-2$, т.е. $\exists$ базис $f_3,...,f_n$, в котором матрица $b|_{U^{\perp}}$ имеет вид $\begin{pmatrix}
     \text{\fbox{$I$}}\\
     \null & \ddots\\
