@@ -1,4 +1,4 @@
-%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
+%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 24 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Билинейные и квадратичные формы}
 \begin{definition}
     Функция $b: \ V\times V \to \F$ называется билинейной функцией, если:
@@ -17,14 +17,14 @@
     \begin{enumerate}
         \item Симметрическая билинейная функция - скалярное произведение
         \item $V = M_n(\F): \ b(X,Y) = tr(XY)$
-        \item $\beta(f, g) = \int \limits_a^b f(x)g(x)dx$  
+        \item $b(f, g) = \int \limits_\alpha^\beta f(x)g(x)dx$  
     \end{enumerate}
 \end{example}
 \subsection{Запись билинейной функции в координатах}
 Пусть в $V$ задан базис $e_1,...,e_n$, тогда:
 $$b(\sum \limits_{i=1}^nx_ie_i, \sum \limits_{j=1}^ny_je_j) = \sum \limits_{i,j=1}^nb(x_ie_i, y_je_j) = \sum \limits_{i,j=1}^n x_iy_jb(e_i,e_j)$$
 \begin{definition}
-    Обозначим $b_{ij} = b(e_i, e_j)$, тогда $B_e=b_{ij}$ - матрица билинейной функции $b(x, y)$ в базисе $e$\\
+    Обозначим $b_{ij} = b(e_i, e_j)$, тогда $B_e=(b_{ij})$ - матрица билинейной функции $b(x, y)$ в базисе $e$\\
     Тогда:
     $$b(x, y) = \sum \limits_{i,j=1}^n x_ib_{ij}y_j = \begin{pmatrix}
         x_1 & \cdots & x_n
@@ -55,7 +55,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     $$\forall x, y \in V: \ b(x, y) = -b(y, x)$$  
 \end{definition} 
 \begin{subtheorem} $(*)$ 
-    Любая билинейная функция над $\F: \ \text{char}\F \neq 2$ единственным образом представляется в виде:
+    Любая билинейная функция над $\F,  \text{char}\hspace{0.1cm}\F \neq 2$ единственным образом представляется в виде:
     $$b(x, y) = b_+(x, y) + b_-(x, y), \ \text{ где } b_+(x, y) \equiv b_+(y, x), \ b_-(x, y) \equiv -b(y,x)$$  
 \end{subtheorem}
 \begin{proof}
@@ -88,7 +88,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     Если $b$ - кососимметрическая функция, то $b(x,x)=0$ $\Longrightarrow$ $k(x)\equiv0$. В общем случае существует бесконечно много билинейных функций, порождающих одну и ту же квадратичную, таких, что: 
     $$b(x,y)=b_+(x,y)+b_-(x,y) \Longrightarrow  b(x,x)=b_+(x,x)$$
 \begin{theorem}
-    $\forall$ квадратичной функции $\exists!$ симметрическая билинейная функция, которая её порождает.
+    Для любой квадратичной функции $\exists!$ симметрическая билинейная функция, которая её порождает.
 \end{theorem}
 \begin{proof}
     Допустим, что $b(x,y) = b(y,x)$ - симметрическая билинейная функция и $k(x) = b(x,x)$. Тогда $\forall x, y\in V$:
@@ -137,7 +137,7 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     $$k(x_1, \ldots, x_n)=\sum\limits_{i=1}^n\alpha_ix_i^2, \text{ где } \alpha_i\in\F$$
 \end{definition}
 \begin{theorem}
-    В конечномерном пространстве $V$ ($\textup{char }\F\neq2$) $\exists$ базис, в котором эта форма диагональна.
+    В конечномерном пространстве $V$ ($\textup{char }\F\neq2$) $\exists$ базис, в котором квадратичная форма диагональна.
 \end{theorem}
 \begin{proof} (Алгоритм Лагранжа - метод выделения полных квадратов)\\
     По формуле \textbf{(1)}: 
@@ -178,11 +178,11 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     \begin{enumerate}
         \item Пусть $\F=\R$:
         $$k(x)=b_{11}x_1^2+b_{22}x_2^2+\ldots+b_{nn}x_n^2 = \alpha_1x_1^2+\alpha_2x_2^2+\ldots+\alpha_nx_n^2$$
-        Если $rkB=r \Longrightarrow  k(x)=\alpha_1x_1^2+\alpha_2x_2^2+\ldots+\alpha_rx_r^2(\alpha_{r+1}=\ldots=\alpha_n=0)$.\\
-        Если $\alpha_i>0$, то введём обозначение: 
-        $$\widehat{x}_i=\sqrt{\alpha_i}x_i \Longrightarrow k=\widehat{x}_1^2+\ldots+\widehat{x}_p^2-\widehat{x}_{p+1}^2-\ldots-\widehat{x}_r^2$$
-        где $p$ - количество коэффициентов $\alpha_i>0$.\\
-        Если $\alpha_i < 0 \Longrightarrow  \widehat{x_i} = -\sqrt{\alpha_i}x_i$.
+        Если $rkB=r \Longrightarrow  k(x)=\alpha_1x_1^2+\alpha_2x_2^2+\ldots+\alpha_rx_r^2 \ (\alpha_{r+1}=\ldots=\alpha_n=0)$.\\
+        Если $\alpha_i>0$, то введём обозначение: $\widehat{x}_i=\sqrt{\alpha_i}x_i$ \\
+        Если $\alpha_i < 0 \Longrightarrow  \widehat{x_i} = -\sqrt{\alpha_i}x_i$ 
+        $$\Longrightarrow k=\widehat{x}_1^2+\ldots+\widehat{x}_p^2-\widehat{x}_{p+1}^2-\ldots-\widehat{x}_r^2$$
+        где $p$ - количество коэффициентов $\alpha_i>0$.
         \item Пусть $\F=\CC$: 
         $$\forall i=\overline{1,r}: \ \widehat{x}_i=\sqrt{\alpha_i}x_i \Longrightarrow k=\widehat{x}_1^2+\ldots+{\widehat{x}_r}^2$$
     \end{enumerate}
@@ -222,26 +222,38 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     Для квадратной матрицы $B$ главными минорами (угловыми минорами) называются миноры $\Delta_1,\Delta_2,...,\Delta_{n-1}$, где $\Delta_i = \begin{vmatrix} b_{11}&\dots&b_{1i}\\\vdots&\null&\vdots\\b_{i1}&\dots&b_{ii}\end{vmatrix}$. \\
     Определим $\Delta_n = |B|, \Delta_0 = 1$.
 \end{definition}
+
+\begin{algorithm}(\textbf{Ортогонализации Грама/Шмидта})\\
+    Будем строить базис $e'$ из базиса $e$, ортогональный относительно $b(x, y)$.
+    $$\forall k \geq 1 \ \langle e'_1,...,e'_k\rangle = \langle e_1,...,e_k\rangle, \text{ причём } b(e'_i, e'_j) = 0 \ (1 \leq i \neq j \leq k)$$
+    Пусть: $e'_1 = e_1$ (система из одного вектора всегда ортогональна)\\
+    Шаг алгоритма: допустим, что $k > 1$ и векторы $e'_1,...,e'_{k-1}$ уже построены. Будем искать $e'_{k}$ в виде 
+    $$e'_k = e_k + \sum \limits_{i=1}^{k-1} \lambda_i e'_i$$
+    где $\lambda_i$  найдём из условия $b(e'_k, e'_j) = 0, \ j = 1,...,k-1$
+    $$b(e'_k, e'_j) = b(e_k, e'_j) + \sum \limits_{i=1}^{k-1} \lambda_j b(e'_i, e'_j) = b(e_k, e'_j) + \lambda_j b(e'_j, e'_j) = 0 \Rightarrow \lambda_j = -\frac{b(e_k, e'_j)}{b(e'_j, e'_j)}$$
+\end{algorithm}
 \begin{theorem} \textbf{Якоби}
     Пусть $k(x) \ (k(x)=b(x, x), b - \text{симм. б. ф.})$ такова, что главные миноры её матрицы $B$ в нек. базисе $e: \Delta_1,\Delta_2,...,\Delta_{n-1} \neq 0$
     Тогда в $V$ существует базис (и замена координат $X = CY$), в котором:
     $$k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$$
 \end{theorem}
 \begin{proof}
-    Будем строить базис $e'$ из базиса $e$, ортогональный относительно $b(x, y)$ (алгоритм ортогонализации Грама/Шмидта).
-    $$e'_1 := e_1; \ \ \forall k \geq 1 \ \langle e'_1,...,e'_k\rangle = \langle e_1,...,e_k\rangle$$
-    причём $b(e'_i, e'_j) = 0 \ (1 \leq i \neq j \leq k)$\\
-    Шаг алгоритма: допустим, что $k > 1$ и векторы $e'_1,...,e'_{k-1}$ уже построены. Будем искать $e'_{k}$ в виде 
-    $$e'_k = e_k + \sum \limits_{i=1}^{k-1} \lambda_i e'_i$$
-    где $\lambda_i$  найдём из условия $b(e'_k, e'_j) = 0, \ j = 0,...,k-1$
-    $$b(e'_k, e'_j) = b(e_k, e'_j) + \sum \limits_{i=1}^{k-1} \lambda_j b(e'_i, e'_j) = b(e_k, e'_j) + \lambda_j b(e'_j, e'_j) = 0 \Rightarrow \lambda_j = -\frac{b(e_k, e'_j)}{b(e'_j, e'_j)}$$
+    % Будем строить базис $e'$ из базиса $e$, ортогональный относительно $b(x, y)$ (алгоритм ортогонализации Грама/Шмидта).
+    % $$e'_1 := e_1; \ \ \forall k \geq 1 \ \langle e'_1,...,e'_k\rangle = \langle e_1,...,e_k\rangle$$
+    % причём $b(e'_i, e'_j) = 0 \ (1 \leq i \neq j \leq k)$\\
+    % Шаг алгоритма: допустим, что $k > 1$ и векторы $e'_1,...,e'_{k-1}$ уже построены. Будем искать $e'_{k}$ в виде 
+    % $$e'_k = e_k + \sum \limits_{i=1}^{k-1} \lambda_i e'_i$$
+    % где $\lambda_i$  найдём из условия $b(e'_k, e'_j) = 0, \ j = 0,...,k-1$
+    % $$b(e'_k, e'_j) = b(e_k, e'_j) + \sum \limits_{i=1}^{k-1} \lambda_j b(e'_i, e'_j) = b(e_k, e'_j) + \lambda_j b(e'_j, e'_j) = 0 \Rightarrow \lambda_j = -\frac{b(e_k, e'_j)}{b(e'_j, e'_j)}$$
+    Построим базис $e'$ из базиса $e$, ортогональный относительно $b(x, y)$, с помощью алгоритма ортогонализации Грама/Шмидта.
+    $$e'_k = e_k + \sum \limits_{i=1}^{k-1} \lambda_i e'_i, \text{ где } \lambda_j = -\frac{b(e_k, e'_j)}{b(e'_j, e'_j)}$$
     Покажем по индукции, что $b(e'_j, e'_j) = \frac{\Delta_j}{\Delta_{j-1}} \neq 0$.\\
     Обратим внимание, что матрица перехода от $e_1,...,e_{k-1}$ к $e'_1,...,e'_{k-1}$ - верхняя треугольная с 1 по диагонали (предп. индукции).
     Запишем: 
     $$C_{(e_1,...,e_k)\rightarrow (e'_1,...,e'_k)} = \begin{pmatrix}C_{k-1}&*\\0&1\end{pmatrix}, \text{ где } C_{k-1} = \begin{pmatrix} 1&\null&* \\ \null&\ddots&\null \\ 0&\null&1 \end{pmatrix}$$
     $B$ - матрица билин. формы $b(x, y)$ в базисе $e$, $B'$ - в базисе $e'$, который мы строим.
     $$B'_{k | \langle e'_1,...,e'_k \rangle} = C_k^T B_{k | \langle e_1,...,e_k \rangle} C_k \Rightarrow \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = (\det C_k)^2 \cdot \det B_{k | \langle e_1,...,e_k \rangle}$$
-    $$\Delta'_k = \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = b'_{11}...b'_{kk} = \Delta_k$$
+    $$\Delta'_k = \det(B'_{k | \langle e'_1,...,e'_k \rangle}) = b'_{11}\cdot...\cdot b'_{kk} = \Delta_k$$
     $$\frac{\Delta_1}{\Delta_0}\cdot\frac{\Delta_2}{\Delta_1}\cdot...\cdot\frac{\Delta_{k-1}}{\Delta_{k-2}}\cdot b'_{kk} = \Delta_k \Rightarrow b'_{kk} = \frac{\Delta_k}{\Delta_{k-1}}$$
 \end{proof}
 Далее рассматриваем $F = \R$.
