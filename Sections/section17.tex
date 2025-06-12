@@ -1,4 +1,4 @@
-%chktex-file 1 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
+%chktex-file 1 %chktex-file 2 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Евклидовы пространства и их обобщения}
 \subsection{Основные понятия и утверждения}
 Основное поле - $\F = \R$.
@@ -66,12 +66,14 @@ $$(x,y) = (\sum \limits_{i=1}^nx_ie_i, \sum \limits_{j=1}^ny_je_j) = \sum \limit
 \end{remark} 
 \begin{proof} \tab
     \begin{enumerate}
-        \item По определению матрицы перехода $C_{e \to e'} = \begin{pmatrix}
+        \item По определению матрицы перехода:
+        $$C_{e \to e'} = \begin{pmatrix}
             e_1'^{\uparrow} & \cdots & e_n'^{\uparrow}
-        \end{pmatrix}$\\
-        $C^T_{e\to e'} = \begin{pmatrix}
+        \end{pmatrix}; \ \ 
+        C^T_{e\to e'} = \begin{pmatrix}
             e_1'^{\rightarrow}  \\ \vdots \\ e_n'^{\rightarrow} 
-        \end{pmatrix}$ Обозначим $d_{ij}$ - $(ij)$элемент матрицы $C^TC:$ 
+        \end{pmatrix}$$ 
+        Обозначим $d_{ij}$ - $(ij)$ элемент матрицы $C^TC:$ 
         $$d_{ij} = e_i'^{\rightarrow} \cdot e_j'^{\uparrow} = (e'_i,e_j') = \delta_{ij}$$
         т.к. базис $e$ ортонормированный $\Longrightarrow d_{ij} = \delta_{ij} \Longrightarrow C^TC = E$
         \item Рассмотрим $e' = eC_{e\to e'}$, тогда $e_j^{\uparrow}$ - это $j$ столбец матрицы $C_{e\to e'}$\\
@@ -116,7 +118,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
     Ортогональное дополнение подпространства $U \subset \E$ - ортогональное дополнение $U$ относительно скалярного произведения как симметрической билинейной формы.
 \end{definition}
 \begin{remark}
-    Доказательство разложения $\E = U \oplus U^\perp$ см. в разделе \ref{oplus}.
+    Доказательство разложения $\E = U \oplus U^\perp$ см. в разделе \ref{oplus}
 \end{remark}
 \begin{properties} \textbf{операций ортогонального дополнения} 
     \begin{enumerate}
@@ -154,7 +156,7 @@ $x_{\perp} \in U^{\perp}, \ x_{\perp}$ - ортогональная состав
     Обозначим $x_{\shortparallel} = y, \ x_{\perp} = z$, а вектор из начала $x$ в произвольную точку $U$ - вектор $v$
     \begin{center}
         % 
-        Какой тут рисунок то? ( если кто знает, киньте в личку, нарисую )
+        Какой тут рисунок то? ( рисунок скинули, завтра нарисую )
     \end{center}
     Докажем, что $|x-v|\geqslant |z|$, причём равенство достигается при $v = y$:
     $$x - v = x - y + y - v = z + y - v$$

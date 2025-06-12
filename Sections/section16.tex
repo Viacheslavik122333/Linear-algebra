@@ -289,16 +289,17 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \begin{theorem} \textbf{Критерий Сильвестра}\\
     Квадратичная форма $k(x)$, имеющая в некотором базисе матрицу $B$, является
     \begin{enumerate}
-        \item положительно определённой $\Leftrightarrow \Delta_1 > 0,...,\Delta_n > 0$.
-        \item отрицательно определённой $\Leftrightarrow \forall k \ (-1)^k\Delta_k > 0$.
+        \item положительно определённой $\Longleftrightarrow  \Delta_1 > 0,...,\Delta_n > 0$.
+        \item отрицательно определённой $\Longleftrightarrow  \forall t \ (-1)^t\Delta_t > 0$.
     \end{enumerate} 
 \end{theorem}
-\begin{proof} Для положительной определённости:
+\begin{proof}\tab
     \begin{itemize}
-        \item[ $\underline{\Longleftarrow }$ ] По теореме Якоби $\exists$ базис, в котором $k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$. Т.к все $\Delta_i > 0$ (знакочередующиеся для отрицательного случая), все коэффициенты $> 0 (< 0)$, т.е. значение формы на любом ненулевом векторе имеет необходимый нам знак.
-        \item[ $\underline{\Longrightarrow }$ ] $k>0 \Longrightarrow  \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0$ (k-ый минор ненулевой по лемме для угловой подматрицы) \ $\Longrightarrow $ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$
-    \end{itemize}
-    Для отрицательной определённости: $k < 0 \Leftrightarrow -k > 0$, причём при домножении матрицы на $-1$ знак меняют только миноры нечётного порядка. 
+        \item[ $\underline{\Longleftarrow }:$ ] По теореме Якоби $\exists$ базис, в котором $k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$. Т.к все $\Delta_i > 0$ (знакочередующиеся для отрицательного случая), все коэффициенты $> 0 (< 0)$, т.е. значение формы на любом ненулевом векторе имеет необходимый нам знак.
+        \item[ $\underline{\Longrightarrow }:$ ]
+        $t>0 \Longrightarrow  \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0$ ($t$-ый минор ненулевой по лемме для угловой подматрицы) \ $\Longrightarrow $ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$\\
+        $t < 0 \Longrightarrow -t > 0$, причём при домножении матрицы на $-1$ знак меняют только миноры нечётного порядка.
+    \end{itemize} 
 \end{proof}
 \begin{remark}
     Т.к. $b_{ii} = k(e_i)$, у положительно определённой формы все $b_{ii} > 0$, у отрицательной все $b_{ii} < 0$.
@@ -312,17 +313,26 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     Тогда каждое сохранение знака соответствует положительному коэффициенту, а каждая перемена знака - отрицательному коэффициенту, откуда и следует необходимое равенство. 
 \end{proof}
 \subsection{Кососимметрические билинейные формы}
-$$\forall\ x,y \in V: \ \ b(y,x) = -b(x,y) \ \ \ (\text{char } \F \neq 2)$$
-Заметим, что $\forall x\in V: \ b(x,x) = 0$. Если же $b(x, x) \equiv 0$:
-$$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Longrightarrow  b(x,y) = -b(y,x)$$
-Поэтому условие $b(x,x) \equiv 0$ не только эквивалентно кососимметричности формы, но и применимо в случае $\text{char } F = 2$.
+\begin{definition}
+    Кососимметрическая билинейная форма: 
+    $$\forall\ x,y \in V: \ \ b(y,x) = -b(x,y) \ \ \ (\text{char } \F \neq 2)$$
+\end{definition} 
+\begin{remark}
+    Заметим, что $\forall x\in V: \ b(x,x) = 0$. Если же $b(x, x) \equiv 0$:
+    $$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Longrightarrow  b(x,y) = -b(y,x)$$
+    Поэтому условие $b(x,x) \equiv 0$ не только эквивалентно кососимметричности формы, но и применимо в случае $\text{char } F = 2$.
+\end{remark} 
+
 \begin{lemma}
     Пусть $b(x,y)$ - симметрическая или кососимметрическая билинейная форма на $V \ (\dim V = n < \infty), \ U\subset V$. Тогда если $e_1,...,e_m$ - базис $U$, то $y \in U^\perp \Longleftrightarrow b(e_i, y) = 0, \ i = 1,...,m$.
 \end{lemma}
 \begin{proof}
-    $U^{\perp} = \{y\in V: \ b(x,y) = 0  \ \forall x\in U\}$.\\
-    $\Rightarrow: \ \ y \in U^\perp \Longrightarrow b(x, y) = 0 \ \forall x \in U \Longrightarrow b(e_i, y) = 0, \ i = 1,...,m$;\\
-    $\Leftarrow: \ b(e_i, y) = 0 \Longrightarrow \forall x \in U \ b(x, y) = b(\sum \limits_{i=1}^m x_ie_i, y) = \sum \limits_{i=1}^m x_i b(e_i, y) = \sum \limits_{i=1}^m 0 = 0 \Longrightarrow y \in U^\perp$.
+    $U^{\perp} = \{y\in V: \ b(x,y) = 0  \ \forall x\in U\}$.
+    \begin{itemize}
+        \item[$\underline{\Longrightarrow }:$] $y \in U^\perp \Longrightarrow b(x, y) = 0 \ \forall x \in U \Longrightarrow b(e_i, y) = 0, \ i = 1,...,m$;
+        \item[$\underline{\Longleftarrow}:$] $b(e_i, y) = 0 \Longrightarrow \forall x \in U: \ b(x, y) = b(\sum \limits_{i=1}^m x_ie_i, y) = \sum \limits_{i=1}^m x_i b(e_i, y) = \sum \limits_{i=1}^m 0 = 0 \Longrightarrow y \in U^\perp$.
+    \end{itemize}
+    
 \end{proof}
 \label{oplus}
 \begin{theorem}
@@ -330,7 +340,8 @@ $$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Longrightarrow  b(x,y) = -
 \end{theorem}
 \begin{proof}
     Из леммы  $y \in U^\perp \Longleftrightarrow b(e_i, y) = 0, \ i = 1,...,m$.\\
-    Запишем систему уравнений для нахождения $y$, выбрав базис $e_1,...,e_m \in U$ и дополнив его до базиса $e_1,...,e_n \in V$. В этом базисе $e_i^{\uparrow} = \begin{pmatrix} 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \ b(e_i, y) = (0,...,1,...,0)B \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = (b_{i1},...,b_{in})Y^{\uparrow}$\\
+    Запишем систему уравнений для нахождения $y$, выбрав базис $e_1,...,e_m \in U$ и дополнив его до базиса $e_1,...,e_n \in V$. В этом базисе: 
+    $$e_i^{\uparrow} = \begin{pmatrix} 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \ b(e_i, y) = (0,...,1,...,0)B \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = (b_{i1},...,b_{in})Y^{\uparrow}$$
     Система имеет вид 
     $$\begin{pmatrix}
         b_{11}&\dots&b_{1n}\\
@@ -338,11 +349,11 @@ $$0 = b(x+y,x+y) = b(x,x) + b(y,y) + b(x,y) + b(y,x) \Longrightarrow  b(x,y) = -
         b_{m1}&\dots&b_{mn}
     \end{pmatrix} Y = 0$$
     Т.к. матрица $B|_U$ невырождена, $\text{rk} B = m$, т.е. система имеет $n-m$ ЛНЗ решений, а значит, $\dim U^\perp = \dim V - \dim U$.\\
-    Если же $v \in U\cap U^\perp$, то $\forall \ x\in U \ b(x,v) = 0$, а из невырожденности формы $b|_U$ тогда следует, что $v = 0$. 
+    Если же $v \in U\cap U^\perp$, то $\forall x\in U: \ b(x,v) = 0$, а из невырожденности формы $b|_U$ тогда следует, что $v = 0$. 
 \end{proof}
 \begin{theorem}
     Для любой кососимметрической билинейной формы $b(x,y) \not \equiv 0 \\ \exists$ такой базис $f_1,...,f_n \in V$, в котором матрица этой формы имеет вид
-    $$\begin{pmatrix}
+    $$B = \begin{pmatrix}
     \text{\fbox{$I_1$}}\\
     \null & \ddots\\
     \null & \null & \text{\fbox{$I_s$}}\\
