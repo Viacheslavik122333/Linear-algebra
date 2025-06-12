@@ -238,13 +238,6 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     $$k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$$
 \end{theorem}
 \begin{proof}
-    % Будем строить базис $e'$ из базиса $e$, ортогональный относительно $b(x, y)$ (алгоритм ортогонализации Грама/Шмидта).
-    % $$e'_1 := e_1; \ \ \forall k \geq 1 \ \langle e'_1,...,e'_k\rangle = \langle e_1,...,e_k\rangle$$
-    % причём $b(e'_i, e'_j) = 0 \ (1 \leq i \neq j \leq k)$\\
-    % Шаг алгоритма: допустим, что $k > 1$ и векторы $e'_1,...,e'_{k-1}$ уже построены. Будем искать $e'_{k}$ в виде 
-    % $$e'_k = e_k + \sum \limits_{i=1}^{k-1} \lambda_i e'_i$$
-    % где $\lambda_i$  найдём из условия $b(e'_k, e'_j) = 0, \ j = 0,...,k-1$
-    % $$b(e'_k, e'_j) = b(e_k, e'_j) + \sum \limits_{i=1}^{k-1} \lambda_j b(e'_i, e'_j) = b(e_k, e'_j) + \lambda_j b(e'_j, e'_j) = 0 \Rightarrow \lambda_j = -\frac{b(e_k, e'_j)}{b(e'_j, e'_j)}$$
     Построим базис $e'$ из базиса $e$, ортогональный относительно $b(x, y)$, с помощью алгоритма ортогонализации Грама/Шмидта.
     $$e'_k = e_k + \sum \limits_{i=1}^{k-1} \lambda_i e'_i, \text{ где } \lambda_j = -\frac{b(e_k, e'_j)}{b(e'_j, e'_j)}$$
     Покажем по индукции, что $b(e'_j, e'_j) = \frac{\Delta_j}{\Delta_{j-1}} \neq 0$.\\
@@ -297,8 +290,8 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
     \begin{itemize}
         \item[ $\underline{\Longleftarrow }:$ ] По теореме Якоби $\exists$ базис, в котором $k = \sum \limits_{i=1}^{n} \frac{\Delta_i}{\Delta_{i-1}}y_i^2$. Т.к все $\Delta_i > 0$ (знакочередующиеся для отрицательного случая), все коэффициенты $> 0 (< 0)$, т.е. значение формы на любом ненулевом векторе имеет необходимый нам знак.
         \item[ $\underline{\Longrightarrow }:$ ]
-        $t>0 \Longrightarrow  \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0$ ($t$-ый минор ненулевой по лемме для угловой подматрицы) \ $\Longrightarrow $ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$\\
-        $t < 0 \Longrightarrow -t > 0$, причём при домножении матрицы на $-1$ знак меняют только миноры нечётного порядка.
+        $k>0 \Longrightarrow  \Delta_1\cdot\Delta_2\cdot...\cdot\Delta_n \neq 0$ ($t$-ый минор ненулевой по лемме для угловой подматрицы) \ $\Longrightarrow $ применима т. Якоби, из которой следуют необходимые нам знаки на всех $\Delta$\\
+        $k < 0 \Longrightarrow -k > 0$, причём при домножении матрицы на $-1$ знак меняют только миноры нечётного порядка.
     \end{itemize} 
 \end{proof}
 \begin{remark}
@@ -366,13 +359,18 @@ $$\Longrightarrow B' = C^TBC \ \ (\forall i,j: \ X':= E_i, \ Y':=E_j)$$
 \begin{proof}
     Т.к. $b(x,y) \not \equiv 0$, $\exists$ векторы $e_1, e_2 \in V$: \ $b(e_1, e_2) = \beta_{12} \neq 0$. \\
     Рассмотрим:
-    $$f_1 = \frac{e_1}{\beta_{12}}, f_2 = e_2 \Longrightarrow  b(f_1,f_2) = 1, b(f_2,f_1) = -b(f_1,f_2) = -1$$
-    Пусть $U = \langle e_1, e_2\rangle$. Возьмём $W = U^{\perp}$ в пр-ве $V$. Тогда $V = U \oplus U^{\perp}$ и $\tilde{b} = b|_{U^{\perp}}$ также кососимметрическая форма, т.е. можем провести индукцию по $n = \dim V$ (базу $n = 2$ доказали). $\dim W = n-2$, т.е. $\exists$ базис $f_3,...,f_n$, в котором матрица $b|_{U^{\perp}}$ имеет вид $\begin{pmatrix}
-    \text{\fbox{$I$}}\\
+    $$f_1 = \frac{e_1}{\beta_{12}}, f_2 = e_2 \Longrightarrow  b(f_1,f_2) = 1, \ b(f_2,f_1) = -b(f_1,f_2) = -1$$
+    Пусть $n = 2: \ U = \langle e_1, e_2\rangle$ - база. \\
+    Возьмём $U^{\perp}$ в пр-ве $V$. Заметим, что $\tilde{b} = b|_{U^{\perp}}$ также кососимметрическая форма $\Longrightarrow $ по Лемме $V = U \oplus U^{\perp}$.\\
+    Проведем индукцию по $n = \dim V$ (базу $n = 2$ доказали).\\
+    Если $\dim U^{\perp} = n-2$, т.е. $\exists$ базис $f_3,...,f_n$, в котором матрица $b|_{U^{\perp}}$ имеет вид:
+    $$B|_{U^{\perp}} = \begin{pmatrix}
+    \text{\fbox{$I_2$}}\\
     \null & \ddots\\
-    \null & \null & \text{\fbox{$I$}}\\
+    \null & \null & \text{\fbox{$I_s$}}\\
     \null & \null & \null & 0\\
     \null & \null & \null & \null & \ddots\\
     \null & \null & \null & \null & \null & 0
-    \end{pmatrix}$, т.е в базисе $f_1,...,f_n$ матрица $b$ имеет нужный вид.
+    \end{pmatrix}$$
+    Тогда в базисе $f_1,...,f_n$ матрица $b$ имеет нужный вид.
 \end{proof}
