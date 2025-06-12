@@ -326,16 +326,16 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     Тогда $\phi^{-1}$ также ортогональный, причём $\phi^{-1} = \phi^*$.
 \end{subtheorem}
 \begin{proof}
-    Покажем, что $\forall x,y \in \E (\phi^{-1}(x), \phi^{-1}(y)) = (x, y)$. Выберем $x' = \phi^{-1}(x), y' = \phi^{-1}(y)$. Тогда:
+    Покажем, что $\forall x,y \in \E: \ (\phi^{-1}(x), \phi^{-1}(y)) = (x, y)$. Выберем $x' = \phi^{-1}(x), y' = \phi^{-1}(y)$. Тогда:
     $$(\phi^{-1}(x), \phi^{-1}(y)) = (x', y') = (\phi(x'), \phi(y')) = (x, y)$$
     По определению $\phi^*$: $(\phi(x), y) = (x,\phi^*(y)), \ \forall x, y \in \E$\\
-    Т.к. $\phi$ обратим, $\exists y' \in E: \ y = \phi(y')$
+    Т.к. $\phi$ обратим, $\exists y' \in \E: \ y = \phi(y')$
     $$(\phi(x), y) = (\phi(x), \phi(y')) = (x, y') = (x, \phi^{-1}(y)) \Longrightarrow (x, \phi^*(y)) = (x, \phi^{-1}(y))$$
     $$(x, \phi^*(y) - \phi^{-1}(y)) = 0 \ \forall x,y \in \E \Longrightarrow \phi^*(y) = \phi^{-1}(y) \ \forall y \in \E$$
     т.е. $\phi^* = \phi^{-1}$
 \end{proof}
 \begin{lemma}
-    Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор, $U \subset E: \ \phi(U) \subseteq U$.\\
+    Пусть $\phi: \E \rightarrow \E$ - ортогональный оператор, $U \subset \E: \ \phi(U) \subseteq U$.\\
     Тогда: $$\phi(U^\perp) \subseteq U^\perp$$
 \end{lemma}
 \begin{proof}
@@ -368,23 +368,23 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
         $$(x, y) = (\phi(x), \phi(y)) = -(x, y) \Longrightarrow (x, y) = 0$$
         \item Будем обозначать через $\phi: \ \CC^n \to \CC^n$ заданной матрицей $A_\phi$ \\
         Если $\lambda = \alpha + i\beta$ - характеристическое число для $\phi$, то: 
-        $$\exists \ v \in \CC^n: \ \phi(v) = \lambda(v)$$
+        $$\exists \ v \in \CC^n: \ \phi(v) = \lambda v$$
         Тогда $(v, v) = (\phi(v), \phi(v)) = (\lambda v, \lambda v) = \lambda \overline{\lambda}(v,v) \Longrightarrow \lambda \overline{\lambda} = |\lambda|^2 = 1$, или $\lambda = \cos(\theta) \pm i \sin(\theta)$.
     \end{enumerate}
 \end{proof}
 \begin{theorem}
-    Если $\phi: \ \E \to \E$ - ортогональный оператор, то в $\E \ \exists$ ортонормированный базис, в котором:
+    Если $\phi: \ \E \to \E$ - ортогональный оператор, то в $\E \ \exists$ ортонормированный базис $f$ , в котором:
     $$A_{\phi,f} = \begin{pmatrix}
         \text{\fbox{$\Phi_1$}}\\
         \null & \ddots\\
         \null & \null & \text{\fbox{$\Phi_s$}}\\
-        \null & \null & \null & \text{\fbox{$1$}} \\
+        \null & \null & \null & 1\\
         \null & \null & \null & \null & \ddots \\
-        \null & \null & \null & \null & \null & \text{\fbox{$1$}}\\
-        \null & \null & \null & \null & \null & \null & \text{\fbox{$-1$}} \\
+        \null & \null & \null & \null & \null & 1\\
+        \null & \null & \null & \null & \null & \null & -1 \\
         \null & \null & \null & \null & \null & \null & \null & \ddots \\
-        \null & \null & \null & \null & \null & \null & \null & \null & \text{\fbox{$-1$}}
-    \end{pmatrix}, \ \Phi_i = \begin{pmatrix}
+        \null & \null & \null & \null & \null & \null & \null & \null & -1
+    \end{pmatrix}, \ \text{\fbox{$\Phi_i$}} = \begin{pmatrix}
         \cos \alpha_i & -\sin \alpha_i \\ \sin \alpha_i & \cos \alpha_i
     \end{pmatrix}$$   
     Порядок матрицы равен $ n = \dim \E$ ($s$ - количество пар сопряжённых собственных значений, а также количество 1 и -1 определены однозначно). 
@@ -394,7 +394,8 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
     Индукция по $n$:\\
     База: $n = 2$. Случай, если все собственные значения $\phi$ вещественные, разобран. Если у $\phi$ есть комплексное собственное значение $\lambda$, то $\overline{\lambda}$ - также собственное значение для $\phi$. Рассмотрим произвольный ортонормированный базис $e_1, e_2 \in \E$. В нём $\phi(e_1) = \alpha e_1 + \beta e_2$. Так как $\phi$ сохраняет длины, $|\phi(e_1)| = 1$, т.е.
     \[(\alpha e_1 + \beta e_2, \alpha e_1 + \beta e_2) = \alpha^2 + \beta^2 = 1 \Longrightarrow \exists \psi_1: \ \alpha = \cos(\psi_1), \beta = \sin(\psi_1)\]
-    Аналогично $\exists \psi_2: \ \phi(e_2) = \cos(\psi_2)e_1 + \sin(\psi_2)e_2$. При этом $(\phi(e_1), \phi(e_2)) = (e_1, e_2) = 0$, т.е.
+    Аналогично $\exists \psi_2: \ \phi(e_2) = \cos(\psi_2)e_1 + \sin(\psi_2)e_2$. \\
+    При этом $(\phi(e_1), \phi(e_2)) = (e_1, e_2) = 0$, т.е.
     \[(\phi(e_1), \phi(e_2)) = \cos\psi_1\cos\psi_2 + \sin\psi_1\sin\psi_2 = \cos(\psi_1 - \psi_2) = 0\] 
     Отсюда $\psi_2 = \psi_1 + \frac{(2k+1)\pi}{2}$, т.е. при необходимости заменив $e_2$ на $-e_2$ в базисе, получим матрицу $A_\phi = \begin{pmatrix} \cos\psi_1 & -\sin\psi_1 \\ \sin\psi_1 & \cos\psi_1 \end{pmatrix}$. База доказана.\\
     Переход: пусть $n > 2$. Случай, если все собственные значения $\phi$ вещественные, разобран. Если у $\phi$ есть комплексное собственное значение $\lambda$, то из доказанного ранее знаем, что существует $\phi$-инвариантное подпространство $U$ такое, что $\phi|_{U}$ имеет собственные значения $\lambda, \overline{\lambda}$. Тогда $U^\perp$ - также $\phi$-инвариантно, причём $\E = U \oplus U^\perp$. Для $U$ и $U^\perp$ искомые ортонормированные базисы есть по предположению индукции, а тогда искомый ортонормированный базис для $\E$ будет объединением двух найденных (возможно, с перестановкой векторов для правильного порядка элементов на диагонали матрицы).      
