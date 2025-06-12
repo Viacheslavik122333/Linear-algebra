@@ -76,7 +76,7 @@ $$(x,y) = (\sum \limits_{i=1}^nx_ie_i, \sum \limits_{j=1}^ny_je_j) = \sum \limit
         Обозначим $d_{ij}$ - $(ij)$ элемент матрицы $C^TC:$ 
         $$d_{ij} = e_i'^{\rightarrow} \cdot e_j'^{\uparrow} = (e'_i,e_j') = \delta_{ij}$$
         т.к. базис $e$ ортонормированный $\Longrightarrow d_{ij} = \delta_{ij} \Longrightarrow C^TC = E$
-        \item Рассмотрим $e' = eC_{e\to e'}$, тогда $e_j^{\uparrow}$ - это $j$ столбец матрицы $C_{e\to e'}$\\
+        \item Рассмотрим $e' = eC_{e\to e'}$, тогда $e_j'^{\uparrow}$ - это $j$ столбец матрицы $C_{e\to e'}$\\
         По условию $C^TC = E \Longleftrightarrow e_i'^{\rightarrow} \cdot e_j'^{\uparrow} = \delta_{ij} = (e'_i,e_j')$
     \end{enumerate}    
 \end{proof}
@@ -258,7 +258,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
 \end{proof}
 \subsection{Самосопряжённые операторы}
 \begin{lemma}
-    Пусть $\phi: \E \rightarrow \E$ - лин. оператор, $U \subset \E: \phi(U) \subseteq U$.\\
+    Пусть $\phi: \E \rightarrow \E$ - лин. оператор, $U \subset \E: \ \phi(U) \subseteq U$.\\
     Тогда $\phi^*(U^\perp) \subseteq U^\perp$.
 \end{lemma}
 \begin{proof}
@@ -290,7 +290,7 @@ $$G_{e'} = C^TG_eC \Longrightarrow |G_{e'}| = |C|^2|G_e| = |G_e|$$
 \end{theorem}
 \begin{proof}
     Индукция по $\dim \E = n$:\\
-    База: $n = 1$. Тогда $\forall x \in \E: \ \phi(x) = \lambda_1 x$, т.е. любой вектор длины 1 подойдёт в качестве ортонормированного базиса.\\
+    База: $n = 1$. Тогда $\forall x \in \E: \ \phi(x) = \lambda_1 x$, т.е. любой единичный вектор подойдёт в качестве ортонормированного базиса.\\
     Шаг: Пусть $\lambda_1 \in \R$ - какое-либо собственное значение для $\phi$. Рассмотрим $\E_{\lambda_1} \neq \{0\}$ - оно является $\phi$-инвариантным подпространством.\\
     Если $\E_{\lambda_1} = \E$, то $\forall x \in \E: \ \phi(x) = \lambda_1 x$, т.е. в ортонормированном базисе матрица оператора - $\lambda_1 E$;\\
     Если $\E_{\lambda_1} \neq \E$, то по лемме $\E_{\lambda_1}^\perp$ также $\phi$-инвариантно и $\E = \E_{\lambda_1} \oplus \E_{\lambda_1}^\perp$. К ограничению $\phi$ на инвариантные подпространства $\E_{\lambda_1}, \E_{\lambda_1}^\perp$ можно применить предположение индукции, если рассмотреть их как отдельные евклидовы пространства. Тогда в них есть ортонормированные базисы из собственных векторов, а тогда их объединение будет искомым ортонормированным базисом для $\E$ (ортогональность векторов из разных базисов следует из утверждения выше).
