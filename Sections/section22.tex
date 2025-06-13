@@ -12,40 +12,49 @@
     Расстояние от точки $p_1\in \mathbb{A}$ до плоскости $P=p_0+U,\ V\supset U\ne \{0\}$.\\
     Либо $p_1\in P$, либо $\overline{p_0p_1}\not\in U$.\\
     Можно рассматривать подпространство:
-    \[ \widetilde{U}=\langle \overline{p_0p_1}+U \rangle\supset V,\ \overline{p_0p_1}=y+z,\ y\in U,\ z\in U^{\perp}\Longrightarrow \min|\overline{p_1q}|=|z|\]
+    \[ \widetilde{U}=\langle \overline{p_0p_1},U \rangle\supset V,\ \overline{p_0p_1}=y+z,\ y\in U,\ z\in U^{\perp}\]
+    \[ \rho(p_1, P) = \min|\overline{p_1q}|=|z|\]
 \end{definition} 
 
 \begin{definition}
     Параллелепипед с одной вершиной $p_0$ и ребрами $a_1,\dots,a_m$, где $m\leq n,\ a_i\in \mathcal{E}$:
     \[\Pi_{\langle p_0,a_1,\dots,a_m \rangle}=\{p_0+\sum\limits_{i=1}^{m}\lambda_i a_i: 0\leq \lambda_i\leq 1\}\]
 \end{definition} 
-Определим $m$-мерный объем рекурсивно:
-для $m=1$:
-\[V(\Pi_{1})=|a_1|\]
-\[V(\Pi_m)=(a_m)_{\perp}\cdot V_{\{p_0,a_1,\dots,a_{m-1}\}}\]
-где $(a_m)_{\perp}$ - ортогональная составляющая ребра $a_m$ отностительно подпространства $\langle a_1,\dots, a_{m-1} \rangle$.\\
-Пусть $a_1,\dots,a_m$ линейно независимы. Тогда:
-\[V_{{p_0,a_1,...,a_m}}=\sqrt{|G_{\{a_1,...,a_m\}}|}\]
+\begin{definition}
+    Определим $m$-мерный объем рекурсивно:
+    для $m=1$:
+    \[V(\Pi_{1})=|a_1|\]
+    \[V(\Pi_m)=(a_m)_{\perp}\cdot V_{\{p_0,a_1,\dots,a_{m-1}\}}\]
+    где $(a_m)_{\perp}$ - ортогональная составляющая ребра $a_m$ отностительно подпространства $\langle a_1,\dots, a_{m-1} \rangle$.
+\end{definition} 
 
-Можно ортогонализовать векторы $a_1,\dots,a_m$, причем матрица перехода от $a_1,\dots,a_m$ к $b_1,\dots,b_m$, где $b_1,\dots,b_m$ получены из алгоритма ортогонализации, выглядит так:
-\[C=\begin{pmatrix}
-    1 & \null & *\\
-    \null & \ddots & \null\\
-    0 & \null & 1
-\end{pmatrix}\]
-\[|G_{\{a_1,\dots,a_m\}}| = |G_{\{b_1,\dots,b_m\}}| = \begin{vmatrix}
-    |b_1^2| & \null & 0\\
-    \null & \ddots & \null\\
-    0 & \null & |b^2_m|
-\end{vmatrix} = |b_1|^2 \cdot ... \cdot |b_m|^2\]
-Значит:
-\[\rho(p_1,P)=\frac{\sqrt{|G_{\{a_1,\dots,a_m,\overline{p_0p_1}\}}|}}{\sqrt{|G_{\{a_1,\dots,a_m\}}|}}\]
-Если $P_1=p_1+U_1, P_2=p_2+U_2$ - две аффинные плоскости в аффинном пространстве, то назовем:
-\[\rho(P_1,P_2)=\inf\{|\overline{pq}|: p\in P_1, q\in P_2\}\]
+\begin{remark}
+    Пусть $a_1,\dots,a_m$ линейно независимы. Тогда:
+    \[V_{\{p_0,a_1,...,a_m\}}=\sqrt{|G_{\{a_1,...,a_m\}}|}\]
+    Можно ортогонализовать векторы $a_1,\dots,a_m$, причем матрица перехода от\\
+    $a_1,\dots,a_m$ к $b_1,\dots,b_m$, где $b_1,\dots,b_m$ получены из алгоритма ортогонализации, выглядит так:
+    \[C=
+    \begin{pmatrix}
+        1 & \null & *\\
+        \null & \ddots & \null\\
+        0 & \null & 1
+    \end{pmatrix}\]
+    \[|G_{\{a_1,\dots,a_m\}}| = |G_{\{b_1,\dots,b_m\}}| = 
+    \begin{vmatrix}
+        |b_1^2| & \null & 0\\
+        \null & \ddots & \null\\
+        0 & \null & |b^2_m|
+    \end{vmatrix} 
+    = |b_1|^2 \cdot ... \cdot |b_m|^2\]
+    Значит:
+    \[\rho(p_1,P)=\frac{\sqrt{|G_{\{a_1,\dots,a_m,\overline{p_0p_1}\}}|}}{\sqrt{|G_{\{a_1,\dots,a_m\}}|}}\]
+    Если $P_1=p_1+U_1, P_2=p_2+U_2$ - две аффинные плоскости в аффинном пространстве, то назовем:
+    \[\rho(P_1,P_2)=\inf\{|\overline{pq}|: p\in P_1, q\in P_2\}\]
+\end{remark} 
 \begin{theorem}
     $\rho(P_1,P_2)$ равно длине ортогональной составляющей вектора $\overline{p_1p_2}$ относительно $U_1+U_2$
 \end{theorem} 
-\begin{remark}
+\begin{remark} $\\$ 
     Если $P_1\cap P_2\ne \emptyset$, то $\rho(P_1,P_2)=0,\ \overline{p_1p_2} \in U_1+U_2$, так что $(p_1,p_2)_{\perp}=0$, что не противоречит утверждению теоремы.
 \end{remark} 
 \begin{proof}
@@ -56,10 +65,10 @@
     такие, что $\overline{ab}=v_{\perp}$. \\
     Выберем произвольные точки $x=p_1+u_1\in P_1,\ y=p_2+u_2\in P_2$. Тогда:
     \begin{multline*}
-        \rho^2(x,y)=|\overline{yx}|^2=|\overline{p_2p_1}+u_1-u_2|^2=|v+u_2-u_1|^2=\\
-        =|(v_{\parallel}+u_2-u_1)+v_{\perp}|^2=|v_{\parallel}+u_2-u_1|^2+|v_{\perp}|^2\geq |v_{\perp}|^2
+        \rho^2(x,y)=|\overline{yx}|^2 = |x-y|^2=|\overline{p_2p_1}+u_1-u_2|^2 =\\
+        = |v+u_2-u_1|^2 =|(v_{\parallel}+u_2-u_1)+v_{\perp}|^2\geq |v_{\perp}|^2
     \end{multline*}
-    где $v_{\perp}\in (U_1+U_2)^{\perp}$. Равенство достигается, если $v_{\parallel}=u_2-u_1 \Rightarrow \exists\ u_1, u_2$ такие, что $a=p_1+u_1,\ b=p_2+u_2: |\overline{ab}|=v_{\perp}$.
+    где $v_{\perp}\in (U_1+U_2)^{\perp}$. Равенство достигается, если $v_{\parallel}=u_1-u_2 \Rightarrow \exists\ u_1, u_2$ такие, что $a=p_1+u_1,\ b=p_2+u_2: |\overline{ab}|=v_{\perp}$.
 \end{proof} 
 \begin{consequense}
     Прямая $l=a+\langle \overline{ab} \rangle=(p_1+u_1)+\langle (\overline{p_1p_2})_{\perp} \rangle$ является общим перпендикуляром этих двух плоскостей.
@@ -74,7 +83,7 @@
     \[\forall a,b\in \mathbb{A}_1 : \ \Phi(b)=\Phi(a)+\phi(\overline{ab}) \eqno(2)\]
     Если задано $\Phi$ и какая-то точка $a$, то $\phi$ определяется однозначно.\\
     Если $\overline{ab}=\overline{a_1b_1}=v$
-    \[\Phi(a_1)+\phi'(v)=\Phi(b_1)=\Phi(a_1)+\phi'(\overline{a_1b_1}) \Rightarrow \phi=\phi'\]
+    \[\Phi(a_1)+\phi'(v)=\Phi(b_1)=\Phi(a_1)+\phi(\overline{a_1b_1}) \Longrightarrow  \phi=\phi'\]
 \end{definition} 
 \begin{subtheorem} \tab
     \begin{enumerate}
@@ -112,7 +121,7 @@
 где $f$ - базис в $V_2$
 \[\widetilde{A}=\begin{pmatrix}
     A_{\phi} & X_0\\
-    0\dots0 & 1
+    0 & 1
 \end{pmatrix}
 \]
 \[(2) \Longleftrightarrow \widetilde{Y}=\widetilde{A}\cdot \widetilde{X}\]
@@ -154,14 +163,13 @@
 \end{pmatrix}
 \]
 Значит, $A_{\phi}$ действует на столбцы
-\[\begin{pmatrix}
+$\begin{pmatrix}
     dx_1\\
     \vdots\\
     dx_n
-\end{pmatrix}
-\]
-как оператор $\phi$.
-Обозначим
+\end{pmatrix}$
+как оператор $\phi$.\\
+Обозначим:
 \[DY=\begin{pmatrix}
     dy_1\\
     \vdots\\
@@ -177,21 +185,21 @@ D: \mathbb{F}^n \to \mathbb{F}^m
         \[\Phi=\Phi_2\cdot \Phi_1: \ \mathbb{A}_1\to \mathbb{A}_3\]
         тоже аффинно-линейны, причем 
         \[D(\Phi_2\cdot \Phi_1)=D\Phi_2\cdot D\Phi_1=\phi_2\cdot\phi_1\]
-        \item $\Phi_1$ - биективно $\Longleftrightarrow \phi_1$ - биективно, и линейная часть $\Phi_1^{-1}$ есть $\phi_1^{-1}$
+        \item $\Phi$ - биективно $\Longleftrightarrow \phi$ - биективно, и линейная часть $\Phi^{-1}$ есть $\phi^{-1}$
     \end{enumerate}
 \end{subtheorem}
-\begin{proof}
+\begin{proof} \tab
     \begin{enumerate}
-        \item Пусть $b_1, a_1\in \A_1$
+        \item Пусть $a_1, b_1\in \A_1$
         \[\Phi_1(b_1)=\Phi_1(a_1)+\phi_1(\overline{a_1b_1})\]
         \[\Phi_2(\Phi_1(b_1))=\Phi_2(\Phi_1(a_1))+\phi_2(\phi_1(\overline{a_1b_1}))\]
-        \item Если $\phi_1$ - биективно, то $\forall\ \overline{a_2b_2}\in V_2$ существует единственный вектор
-        \[\overline{a_1b_1}\in V_1: \phi(\overline{a_1b_1})=\overline{a_2b_2}\]
+        \item Если $\phi$ - биективно, то $\forall\ \overline{a_2b_2}\in V_2$ существует единственный вектор
+        \[\overline{a_1b_1}\in V_1: \phi^{-1}(\overline{a_1b_1})=\overline{a_2b_2}\]
         Определим отображение 
         \[\Phi': \A_2\to \A_1\]
-        \[\Phi'(a_2)=a_1,\ \Phi'(b_2)=\Phi'(a_2)+\phi^{-1}(\overline{a_2b_2})\]
+        \[\Phi'(a_2)=a_1,\ \Phi'(b_2)=\Phi'(a_2)+\phi(\overline{a_2b_2})\]
         Значит, $\Phi'$ - аффинно-линейное отображение.
-        \[\Phi(a_1)=a_2,\ \Phi(b_1)=\Phi(a_1)+\phi(\overline{a_1b_1})=\Phi(a_1)+\overline{a_2b_2}=b_2\]
+        \[\Phi(a_1)=a_2,\ \Phi(b_1)=\Phi(a_1)+\phi^{-1}(\overline{a_1b_1})=\Phi(a_1)+\overline{a_2b_2}=b_2\]
         \[(\Phi'\Phi)(a_1)=\Phi'(a_2)=a_1 \Longrightarrow \Phi'\Phi = \text{Id}_{\A_1}\] 
         Аналогично в другом порядке.
     \end{enumerate}
