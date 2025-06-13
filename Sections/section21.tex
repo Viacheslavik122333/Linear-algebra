@@ -27,14 +27,18 @@ $$\overrightarrow{op} = \sum \limits_{i=1}^n x_ie_i \Longrightarrow \overrightar
 Также можно задать точки $o, p_1,...,p_n$ общего положения (т.е. $\overrightarrow{op_1},...,\overrightarrow{op_n}$ линейно независимы) - тогда $(o, \overrightarrow{op_1},...,\overrightarrow{op_n})$ - система координат.\\
 \textbf{Изменение координат точки при замене системы координат}\\
 Пусть $(o, e)$ - старая система координат, $(o', e')$ - новая система координат.\\
-Заметим, что $\overrightarrow{op} = \overrightarrow{oo'} + \overrightarrow{o'p}$. Поэтому если $X$ - столбец координат точки $p$ в старых координатах, $X'$ - в новых координатах, а $X_o$ - столбец старых координат точки $o'$, то $$X = X_o + CX', \ \ (C = C_{e\rightarrow e'}) \ \ (1)$$
-Можно ввести аффинную матрицу перехода $\tilde{C} = \begin{pmatrix} C&X_0 \\ 0&1 \end{pmatrix}$ порядка $n + 1$ ($n = \dim V$) и дополненный столбец $\tilde{X} = \begin{pmatrix} X \\ 1 \end{pmatrix}$ высоты $n + 1$. Тогда из $(1)$:
+Заметим, что $\overrightarrow{op} = \overrightarrow{oo'} + \overrightarrow{o'p}$. Поэтому если $X$ - столбец координат точки $p$ в старых координатах, $X'$ - в новых координатах, а $X_o$ - столбец старых координат точки $o'$, то $$X = X_o + CX', \ \ (C = C_{e\rightarrow e'})  \eqno(1)$$
+Можно ввести аффинную матрицу перехода $\tilde{C} = \begin{pmatrix} C&X_0 \\ 0&1 \end{pmatrix}$ порядка $n + 1$\\
+($n = \dim V$) и дополненный столбец $\tilde{X} = \begin{pmatrix} X \\ 1 \end{pmatrix}$ высоты $n + 1$. Тогда из $(1)$:
 $$\tilde{X} = \tilde{C}\tilde{X}' \eqno(1')$$
 
 \subsection*{Барицентрическая комбинация точек}
-Пусть даны $p_0,p_1,...,p_m (1 \leqslant m \leqslant n)$ с коэффициентами $\lambda_0,\lambda_1,...,\lambda_m, \ \sum \lambda_i = 1$.\\
-Барицентрической комбинацией будем называть 
-$$\sum \limits_{i=0}^m \lambda_ip_i := p + \sum \limits_{i=0}^m \lambda_i \overrightarrow{pp_i} = p + \sum \limits_{i=0}^m \lambda_i(p_i - p)\text{ для некоторой точки } p$$
+Пусть даны $p_0,p_1,...,p_m \ (1 \leqslant m \leqslant n)$ с коэффициентами $\lambda_0,\lambda_1,...,\lambda_m, \\ 
+\sum \lambda_i = 1$.
+\begin{definition}
+    Барицентрической комбинацией будем называть:
+    $$\sum \limits_{i=0}^m \lambda_ip_i := p + \sum \limits_{i=0}^m \lambda_i \overrightarrow{pp_i} = p + \sum \limits_{i=0}^m \lambda_i(p_i - p)\text{ для некоторой точки } p$$
+\end{definition} 
 Покажем, что результат не зависит от выбора точки $p$: если $q = p + v$ - другая точка, то:
 $$q + \sum \limits_{i=0}^m \lambda_i \overrightarrow{qp_i} = p+ v + \sum \limits_{i=0}^m \lambda_i(-v) + \sum \limits_{i=0}^m \lambda_i \overrightarrow{pp_i} = p + \sum \limits_{i=0}^m \lambda_i \overrightarrow{pp_i}$$
 
@@ -45,15 +49,15 @@ $$q + \sum \limits_{i=0}^m \lambda_i \overrightarrow{qp_i} = p+ v + \sum \limits
 \subsection{Аффинные плоскости (подпространства)}
 \begin{definition}
     Зафиксируем точку $p_0 \in \A$ и подпространство $U \subseteq V$.\\
-    Аффинная плоскость $P$ с начальной точкой $p_0$ и направляющим подпространством $U$ - это множество точек $P := p_0 + U = \{p_0 + u | u \in U\}$.\\
+    Аффинная плоскость $P$ с начальной точкой $p_0$ и направляющим подпространством $U$ - это множество точек $P := p_0 + U = \{p_0 + u \ | \ u \in U\}$.\\
     Размерность плоскости: $\dim P = \dim U$.
 \end{definition}
 \begin{subtheorem}
     $P$ не зависит от выбора точки $p_0$.
 \end{subtheorem}
 \begin{proof}
-    Пусть $P = p_0 + U, p_0' \in P$. Тогда:
-    $$p_0' = p_0 + u_0, u_0 \in U \Longrightarrow P' = p_0' + U = p_0 + u_0 + U = p_0 + U = P$$
+    Пусть $P = p_0 + U, \ p_0' \in P$. Тогда:
+    $$p_0' = p_0 + u_0 \ (u_0 \in U) \Longrightarrow P' = p_0' + U = p_0 + u_0 + U = p_0 + U = P$$
 \end{proof}
 \begin{subtheorem}
     Если $P = p_0 + U = p'_0 + U'$, то $U = U'$ (т.е. направляющее подпространство для плоскости определено однозначно).
@@ -62,7 +66,7 @@ $$q + \sum \limits_{i=0}^m \lambda_i \overrightarrow{qp_i} = p+ v + \sum \limits
     $p_0' \in p_0 + U \Longrightarrow p_0 + U = p_0' + U = p_0' + U' \Longrightarrow U = U'$
 \end{proof}
 \begin{subtheorem}
-    $(P, U)$ является аффинным пространством относ. операции $p \rightarrow p + x$ для $x \in U$.
+    $(P, U)$ - аффинное пространство относительно операции: $$p \rightarrow p + x \text{ для } x \in U$$
 \end{subtheorem}
 \begin{proof}
     Проверим аксиомы:
@@ -73,12 +77,14 @@ $$q + \sum \limits_{i=0}^m \lambda_i \overrightarrow{qp_i} = p+ v + \sum \limits
     \end{enumerate}
 \end{proof}
 
-$\forall p \in P: \ p = p_0 + \sum \limits_{i=1}^m x_ie_i$ ($e_1,..,e_m$ - базис в $U$).\\
-Вместо точки $p_0$ и базиса $e_1,...,e_m$ можно рассмотреть точки $p_0,p_1,...,p_m$ общего положения - любую точку $p \in P$ можно представить в виде барицентрической комбинации точек $p_0,...,p_n$. 
+\begin{remark}
+    $\forall p \in P: \ p = p_0 + \sum \limits_{i=1}^m x_ie_i$ ($e_1,..,e_m$ - базис в $U$).\\
+    Вместо точки $p_0$ и базиса $e_1,...,e_m$ можно рассмотреть точки $p_0,p_1,...,p_m$ общего положения - любую точку $p \in P$ можно представить в виде барицентрической комбинации точек $p_0,...,p_n$. 
+\end{remark} 
 
 \subsection*{Задание аффинной плоскости неоднородной СЛУ}
-Пусть $P = p_0 + U, \dim U = m, \dim V = n$. Тогда $\exists$ матрица $A$ такая, что: 
-$$U = \{x = eX | AX = 0\} \ (e - \text{ базис } V)$$
+Пусть $P = p_0 + U, \ \dim U = m, \ \dim V = n$. Тогда $\exists$ матрица $A$ такая, что: 
+$$U = \{x = eX \ | \ AX = 0\} \ (e - \text{ базис } V)$$
 $\forall p \in P$ имеет координаты $X_0 + X$, где $X_0$ - столбец координат $p_0$, а $X$ - координаты $u \in U$.
 Тогда:
 $$b: = A(X_0 + X) = AX_0 + AX = AX_0 $$ 
