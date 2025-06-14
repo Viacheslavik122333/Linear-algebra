@@ -106,7 +106,7 @@
 Пусть $(e'_1,...,e'_n) = (e_1,...,e_n)C$, $\begin{pmatrix} e'^1 \\ \vdots \\ e'^n \end{pmatrix} = D\begin{pmatrix} e^1 \\ \vdots \\ e^n \end{pmatrix}$. Тогда:
 \[DC = D\begin{pmatrix} e^1 \\ \vdots \\ e^n \end{pmatrix}(e_1,...,e_n)C = \begin{pmatrix} e'^1 \\ \vdots \\ e'^n \end{pmatrix}(e'_1,...,e'_n) = E \Rightarrow D = C^{-1}\]
 Отсюда:
-\[f = A_{i_1,...,i_p}^{j_1,...,j_q}x_1^{i_1}...x_p^{i_p}u_{j_1}^1...u_{j_q}^q\]
+\[f = A_{i_1,...,i_p}^{j_1,...,j_q}\cdot x_1^{i_1}\cdot...\cdot x_p^{i_p} \cdot u_{j_1}^1\cdot...\cdot u_{j_q}^q\]
 \[x_k^{i_k} = c_{i'_k}^{i_k}{x'}^{i'_k}_k; \ \ u_{j_l}^{l} = d_{j_l}^{j'_l}u'^l_{j'_l}\]
 Отсюда новые коэффициенты линейной формы:
 \[(u'_1,...,u'_n) = (u_1,...,u_n)C \Longrightarrow (u_1,...,u_n) = (u'_1,...,u'_n)D\]
@@ -128,7 +128,7 @@
 \end{example}
 \begin{definition}
     Пусть $f \in T^q_p(V)$, причём $p \geqslant 1, q \geqslant 1$, т.е. $f(x_1,...,x_p, u^1,...,u^q)$. Выберем пару индексов $s \in \{1,...,p\}, r\in \{1,...,q\}$ и рассмотрим функцию 
-    \[\overline{f}(x_1,...,\hat{x}_s,...,x_p,u^1,...,\hat{u}'^r,...,u^q) := \sum \limits_{k=1}^n f(x_1,...,\underbrace{e_k}_{s},...,x_p,u^1,...,\underbrace{e^k}_{r},...,u^q)\] 
+    \[\overline{f}(x_1,...,\hat{x}_s,...,x_p,u^1,...,\hat{u}^r,...,u^q) := \sum \limits_{k=1}^n f(x_1,...,\underbrace{e_k}_{s},...,x_p,u^1,...,\underbrace{e^k}_{r},...,u^q)\] 
     Ясно, что $\overline{f} \in T^{q-1}_{p-1}$.\\
     Типичное обозначение: $\overline{f} = \textup{tr}_s^r(f)$\\
     В матрицах: $\overline{A}_{...}^{...}$ - матрица тензора $\overline{f}$, тогда
@@ -138,7 +138,7 @@
 Можно сначала рассмотреть произведение тензоров, а после этого свернуть получившийся тензор.
 \begin{example1}
     Пусть $\mathcal{A}$ - конечномерная (как векторное пространство) алгебра с операциями $+, \lambda\cdot, \cdot, \ e_1,...,e_n$ - линейный базис (базис в.п.).\\
-    Тогда $\forall i,j e_ie_j = a_{ij}^ke_k$, где $a_{ij}^k$ - структурные константы - составляют структурный тензор типа (2,1).
+    Тогда $\forall i,j: \ e_ie_j = a_{ij}^ke_k$, где $a_{ij}^k$ - структурные константы - составляют структурный тензор типа (2,1).
 \end{example1}
 \begin{exercise}
     Найдите структурный тензор для $M_n(F)$.
@@ -146,12 +146,12 @@
 \subsection{Симметрические, кососимметрические тензоры}
 \begin{definition}
     Тензор $f \in T_p^0(V)$ - симметрический, если $\forall x_1,...,x_p \in V, \sigma \in S_p$
-    \[f(x_{\sigma(1)},...,x_{\sigma(p)}) = f(x_1,...,x_p) \ \ (1)\]
-    Аналогично, если $g \in T_0^q(V)$, то $g$ - симметрический, если $\forall u^1,...,u^q \in V^*, \sigma \in S_p$
-    \[f(u^{\sigma(1)},...,u^{\sigma(p)}) = f(u^1,...,u^p) \ \ (1')\] 
+    \[f(x_{\sigma(1)},...,x_{\sigma(p)}) = f(x_1,...,x_p) \eqno(1)\]
+    Аналогично, если $g \in T_0^q(V)$, то $g$ - симметрический, если $\forall u^1,...,u^q \in V^*, \sigma \in S_q$
+    \[f(u^{\sigma(1)},...,u^{\sigma(p)}) = f(u^1,...,u^p) \eqno(1')\] 
     Тензор $f \in T_p^0(V)$ $(\textup{char} F \neq 2)$ - кососимметрический, если $\forall x_1,...,x_p \in V, \sigma \in S_p$
-    \[f(x_{\sigma(1)},...,x_{\sigma(p)}) = \sgn(\sigma)f(x_1,...,x_p) \ \ (2)\]
-    Аналогично для $T_0^q(V)$.
+    \[f(x_{\sigma(1)},...,x_{\sigma(p)}) = \sgn(\sigma)f(x_1,...,x_p) \eqno(2)\]
+    Аналогично для $T_0^q(V)$.\\
     Обозначения:\\
     $T_p^+$ - симметрические тензоры типа (p, 0);\\
     $T^{q, -}$, либо $\Lambda^q(V^*)$ - кососимметрические тензоры типа (0, q)\\
@@ -162,7 +162,8 @@
     Доказать, что такого разложения для $T_p^0$ нет при $p > 2$.
 \end{exercise}
 \subsubsection*{Тензорная алгебра пространства V}
-Определим $T(V) = \circledplus \limits_{q = 0}^\infty T_0^q(V)$ - множество финитных последовательностей тензоров $(f_0,...,f_s, 0,...)$. $f_i \in T_0^i, f_j \in T_0^j \Longrightarrow f_i \otimes f_j \in T_0^{i+j}$.\\
+Определим $T(V) = \circledplus \limits_{q = 0}^\infty T_0^q(V)$ - множество финитных последовательностей тензоров $(f_0,...,f_s, 0,...)$. 
+\[f_i \in T_0^i, \  f_j \in T_0^j \Longrightarrow f_i \otimes f_j \in T_0^{i+j}\]
 Последовательности перемножаются по правилу перемножения многочленов (от одной переменной).
 \subsubsection*{Симметризация и альтернирование}
 Далее $\textup{char} F = 0$.
@@ -171,7 +172,7 @@
     \[\textup{Sym}(f)(x_1,...,x_p) = \frac{1}{p!}\sum \limits_{\sigma \in S_p}f(x_{\sigma(1)},...,x_{\sigma(p)})\]
     Свойства:
     \begin{enumerate}
-        \item $\textup{Sym}: T_p^0(V) \rightarrow T_p^0(V)$ - линейное отображение, $\textup{Im }\textup{Sym} = T_p^+(V)$;
+        \item $\textup{Sym}: T_p^0(V) \rightarrow T_p^0(V)$ - линейное отображение, $\textup{Im}\hspace{0.07cm}\textup{Sym} = T_p^+(V)$;
         \item $\textup{Sym}(\textup{Sym}(f)) = \textup{Sym}(f)$, т.е. $\textup{Sym}^2 = \textup{Sym}$.
     \end{enumerate}
     \item Альтернирование: для тензора $f \in T_p^0(V)$:
@@ -183,14 +184,14 @@
     \end{multline*}
      Свойства:
     \begin{enumerate}
-        \item $\textup{Alt}: T_p^0(V) \rightarrow T_p^0(V)$ - линейное отображение, $\textup{Im }\textup{Alt} = \Lambda_p$
+        \item $\textup{Alt}: T_p^0(V) \rightarrow T_p^0(V)$ - линейное отображение, $\textup{Im}\hspace{0.07cm}\textup{Alt} = \Lambda_p$
         %($\Lambda(V) = \circledplus \limits_{p = 0}^\infty \Lambda_p$ - как в.п.);
         \item $\textup{Alt}^2 = \textup{Alt}$.
     \end{enumerate}
 \end{enumerate}
 \subsubsection*{Внешнее произведение кососимметрических тензоров}
 \begin{definition}
-    Пусть $f \in T_p^0, g \in T_r^0$. Тогда $\textup{Alt}(f) \in \Lambda_p, \ \textup{Alt}(g) \in \Lambda_r$, и
+    Пусть $f \in T_p^0, \ g \in T_r^0$. Тогда $\textup{Alt}(f) \in \Lambda_p, \ \textup{Alt}(g) \in \Lambda_r$, и
     \[f \wedge g := \textup{Alt}(f \otimes g) \in \Lambda_{p+r}\]
 \end{definition}
 \begin{remark}
@@ -205,7 +206,7 @@
 \[x_1^{j_1}\cdot...\cdot x_n^{j_n}(e_{j_1}\wedge...\wedge e_{j_n}) = (\sgn(j_1...j_n)x_1^{j_1}\cdot...\cdot x_n^{j_n})e_1\wedge...\wedge e_n = \begin{vmatrix} x_1^1 & \dots & x_n^1 \\ \vdots & \null & \vdots \\ x_1^n & \dots & x_n^n \end{vmatrix}e_1\wedge...\wedge e_n\]
 Очевидно, что существует только одномерное подпространство, содержащее $x_1\wedge...\wedge x_n \forall x_i \in V$, т.е. $\dim \Lambda^n(V) = n$.\\
 Рассмотрим теперь $\Lambda^q(V)$. Оно содержит произведения $e_{j_1}\wedge...\wedge e_{j_q}$, причём они линейно независимы и любой тензор типа $\Lambda^q$ линейно выражается через них $\Longrightarrow \dim \Lambda^q(V) = C_n^q$.\\
-Обозначим $\Lambda(V) = \circledplus \limits_{p = 0}^\infty \Lambda_p = \{(f_0,f_1...,f_n)|f_i = \Lambda^i(V)\} \Longrightarrow \dim \Lambda(V) = 2^n$.
+Обозначим $\Lambda(V) = \circledplus \limits_{p = 0}^\infty \Lambda_p = \{(f_0,f_1...,f_n) \ | \ f_i = \Lambda^i(V)\} \Longrightarrow \dim \Lambda(V) = 2^n$.
 \\$\Lambda(V)$ называется внешней алгеброй пространства $V$ или алгеброй Грассмана.
 \subsubsection*{Внутреннее произведение симметрических тензоров}
 Обозначим $S(V) = \circledplus \limits_{p = 0}^\infty T_p^+(V)$.\\
@@ -215,14 +216,18 @@
 Тензоры $e^{j_1}\vee...\vee e^{j_p} \in T_p^+(V)$ (допускается равенство индексов). При этом
 \[\forall u \in T_p^0(V) \ \ u = u_{i_1,...,i_p}e^{i_1}\otimes...\otimes e^{i_p}\]
 Если $u \in T_p^+$, то
-\[u = \textup{Sym}(u) = u_{i_1,...,i_p}e^{i_1}\vee...\vee e^{i_p} \Longrightarrow T_p^+ = \langle e^{i_1}\vee...\vee e^{i_p} | i_1,...,i_p \in \{1,...,n\}\rangle\]
+\[u = \textup{Sym}(u) = u_{i_1,...,i_p}e^{i_1}\vee...\vee e^{i_p} \Longrightarrow T_p^+ = \langle e^{i_1}\vee...\vee e^{i_p} \ | \ i_1,...,i_p \in \{1,...,n\}\rangle\]
 Также из линейной независимости $e^{i_1}\otimes...\otimes e^{i_p}$ следует линейная независимость тензоров $e^{i_1}\vee...\vee e^{i_p}$\\
 Сопоставим $e^1 \leftrightarrow x_1,..., e^n \leftrightarrow x_n$, где $x_1,...,x_n$ - коммутирующие независимые переменные. Получаем биекцию $T_p^+(V) \leftrightarrow \{\sum a_{i_1,...,i_k}x_1^{i_1}...x_n^{i_n} | \sum \limits_{k=1}^n i_k = p\}$ (операция внутреннего произведения в этом случае сопоставляется операции умножения: $e^{i_1} \vee e^{i_2} \leftrightarrow x_{i_1}\cdot x_{i_2}$)\\
 Вычислим размерность пространства однородных многочленов степени $p$. Для этого необходимо подсчитать количество выборок $i_1,...,i_p$ с повторениями из $\{1,...,n\}$ без учёта порядка. Для этого воспользуемся методом шаров и перегородок - пусть шарами являются числа 1,...,n, а перегородками - элементы выборки, причём $i_k$ равен числу, соответствующему ближайшему слева шару от перегородки $i_k$. Тогда шаров $n$, перегородок $p$, причём первый элемент строки - не перегородка, т.е. индексы не принимают значение 0. Тогда всего способов $C_{n+p-1}^p$ (выбираем $p$ элементов как перегородки из $n+p-1$ элемента) $\Longrightarrow \dim T_p^+ = C_{n+p-1}^p$  
 \subsection{Тензоры на евклидовом пространстве}
-Скалярное произведение - тензор типа (2, 0): $(x, y) = g_{ij}x^ix^j$. $g_{ij}$ - метрический тензор.\\
-Далее полагаем базис ортонормированным.\\
-Обозначим $G^{-1} = g^{kl}$. Тогда $G^{-1}G = E \Leftrightarrow g^{kl}g_{lj} = \delta_j^k$. $g^{kl}$ называется контравариантным метрическим тензором.\\
+\begin{definition}
+    Скалярное произведение - тензор типа (2, 0): 
+    \[(x, y) = g_{ij}x^ix^j\] 
+    $g_{ij}$ - метрический тензор.\\
+    Далее полагаем базис ортонормированным.\\
+    Обозначим $G^{-1} = g^{kl}$. Тогда $G^{-1}G = E \Leftrightarrow g^{kl}g_{lj} = \delta_j^k$. $g^{kl}$ называется контравариантным метрическим тензором.
+\end{definition} 
 Рассмотрим вектор $x^i$ (типа (0, 1)) и свёртку $g_{ij}x^j = a_i$ - это линейная функция, т.е. тензор типа $(1, 0)$. В результате верхний индекс переместился вниз:
 \[V_i \longrightarrow V_i^*: \ \ x_i \rightarrowtail g_{ij}x^i = a_j\]
 - изоморфизм между $V$ и $V^*$. Аналогично можно рассмотреть свёртку $g^{ij}a_j = y^i$ - индекс поднимается наверх. Эти операции, очевидно, взаимно обратны: $g_{ij}(g^{ij}a_j) = (g_{ij}g^{ij})a_j = a_j$.\\
