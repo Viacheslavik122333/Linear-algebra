@@ -1,7 +1,8 @@
 %chktex-file 1 %chktex-file 7 %chktex-file 3 %chktex-file 8 %chktex-file 9 %chktex-file 10 %chktex-file 11 %chktex-file 12 %chktex-file 13 %chktex-file 16 %chktex-file 17 %chktex-file 18 %chktex-file 25 %chktex-file 26 %chktex-file 35 %chktex-file 36 %chktex-file 37 %chktex-file 40 %chktex-file 44 %chktex-file 45 %chktex-file 49
 \section{Тензоры}
 \subsection{Основные определения и первоначальные конструкции}
-Если векторное пространство $V$ над $F$ конечномерно, то $(V^*)^*\simeq V$. Соглашение: векторное пространство $V$ отождествляется с пространством линейных функций на $V^*$.
+Если векторное пространство $V$ над $F$ конечномерно, то $(V^*)^*\simeq V$. \\
+Соглашение: векторное пространство $V$ отождествляется с пространством линейных функций на $V^*$.
 Пока что будем считать, что поле $F$ - произвольное.
 \begin{definition}
     Пусть $p,q\in \N_0$. Тензор типа $(p,q)$ - это полилинейная функция 
@@ -51,8 +52,9 @@
 \begin{proof}
     Докажем, что тензор типа (1,1) - это линейный оператор.\\
     Пусть $f\in T_1^1(V)$, то есть $f=f(v,u)$, где $v\in V,\ u\in V^*$. Изоморфизм между $V$ и $V^{**}$ задавался правилом:
-    \[ \forall v\in V: \phi_v \text{ - линейная функция на } V^*: \forall u\in V^*\ \ \phi_v(u)=u(v)\]
-    При фиксированном $v$ $f(v,u)$ - линейная функция на $V^*$, а значит,
+    \[ \phi: \ V \to V^{**}: \ \forall v\in V: \phi(v) = \phi_v \text{ - линейная функция на } V^*\]
+    \[ \forall u\in V^*: \ \phi_v(u)=u(v)\]
+    При фиксированном $v$, $f(v,u)$ - линейная функция на $V^*$, а значит:
     \[\exists y_v = \phi^{-1}(f(v, u))\]
     где $y_v\in V$. Соответствие $v\xrightarrow{\psi} y_v$ является линейным оператором на $V$, так как 
     \[f(v_1+v_2,u)=u(y_{v_1+v_2})\]
@@ -75,7 +77,7 @@
 \end{enumerate}
 
 \subsubsection*{Построение базиса в пространстве $T_p^q(V)$}
-Для любых значений $\{i_1,\dots i_p,j_1,\dots,j_q\}\in \{1,\dots,n\}$ и чисел $p,q \in \N_0$ можно определить тензоры:
+Для любых значений $\{i_1,\dots ,i_p,j_1,\dots,j_q\}\in \{1,\dots,n\}$ и чисел $p,q \in \N_0$ можно определить тензоры:
 \[e^{i_1}\otimes \dots \otimes e^{i_p}\otimes e_{j_1}\otimes \dots\otimes e_{j_q}\in T_p^q(V)\]
 \begin{multline*}
     (e^{i_1}\otimes ... \otimes e^{i_p}\otimes e_{j_1}\otimes ... \otimes e_{j_q})(e_{k_1}, ... ,e_{k_p},e^{l_1},...,e^{l_q})=\\
@@ -87,7 +89,7 @@
 \end{theorem}
 \begin{proof}
     Пусть $f \in T_p^q(V)$. Вычислим $f(v_1,...,v_p; u^1,...,u^q)$:
-    \[v_i = v_i^{k_i}e_{k_i}, \ i = 1,...,p; \\ u^j = u_{l_j}^j e^{l_j}, \ j = 1,...,q;\]
+    \[v_i = v_i^{k_i}e_{k_i}, \ i = 1,...,p; \ \  u^j = u_{l_j}^j e^{l_j}, \ j = 1,...,q;\]
     Тогда:
     \begin{multline*}
         f(...,v_i^{k_i}e_{k_i},...; \ ...,u_{l_j}^j e^{l_j},...) = f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q})v_1^{k_1}...v_p^{k_p}u_{l_1}^1...u_{l_q}^q =\\= f(e_{k_1},...,e_{k_p}; e^{l_1},...,e^{l_q}) e^{k_1}\otimes...\otimes e^{k_p}\otimes e_{l_1}\otimes...\otimes  e_{l_q} (v_1,...,v_p; u^1,...,u^q) 
