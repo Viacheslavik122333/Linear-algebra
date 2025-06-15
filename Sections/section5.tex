@@ -10,7 +10,7 @@
     \end{definition}
         Из курса $\textup{I}$ семестра известно, что $\phi (0_{V_1}) = 0_{V_2}$
     \begin{definition}
-        Ядром $\phi$ называется множество $\textup{Ker}(\phi) = \{v \in V_1 \ | \ \phi(v) = 0_{v_2}\}$. Образом $\phi$ называется множество $\text{Im}(\phi) = \phi(V_1)$.
+        Ядром $\phi$ называется множество $\textup{Ker}(\phi) = \{v \in V_1 \ | \ \phi(v) = 0_{V_2}\}$. Образом $\phi$ называется множество $\text{Im}(\phi) = \phi(V_1)$.
     \end{definition}
     \begin{subtheorem}
     \begin{enumerate} \tab
@@ -36,7 +36,7 @@
   \begin{theorem}(Об изоморфизме)
     Конечномерные векторные пространства $V_1$ и $V_2$ изоморфны тогда и только тогда, когда $dimV_1 = dimV_2$. 
   \end{theorem}
-  \begin{proof}
+  \begin{proof} $\\$ 
     $\underline{\Longleftarrow}$ Пусть $\dim V_1=\dim V_2=n$. Выберем $e_1$, $\ldots$, $e_n$ - базис в $V_1$, а $f_1$, $\ldots$, $f_n$ - базис в $V_2$, тогда $\forall v \in V_1 \ $ $v=\sum\limits_{i=1}^nx_ie_i$.\\ Определим отображение $\phi$ : $V_1 \to V_2$ формулой $\phi(v):=\sum\limits_{i=1}^nx_if_i$.
     \begin{enumerate}
       \item (линейность) Пусть $v_1$, $v_2$ $\in V_1$, $v_1=\sum\limits_{i=1}^nx_ie_i$ и $v_2=\sum\limits_{i=1}^ny_ie_i$, тогда\\ $v_1+v_2=\sum\limits_{i=1}^n(x_i+y_i)e_i$ $\Longrightarrow$\\ $\Longrightarrow$ $\phi(v_1+v_2) = \sum\limits_{i=1}^n(x_i+y_i)f_i=\sum\limits_{i=1}^nx_if_i+\sum\limits_{i=1}^ny_if_i=\phi(v_1)+\phi(v_2)$.\\ $\forall\lambda\in\F$ и $\forall v\in V_1$ $\phi(\lambda v)=\sum\limits_{i=1}^n(\lambda x_i)f_i =\lambda\sum\limits_{i=1}^nx_if_i=\lambda\phi(v)$.
