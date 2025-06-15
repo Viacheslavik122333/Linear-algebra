@@ -42,10 +42,12 @@
         \begin{enumerate}
             \item Докажем, что для линейного оператора $\phi$ и многочлена $q(\lambda)$ подпространство $q(\phi)(V)$ инвариантно:
             $$q(\lambda) = a_0+ a_1 \lambda + ... + a_m \lambda^m, \ \ q(\phi) = a_0+ a_1 \phi + ... + a_m \phi^m$$
-            Возьмем $v \in \text{Im}q(v) \Longrightarrow \exists \ u \in V: \ v = q(\phi)(u) \Longrightarrow \phi(v) = (\phi \cdot q(\phi))(u) = q(\phi)(\phi(u)) \in \text{Im}q(u)$, так как оператор $\phi$ и любой $q(\phi)$ перестановочны.\\
+            Возьмем $v \in \text{Im}\hspace{0.07cm}q(\phi)(V) \Longrightarrow$ 
+            \[\exists \ u \in V: \ v = q(\phi)(u) \Longrightarrow \phi(v) = (\phi \cdot q(\phi))(u) = q(\phi)(\phi(u)) \in \text{Im}\hspace{0.07cm}q(u) \]
+            так как оператор $\phi$ и любой $q(\phi)$ перестановочны.\\
             Так как $K_i = Q_i(V) = q_i(\phi)(V)$, из доказаноого выше следует, что $K_i$ инвариантно.
-            \item $\forall x_i \in \text{Im}Q_i \Longrightarrow x_i = Q_i(u_i)$
-            $$(\phi-\lambda_i \cdot \text{id})^{k_i}(x_i) = f_i(\phi) \cdot \underbrace{(\phi-\lambda_i \cdot \text{id})^{k_i} \cdot \prod\limits_{j \neq i}(\phi-\lambda_j E)^{k_j}}_{\chi_\phi(\phi)}(u_i) = 0$$
+            \item $\forall x_i \in \text{Im}\hspace{0.07cm}Q_i \Longrightarrow x_i = Q_i(u_i)$
+            $$(\phi-\lambda_i \cdot \text{id})^{k_i}\hspace{0.07cm}(x_i) = f_i(\phi) \cdot \underbrace{(\phi-\lambda_i \cdot \text{id})^{k_i} \cdot \prod\limits_{j \neq i}(\phi-\lambda_j E)^{k_j}}_{\chi_\phi(\phi)}(u_i) = 0$$
             $\Longrightarrow K_i \subseteq \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$\\ 
             Обратно: пусть $y_i \in \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i}$. Знаем, что $y_i = Q_1(y_i) + ... + Q_s(y_i)$, причём в $Q_j$ при $j \neq i$ содержится множитель $(\phi-\lambda_i \cdot \text{id})^{k_i}$. Отсюда $Q_j(y_i) = 0$ при $j \neq i$, т.е. $y_i = Q_i(y_i) \Rightarrow y_i \in K_i \Rightarrow \text{Ker}(\phi-\lambda_i \cdot \text{id})^{k_i} \subseteq K_i$.
         \end{enumerate}
