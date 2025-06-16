@@ -81,10 +81,14 @@
     \[\forall a,b\in \mathbb{A}_1:\ \overline{\Phi(a)\Phi(b)}=\phi(\overline{ab}) \eqno(1)\]
     Такое определение равносильно следующему:
     \[\forall a,b\in \mathbb{A}_1 : \ \Phi(b)=\Phi(a)+\phi(\overline{ab}) \eqno(2)\]
-    Если задано $\Phi$ и какая-то точка $a$, то $\phi$ определяется однозначно.\\
-    Если $\overline{ab}=\overline{a_1b_1}=v$
-    \[\Phi(a_1)+\phi'(v)=\Phi(b_1)=\Phi(a_1)+\phi(\overline{a_1b_1}) \Longrightarrow  \phi=\phi'\]
 \end{definition} 
+\begin{subtheorem}
+    Если задано $\Phi$ и некоторая точка $a_1 \in \A_1$, то $\phi : V_1 \rightarrow V_2$ определяется однозначно.
+\end{subtheorem}
+\begin{proof}
+    Любой вектор $v \in V_1$ можно отложить от точки $a_1$. Пусть $v = \overline{a_1b_1}$. Тогда:
+    \[\Phi(a_1)+\phi(v)=\Phi(b_1)=\Phi(a_1)+\phi'(v) \Longrightarrow \phi(v) = \phi'(v) \ \ \forall v \in V_1 \Longrightarrow \phi = \phi'\]
+\end{proof}
 \begin{subtheorem} \tab
     \begin{enumerate}
         \item Пусть 
